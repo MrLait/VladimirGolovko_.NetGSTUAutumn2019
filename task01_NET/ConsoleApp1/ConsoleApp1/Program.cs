@@ -1,25 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(78, 294));
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(5, 0));
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(64, -48));
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(-78, 294, 570, 36));
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(78, 294, 590, 38));
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(-231, -140));
-            Console.WriteLine(EuclideanAlgorithm.FindGCD(-585, 81,-189));
-            Console.WriteLine();
-            Console.WriteLine(EuclideanAlgorithm.FindBinaryGCD(78,294));
-            Console.WriteLine(EuclideanAlgorithm.FindBinaryGCD(64, 48));
+            //long elapsedMs;
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(34, 17, out long elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(5, 0, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(0, -15, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(-5, 10, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(6, 294, 570, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(62, 294, 570, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(-6, 294, 570, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(6, 294, 570, 36, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(6, 294, -570, -36, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetEuclidGCD(0, 294, 570, 36, out elapsedMs));
+
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(34, 17, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(5, 0, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(0, -15, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(-5, 10, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(6, 294, 570, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(62, 294, 570, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(-6, 294, 570, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(6, 294, 570, 36, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(6, 294, -570, -36, out elapsedMs));
+            //Console.WriteLine(AlgorithmGCD.GetBinaryGCD(0, 294, 570, 36, out elapsedMs));
+
+            //Console.WriteLine(elapsedMs);
         }
+
     }
 }
