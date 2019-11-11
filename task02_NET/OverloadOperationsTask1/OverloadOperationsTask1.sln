@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29319.158
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverloadOperationsTask1", "OverloadOperationsTask1\OverloadOperationsTask1.csproj", "{28CB3939-3A5A-464F-8813-C726F69BF405}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28CB3939-3A5A-464F-8813-C726F69BF405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CB3939-3A5A-464F-8813-C726F69BF405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CB3939-3A5A-464F-8813-C726F69BF405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CB3939-3A5A-464F-8813-C726F69BF405}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48E6A4F-8083-4887-81AB-1BC6A4C1687A}
+	EndGlobalSection
+EndGlobal
