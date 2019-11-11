@@ -13,5 +13,9 @@
             this.elapsedMsForEuclidGCD = elapsedMsForEuclidGCD;
             this.elapsedMsForBinaryGCD = elapsedMsForBinaryGCD;
         }
+
+        public string NumberOfParameters { get => numberOfParameters; }
+        public double ElapsedMsForEuclidGCD { get => elapsedMsForEuclidGCD; }
+        public double ElapsedMsForBinaryGCD { get => elapsedMsForBinaryGCD; }
     }
 }

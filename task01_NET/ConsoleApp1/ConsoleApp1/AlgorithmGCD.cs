@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace ConsoleApp1
 {
@@ -201,6 +202,26 @@ namespace ConsoleApp1
             }
             return dataForTheHistograms;
         }
-
+        /// <summary>
+        /// Writing data from a list to a text file.
+        /// </summary>
+        /// <param name="inputData">Incoming list.</param>
+        public static void WriteDataFromListToFile(List<DataForTheHistogram> inputData)
+        {
+            using (StreamWriter file = new StreamWriter(@"../../../txt/out.txt"))
+            {
+                if (inputData != null)
+                {
+                    String s = string.Format("{0,35} {1,2}", "Euclid", "Binary");
+                    file.WriteLine(s);
+                    
+                    foreach (DataForTheHistogram line in inputData)
+                    {
+                        s = string.Format("{0};{1,7} {2, 7}", line.NumberOfParameters, line.ElapsedMsForEuclidGCD ,line.ElapsedMsForBinaryGCD);
+                        file.WriteLine(s);
+                    }
+                }
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConsoleApp1;
 using System.Collections.Generic;
 using System.Collections;
+using System.IO;
 
 namespace ConsoleApp1Tests
 {
@@ -79,6 +80,17 @@ namespace ConsoleApp1Tests
             actual = AlgorithmGcd.PrepareDataForHistogram(6);
             expected.Add(new DataForTheHistogram(numParams, 0, 0));
             Assert.AreEqual(0, actual.Count);
+        }
+        /// <summary>
+        /// Check for file creation.
+        /// </summary>
+        [TestMethod()]
+        public void WriteDataFromListToFileTests()
+        {
+            FileInfo fi = new FileInfo(@"../../../txt/out.txt");
+            fi.Delete();
+            AlgorithmGcd.WriteDataFromListToFile(AlgorithmGcd.PrepareDataForHistogram(6, 294, 570, 36));
+            Assert.IsTrue(fi.Exists);
         }
     }
 }

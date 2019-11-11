@@ -52,6 +52,7 @@ namespace ConsoleApp1
             //Console.WriteLine(AlgorithmGcd.GetBinaryGcd(0, 294, 570, 36, out totalMs));
             //Console.WriteLine("GetBinaryGcd of four " + totalMs);
             //AlgorithmGcd.PrepareDataForHistogram(6, 294, 294,1231231);
+            AlgorithmGcd.WriteDataFromListToFile(AlgorithmGcd.PrepareDataForHistogram(6, 294, 570, 36));
 
             //List<DataForTheHistogram> actual = AlgorithmGcd.PrepareDataForHistogram(6, 294, 6, 294);
             //int index = 2;
