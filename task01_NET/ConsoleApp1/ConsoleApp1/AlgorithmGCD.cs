@@ -13,14 +13,15 @@ namespace ConsoleApp1
         /// </summary>
         /// <param name="a">The first number.</param>
         /// <param name="b">The second number.</param>
-        /// <param name="elapsedMs">The output time parameter.</param>
+        /// <param name="totalMs">The output time parameter.</param>
         /// <returns>The greatest common divisor.</returns>
-        public static Int32 GetEuclidGcd(int a, int b, out long elapsedMs)
+        public static Int32 GetEuclidGcd(int a, int b, out double totalMs)
         {
             Stopwatch watch = Stopwatch.StartNew();
             Int32 GcdOfTwoNum = GetEuclidGcdOfTwoNum(a, b);
             watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
+            TimeSpan ts = watch.Elapsed;
+            totalMs = ts.TotalMilliseconds;
             return GcdOfTwoNum;
         }
         /// <summary>
@@ -29,15 +30,16 @@ namespace ConsoleApp1
         /// <param name="a">The first number.</param>
         /// <param name="b">The second number.</param>
         /// <param name="c">The third number.</param>
-        /// <param name="elapsedMs">The output time parameter.</param>
+        /// <param name="totalMs">The output time parameter.</param>
         /// <returns>The greatest common divisor.</returns>
-        public static Int32 GetEuclidGcd(int a, int b, int c, out long elapsedMs)
+        public static Int32 GetEuclidGcd(int a, int b, int c, out double totalMs)
         {
             Stopwatch watch = Stopwatch.StartNew();
             Int32 GcdOfTwoNum = GetEuclidGcdOfTwoNum(a, b);
             Int32 GcdOfThirdNum = GetEuclidGcdOfTwoNum(GcdOfTwoNum, c);
             watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
+            TimeSpan ts = watch.Elapsed;
+            totalMs = ts.TotalMilliseconds;
             return GcdOfThirdNum;
         }
         /// <summary>
@@ -47,16 +49,17 @@ namespace ConsoleApp1
         /// <param name="b">The second number.</param>
         /// <param name="c">The third number.</param>
         /// <param name="d">The fourth number.</param>
-        /// <param name="elapsedMs">The output time parameter.</param>
+        /// <param name="totalMs">The output time parameter.</param>
         /// <returns>The greatest common divisor.</returns>
-        public static Int32 GetEuclidGcd(int a, int b, int c, int d, out long elapsedMs)
+        public static Int32 GetEuclidGcd(int a, int b, int c, int d, out double totalMs)
         {
             Stopwatch watch = Stopwatch.StartNew();
             Int32 GcdOfTwoNum = GetEuclidGcdOfTwoNum(a, b);
             Int32 GcdOfThirdNum = GetEuclidGcdOfTwoNum(GcdOfTwoNum, c);
             Int32 GcdOfFourNum = GetEuclidGcdOfTwoNum(GcdOfThirdNum, d);
             watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
+            TimeSpan ts = watch.Elapsed;
+            totalMs = ts.TotalMilliseconds;
             return GcdOfFourNum;
         }
         /// <summary>
@@ -64,14 +67,15 @@ namespace ConsoleApp1
         /// </summary>
         /// <param name="a">The first number.</param>
         /// <param name="b">The second number.</param>
-        /// <param name="elapsedMs">The output time parameter.</param>
+        /// <param name="totalMs">The output time parameter.</param>
         /// <returns>The greatest common divisor.</returns>
-        public static Int32 GetBinaryGcd(int a, int b, out long elapsedMs)
+        public static Int32 GetBinaryGcd(int a, int b, out double totalMs)
         {
             Stopwatch watch = Stopwatch.StartNew();
             Int32 GcdOfTwoNum = GetBinaryGcdOfTwoNum(a, b);
             watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
+            TimeSpan ts = watch.Elapsed;
+            totalMs = ts.TotalMilliseconds;
             return GcdOfTwoNum;
         }
         /// <summary>
@@ -80,15 +84,16 @@ namespace ConsoleApp1
         /// <param name="a">The first number.</param>
         /// <param name="b">The second number.</param>
         /// <param name="c">The third number.</param>
-        /// <param name="elapsedMs">The output time parameter.</param>
+        /// <param name="totalMs">The output time parameter.</param>
         /// <returns>The greatest common divisor.</returns>
-        public static Int32 GetBinaryGcd(int a, int b, int c, out long elapsedMs)
+        public static Int32 GetBinaryGcd(int a, int b, int c, out double totalMs)
         {
             Stopwatch watch = Stopwatch.StartNew();
             Int32 GcdOfTwoNum = GetBinaryGcdOfTwoNum(a, b);
             Int32 GcdOfThirdNum = GetBinaryGcdOfTwoNum(GcdOfTwoNum, c);
             watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
+            TimeSpan ts = watch.Elapsed;
+            totalMs = ts.TotalMilliseconds;
             return GcdOfThirdNum;
         }
         /// <summary>
@@ -98,16 +103,17 @@ namespace ConsoleApp1
         /// <param name="b">The second number.</param>
         /// <param name="c">The third number.</param>
         /// <param name="d">The fourth number.</param>
-        /// <param name="elapsedMs">The output time parameter.</param>
+        /// <param name="totalMs">The output time parameter.</param>
         /// <returns>The greatest common divisor.</returns>
-        public static Int32 GetBinaryGcd(int a, int b, int c, int d, out long elapsedMs)
+        public static Int32 GetBinaryGcd(int a, int b, int c, int d, out double totalMs)
         {
             Stopwatch watch = Stopwatch.StartNew();
             Int32 GcdOfTwoNum = GetBinaryGcdOfTwoNum(a, b);
             Int32 GcdOfThirdNum = GetBinaryGcdOfTwoNum(GcdOfTwoNum, c);
             Int32 GcdOfFourNum = GetBinaryGcdOfTwoNum(GcdOfThirdNum, d);
             watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
+            TimeSpan ts = watch.Elapsed;
+            totalMs = ts.TotalMilliseconds;
             return GcdOfFourNum;
         }
         /// <summary>
@@ -165,8 +171,8 @@ namespace ConsoleApp1
         /// <returns>Returns a list of calculated time values ​​spent on the execution of algorithms.</returns>
         public static List<DataForTheHistogram> PrepareDataForHistogram(params Int32[] numbers)
         {
-            long elapsedMsForEuclidGcd;
-            long elapsedMsForBinaryGcd;
+            double totalMsForEuclidGcd;
+            double totalMsForBinaryGcd;
             List<DataForTheHistogram> dataForTheHistograms = new List<DataForTheHistogram>();
             if (numbers != null & numbers.Length >= minGcdNum & numbers.Length <= maxGcdNum)
             {
@@ -175,21 +181,21 @@ namespace ConsoleApp1
                     String numParams = "Number of Gcd parameters: " + i.ToString();
                     if (i == minGcdNum)
                     {
-                        GetEuclidGcd(numbers[0], numbers[1], out elapsedMsForEuclidGcd);
-                        GetBinaryGcd(numbers[0], numbers[1], out elapsedMsForBinaryGcd);
-                        dataForTheHistograms.Add(new DataForTheHistogram(numParams, elapsedMsForEuclidGcd, elapsedMsForBinaryGcd));
+                        GetEuclidGcd(numbers[0], numbers[1], out totalMsForEuclidGcd);
+                        GetBinaryGcd(numbers[0], numbers[1], out totalMsForBinaryGcd);
+                        dataForTheHistograms.Add(new DataForTheHistogram(numParams, totalMsForEuclidGcd, totalMsForBinaryGcd));
                     }
                     else if (i == 3)
                     {
-                        GetEuclidGcd(numbers[0], numbers[1], numbers[2], out elapsedMsForEuclidGcd);
-                        GetBinaryGcd(numbers[0], numbers[1], numbers[2], out elapsedMsForBinaryGcd);
-                        dataForTheHistograms.Add(new DataForTheHistogram(numParams, elapsedMsForEuclidGcd, elapsedMsForBinaryGcd));
+                        GetEuclidGcd(numbers[0], numbers[1], numbers[2], out totalMsForEuclidGcd);
+                        GetBinaryGcd(numbers[0], numbers[1], numbers[2], out totalMsForBinaryGcd);
+                        dataForTheHistograms.Add(new DataForTheHistogram(numParams, totalMsForEuclidGcd, totalMsForBinaryGcd));
                     }
                     else if (i == maxGcdNum)
                     {
-                        GetEuclidGcd(numbers[0], numbers[1], numbers[2], numbers[3], out elapsedMsForEuclidGcd);
-                        GetBinaryGcd(numbers[0], numbers[1], numbers[2], numbers[3], out elapsedMsForBinaryGcd);
-                        dataForTheHistograms.Add(new DataForTheHistogram(numParams, elapsedMsForEuclidGcd, elapsedMsForBinaryGcd));
+                        GetEuclidGcd(numbers[0], numbers[1], numbers[2], numbers[3], out totalMsForEuclidGcd);
+                        GetBinaryGcd(numbers[0], numbers[1], numbers[2], numbers[3], out totalMsForBinaryGcd);
+                        dataForTheHistograms.Add(new DataForTheHistogram(numParams, totalMsForEuclidGcd, totalMsForBinaryGcd));
                     }
                 }
             }

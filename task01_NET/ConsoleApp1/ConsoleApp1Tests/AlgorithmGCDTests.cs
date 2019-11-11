@@ -16,7 +16,7 @@ namespace ConsoleApp1Tests
         [TestMethod]
         public void GetEuclidGcdTests()
         {
-            Assert.AreEqual(17, AlgorithmGcd.GetEuclidGcd(34, 17, out long elapsedMs));
+            Assert.AreEqual(17, AlgorithmGcd.GetEuclidGcd(34, 17, out double elapsedMs));
             Assert.AreEqual(5, AlgorithmGcd.GetEuclidGcd(5, 0, out elapsedMs));
             Assert.AreEqual(15, AlgorithmGcd.GetEuclidGcd(0, -15, out elapsedMs));
             Assert.AreEqual(5, AlgorithmGcd.GetEuclidGcd(-5, 10, out elapsedMs));
@@ -35,7 +35,7 @@ namespace ConsoleApp1Tests
         [TestMethod]
         public void GetBinaryGcdTests()
         {
-            Assert.AreEqual(17, AlgorithmGcd.GetBinaryGcd(34, 17, out long elapsedMs));
+            Assert.AreEqual(17, AlgorithmGcd.GetBinaryGcd(34, 17, out double elapsedMs));
             Assert.AreEqual(5, AlgorithmGcd.GetBinaryGcd(5, 0, out elapsedMs));
             Assert.AreEqual(15, AlgorithmGcd.GetBinaryGcd(0, -15, out elapsedMs));
             Assert.AreEqual(5, AlgorithmGcd.GetBinaryGcd(-5, 10, out elapsedMs));
@@ -54,8 +54,8 @@ namespace ConsoleApp1Tests
         public void PrepareDataForHistogramTests()
         {
             List<DataForTheHistogram> expected = new List<DataForTheHistogram>();
-            List<DataForTheHistogram> actual = AlgorithmGcd.PrepareDataForHistogram(6, 294);
 
+            List<DataForTheHistogram> actual = AlgorithmGcd.PrepareDataForHistogram(6, 294);
             String numParams = "Number of Gcd parameters: " + 2;
             expected.Add(new DataForTheHistogram(numParams, 0, 0));
             Assert.AreEqual(expected.Count, actual.Count);
@@ -69,60 +69,16 @@ namespace ConsoleApp1Tests
             actual = AlgorithmGcd.PrepareDataForHistogram(6, 294, 570, 36);
             expected.Add(new DataForTheHistogram(numParams, 0, 0));
             Assert.AreEqual(expected.Count, actual.Count);
-        }
 
-        /// <summary>
-        /// Check for equality of values.
-        /// </summary>
-        [TestMethod()]
-        public void PrepareDataForHistogramEqualValuesTests()
-        {
-            //One parameter
-            List<DataForTheHistogram> actual = AlgorithmGcd.PrepareDataForHistogram(6);
-            int index = 2;
-            foreach (DataForTheHistogram item in actual)
-            {
-                String numParams = "Number of Gcd parameters: " + index;
-                Assert.IsTrue(item.Equals(new DataForTheHistogram(numParams, 0, 0)));
-                index++;
-            }
+            numParams = "Number of Gcd parameters: " + 5;
+            actual = AlgorithmGcd.PrepareDataForHistogram(6, 294, 570, 36, 20);
+            expected.Add(new DataForTheHistogram(numParams, 0, 0));
+            Assert.AreEqual(0, actual.Count);
 
-            //Two parameters 
-            actual = AlgorithmGcd.PrepareDataForHistogram(6, 294);
-            index = 2;
-            foreach (DataForTheHistogram item in actual)
-            {
-                String numParams = "Number of Gcd parameters: " + index;
-                Assert.IsTrue(item.Equals(new DataForTheHistogram(numParams, 0, 0)));
-                index++;
-            }
-            //Three parameters
-            actual = AlgorithmGcd.PrepareDataForHistogram(6, 294, 300);
-            index = 2;
-            foreach (DataForTheHistogram item in actual)
-            {
-                String numParams = "Number of Gcd parameters: " + index;
-                Assert.IsTrue(item.Equals(new DataForTheHistogram(numParams, 0, 0)));
-                index++;
-            }
-            //Four parameters
-            actual = AlgorithmGcd.PrepareDataForHistogram(6, 294, 300, 500);
-            index = 2;
-            foreach (DataForTheHistogram item in actual)
-            {
-                String numParams = "Number of Gcd parameters: " + index;
-                Assert.IsTrue(item.Equals(new DataForTheHistogram(numParams, 0, 0)));
-                index++;
-            }
-            //Five parameters
-            actual = AlgorithmGcd.PrepareDataForHistogram(6, 294, 300, 600, 900);
-            index = 2;
-            foreach (DataForTheHistogram item in actual)
-            {
-                String numParams = "Number of Gcd parameters: " + index;
-                Assert.IsTrue(item.Equals(new DataForTheHistogram(numParams, 0, 0)));
-                index++;
-            }
+            numParams = "Number of Gcd parameters: " + 1;
+            actual = AlgorithmGcd.PrepareDataForHistogram(6);
+            expected.Add(new DataForTheHistogram(numParams, 0, 0));
+            Assert.AreEqual(0, actual.Count);
         }
     }
 }
