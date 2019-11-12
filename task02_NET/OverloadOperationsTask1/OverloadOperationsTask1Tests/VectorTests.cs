@@ -50,5 +50,31 @@ namespace OverloadOperationsTask1.Tests
             actual = 5 / vector1;
             Assert.AreEqual(expected, actual);
         }
+
+        [ExpectedException(typeof(ArgumentException),
+            "A vector can contain only three elements.")]
+        [TestMethod()]
+        public void VectorPropertysTest()
+        {
+            Vector vector1 = new Vector(2, 4, 6);
+            Assert.AreEqual(2, vector1.X);
+            Assert.AreEqual(4, vector1.Y);
+            Assert.AreEqual(6, vector1.Z);
+            //1+4+9
+            Assert.AreEqual(Math.Sqrt(56), vector1.Magnitude);
+            var actualVector = vector1.Normalized;
+            Assert.AreEqual(1, actualVector.Magnitude);
+            
+            var actual = vector1.SqrMagnitude;
+            Assert.AreEqual(
+                (vector1.X * vector1.X) +
+                (vector1.Y * vector1.Y) +
+                (vector1.Z * vector1.Z), actual);
+
+            Assert.AreEqual(vector1.X, vector1[0]);
+            Assert.AreEqual(vector1.Y, vector1[1]);
+            Assert.AreEqual(vector1.Z, vector1[2]);
+            Assert.AreEqual(0, vector1[3]);
+        }
     }
 }
