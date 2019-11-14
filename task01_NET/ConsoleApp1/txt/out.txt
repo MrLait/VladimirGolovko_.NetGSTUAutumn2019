@@ -1,4 +1,0 @@
-                             Euclid Binary
-Number of Gcd parameters: 2;      0       0
-Number of Gcd parameters: 3;      0       0
-Number of Gcd parameters: 4; 0,0003       0
