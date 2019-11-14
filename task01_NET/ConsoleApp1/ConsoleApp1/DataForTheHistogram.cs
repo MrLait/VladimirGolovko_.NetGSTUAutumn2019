@@ -2,20 +2,17 @@
 {
     public class DataForTheHistogram
     {
-        private string numberOfParameters;
-        private double elapsedMsForEuclidGCD;
-        private double elapsedMsForBinaryGCD;
+        public string NumberOfParameters { get; }
+        public double ElapsedMsForEuclidGCD { get; }
+        public double ElapsedMsForBinaryGCD { get; }
 
         public DataForTheHistogram() { }
+
         public DataForTheHistogram(string numberOfParameters, double elapsedMsForEuclidGCD, double elapsedMsForBinaryGCD)
         {
-            this.numberOfParameters = numberOfParameters;
-            this.elapsedMsForEuclidGCD = elapsedMsForEuclidGCD;
-            this.elapsedMsForBinaryGCD = elapsedMsForBinaryGCD;
+            NumberOfParameters = numberOfParameters;
+            ElapsedMsForEuclidGCD = elapsedMsForEuclidGCD;
+            ElapsedMsForBinaryGCD = elapsedMsForBinaryGCD;
         }
-
-        public string NumberOfParameters { get => numberOfParameters; }
-        public double ElapsedMsForEuclidGCD { get => elapsedMsForEuclidGCD; }
-        public double ElapsedMsForBinaryGCD { get => elapsedMsForBinaryGCD; }
     }
 }
