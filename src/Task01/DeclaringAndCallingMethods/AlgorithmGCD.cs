@@ -174,12 +174,12 @@ namespace ConsoleApp1
             {
                 if (inputData != null)
                 {
-                    String s = string.Format("{0,35} {1,2}", "Euclid", "Binary");
+                    String s = string.Format("{0,35} {1,11}", "Euclid", "Binary");
                     file.WriteLine(s);
                     
                     foreach (DataForTheHistogram line in inputData)
                     {
-                        s = string.Format("{0};{1,7} {2, 7}", line.NumberOfParameters, line.ElapsedMsForEuclidGCD ,line.ElapsedMsForBinaryGCD);
+                        s = string.Format("{0};{1,7:N4} ms {2, 7:N4} ms", line.NumberOfParameters, line.ElapsedMsForEuclidGCD ,line.ElapsedMsForBinaryGCD);
                         file.WriteLine(s);
                     }
                 }

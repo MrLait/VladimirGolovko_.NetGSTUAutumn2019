@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleApp1;
 using System.Collections.Generic;
 using System.IO;
+using ConsoleApp1;
 
-namespace ConsoleApp1Tests
+namespace DeclaringAndCallingMethodsTests
 {
 
     [TestClass]
@@ -363,9 +363,14 @@ namespace ConsoleApp1Tests
         [TestMethod()]
         public void GivenWriteDataFromListToFile_ForMethodPrepareDataForHistogram_WhenFileIsDelete_OutIsTrue()
         {
+            // Arrange
             FileInfo fi = new FileInfo(@"../../../txt/out.txt");
+            
+            // Act
             fi.Delete();
             AlgorithmGcd.WriteDataFromListToFile(AlgorithmGcd.PrepareDataForHistogram(6, 294, 570, 36));
+            
+            //Assert
             Assert.IsTrue(fi.Exists);
         }
     }

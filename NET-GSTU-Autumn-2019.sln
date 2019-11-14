@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29319.158
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeclaringAndCallingMethods", "src\task01\DeclaringAndCallingMethods\DeclaringAndCallingMethods.csproj", "{3474A4C2-8539-4539-ACFE-5A114DD12F91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeclaringAndCallingMethodsTests", "tests\Task01_Tests\DeclaringAndCallingMethodsTests\DeclaringAndCallingMethodsTests.csproj", "{96EE7477-64A3-462F-837C-33B97E4ABDF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverloadOperationsTask1", "src\Task02\OverloadOperationsTask1\OverloadOperationsTask1.csproj", "{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverloadOperationsTask2", "src\Task02\OverloadOperationsTask2\OverloadOperationsTask2.csproj", "{018ADE22-3339-4ACC-B90A-F7C7C23740A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverloadOperationsTask1Tests", "tests\Task02_Tests\OverloadOperationsTask1Tests\OverloadOperationsTask1Tests.csproj", "{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task01", "Task01", "{260063DC-E67E-48C7-9940-19E0D07E3D25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task02", "Task02", "{E0E1487D-5C70-4801-8D24-17B941CCE9FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3474A4C2-8539-4539-ACFE-5A114DD12F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3474A4C2-8539-4539-ACFE-5A114DD12F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3474A4C2-8539-4539-ACFE-5A114DD12F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3474A4C2-8539-4539-ACFE-5A114DD12F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EE7477-64A3-462F-837C-33B97E4ABDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EE7477-64A3-462F-837C-33B97E4ABDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EE7477-64A3-462F-837C-33B97E4ABDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EE7477-64A3-462F-837C-33B97E4ABDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{018ADE22-3339-4ACC-B90A-F7C7C23740A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{018ADE22-3339-4ACC-B90A-F7C7C23740A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{018ADE22-3339-4ACC-B90A-F7C7C23740A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{018ADE22-3339-4ACC-B90A-F7C7C23740A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3474A4C2-8539-4539-ACFE-5A114DD12F91} = {260063DC-E67E-48C7-9940-19E0D07E3D25}
+		{96EE7477-64A3-462F-837C-33B97E4ABDF1} = {260063DC-E67E-48C7-9940-19E0D07E3D25}
+		{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
+		{018ADE22-3339-4ACC-B90A-F7C7C23740A5} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
+		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09C59903-2B55-46D6-B4B2-7248136E099E}
+	EndGlobalSection
+EndGlobal
