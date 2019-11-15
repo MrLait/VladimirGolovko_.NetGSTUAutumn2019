@@ -11,70 +11,425 @@ namespace OverloadOperationsTask1.Tests
     [TestClass()]
     public class VectorTests
     {
-        [TestMethod()]
-        public void VectorOperatorsTest()
+
+        /// <summary>
+        /// Test for correct calculation operator -subtracts one vector from another 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorSubtracts_ForVectorWhenNumbersIsPositiveOutIsPositive()
         {
-            Vector vector1 = new Vector(1, -1, 2);
-            Vector vector2 = new Vector(1, 1, 1);
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            Vector vectorTwo = new Vector(9, 10, 20);
+            Vector expected = new Vector(1, 10, 1);
 
-            //operator -Subtracts one vector from another.
-            Vector actual = vector1 - vector2;
-            Vector expected = new Vector(0, -2, 1);
-            Assert.AreEqual(expected, actual);
+            // Act
+            Vector actual = vectorOne - vectorTwo;
 
-            //operator != Returns true if vectors different.
-            bool actualBool = vector1 != vector2;
-            Assert.IsTrue(actualBool);
-
-            //operator == Returns true if two vectors are approximately equal.
-            actualBool = vector1 == new Vector(1, -1, 2);
-            Assert.IsTrue(actualBool);
-
-            //operator +Adds two vectors.
-            actual = vector1 + vector2;
-            expected = new Vector(2, 0, 3);
-            Assert.AreEqual(expected, actual);
-
-            //operator *Multiplies a vector by a number.
-            actual = vector1 * 5;
-            expected = new Vector(5, -5, 10);
-            Assert.AreEqual(expected, actual);
-
-            actual = 5 * vector1;
-            Assert.AreEqual(expected, actual);
-
-            //operator / Divides a vector by a number.
-            actual = vector1 / 5;
-            expected = new Vector(0.2, -0.2, 0.4);
-            Assert.AreEqual(expected, actual);
-            actual = 5 / vector1;
+            // Assert
             Assert.AreEqual(expected, actual);
         }
 
-        [ExpectedException(typeof(ArgumentException),
-            "A vector can contain only three elements.")]
-        [TestMethod()]
-        public void VectorPropertysTest()
+        /// <summary>
+        /// Test for correct calculation operator -subtracts one vector from another 
+        /// when numbers is negative.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorSubtracts_ForVectorWhenNumbersIsNegativeOutIsNegative()
         {
-            Vector vector1 = new Vector(2, 4, 6);
-            Assert.AreEqual(2, vector1.X);
-            Assert.AreEqual(4, vector1.Y);
-            Assert.AreEqual(6, vector1.Z);
-            //1+4+9
-            Assert.AreEqual(Math.Sqrt(56), vector1.Magnitude);
-            var actualVector = vector1.Normalized;
-            Assert.AreEqual(1, actualVector.Magnitude);
-            
-            var actual = vector1.SqrMagnitude;
-            Assert.AreEqual(
-                (vector1.X * vector1.X) +
-                (vector1.Y * vector1.Y) +
-                (vector1.Z * vector1.Z), actual);
+            // Arrange
+            Vector vectorOne = new Vector(-10, -20, -21);
+            Vector vectorTwo = new Vector(-9, -10, -20);
+            Vector expected = new Vector(-1, -10, -1);
 
-            Assert.AreEqual(vector1.X, vector1[0]);
-            Assert.AreEqual(vector1.Y, vector1[1]);
-            Assert.AreEqual(vector1.Z, vector1[2]);
-            Assert.AreEqual(0, vector1[3]);
+            // Act
+            Vector actual = vectorOne - vectorTwo;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test for operator != when vectors is different.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorNotEqual_ForVectorWhenVectorIsDifferentOutIsTrue()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            Vector vectorTwo = new Vector(9, 10, 20);
+
+            // Act
+            bool actualBool = vectorOne != vectorTwo;
+
+            // Assert
+            Assert.IsTrue(actualBool);
+        }
+
+        /// <summary>
+        /// Test for operator != when vectors is the same.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorNotEqual_ForVectorWhenVectorIsTheSameOutIsFalse()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            Vector vectorTwo = new Vector(10, 20, 21);
+
+            // Act
+            bool actualBool = vectorOne != vectorTwo;
+
+            // Assert
+            Assert.IsFalse(actualBool);
+        }
+
+        /// <summary>
+        /// Test for operator == when vectors is different.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorEqual_ForVectorWhenVectorIsDifferentOutIsFalse()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            Vector vectorTwo = new Vector(9, 10, 20);
+
+            // Act
+            bool actualBool = vectorOne == vectorTwo;
+
+            // Assert
+            Assert.IsFalse(actualBool);
+        }
+
+        /// <summary>
+        /// Test for operator == when vectors is the same.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorEqual_ForVectorWhenVectorIsTheSameOutIsTrue()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            Vector vectorTwo = new Vector(10, 20, 21);
+
+            // Act
+            bool actualBool = vectorOne == vectorTwo;
+
+            // Assert
+            Assert.IsTrue(actualBool);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator +Adds one vector to another 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorAdds_ForVectorWhenNumbersIsPositiveOutIsPositive()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            Vector vectorTwo = new Vector(9, 10, 20);
+            Vector expected = new Vector(19, 30, 41);
+
+            // Act
+            Vector actual = vectorOne + vectorTwo;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator +Adds one vector to another 
+        /// when numbers is negative.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorAdds_ForVectorWhenNumbersIsNegativeOutIsNegative()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(-10, -20, -21);
+            Vector vectorTwo = new Vector(-9, -10, -20);
+            Vector expected = new Vector(-19, -30, -41);
+
+            // Act
+            Vector actual = vectorOne + vectorTwo;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator *Multiplies a vector by a number 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorMultiplies_ForVectorWhenNumbersIsPositiveOutIsPositive()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            var positiveNumFive = 5;
+            Vector expected = new Vector(50, 100, 105);
+
+            // Act
+            var actualOne = vectorOne * positiveNumFive;
+            var actualTwo = positiveNumFive * vectorOne;
+            // Assert
+            Assert.AreEqual(expected, actualOne);
+            Assert.AreEqual(expected, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator *Multiplies a vector by a number 
+        /// when numbers is negative.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorMultiplies_ForPositiveVectorWhenNumbersIsNegativeOutIsNegative()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 21);
+            var negativeNumFive = -5;
+            Vector expected = new Vector(-50, -100, -105);
+
+            // Act
+            var actualOne = vectorOne * negativeNumFive;
+            var actualTwo = negativeNumFive * vectorOne;
+
+            // Assert
+            Assert.AreEqual(expected, actualOne);
+            Assert.AreEqual(expected, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator *Multiplies a vector by a number 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorMultiplies_ForNegativeVectorWhenNumbersIsPositiveOutIsNegative()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(-10, -20, -21);
+            var positiveNumFive = 5;
+            Vector expected = new Vector(-50, -100, -105);
+
+            // Act
+            var actualOne = vectorOne * positiveNumFive;
+            var actualTwo = positiveNumFive * vectorOne;
+
+            // Assert
+            Assert.AreEqual(expected, actualOne);
+            Assert.AreEqual(expected, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator *Multiplies a vector by a number 
+        /// when numbers is negative.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorMultiplies_ForNegativeVectorWhenNumbersIsNegativeOutIsPositive()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(-10, -20, -21);
+            var negativeNumFive = -5;
+            Vector expected = new Vector(50, 100, 105);
+
+            // Act
+            var actualOne = vectorOne * negativeNumFive;
+            var actualTwo = negativeNumFive * vectorOne;
+
+            // Assert
+            Assert.AreEqual(expected, actualOne);
+            Assert.AreEqual(expected, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator / Divides a vector by a number 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorDivides_ForVectorWhenNumbersIsPositiveOutIsPositive()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 25);
+            var positiveNumFive = 5;
+            Vector expectedOne = new Vector(2, 4, 5);
+            Vector expectedTwo = new Vector(0.5, 0.25, 0.2);
+
+            // Act
+            var actualOne = vectorOne / positiveNumFive;
+            var actualTwo = positiveNumFive / vectorOne;
+
+            // Assert
+            Assert.AreEqual(expectedOne, actualOne);
+            Assert.AreEqual(expectedTwo, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator / Divides a vector by a number 
+        /// when numbers is negative.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorDivides_ForPositiveVectorWhenNumbersIsNegativeOutIsNegative()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(10, 20, 25);
+            var negativeNumFive = -5;
+            Vector expectedOne = new Vector(-2, -4, -5);
+            Vector expectedTwo = new Vector(-0.5, -0.25, -0.2);
+
+            // Act
+            var actualOne = vectorOne / negativeNumFive;
+            var actualTwo = negativeNumFive / vectorOne;
+
+            // Assert
+            Assert.AreEqual(expectedOne, actualOne);
+            Assert.AreEqual(expectedTwo, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator / Divides a vector by a number 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorDivides_ForNegativeVectorWhenNumbersIsPositiveOutIsNegative()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(-10, -20, -25);
+            var positiveNumFive = 5;
+            Vector expectedOne = new Vector(-2, -4, -5);
+            Vector expectedTwo = new Vector(-0.5, -0.25, -0.2);
+
+            // Act
+            var actualOne = vectorOne / positiveNumFive;
+            var actualTwo = positiveNumFive / vectorOne;
+
+            // Assert
+            Assert.AreEqual(expectedOne, actualOne);
+            Assert.AreEqual(expectedTwo, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct calculation operator / Divides a vector by a number 
+        /// when numbers is negative.
+        /// </summary>
+        [TestMethod]
+        public void GivenOperatorDivides_ForNegativeVectorWhenNumbersIsNegativeOutIsPositive()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(-10, -20, -25);
+            var negativeNumFive = -5;
+            Vector expectedOne = new Vector(2, 4, 5);
+            Vector expectedTwo = new Vector(0.5, 0.25, 0.2);
+
+            // Act
+            var actualOne = vectorOne / negativeNumFive;
+            var actualTwo = negativeNumFive / vectorOne;
+
+            // Assert
+            Assert.AreEqual(expectedOne, actualOne);
+            Assert.AreEqual(expectedTwo, actualTwo);
+        }
+
+        /// <summary>
+        /// Test for correct get property X, Y and Z from vector 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenX_Y_Z_ForGetDataWhenNumbers_2_4_6_OutIsPositive()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(2, 4, 6);
+            var expectedX = 2;
+            var expectedY = 4;
+            var expectedZ = 6;
+
+            // Assert
+            Assert.AreEqual(expectedX, vectorOne.X);
+            Assert.AreEqual(expectedY, vectorOne.Y);
+            Assert.AreEqual(expectedZ, vectorOne.Z);
+        }
+
+        /// <summary>
+        /// Test for correct get property Magnitude from vector 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenMagnitude_ForGetDataWhenNumbers_2_4_6_OutIsSqrt_56()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(2, 4, 6);
+            var expected = Math.Sqrt(56);
+
+            // Assert
+            Assert.AreEqual(expected, vectorOne.Magnitude);
+        }
+
+        /// <summary>
+        /// Test for correct get property Normalized from vector 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenNormalized_ForGetDataWhenNumbers_2_4_6_OutIsOne()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(2, 4, 6);
+
+            // Act
+            var actualVector = vectorOne.Normalized;
+
+            // Assert
+            Assert.AreEqual(1, actualVector.Magnitude);
+        }
+
+        /// <summary>
+        /// Test for correct get property SqrMagnitude from vector 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenSqrMagnitude_ForGetDataWhenNumbers_2_4_6_OutIs56()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(2, 4, 6);
+
+            // Act 
+            var actual = vectorOne.SqrMagnitude;
+            var expected =
+                        (vectorOne.X * vectorOne.X) +
+                        (vectorOne.Y * vectorOne.Y) +
+                        (vectorOne.Z * vectorOne.Z);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test for correct get property this[int i] from vector 
+        /// when numbers is positive.
+        /// </summary>
+        [TestMethod]
+        public void GivenThisInt_i_ForGetDataWhenNumbers_2_4_6_OutIs2_4_6()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(2, 4, 6);
+
+            // Assert
+            Assert.AreEqual(vectorOne.X, vectorOne[0]);
+            Assert.AreEqual(vectorOne.Y, vectorOne[1]);
+            Assert.AreEqual(vectorOne.Z, vectorOne[2]);
+        }
+
+        /// <summary>
+        /// Test for correct get property this[int i] from vector 
+        /// when numbers is out of range.
+        /// </summary>
+        [ExpectedException(typeof(ArgumentOutOfRangeException),
+                "A vector can contain only three elements.")]
+        [TestMethod]
+        public void GivenThisInt_i_ForGetDataWhenNumbers_2_4_6_OutIsArgumentOutOfRangeException()
+        {
+            // Arrange
+            Vector vectorOne = new Vector(2, 4, 6);
+            var axpected = new ArgumentOutOfRangeException("A vector can " +
+                        "contain only three elements.");
+            // Assert
+            Assert.AreEqual(axpected, vectorOne[3]);
         }
     }
 }
