@@ -149,5 +149,93 @@ namespace OverloadOperationsTask2Tests
             CollectionAssert.AreEqual(expected.Remainder, actual.Remainder);
         }
 
+        [TestMethod]
+        public void GetMultiplicationForTwoPolinomWith4ArgWhenArgIsPositiveThenOutIs7PositiveArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //500x^3 + x^2 + x^1 + 2
+                polinomParams: new double[] { 2, 1, 1, 500 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 2
+                polinomParams: new double[] { 2, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //500x ^ 6 + 501x ^ 5 + 502x ^ 4 + 1004x ^ 3 + 5x ^ 2 + 4x ^ 1 + 4
+                polinomParams: new double[] { 4, 4, 5, 1004, 502, 501, 500 });
+
+            //Act
+            Polinom actual = polinomOne * polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetMultiplicationForTwoPolinomWith4ArgWhenArgIsNegativeThenOutIs7PositiveArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //-x^3 + -x^2 + -x^1 + -1
+                polinomParams: new double[] { -1, -1, -1, -1 });
+            Polinom polinomTwo = new Polinom(
+                //-x^3 + -x^2 + -x^1 + -1
+                polinomParams: new double[] { -1, -1, -1, -1 });
+
+            Polinom expected = new Polinom(
+                //x ^ 6 + 2x ^ 5 + 3x ^ 4 + 4x ^ 3 + 3x ^ 2 + 2x ^ 1 + 1
+                polinomParams: new double[] { 1, 2, 3, 4, 3, 2, 1 });
+
+            //Act
+            Polinom actual = polinomOne * polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetMultiplicationForTwoPolinomWith4ArgWhenFirstPolinomHasNegativeArgThenOutIs7NegativeArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //-x^3 + -x^2 + -x^1 + -1
+                polinomParams: new double[] { -1, -1, -1, -1 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //−x^6 −2x^5 −3x^4 −4x^3 −3x^2 −2x^1 −1
+                polinomParams: new double[] { -1, -2, -3, -4, -3, -2, -1 });
+
+            //Act
+            Polinom actual = polinomOne * polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetMultiplicationForTwoPolinomWith4ArgWhenFirstPolinomHasZerArgThenOutIs7ZeroArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //-x^3 + -x^2 + -x^1 + -1
+                polinomParams: new double[] { 0, 0, 0, 0 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //x^6 +x^5 +x^4 +x^3 +x^2 +x^1 + 0
+                polinomParams: new double[] { 0, 0, 0, 0, 0, 0, 0 });
+
+            //Act
+            Polinom actual = polinomOne * polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
     }
 }

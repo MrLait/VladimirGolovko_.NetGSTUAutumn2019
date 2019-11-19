@@ -11,7 +11,7 @@ namespace OverloadOperationsTask2
         public double[] Remainder { get; set; }
         public double[] PolinomParams { get; set; }
 
-       public  Polinom(double[] polinomParams )
+        public Polinom(double[] polinomParams)
         {
             PolinomParams = polinomParams;
         }
@@ -38,7 +38,7 @@ namespace OverloadOperationsTask2
             if (dividend.PolinomParams.Length < divider.PolinomParams.Length)
                 throw new ArithmeticException("The degree of the divisor must be less than or equal" +
                     " to the degree of the dividend!");
-            if (dividend.PolinomParams[dividend.PolinomParams.Length-1] == 0 
+            if (dividend.PolinomParams[dividend.PolinomParams.Length - 1] == 0
                 | divider.PolinomParams[divider.PolinomParams.Length - 1] == 0)
             {
                 throw new ArgumentException("The Last polinom parameters can't be is zero");
@@ -60,6 +60,24 @@ namespace OverloadOperationsTask2
             }
 
             return new Polinom(quotient, remainder);
+        }
+
+        public static Polinom operator *(Polinom polinomOne, Polinom polinomTwo)
+        {
+            Int32 polinomOneLen = polinomOne.PolinomParams.Length;
+            Int32 polinomTwoLen = polinomTwo.PolinomParams.Length;
+
+            double[] multResultPolinom = new double[polinomOneLen + polinomTwoLen - 1];
+
+            for (int i = 0; i < polinomOneLen; i++)
+            {
+                for (int j = 0; j < polinomTwoLen; j++)
+                {
+                    multResultPolinom[i + j] += polinomOne.PolinomParams[i] * polinomTwo.PolinomParams[j];
+                }
+            }
+
+            return new Polinom(multResultPolinom);
         }
     }
 }
