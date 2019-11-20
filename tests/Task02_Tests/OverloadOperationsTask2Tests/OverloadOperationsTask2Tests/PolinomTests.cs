@@ -237,5 +237,169 @@ namespace OverloadOperationsTask2Tests
             CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
         }
 
+        [TestMethod]
+        public void GetSumForTwoPolinomWhenPolinomHasFoutArgThenOutIsFourArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1});
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //2x^3 + 2x^2 + 2x^1 + 2
+                polinomParams: new double[] { 2, 2, 2, 2 });
+
+            //Act
+            Polinom actual = polinomOne + polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetSumForTwoPolinomWhenFirstPolinomLessThenSecondThenOutIsFourArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //2x^3 + 2x^2 + 2x^1 + 2
+                polinomParams: new double[] { 2, 2, 2, 1 });
+
+            //Act
+            Polinom actual = polinomOne + polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetSumForTwoPolinomWhenSecondtPolinomLessThenFirstThenOutIsFourArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1});
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //2x^3 + 2x^2 + 2x^1 + 2
+                polinomParams: new double[] { 2, 2, 2, 1 });
+
+            //Act
+            Polinom actual = polinomOne + polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [ExpectedException(typeof(NullReferenceException))]
+        [TestMethod]
+        public void GetSumForTwoPolinomWhenFirstPolinomIsNullThenOutIsNullReferenceException()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: null);
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1 });
+
+            //Act
+            Polinom actual = polinomOne + polinomTwo;
+        }
+        
+        [TestMethod]
+        public void GetSubtractionForTwoPolinomWhenPolinomHasFoutArgThenOutIsFourArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //0x^3 + 0x^2 + 0x^1 + 0
+                polinomParams: new double[] { 0, 0, 0, 0 });
+
+            //Act
+            Polinom actual = polinomOne - polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetSubtractionForTwoPolinomWhenFirstPolinomLessThenSecondThenOutIsFourArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //1x^3 + 0x^2 + 0x^1 + 0
+                polinomParams: new double[] { 0, 0, 0, 1 });
+
+            //Act
+            Polinom actual = polinomOne - polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [TestMethod]
+        public void GetSubtractionForTwoPolinomWhenSecondtPolinomLessThenFirstThenOutIsFourArgument()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1, 1 });
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1 });
+
+            Polinom expected = new Polinom(
+                //1x^3 + 0x^2 + 0x^1 + 0
+                polinomParams: new double[] { 0, 0, 0, 1 });
+
+            //Act
+            Polinom actual = polinomOne - polinomTwo;
+
+            // Assert
+            CollectionAssert.AreEqual(expected.PolinomParams, actual.PolinomParams);
+        }
+
+        [ExpectedException(typeof(NullReferenceException))]
+        [TestMethod]
+        public void GetSubtractionForTwoPolinomWhenFirstPolinomIsNullThenOutIsNullReferenceException()
+        {
+            // Arrange
+            Polinom polinomOne = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: null);
+            Polinom polinomTwo = new Polinom(
+                //x^3 + x^2 + x^1 + 1
+                polinomParams: new double[] { 1, 1, 1 });
+
+            //Act
+            Polinom actual = polinomOne - polinomTwo;
+        }
+
     }
 }
