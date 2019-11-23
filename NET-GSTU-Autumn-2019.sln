@@ -7,15 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeclaringAndCallingMethods"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeclaringAndCallingMethodsTests", "tests\Task01_Tests\DeclaringAndCallingMethodsTests\DeclaringAndCallingMethodsTests.csproj", "{96EE7477-64A3-462F-837C-33B97E4ABDF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverloadOperationsTask1", "src\Task02\OverloadOperationsTask1\OverloadOperationsTask1.csproj", "{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverloadOperationsTask1", "src\Task02\OverloadOperationsTask1\OverloadOperationsTask1.csproj", "{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverloadOperationsTask2", "src\Task02\OverloadOperationsTask2\OverloadOperationsTask2.csproj", "{018ADE22-3339-4ACC-B90A-F7C7C23740A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverloadOperationsTask2", "src\Task02\OverloadOperationsTask2\OverloadOperationsTask2.csproj", "{018ADE22-3339-4ACC-B90A-F7C7C23740A5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverloadOperationsTask1Tests", "tests\Task02_Tests\OverloadOperationsTask1Tests\OverloadOperationsTask1Tests.csproj", "{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task01", "Task01", "{260063DC-E67E-48C7-9940-19E0D07E3D25}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task02", "Task02", "{E0E1487D-5C70-4801-8D24-17B941CCE9FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverloadOperationsTask2Tests", "tests\Task02_Tests\OverloadOperationsTask2Tests\OverloadOperationsTask2Tests\OverloadOperationsTask2Tests.csproj", "{794E7471-DBA8-4BD8-8F1E-A9ED77D46E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{794E7471-DBA8-4BD8-8F1E-A9ED77D46E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794E7471-DBA8-4BD8-8F1E-A9ED77D46E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794E7471-DBA8-4BD8-8F1E-A9ED77D46E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794E7471-DBA8-4BD8-8F1E-A9ED77D46E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{A13E1A7B-DE2F-46A1-B7F2-05D2C8AC3FBC} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
 		{018ADE22-3339-4ACC-B90A-F7C7C23740A5} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
 		{C514F0ED-A9A2-4FCD-A6BD-3690AA2020AD} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
+		{794E7471-DBA8-4BD8-8F1E-A9ED77D46E26} = {E0E1487D-5C70-4801-8D24-17B941CCE9FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09C59903-2B55-46D6-B4B2-7248136E099E}
