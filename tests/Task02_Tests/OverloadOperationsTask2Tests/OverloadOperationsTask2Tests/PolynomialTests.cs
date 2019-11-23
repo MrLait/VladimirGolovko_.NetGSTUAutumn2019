@@ -8,6 +8,38 @@ namespace OverloadOperationsTask2Tests
     [TestClass]
     public class PolynomialTests
     {
+
+        /// <summary>
+        /// Test for correct get property this[int i] from polynomial elements 
+        /// Where the index number is the degree of the polynomial.
+        /// </summary>
+        [TestMethod]
+        public void GivenThisInt_i_ForGetDataWhenPolynomialElements_2_4_6_ThenOutIs2_4_6()
+        {
+            // Arrange
+            Polynomial polynomial = new Polynomial(new double[] { 2, 4, 6 });
+
+            // Assert
+            Assert.AreEqual(2, polynomial.Elements[0]);
+            Assert.AreEqual(4, polynomial.Elements[1]);
+            Assert.AreEqual(6, polynomial.Elements[2]);
+        }
+
+        /// <summary>
+        /// Test for correct get property this[int i] from polynomial elements 
+        /// Where the index number is the degree of the polynomial.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void GivenThisInt_i_ForGetDataWhenPolynomialElements_2_4_6_OutIsIndexThenOutOfRangeException()
+        {
+            // Arrange
+            Polynomial polynomial = new Polynomial(new double[] { 2, 4, 6 });
+
+            // Assert
+            Assert.AreEqual(2, polynomial.Elements[3]);
+        }
+
         /// <summary>
         /// Method for testing division operator overload.
         /// </summary>
