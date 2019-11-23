@@ -172,8 +172,13 @@ namespace ConsoleApp1
         {
             using (StreamWriter file = new StreamWriter(@"../../../txt/out.txt"))
             {
+                DirectoryInfo di = new DirectoryInfo(@"../../../txt");
+
                 if (inputData != null)
                 {
+                    if (!di.Exists)
+                        di.Create();
+
                     String s = string.Format("{0,35} {1,11}", "Euclid", "Binary");
                     file.WriteLine(s);
                     
