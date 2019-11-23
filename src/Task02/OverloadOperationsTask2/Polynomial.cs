@@ -7,9 +7,11 @@ namespace OverloadOperationsTask2
 {
     public class Polynomial
     {
+        private readonly double[] elements;
+
+        public double[] Elements => elements;
         public double[] QuotientElements { get;}
         public double[] RemainderElements { get;}
-        public double[] Elements { get;}
 
         /// <summary>
         /// Constructor for initializing polynomial elements.
@@ -18,7 +20,7 @@ namespace OverloadOperationsTask2
         /// <param name="elements">Elements of the polynomial.</param>
         public Polynomial(double[] elements)
         {
-            Elements = elements;
+            this.elements = elements;
         }
 
         /// <summary>
@@ -31,6 +33,23 @@ namespace OverloadOperationsTask2
         {
             QuotientElements = quotientElements;
             RemainderElements = remainderElements;
+        }
+
+        /// <summary>
+        /// Access polynomial elements by index.
+        /// Where the index number is the degree of the polynomial.
+        /// </summary>
+        /// <param name="i">Polynomial index.</param>
+        /// <returns>The element with a given index.</returns>
+        public double this[int i]
+        {
+            get
+            {
+                if (i <= elements.Length)
+                    return elements[i];
+                else
+                    throw new IndexOutOfRangeException();
+            }
         }
 
         /// <summary>
