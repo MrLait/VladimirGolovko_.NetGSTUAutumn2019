@@ -262,9 +262,9 @@ namespace DeclaringAndCallingMethodsTests
             Assert.AreEqual(5, AlgorithmGcd.GetBinaryGcd(-340000, 0, 50, 100005, out elapsedMs));
         }
 
-        ///// <summary>
-        ///// A check is performed on the amount of filled data in the list, depending on the number of GCD.
-        ///// </summary>
+        /// <summary>
+        /// A check is performed on the amount of filled data in the list, depending on the number of GCD.
+        /// </summary>
         [TestMethod]
         public void GivenPrepareDataForHistogram_ForTwoParamsWhenOutIsOne()
         {
@@ -281,9 +281,9 @@ namespace DeclaringAndCallingMethodsTests
             Assert.AreEqual(expectedOne, actual.Count);
         }
 
-        ///// <summary>
-        ///// A check is performed on the amount of filled data in the list, depending on the number of GCD.
-        ///// </summary>
+        /// <summary>
+        /// A check is performed on the amount of filled data in the list, depending on the number of GCD.
+        /// </summary>
         [TestMethod]
         public void GivenPrepareDataForHistogram_ForThreeParamsWhenOutIsTwo()
         {
@@ -302,9 +302,9 @@ namespace DeclaringAndCallingMethodsTests
             Assert.AreEqual(expectedTwo, actual.Count);
         }
 
-        ///// <summary>
-        ///// A check is performed on the amount of filled data in the list, depending on the number of GCD.
-        ///// </summary>
+        /// <summary>
+        /// A check is performed on the amount of filled data in the list, depending on the number of GCD.
+        /// </summary>
         [TestMethod]
         public void GivenPrepareDataForHistogram_ForFourParamsWhenOutIsThree()
         {
@@ -325,9 +325,9 @@ namespace DeclaringAndCallingMethodsTests
             Assert.AreEqual(expectedFour, actual.Count);
         }
 
-        ///// <summary>
-        ///// A check is performed on the amount of filled data in the list, depending on the number of GCD.
-        ///// </summary>
+        /// <summary>
+        /// A check is performed on the amount of filled data in the list, depending on the number of GCD.
+        /// </summary>
         [TestMethod]
         public void GivenPrepareDataForHistogram_ForFiveAndMoreParamsWhenOutIsZero()
         {
@@ -341,9 +341,9 @@ namespace DeclaringAndCallingMethodsTests
             Assert.AreEqual(expectedZero, actual.Count);
         }
 
-        ///// <summary>
-        ///// A check is performed on the amount of filled data in the list, depending on the number of GCD.
-        ///// </summary>
+        /// <summary>
+        /// A check is performed on the amount of filled data in the list, depending on the number of GCD.
+        /// </summary>
         [TestMethod]
         public void GivenPrepareDataForHistogram_ForOneParamsWhenOutIsZero()
         {
@@ -365,8 +365,14 @@ namespace DeclaringAndCallingMethodsTests
         {
             // Arrange
             FileInfo fi = new FileInfo(@"../../../txt/out.txt");
-            
+
             // Act
+            DirectoryInfo di = new DirectoryInfo(@"../../../txt");
+            if (!di.Exists)
+            {
+                di.Create();
+            }
+
             fi.Delete();
             AlgorithmGcd.WriteDataFromListToFile(AlgorithmGcd.PrepareDataForHistogram(6, 294, 570, 36));
             
