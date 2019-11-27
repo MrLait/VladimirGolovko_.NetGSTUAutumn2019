@@ -14,7 +14,7 @@ namespace OverloadOperationsTask2Tests
         /// Where the index number is the degree of the polynomial.
         /// </summary>
         [TestMethod]
-        public void GivenThisInt_i_ForGetDataWhenPolynomialElements_2_4_6_ThenOutIs2_4_6()
+        public void GivenThisInt_i_ForGetDataWhenNumbers_2_4_6_ThenOutIs2_4_6()
         {
             // Arrange
             Polynomial polynomial = new Polynomial(new double[] { 2, 4, 6 });
@@ -31,7 +31,7 @@ namespace OverloadOperationsTask2Tests
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void GivenThisInt_i_ForGetDataWhenPolynomialElements_2_4_6_OutIsIndexThenOutOfRangeException()
+        public void GivenThisInt_i_ForGetDataWhenNumbers_2_4_6_OutIsIndexThenOutOfRangeException()
         {
             // Arrange
             Polynomial polynomial = new Polynomial(new double[] { 2, 4, 6 });

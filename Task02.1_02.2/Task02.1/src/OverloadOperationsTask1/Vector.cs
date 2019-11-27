@@ -15,7 +15,6 @@ namespace OverloadOperationsTask1
             this.y = y;
             this.z = z;
         }
-
         /// <summary>
         /// X component of the vector.
         /// </summary>
@@ -212,5 +211,6 @@ namespace OverloadOperationsTask1
             return 33 * X.GetHashCode() + Y.GetHashCode()
                 + Z.GetHashCode();
         }
+
     }
 }
