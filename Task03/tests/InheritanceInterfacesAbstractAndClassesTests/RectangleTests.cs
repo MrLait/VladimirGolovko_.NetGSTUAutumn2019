@@ -13,6 +13,8 @@ namespace InheritanceInterfacesAbstractAndClassesTests
         [Test]
         public void GivenRectangleCtr_ForCutSquereFromReqcangle_OutIsNewSquere()
         {
+            var filmSheet = new FilmSheet();
+            var paperSheet = new PaperSheet();
             //Arrange
             var rectangle = new Rectangle(10,10);
             var squere = new Square(10);

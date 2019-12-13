@@ -4,7 +4,7 @@ namespace InheritanceInterfacesAbstractAndClasses
 {
     public class Sheet
     {
-        private decimal height = Decimal.MaxValue;
-        private decimal width = Decimal.MaxValue;
+        public decimal Height { get; } = Decimal.MaxValue;
+        public decimal Width { get; } = Decimal.MaxValue;
     }
 }

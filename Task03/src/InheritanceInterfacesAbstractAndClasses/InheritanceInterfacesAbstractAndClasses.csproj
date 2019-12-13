@@ -41,14 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Figure.cs" />
+    <Compile Include="BoxForFigures.cs" />
+    <Compile Include="Figures\Figure.cs" />
+    <Compile Include="SetOfPaints.cs" />
     <Compile Include="Sheets\FilmSheet.cs" />
     <Compile Include="Girl.cs" />
     <Compile Include="Sheets\PaperSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rectangle.cs" />
+    <Compile Include="Figures\Rectangle.cs" />
     <Compile Include="Sheets\Sheet.cs" />
-    <Compile Include="Square.cs" />
+    <Compile Include="Figures\Square.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
