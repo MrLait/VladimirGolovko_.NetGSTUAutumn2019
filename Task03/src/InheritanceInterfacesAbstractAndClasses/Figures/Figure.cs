@@ -1,4 +1,4 @@
-﻿namespace InheritanceInterfacesAbstractAndClasses
+﻿namespace InheritanceInterfacesAbstractAndClasses.Figures
 {
     /// <summary>
     /// 
@@ -16,5 +16,6 @@
         /// </summary>
         /// <returns></returns>
         abstract public double GetPerimeterFigure();
+
     }
 }

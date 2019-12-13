@@ -1,46 +1,22 @@
 ﻿using System;
 using System.Resources;
 
-namespace InheritanceInterfacesAbstractAndClasses
+namespace InheritanceInterfacesAbstractAndClasses.Figures
 {
     /// <summary>
     /// 
     /// </summary>
     public class Square : Figure
     {
-        private const string Message = "The bSide of the figure cannot be negative or equal to zero.";
-        private double _aSide;
+        private double _sideA;
 
         /// <summary>
         /// 
         /// </summary>
-        /// <exception cref="ArgumentException"></exception>
-        public double ASide
+        /// <param name="sideA"></param>
+        public Square(double sideA)
         {
-            get => _aSide;
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new ArgumentException(message: Message);
-                }
-
-                _aSide = value;
-            } 
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Square() { }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="aSide"></param>
-        public Square(double aSide)
-        {
-            ASide = aSide;
+            SideA = sideA;
         }
         /// <summary>
         /// 
@@ -48,7 +24,27 @@ namespace InheritanceInterfacesAbstractAndClasses
         /// <returns></returns>
         public override double GetAreaFigure()
         {
-            return ASide * ASide;
+            return SideA * SideA;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        public double SideA
+        {
+            get => _sideA;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("The side-a of the figure cannot be negative or equal to zero.");
+                }
+                else
+                {
+                    _sideA = value;
+                }
+            }
         }
 
         /// <summary>
@@ -57,7 +53,22 @@ namespace InheritanceInterfacesAbstractAndClasses
         /// <returns></returns>
         public override double GetPerimeterFigure()
         {
-            return 4 * ASide;
+            return 4 * SideA;
         }
+
+        public override bool Equals(Object obj)
+        {
+            // Perform an equality check on two rectangles (Point object pairs).
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+            Square r = (Square)obj;
+            return _sideA.Equals(r._sideA);
+        }
+
+        public override int GetHashCode()
+        {
+            return _sideA.GetHashCode();
+        }
+
     }
 }

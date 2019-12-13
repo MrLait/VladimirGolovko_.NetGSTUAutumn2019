@@ -1,60 +1,126 @@
-﻿using System.Collections.Generic;
+﻿using InheritanceInterfacesAbstractAndClasses.Figures;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace InheritanceInterfacesAbstractAndClasses
 {
     public class BoxForFigures
     {
-        private List<Figure> _fugureList = new List<Figure>();
+        private List<Figure> _figureList = new List<Figure>();
 
         public List<Figure> FugureList
         {
-            get => _fugureList;
-            set => _fugureList = value;
+            get => _figureList;
+            set => _figureList = value;
         }
 
-        public static void AddFigureToBox(Figure figure)
+        public void AddFigureToBox(Figure figure)
         {
-
+            if (figure != null)
+            {
+                _figureList.Add(figure);
+            }
         }
 
-        public static Figure FindFigureById(int id)
+        public Figure FindFigureById(int id)
         {
-            return null;
+            if (id >= 0 && id < _figureList.Count)
+                return _figureList.ElementAt(id);
+            else
+                return null;
         }
 
-        public static Figure ExecuteFigureById(int id)
+        public Figure ExecuteFigureById(int id)
         {
-            return null;
+            Figure tmpFigure = FindFigureById(id);
+
+            if (id >= 0 && id < _figureList.Count)
+                _figureList.RemoveAt(id);
+
+            return tmpFigure;
         }
 
-        public static void ReplaceByNumber(int id)
+        public void ReplaceById(int id, Figure figure)
         {
-
+            if (id >= 0 && id < _figureList.Count)
+                _figureList[id] = figure;
         }
 
-        public static Figure FindFigure(Figure figure)
+        public int FindFigureAccordingToThePattern(Figure figurePattern)
         {
-            return null;
+
+            return _figureList.IndexOf(figurePattern);
         }
 
-        public static int GetNumberOfFigures()
+        public int GetNumberOfFiguresInTheBox()
         {
-            return 0;
+            int figureCounter = 0;
+
+            if (_figureList != null)
+            {
+                foreach (var item in _figureList)
+                {
+                    if (item != null)
+                    {
+                        figureCounter++;
+                    }
+                }
+            }
+
+            return figureCounter;
         }
 
-        public static decimal GetSumAreaFigures()
+        public double GetSumAreaFigures()
         {
-            return 0;
+            double tmpSumAreaFigures = 0;
+
+            if (_figureList != null)
+            {
+                foreach (var item in _figureList)
+                {
+                    if (item != null)
+                    {
+                        tmpSumAreaFigures += item.GetAreaFigure();
+                    }
+                }
+            }
+
+            return tmpSumAreaFigures;
         }
 
-        public static decimal GetSumPerimeterFigures()
+        public double GetSumPerimeterFigures()
         {
-            return 0;
+            double tmpSumPerimeterFigures = 0;
+
+            if (_figureList != null)
+            {
+                foreach (var item in _figureList)
+                {
+                    if (item != null)
+                    {
+                        tmpSumPerimeterFigures += item.GetPerimeterFigure();
+                    }
+                }
+            }
+
+            return tmpSumPerimeterFigures;
         }
 
-        public static List<Figure> GetAllCircles()
+        public List<Circle> GetAllCircles()
         {
-            return null;
+            List<Circle> tmpCircles = new List<Circle>();
+
+            if (_figureList != null)
+            {
+                foreach (var item in _figureList)
+                {
+                    if (item.GetType() == typeof(Circle))
+                    {
+                        tmpCircles.Add((Circle)item);
+                    }
+                }
+            }
+            return tmpCircles;
         }
 
         public static List<Figure> GetAllFilmFigures(){ return null; }
