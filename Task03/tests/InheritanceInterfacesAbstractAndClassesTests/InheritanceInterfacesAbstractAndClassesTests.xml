@@ -4,23 +4,10 @@
         <name>InheritanceInterfacesAbstractAndClassesTests</name>
     </assembly>
     <members>
-        <member name="T:InheritanceInterfacesAbstractAndClasses.Tests.RectangleTests">
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.RectangleTests">
             <summary>
             asdad
             </summary>
-        </member>
-        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.RectangleTests.GivenASideAndBSide_ForRectangleWhen_aSideAnd_bSide_2ThenOutIs2(System.Double,System.Double,System.Double)">
-            <summary>
-            Test to verify the correct ASide and BSide property
-            </summary>
-        </member>
-        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.RectangleTests.GivenAdd(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            asdad
-            </summary>
-            <param name="firstNum">a</param>
-            <param name="secondNum">b</param>
-            <param name="expected">sum</param>
         </member>
         <member name="T:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests">
             <summary>

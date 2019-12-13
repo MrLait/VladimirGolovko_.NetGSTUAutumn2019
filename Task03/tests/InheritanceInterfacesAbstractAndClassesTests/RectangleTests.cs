@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using System;
+using InheritanceInterfacesAbstractAndClasses;
 
-namespace InheritanceInterfacesAbstractAndClasses.Tests
+namespace InheritanceInterfacesAbstractAndClassesTests
 {
     /// <summary>
     /// asdad
@@ -9,41 +9,39 @@ namespace InheritanceInterfacesAbstractAndClasses.Tests
     [TestFixture]
     public class RectangleTests
     {
-        /// <summary>
-        /// Test to verify the correct ASide and BSide property
-        /// </summary>
-        [TestCase(2,2,2)]
-        public void GivenASideAndBSide_ForRectangleWhen_aSideAnd_bSide_2ThenOutIs2(double aSide, double bSide, double exepted)
+
+        [Test]
+        public void GivenRectangleCtr_ForCutSquereFromReqcangle_OutIsNewSquere()
         {
-            //Arrange 
-            Rectangle rectangle = new Rectangle(aSide, bSide);
+            //Arrange
+            var rectangle = new Rectangle(10,10);
+            var squere = new Square(10);
 
-            double acualASide;
-            double acualBSide;
-
-            //Act
-            acualASide = rectangle.ASide;
-            acualBSide = rectangle.BSide;
-
+            var test = new Rectangle((squere));
             //Assert
-            Assert.AreEqual(exepted, acualASide);
-            Assert.AreEqual(exepted, acualBSide);
+            Assert.AreEqual(null, new Rectangle(squere));
         }
 
-        /// <summary>
-        /// asdad
-        /// </summary>
-        /// <param name="firstNum">a</param>
-        /// <param name="secondNum">b</param>
-        /// <param name="expected">sum</param>
-        [TestCase(2, 2, 4)]
-        [TestCase(-2, 2, 0)]
-        //[TestCase(2, -2, 0)]
-       // [TestCase(0, 0, 0)]
-        public void GivenAdd(int firstNum, int secondNum, int expected)
-        {
-            //Assert
-            Assert.AreEqual(expected, Rectangle.Add(firstNum, secondNum));
+
+        ///// <summary>
+        ///// Test to verify the correct ASide and BSide property
+        ///// </summary>
+        //[TestCase(2,2,2)]
+        //public void GivenASideAndBSide_ForRectangleWhen_aSideAnd_bSide_2ThenOutIs2(double aSide, double bSide, double exepted)
+        //{
+        //    //Arrange 
+        //    Rectangle rectangle = new Rectangle(aSide, bSide);
+
+        //    double acualASide;
+        //    double acualBSide;
+
+        //    //Act
+        //    acualASide = rectangle.ASide;
+        //    acualBSide = rectangle.BSide;
+
+        //    //Assert
+        //    Assert.AreEqual(exepted, acualASide);
+        //    Assert.AreEqual(exepted, acualBSide);
         }
 
         ///// <summary>
@@ -181,5 +179,5 @@ namespace InheritanceInterfacesAbstractAndClasses.Tests
         //    //Arrange 
         //    Rectangle rectangle = new Rectangle(0, 0);
         //}
-    }
 }
+
