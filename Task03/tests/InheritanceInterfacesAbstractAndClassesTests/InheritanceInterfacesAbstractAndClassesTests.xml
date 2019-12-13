@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InheritanceInterfacesAbstractAndClassesTests</name>
+    </assembly>
+    <members>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Tests.RectangleTests">
+            <summary>
+            asdad
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.RectangleTests.GivenASideAndBSide_ForRectangleWhen_aSideAnd_bSide_2ThenOutIs2(System.Double,System.Double,System.Double)">
+            <summary>
+            Test to verify the correct ASide and BSide property
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.RectangleTests.GivenAdd(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            asdad
+            </summary>
+            <param name="firstNum">a</param>
+            <param name="secondNum">b</param>
+            <param name="expected">sum</param>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests">
+            <summary>
+            Unit tests for the Squere class.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenASide_ForSquereWhen_aSide_2ThenOutIs2">
+            <summary>
+            Test to verify the correct ASide property
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenASide_ForSquereWhen_aSide_minus2ThenOutIsArgumentException">
+            <summary>
+            Test to verify the correct ASide property with nagative number
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenASide_ForSquereWhen_aSide_ZeroThenOutIsArgumentException">
+            <summary>
+            Test to verify the correct ASide property with zero
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenGetAreaFigure_ForSquereWhen_aSide_2ThenOutIs4">
+            <summary>
+            Test for correct calculation the area of the squere 
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenGetAreaFigure_ForSquereWhen_aSide_minus2ThenOutIsArgumentException">
+            <summary>
+            Test to verify the correct GetAreaFigure method with nagative number
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenGetAreaFigure_ForSquereWhen_aSide_ZeroThenOutIsArgumentException">
+            <summary>
+            Test to verify the correct GetAreaFigure method with zero
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenGetPerimeterFigure_ForSquereWhen_aSide_2ThenOutIs4">
+            <summary>
+            Test for correct calculation the perimeter of the squere 
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenGetPerimeterFigure_ForSquereWhen_aSide_minus2ThenOutIsArgumentException">
+            <summary>
+            Test to verify the correct GetPerimeterFigure method with nagative number
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Tests.SquareTests.GivenGetPerimeterFigure_ForSquereWhen_aSide_ZeroThenOutIsArgumentException">
+            <summary>
+            Test to verify the correct GetPerimeterFigure method with zero
+            </summary>
+        </member>
+    </members>
+</doc>
