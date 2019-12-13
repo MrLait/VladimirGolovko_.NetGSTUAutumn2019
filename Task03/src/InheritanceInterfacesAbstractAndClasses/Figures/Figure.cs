@@ -1,10 +1,14 @@
-﻿namespace InheritanceInterfacesAbstractAndClasses.Figures
+﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+
+namespace InheritanceInterfacesAbstractAndClasses.Figures
 {
     /// <summary>
     /// 
     /// </summary>
-    abstract public class Figure
+    abstract public class Figure: IMaterial
     {
+        public abstract Material Material { get; }
+
         /// <summary>
         /// 
         /// </summary>

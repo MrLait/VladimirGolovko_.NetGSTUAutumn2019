@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+using System;
 using System.Resources;
 
 namespace InheritanceInterfacesAbstractAndClasses.Figures
@@ -14,17 +15,10 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
         /// 
         /// </summary>
         /// <param name="sideA"></param>
-        public Square(double sideA)
+        public Square(double sideA, Material material)
         {
             SideA = sideA;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override double GetAreaFigure()
-        {
-            return SideA * SideA;
+            Material = material;
         }
 
         /// <summary>
@@ -45,6 +39,17 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
                     _sideA = value;
                 }
             }
+        }
+
+        public override Material Material { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override double GetAreaFigure()
+        {
+            return SideA * SideA;
         }
 
         /// <summary>

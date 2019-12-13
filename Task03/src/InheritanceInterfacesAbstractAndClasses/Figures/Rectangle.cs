@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+using System;
 
 namespace InheritanceInterfacesAbstractAndClasses.Figures
 {
@@ -8,6 +9,16 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
     public class Rectangle : Square
     {
         private double _sideB;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sideA"></param>
+        /// <param name="sideB"></param>
+        public Rectangle(double sideA, double sideB, Material material) : base(sideA, material)
+        {
+            SideB = sideB;
+        }
 
         /// <summary>
         /// 
@@ -27,16 +38,6 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
                     _sideB = value;
                 }
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sideA"></param>
-        /// <param name="sideB"></param>
-        public Rectangle(double sideA, double sideB) : base(sideA)
-        {
-            SideB = sideB;
         }
 
         /// <summary>

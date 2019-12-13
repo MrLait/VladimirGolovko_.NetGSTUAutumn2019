@@ -1,10 +1,18 @@
-﻿using System;
+﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+using System;
 
 namespace InheritanceInterfacesAbstractAndClasses
 {
-    public class Sheet
+    public class Sheet : IMaterial
     {
-        public decimal Height { get; } = Decimal.MaxValue;
-        public decimal Width { get; } = Decimal.MaxValue;
+        public double Height { get; } = double.PositiveInfinity;
+        public double Width { get; } = double.PositiveInfinity;
+
+        public Sheet(Material material)
+        {
+            Material = material;
+        }
+
+        public Material Material { get; set; }
     }
 }

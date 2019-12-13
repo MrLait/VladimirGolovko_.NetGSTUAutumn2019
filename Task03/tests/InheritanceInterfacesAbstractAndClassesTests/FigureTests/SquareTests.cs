@@ -1,38 +1,46 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using InheritanceInterfacesAbstractAndClasses;
 using InheritanceInterfacesAbstractAndClasses.Figures;
+using InheritanceInterfacesAbstractAndClasses.Enum;
 
 namespace InheritanceInterfacesAbstractAndClassesTests
 {
     /// <summary>
     /// Unit tests for the Squere class.
     /// </summary>
-    [TestClass()]
+    [TestFixture()]
     public class SquareTests
     {
 
-        [TestCase(10, 10)]
-        [TestCase(25, 25)]
-        [TestCase(double.MaxValue, double.MaxValue)]
-        public void GivenSquarePropertyWhenSideAIsDifferentThenOutIsValidData(double numbers, double expected)
+        [TestCase(1,2)]
+        public void Test(int a, int a2)
         {
-            //Arrange
-            Square actual = new Square(numbers);
+            Square square = new Square(10, Material.Film);
+            Assert.AreEqual(1, 2);
 
-            //Assert
-            NUnit.Framework.Assert.AreEqual(expected, actual.SideA);
         }
 
-        [TestCase(0)]
-        [TestCase(double.MinValue)]
-        public void GivenSquarePropertyWhenSideAIsNegativeOrZeroThenOutIsArgumentException(double numbers)
-        {
-            //Assert
-            NUnit.Framework.Assert.Throws<ArgumentException>(
-                () => { new Square(numbers); });
-        }
+        //[TestCase(10, 10)]
+        //[TestCase(25, 25)]
+        //[TestCase(double.MaxValue, double.MaxValue)]
+        //public void GivenSquarePropertyWhenSideAIsDifferentThenOutIsValidData(double numbers, double expected)
+        //{
+        //    //Arrange
+        //    Square actual = new Square(numbers);
+
+        //    //Assert
+        //    NUnit.Framework.Assert.AreEqual(expected, actual.SideA);
+        //}
+
+        //[TestCase(0)]
+        //[TestCase(double.MinValue)]
+        //public void GivenSquarePropertyWhenSideAIsNegativeOrZeroThenOutIsArgumentException(double numbers)
+        //{
+        //    //Assert
+        //    NUnit.Framework.Assert.Throws<ArgumentException>(
+        //        () => { new Square(numbers); });
+        //}
 
         ///// <summary>
         ///// Test to verify the correct ASide property

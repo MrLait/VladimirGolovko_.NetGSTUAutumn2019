@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InheritanceInterfacesAbstractAndClasses.Figures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,17 @@ namespace InheritanceInterfacesAbstractAndClasses
 {
     public class Girl
     {
-        private FilmSheet filmSheet = new FilmSheet();
-        private PaperSheet paperSheet = new PaperSheet();
+        private Sheet filmSheet = new Sheet(Enum.Material.Film);
+        private Sheet paperSheet = new Sheet(Enum.Material.Paper);
+
         private SetOfPaints setOfPaints = new SetOfPaints();
         private BoxForFigures boxForFigures = new BoxForFigures();
+
+        public Figure PaperCut(Figure figureOne, Figure figureTwo )
+        {
+
+            return null;
+        }
 
     }
 }

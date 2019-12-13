@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,10 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
     {
         private double _radius;
 
-        public Circle(double radius)
+        public Circle(double radius, Material material)
         {
             Radius = radius;
+            Material = material;
         }
 
         public double Radius
@@ -22,7 +24,7 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException("The side-a of the figure cannot be negative or equal to zero.");
+                    throw new ArgumentException("The radius of the figure cannot be negative or equal to zero.");
                 }
                 else
                 {
@@ -30,6 +32,8 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
                 }
             }
         }
+
+        public override Material Material { get;}
 
         public override double GetAreaFigure()
         {

@@ -1,15 +1,24 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using InheritanceInterfacesAbstractAndClasses;
+using InheritanceInterfacesAbstractAndClasses.Enum;
+using InheritanceInterfacesAbstractAndClasses.Figures;
+
 namespace InheritanceInterfacesAbstractAndClassesTests
 {
     /// <summary>
     /// asdad
     /// </summary>
-    [TestClass()]
+    [TestFixture()]
     public class RectangleTests
     {
+        [TestCase(1, 2)]
+        public void Test(int a, int a2)
+        {
+            Rectangle square = new Rectangle(10, 11, Material.Paper);
+            Assert.AreEqual(1, 2);
+
+        }
 
         //[Test]
         //public void GivenRectangleCtr_ForCutSquereFromReqcangle_OutIsNewSquere()
@@ -44,7 +53,7 @@ namespace InheritanceInterfacesAbstractAndClassesTests
         //    //Assert
         //    Assert.AreEqual(exepted, acualASide);
         //    Assert.AreEqual(exepted, acualBSide);
-        }
+    }
 
         ///// <summary>
         ///// Test to verify the correct ASide property with nagative number
