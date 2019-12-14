@@ -1,9 +1,6 @@
 ﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+using InheritanceInterfacesAbstractAndClasses.UserExceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InheritanceInterfacesAbstractAndClasses.Figures
 {
@@ -11,10 +8,24 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
     {
         private double _radius;
 
+        public Circle(double radius)
+        {
+            Radius = radius;
+        }
+
         public Circle(double radius, Material material)
         {
             Radius = radius;
             Material = material;
+        }
+
+        public Circle(Figure figure, double radius) : this(radius)
+        {
+            if (figure.GetAreaFigure() < this.GetAreaFigure())
+            {
+                throw new CutException("The cut figure cannot be larger than the source figure.");
+            }
+            Material = figure.Material;
         }
 
         public double Radius
@@ -26,38 +37,41 @@ namespace InheritanceInterfacesAbstractAndClasses.Figures
                 {
                     throw new ArgumentException("The radius of the figure cannot be negative or equal to zero.");
                 }
-                else
-                {
-                    _radius = value;
-                }
+
+                _radius = value;
             }
         }
 
         public override Material Material { get;}
+
+        public override Color Color => base.Color;
 
         public override double GetAreaFigure()
         {
             return Math.PI * _radius * _radius;
         }
 
-        public override double GetPerimeterFigure()
+        public override double GetPerimeter()
         {
             return 2 * Math.PI * _radius;
         }
 
         public override bool Equals(Object obj)
         {
-            // Perform an equality check on two rectangles (Point object pairs).
             if (obj == null || GetType() != obj.GetType())
                 return false;
             Circle r = (Circle)obj;
-            return _radius.Equals(r._radius);
+            return _radius.Equals(r._radius) && Material.Equals(r.Material) && Color.Equals(r.Color);
         }
 
         public override int GetHashCode()
         {
-            return _radius.GetHashCode();
+            return _radius.GetHashCode() + Material.GetHashCode() + Color.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0};{1};{2}", base.ToString(), Material, Radius);
+        }
     }
 }

@@ -1,194 +1,210 @@
-﻿using System;
-using NUnit.Framework;
-using InheritanceInterfacesAbstractAndClasses;
+﻿using InheritanceInterfacesAbstractAndClasses;
 using InheritanceInterfacesAbstractAndClasses.Enum;
 using InheritanceInterfacesAbstractAndClasses.Figures;
+using InheritanceInterfacesAbstractAndClasses.UserExceptions;
+using NUnit.Framework;
+using System;
 
-namespace InheritanceInterfacesAbstractAndClassesTests
+namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
 {
-    /// <summary>
-    /// asdad
-    /// </summary>
     [TestFixture()]
-    public class RectangleTests
+    public class RectangleTest
     {
-        [TestCase(1, 2)]
-        public void Test(int a, int a2)
+        [TestCase(100, 100, 100, 100)]
+        [TestCase(1000, 1000, 1000, 1000)]
+        [TestCase(1100, 1100, 1100, 1100)]
+        public void GivenRectangleWhenFigureIsRectangleThenOutIsNewRectangle(double actualSideA, double actualSideB,
+            double expectedSideA, double expectedSideB)
         {
-            Rectangle square = new Rectangle(10, 11, Material.Paper);
-            Assert.AreEqual(1, 2);
+            //Arrange
+            Rectangle actuaRectangle = new Rectangle(actualSideA, actualSideB, Material.Paper);
 
+            //Assert
+            Assert.AreEqual(new Rectangle(expectedSideA, expectedSideB, Material.Paper), actuaRectangle);
         }
 
-        //[Test]
-        //public void GivenRectangleCtr_ForCutSquereFromReqcangle_OutIsNewSquere()
-        //{
-        //    var filmSheet = new FilmSheet();
-        //    var paperSheet = new PaperSheet();
-        //    //Arrange
-        //    var rectangle = new Rectangle(10,10);
-        //    var squere = new Square(10);
+        [TestCase(100, 100, Material.Film, 100, 100, Material.Film)]
+        [TestCase(1000, 1000, Material.Paper, 1000, 1000, Material.Paper)]
+        public void GivenRectangleWhenConstructorContainMaterialThenOutIsNewRectangle(double actualSideA, double actualSideB, Material actualMaterial,
+            double expectedSideA, double expectedSideB, Material expectedMaterial)
+        {
+            //Arrange
+            Rectangle actuaRectangle = new Rectangle(actualSideA, actualSideB, actualMaterial);
 
-        //    var test = new Rectangle((squere));
-        //    //Assert
-        //    Assert.AreEqual(null, new Rectangle(squere));
-        //}
+            //Assert
+            Assert.AreEqual(new Rectangle(expectedSideA, expectedSideB, expectedMaterial), actuaRectangle);
+        }
+
+        [TestCase(100, 100, Material.Film, 100, 100, Material.Film)]
+        [TestCase(1000, 1000, Material.Paper, 1000, 1000, Material.Paper)]
+        public void GivenRectangleWhenConstructorContainSquareThenOutIsNewRectangle(double actualSideA, double actualSideB, Material actualMaterial,
+            double expectedSideA, double expectedSideB, Material expectedMaterial)
+        {
+            //Arrange
+            Square sourceSquare = new Square(actualSideA, actualMaterial);
+
+            //Act
+            Rectangle actualRectangle = new Rectangle(sourceSquare, actualSideA, actualSideB);
+
+            //Assert
+            Assert.AreEqual(new Rectangle(expectedSideA, expectedSideB, expectedMaterial), actualRectangle);
+        }
 
 
-        ///// Test to verify the correct ASide and BSide property
-        ///// </summary>
-        //[TestCase(2,2,2)]
-        //public void GivenASideAndBSide_ForRectangleWhen_aSideAnd_bSide_2ThenOutIs2(double aSide, double bSide, double exepted)
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(aSide, bSide);
+        [TestCase(100, 100, Material.Film, 100, 100, Material.Film)]
+        [TestCase(1000, 1000, Material.Paper, 1000, 1000, Material.Paper)]
+        public void GivenRectangleWhenConstructorContainRectangleThenOutIsNewRectangle(double actualSideA, double actualSideB, Material actualMaterial,
+            double expectedSideA, double expectedSideB, Material expectedMaterial)
+        {
+            //Arrange
+            Rectangle sourceRectangle = new Rectangle(actualSideA, actualSideB, actualMaterial);
 
-        //    double acualASide;
-        //    double acualBSide;
+            //Act
+            Rectangle actualRectangle = new Rectangle(sourceRectangle, actualSideA, actualSideB);
 
-        //    //Act
-        //    acualASide = rectangle.ASide;
-        //    acualBSide = rectangle.BSide;
+            //Assert
+            Assert.AreEqual(new Rectangle(expectedSideA, expectedSideB, expectedMaterial), actualRectangle);
+        }
 
-        //    //Assert
-        //    Assert.AreEqual(exepted, acualASide);
-        //    Assert.AreEqual(exepted, acualBSide);
+        [TestCase(100, 100, 100, Material.Film, 100, 100, Material.Film)]
+        [TestCase(1000, 1000, 1000, Material.Paper, 1000, 1000, Material.Paper)]
+        public void GivenRectangleWhenConstructorContainCircleThenOutIsNewRectangle(double actualSideA, double actualSideB, double actualRadius,
+            Material actualMaterial, double expectedSideA, double expectedSideB, Material expectedMaterial)
+        {
+            //Arrange
+            Circle sourceCircle = new Circle(actualRadius, actualMaterial);
+
+            //Act
+            Rectangle actualRectangle = new Rectangle(sourceCircle, actualSideA, actualSideB);
+
+            //Assert
+            Assert.AreEqual(new Rectangle(expectedSideA, expectedSideB, expectedMaterial), actualRectangle);
+        }
+
+        [TestCase(100, 100, Material.Film, 100, 100, Material.Film)]
+        [TestCase(1000, 1000, Material.Paper, 1000, 1000, Material.Paper)]
+        public void GivenRectangleWhenConstructorContainSheetThenOutIsNewRectangle(double actualSideA, double actualSideB,
+            Material actualMaterial, double expectedSideA, double expectedSideB, Material expectedMaterial)
+        {
+            //Arrange
+            Sheet sourceSheet = new Sheet(actualMaterial);
+
+            //Act
+            Rectangle actualRectangle = new Rectangle(sourceSheet, actualSideA, actualSideB);
+
+            //Assert
+            Assert.AreEqual(new Rectangle(expectedSideA, expectedSideB, expectedMaterial), actualRectangle);
+        }
+
+        [TestCase(100, 100, Material.Film, 110, 100)]
+        [TestCase(1000, 1000, Material.Paper, 1100, 1000)]
+        public void GivenRectangleWhenConstructorContainFigureThenOutIsCutException(double actualSideA, double actualSideB, Material actualMaterial,
+            double expectedSideA, double expectedSideB)
+        {
+            //Arrange
+            Rectangle sourceRectangle = new Rectangle(actualSideA, actualSideB, actualMaterial);
+
+            //Assert
+            Assert.That(() => new Rectangle(sourceRectangle, expectedSideA, expectedSideB), Throws.TypeOf<CutException>());
+        }
+
+        [TestCase(-100, -100, Material.Film)]
+        [TestCase(-1000, -1000, Material.Paper)]
+        public void GivenSideAWhenConstructorContainFigureThenOutIsArgumentException(double actualSideA, double actualSideB, Material actualMaterial)
+        {
+            //Assert
+            Assert.That(() => new Rectangle(actualSideA, actualSideB, actualMaterial), Throws.TypeOf<ArgumentException>());
+        }
+
+        [TestCase(100, -100, Material.Film)]
+        [TestCase(1000, -1000, Material.Paper)]
+        public void GivenSideBWhenConstructorContainFigureThenOutIsArgumentException(double actualSideA, double actualSideB, Material actualMaterial)
+        {
+            //Assert
+            Assert.That(() => new Rectangle(actualSideA, actualSideB, actualMaterial), Throws.TypeOf<ArgumentException>());
+        }
+
+        [TestCase(100, 100, 400)]
+        [TestCase(1000, 1000, 4000)]
+        [TestCase(1100, 1100, 4400)]
+        public void GivenGetPerimeterThenOutIsPerimeter(double actualSideA, double actualSideB, double expectedPerimeter)
+        {
+            //Arrange
+            Rectangle actuaRectangle = new Rectangle(actualSideA, actualSideB, Material.Paper);
+
+            //Act
+            double actualPerimeter = actuaRectangle.GetPerimeter();
+
+            //Assert
+            Assert.AreEqual(expectedPerimeter, actualPerimeter);
+        }
+
+        [TestCase(100, 100, -2135818239)]
+        [TestCase(1000, 1000, -2128707583)]
+        [TestCase(1100, 1100, -2128453631)]
+        public void GivenGetHashCodeThenOutIsGetHashCode(double actualSideA, double actualSideB, double expectedHashCode)
+        {
+            //Arrange
+            Rectangle actuaRectangle = new Rectangle(actualSideA, actualSideB, Material.Paper);
+
+            //Act
+            double actualHashCode = actuaRectangle.GetHashCode();
+
+            //Assert
+            Assert.AreEqual(expectedHashCode, actualHashCode);
+        }
+
+        [TestCase(100, Material.Paper, Color.Blue,
+   100, Material.Paper, Color.Blue)]
+        [TestCase(100, Material.Paper, Color.Green,
+   100, Material.Paper, Color.Green)]
+        [TestCase(100, Material.Paper, Color.Orange,
+   100, Material.Paper, Color.Orange)]
+        [TestCase(100, Material.Paper, Color.Red,
+   100, Material.Paper, Color.Red)]
+        public void GivenGetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(double actualSideA, Material actualMaterial, Color actualColor,
+   double expectedSideA, Material expectedMaterial, Color expectedColor)
+        {
+            //Arrange
+            Rectangle rectangle = new Rectangle(actualSideA, actualSideA, actualMaterial);
+            Rectangle expectedSquare = new Rectangle(expectedSideA, expectedSideA, expectedMaterial);
+
+            //Act
+            rectangle.Color = actualColor;
+            expectedSquare.Color = expectedColor;
+
+            //Assert
+            Assert.AreEqual(expectedColor, rectangle.Color);
+        }
+
+        [TestCase(100, Material.Paper, Color.Blue)]
+        [TestCase(100, Material.Paper, Color.Green)]
+        [TestCase(100, Material.Paper, Color.Orange)]
+        [TestCase(100, Material.Paper, Color.Red)]
+        public void GivenSetColorWhenMaterialFigurePaperThenOutIsColorException(double actualSideA, Material actualMaterial, Color actualColor)
+        {
+            //Arrange
+            Rectangle rectangle = new Rectangle(actualSideA, actualSideA, actualMaterial);
+
+            //Act
+            rectangle.Color = actualColor;
+
+            //Assert
+            Assert.That(() => rectangle.Color = Color.White, Throws.TypeOf<ColorException>());
+        }
+
+        [TestCase(100, Material.Film)]
+        [TestCase(100, Material.Film)]
+        [TestCase(100, Material.Film)]
+        [TestCase(100, Material.Film)]
+        public void GivenSetColorWhenMaterialFigureFilmThenOutIsColorException(double actualSideA, Material actualMaterial)
+        {
+            //Arrange
+            Rectangle rectangle = new Rectangle(actualSideA, actualSideA, actualMaterial);
+
+            //Assert
+            Assert.That(() => rectangle.Color = Color.White, Throws.TypeOf<ColorException>());
+        }
+
     }
-
-        ///// <summary>
-        ///// Test to verify the correct ASide property with nagative number
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenASide_ForRectangleWhen_aSide_minus2ThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle
-        //    {
-        //        ASide = -2
-        //    };
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct BSide property with nagative number
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenBSide_ForRectangleWhen_bSide_minus2ThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle
-        //    {
-        //        BSide = -2
-        //    };
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct ASide property with zero
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenASide_ForRectangleWhen_aSide_ZeroThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle()
-        //    {
-        //        ASide = 0
-        //    };
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct BSide property with zero
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenBSide_ForRectangleWhen_bSide_ZeroThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle()
-        //    {
-        //        BSide = 0
-        //    };
-        //}
-
-        ///// <summary>
-        ///// Test for correct calculation the area of the rectangle 
-        ///// </summary>
-        //[TestMethod()]
-        //public void GivenGetAreaFigure_ForRectangleWhen_aSideAndbSide_2ThenOutIs4()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(2, 2);
-        //    double expectedArea = 4;
-        //    double acualArea;
-
-        //    //Act
-        //    acualArea = rectangle.GetAreaFigure();
-
-        //    //Assert
-        //    Assert.AreEqual(expectedArea, acualArea);
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct GetAreaFigure method with nagative number
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenGetAreaFigure_ForRectangleWhen_aSideAndbSide_minus2ThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(-2, -2);
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct GetAreaFigure method with zero
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenGetAreaFigure_ForRectangleWhen_sidesIsZeroThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(0, 0);
-        //}
-
-        ///// <summary>
-        ///// Test for correct calculation the perimeter of the rectangle 
-        ///// </summary>
-        //[TestMethod()]
-        //public void GivenGetPerimeterFigure_ForRectangleWhen_sideIs2ThenOutIs4()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(2, 2);
-        //    double expectedArea = 8;
-        //    double acualArea;
-
-        //    //Act
-        //    acualArea = rectangle.GetPerimeterFigure();
-
-        //    //Assert
-        //    Assert.AreEqual(expectedArea, acualArea);
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct GetPerimeterFigure method with nagative number
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenGetPerimeterFigure_ForRectangleWhen_sidesIsMinus2ThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(-2, -2);
-        //}
-
-        ///// <summary>
-        ///// Test to verify the correct GetPerimeterFigure method with zero
-        ///// </summary>
-        //[ExpectedException(typeof(ArgumentException))]
-        //[TestMethod()]
-        //public void GivenGetPerimeterFigure_ForRectangleWhen_sidesIsZeroThenOutIsArgumentException()
-        //{
-        //    //Arrange 
-        //    Rectangle rectangle = new Rectangle(0, 0);
-        //}
 }
-

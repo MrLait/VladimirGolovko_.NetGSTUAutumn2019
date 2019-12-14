@@ -1,7 +1,8 @@
 ﻿namespace InheritanceInterfacesAbstractAndClasses
 {
-    public enum SetOfPaints
+    public enum Color
     {
+        Transparent,
         White,
         Red,
         Green,
