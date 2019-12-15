@@ -1,0 +1,706 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InheritanceInterfacesAbstractAndClassesTests</name>
+    </assembly>
+    <members>
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests">
+            <summary>
+            Tests for <see cref="T:InheritanceInterfacesAbstractAndClasses.BoxForFigures"/>
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.InitialBoxForFigures(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Initial box for for figures instance.
+            </summary>
+            <param name="actualFigure">List with actual figures.</param>
+            <returns>Return box for figures instance.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenSquareListWhenFigureIsSquareThenOutContainList(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure},System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for test <see cref="P:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FigureList"/>
+            </summary>
+            <param name="actualSquareFigureList">Sourece list with Square.</param>
+            <param name="expectedSquareFigureList">Expected list with square</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenRectangleListWhenFigureIsRectangleThenOutContainList(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure},System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case fir test <see cref="P:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FigureList"/>
+            </summary>
+            <param name="actualRectangleFigureList">Source list with rectangle.</param>
+            <param name="expectedRectangleFigureList">Expected list with rectangle.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenSquareListWhenFigureIsSquareThenOutArgumentException(System.Double,System.Double)">
+             <summary>
+            Test if the data comes with incorrect value.
+            Then out is argument exception.
+             </summary>
+             <param name="arg0SideA">Arg0 SideA</param>
+             <param name="arg1SideA">Arg1 SideA</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenAddFigureToBoxWhenFigureIsDifferentThenOutIsFigureList(InheritanceInterfacesAbstractAndClasses.Figures.Figure[],System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.AddFigureToBox(InheritanceInterfacesAbstractAndClasses.Figures.Figure)"/>
+            </summary>
+            <param name="actualFigure">Input data with different figures.</param>
+            <param name="expectedRectangleFigureList">Expected figures list.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenAddFigureToBoxWhenFiguresMoreThen20ThenOutIsIndexOutOfRangeException(InheritanceInterfacesAbstractAndClasses.Figures.Figure[],System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.AddFigureToBox(InheritanceInterfacesAbstractAndClasses.Figures.Figure)"/>
+            When figures in the box more then 20. Then out is IndexOutOfRangeException.
+            </summary>
+            <param name="actualFigure">Input data with different figures.</param>
+            <param name="expectedRectangleFigureList">Expected figure list.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenFindFigureByIdWhenByIdThenOutIsFigure(InheritanceInterfacesAbstractAndClasses.Figures.Figure[],System.Int32)">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FindFigureById(System.Int32)"/>
+            </summary>
+            <param name="actualFigure">Actual figure list.</param>
+            <param name="figureId">Figure id.</param>
+            <returns>Returns figure which was found by id.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenExecuteFigureByIdWhenByIdThenOutIsFigure(InheritanceInterfacesAbstractAndClasses.Figures.Figure[],System.Int32)">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ExecuteFigureById(System.Int32)"/>
+            </summary>
+            <param name="actualFigure">Actual figure list.</param>
+            <param name="figureId">Figure id.</param>
+            <returns>Returns figure which was found by id.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenExecuteFigureByIdWhenExecuteOneFigureThenOutputListLessByOne(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure},System.Int32)">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ExecuteFigureById(System.Int32)"/>
+            </summary>
+            <param name="actualFigure">Actual figure list.</param>
+            <param name="figureId">Figure id.</param>
+            <returns>Returns count figures ramaining on the list.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GivenReplaceByIdWhenByIdThenOutNewFigureList(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure},System.Int32,InheritanceInterfacesAbstractAndClasses.Figures.Figure)">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ReplaceById(System.Int32,InheritanceInterfacesAbstractAndClasses.Figures.Figure)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <param name="figureId">Figure id which you want replace.</param>
+            <param name="figure">The figure you want to put in the box.</param>
+            <returns>The figure you want to put in the box.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveFindFigureAccordingToThePatternWhenPatterIsValidThenOutFigureId(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure},InheritanceInterfacesAbstractAndClasses.Figures.Figure)">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FindFigureAccordingToThePattern(InheritanceInterfacesAbstractAndClasses.Figures.Figure)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <param name="figurePattern">Figure pattern.</param>
+            <returns>Found figure by pattern</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetNumberOfFiguresInTheBoxWhenInputIsListFiguresThenOutNumberOfFigures(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetNumberOfFiguresInTheBox"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Returns count of figure in the box.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetSumAreaFiguresWhenInputIsListFiguresThenOutIsValidSumOfArea(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumAreaFigures"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return the total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetSumAreaFiguresWhenInputIsListWithBigValuesFiguresThenOutIsInfinity(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumAreaFigures"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return the total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetSumPerimeterFiguresWhenInputIsListFiguresThenOutIsValidSumOfArea(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumPerimeterFigures"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return the total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetSumPerimeterFiguresWhenInputIsListWithBigValuesFiguresThenOutIsInfinity(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumPerimeterFigures"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return the total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetAllCirclesWhenInputIsListWithoutCircleThenOutIsEmpty(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllCircles"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return list of all circles.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetAllCirclesWhenInputIsListWithCircleThenOutIsCircleList(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllCircles"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return list of all circles.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetAllFilmFiguresWhenInputListFithoutFilmFiguresThenOutIsEmpty(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllFilmFigures"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return list of all film figures.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveGetAllFilmFiguresWhenInputIsListFiguresThenOutIsListFilmFigures(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllFilmFigures"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+            <returns>Return list of all film figures.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSaveAllFiguresInXmlUsingStreamWriterWhenThenOut(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveAllFiguresInXmlUsingStreamWriter(System.String)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSaveFilmFiguresInXmlUsingStreamWriterWhenThenOut(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveFilmFiguresInXmlUsingStreamWriter(System.String)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSavePaperFiguresInXmlUsingStreamWriterWhenThenOut(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SavePaperFiguresInXmlUsingStreamWriter(System.String)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSaveAllFiguresInXmlUsingXmlWriterrWhenThenOut(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveAllFiguresInXmlUsingXmlWriter(System.String)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSaveFilmFiguresInXmlUsingXmlWriter(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveFilmFiguresInXmlUsingXmlWriter(System.String)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSavePaperFiguresInXmlUsingXmlWriter(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SavePaperFiguresInXmlUsingXmlWriter(System.String)"/>
+            </summary>
+            <param name="actualFigure">The source of the list of figures.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveLoadAllFiguresFromXmlUsingStreamReaderWhenThenOut">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.LoadAllFiguresFromXmlUsingStreamReader(System.String)"/>
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveLoadAllFiguresFromXmlUsingXmlReaderWhenThenOut">
+            <summary>
+            Test case for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.LoadAllFiguresFromXmlUsingXmlReader(System.String)"/>
+            </summary>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests">
+            <summary>
+            Factory test cases for Type <see cref="T:InheritanceInterfacesAbstractAndClasses.BoxForFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesFindFigureById">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FindFigureById(System.Int32)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesExecuteFigureById">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ExecuteFigureById(System.Int32)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesExecuteFigureByIdThennOutputListLessByOne">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ExecuteFigureById(System.Int32)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesReplaceById">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ReplaceById(System.Int32,InheritanceInterfacesAbstractAndClasses.Figures.Figure)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesFindFigureAccordingToThePattern">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FindFigureAccordingToThePattern(InheritanceInterfacesAbstractAndClasses.Figures.Figure)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetNumberOfFiguresInTheBox">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetNumberOfFiguresInTheBox"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetSumAreaFigures">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumAreaFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetSumAreaFiguresOutIsInfinity">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumAreaFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetSumPerimetersFigures">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumPerimeterFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetSumPerimetersFiguresOutIsBigValue">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumPerimeterFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetAllCirclesThenOutIsEmpty">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllCircles"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.TestCasesGetAllCirclesThenOutIsCircleList">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllCircles"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.GetAllFilmFiguresThenOutIsEmpty">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllFilmFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.GetAllFilmFiguresThenOutIsFilmFiguresList">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllFilmFigures"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.GetSaveAllFiguresInXmlUsingStreamWriter">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveAllFiguresInXmlUsingStreamWriter(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.GetSaveFilmFiguresInXmlUsingStreamWriter">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveFilmFiguresInXmlUsingStreamWriter(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.GetSavePaperFiguresInXmlUsingStreamWriter">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SavePaperFiguresInXmlUsingStreamWriter(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClassesTests.MyFactoryBoxForFiguresTests.GetSaveAllFiguresInXmlUsingXmlWriter">
+            <summary>
+            Test cases for method <see cref="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSaveAllFiguresInXmlUsingXmlWriterrWhenThenOut(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})"/>
+            and <seealso cref="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSaveFilmFiguresInXmlUsingXmlWriter(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})"/> and
+            <seealso cref="M:InheritanceInterfacesAbstractAndClassesTests.BoxForFiguresTests.GiveSavePaperFiguresInXmlUsingXmlWriter(System.Collections.Generic.List{InheritanceInterfacesAbstractAndClasses.Figures.Figure})"/>
+            </summary>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest">
+            <summary>
+            Tests for <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenCircleWhenConstructorContainMaterialThenOutIsNewCircle(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenCircleWhenConstructorContainSquareThenOutIsNewCircle(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>.
+            Cutting out a circle from a square.
+            </summary>
+            <param name="actualSideA">Actual square sideA.</param>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenCircleWhenConstructorContainRectangleThenOutIsNewCircle(System.Double,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            Cutting out a circle from a rectangle.
+            </summary>
+            <param name="actualSideA">Actual square sideA.</param>
+            <param name="actualSideB">Actual square sideB.</param>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenCircleWhenConstructorContainCircleThenOutIsNewCircle(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            Cutting out a circle from a circle.
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenCircleWhenConstructorContainSheetThenOutIsNewCircle(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            Cutting out a circle from a sheet.
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenGetRadiusWhenConstructorContainSheetThenOutIsGetRadius(System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Radius"/>
+            </summary>
+            <param name="radius">Actual circle radius.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenCircleWhenConstructorContainFigureThenOutIsCutException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            Cutting a circle from a smaller workpiece then CutException.
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="expectedRadius">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenRadiusWhenConstructorContainFigureThenOutIsArgumentException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Radius"/>
+            with radius equel 0 of negative then ArgumentException.
+            </summary>
+            <param name="expectedRadius">Expected circle material.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenGetPerimeterFigureThenOutIsPerimeter(System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.GetPerimeter"/>
+            </summary>
+            <param name="actualRadius">Expected circle radius.</param>
+            <param name="expectedPerimeter">Expected circle perimeter.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenGetHashCodeThenOutIsGetHashCode(System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.GetHashCode"/>
+            </summary>
+            <param name="actualRadius">Expected circle radius.</param>
+            <param name="expectedHashCode">Expected circle hash code.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenSetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Color"/>
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="actualColor">Actual circle color.</param>
+            <param name="expectedColor">Expected circle color.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+            <param name="expectedRadius">Expected circle radius.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenGetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Color"/>
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="actualColor">Actual circle color.</param>
+            <param name="expectedColor">Expected circle color.</param>
+            <param name="expectedMaterial">Expected circle material.</param>
+            <param name="expectedRadius">Expected circle radius.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenSetColorWhenMaterialFigurePaperThenOutIsColorException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Color"/>
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+            <param name="actualColor">Actual circle color.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.CircleTest.GivenSetColorWhenMaterialFigureFilmThenOutIsColorException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Color"/>
+            </summary>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual circle material.</param>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest">
+            <summary>
+            Tests for <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenRectangleWhenConstructorContainMaterialThenOutIsNewRectangle(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh</param>
+            <param name="expectedSideB">Expected rectangle weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenRectangleWhenConstructorContainSquareThenOutIsNewRectangle(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            Cutting out a rectangle from a square.
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh</param>
+            <param name="expectedSideB">Expected rectangle weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenRectangleWhenConstructorContainRectangleThenOutIsNewRectangle(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            Cutting out a rectangle from a rectangle.
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh</param>
+            <param name="expectedSideB">Expected rectangle weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenRectangleWhenConstructorContainCircleThenOutIsNewRectangle(System.Double,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            Cutting out a rectangle from a circle.
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh</param>
+            <param name="expectedSideB">Expected rectangle weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenRectangleWhenConstructorContainSheetThenOutIsNewRectangle(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            Cutting out a rectangle from a sheet.
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh</param>
+            <param name="expectedSideB">Expected rectangle weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenRectangleWhenConstructorContainFigureThenOutIsCutException(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            Cutting a rectangle from a smaller workpiece then CutException.
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh</param>
+            <param name="expectedSideB">Expected rectangle weigh.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenSideAandSideBWhenConstructorContainFigureThenOutIsArgumentException(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.SideB"/>
+            with sideA equel 0 of negative then ArgumentException.
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenGetPerimeterThenOutIsPerimeter(System.Double,System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetPerimeter"/>
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="expectedPerimeter">Expected rectangle perimeter.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenGetHashCodeThenOutIsGetHashCode(System.Double,System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetHashCode"/>
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="expectedHashCode">Expected rectangle HashCode.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenGetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.Color"/>
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh and weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="actualColor">Actual rectangle color.</param>
+            <param name="expectedColor">Expected rectangle color.</param>
+            <param name="expectedMaterial">Expected rectangle material.</param>
+            <param name="expectedSideA">Expected rectangle heigh and weigh.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenSetColorWhenMaterialFigurePaperThenOutIsColorException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.Color"/>
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh and weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+            <param name="actualColor">Actual rectangle color.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.RectangleTest.GivenSetColorWhenMaterialFigureFilmThenOutIsColorException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.Color"/>
+            </summary>
+            <param name="actualSideA">Actual rectangle heigh and weigh.</param>
+            <param name="actualMaterial">Actual rectangle material.</param>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SheetTests">
+            <summary>
+            Tests for <see cref="T:InheritanceInterfacesAbstractAndClasses.Sheet"/>
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SheetTests.GivenGetAreaFigureThenOutIsAreaPositiveInfinity(InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetAreaFigure"/>
+            </summary>
+            <param name="actualMaterial">Actual sheet material.</param>
+            <param name="expectedArea">Expected sheet area.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SheetTests.GivenGetPerimeterThenOutIsAreaPositiveInfinity(InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetPerimeter"/>
+            </summary>
+            <param name="actualMaterial">Actual sheet material.</param>
+            <param name="expectedPerimeter">Expected sheet perimeter.</param>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest">
+            <summary>
+            Tests for <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSquareWhenConstructorContainMaterialThenOutIsNewSquare(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSquareWhenConstructorContainSquareThenOutIsNewSquare(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            Cutting out a square from a square.
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSquareWhenConstructorContainRectangleThenOutIsNewSquare(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            Cutting out a square from a rectangle.
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualSideB">Actual rectangle weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSquareWhenConstructorContainCircleThenOutIsNewSquare(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            Cutting out a square from a circle.
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualRadius">Actual circle radius.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSquareWhenConstructorContainSheetThenOutIsNewSquare(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            Cutting out a square from a sheet.
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSquareWhenConstructorContainFigureThenOutIsCutException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,System.Double)">
+            <summary>
+            Test cases for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            Cutting a square from a smaller workpiece then CutException.
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSideAWhenConstructorContainFigureThenOutIsArgumentException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.SideA"/>
+            with sideA equel 0 of negative then ArgumentException.
+            </summary>
+            <param name="expectedSideA">Expected square material.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenGetPerimeterThenOutIsPerimeter(System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.GetPerimeter"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="expectedPerimeter">Expected square perimeter</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenGetHashCodeThenOutIsGetHashCode(System.Double,System.Double)">
+            <summary>
+            Test cases for type <see cref="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.GetHashCode"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="expectedHashCode">Expected square HashCode</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.Color"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="actualColor">Actual square color.</param>
+            <param name="expectedColor">Expected square color.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenGetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.Color"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="actualColor">Actual square color.</param>
+            <param name="expectedColor">Expected square color.</param>
+            <param name="expectedMaterial">Expected square material.</param>
+            <param name="expectedSideA">Expected square heigh and weigh.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSetColorWhenMaterialFigurePaperThenOutIsColorException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material,InheritanceInterfacesAbstractAndClasses.Colors)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.Color"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+            <param name="actualColor">Actual square color.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClassesTests.FigureTests.SquareTest.GivenSetColorWhenMaterialFigureFilmThenOutIsColorException(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Test cases for type <see cref="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.Color"/>
+            </summary>
+            <param name="actualSideA">Actual square heigh and weigh.</param>
+            <param name="actualMaterial">Actual square material.</param>
+        </member>
+    </members>
+</doc>

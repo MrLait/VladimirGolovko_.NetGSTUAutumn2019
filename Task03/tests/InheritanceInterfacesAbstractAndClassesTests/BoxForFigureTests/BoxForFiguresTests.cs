@@ -8,6 +8,9 @@ using Assert = NUnit.Framework.Assert;
 
 namespace InheritanceInterfacesAbstractAndClassesTests
 {
+    /// <summary>
+    /// Tests for <see cref="BoxForFigures"/>
+    /// </summary>
     [TestFixture]
     public class BoxForFiguresTests
     {
@@ -46,19 +49,28 @@ namespace InheritanceInterfacesAbstractAndClassesTests
                 {
                     new Square(10, Material.Film), new Square(10, Material.Film), new Square(100, Material.Film), new Rectangle(11, 11, Material.Film),
                     new Square(double.MaxValue/1000, Material.Film), new Rectangle(double.MaxValue/1000, 20, Material.Film),
-                    new Circle(7), new Circle(8), new Circle(9), new Circle(10), new Circle(11), new Circle(12), new Circle(13), new Circle(14),
-                    new Circle(15), new Circle(16), new Circle(17), new Circle(18), new Circle(19), new Circle(20), new Circle(21)
+                    new Circle(7,Material.Paper), new Circle(8,Material.Paper), new Circle(9,Material.Paper), new Circle(10,Material.Paper), 
+                    new Circle(11,Material.Paper), new Circle(12,Material.Paper), new Circle(13,Material.Paper), new Circle(14,Material.Paper),
+                    new Circle(15,Material.Paper), new Circle(16,Material.Paper), new Circle(17,Material.Paper), new Circle(18,Material.Paper),
+                    new Circle(19,Material.Paper), new Circle(20,Material.Paper), new Circle(21,Material.Paper)
                 },
                 new List<Figure>
                 {
                     new Square(10, Material.Film), new Square(100, Material.Film), new Rectangle(11, 11, Material.Film),
                     new Square(double.MaxValue/1000, Material.Film), new Rectangle(double.MaxValue/1000, 20, Material.Film),
-                    new Circle(7), new Circle(8), new Circle(9), new Circle(10), new Circle(11), new Circle(12), new Circle(13), new Circle(14),
-                    new Circle(15), new Circle(16), new Circle(17), new Circle(18), new Circle(19), new Circle(20), new Circle(21)
+                    new Circle(7,Material.Paper), new Circle(8,Material.Paper), new Circle(9,Material.Paper), new Circle(10,Material.Paper),
+                    new Circle(11,Material.Paper), new Circle(12,Material.Paper), new Circle(13,Material.Paper), new Circle(14,Material.Paper),
+                    new Circle(15,Material.Paper), new Circle(16,Material.Paper), new Circle(17,Material.Paper), new Circle(18,Material.Paper), 
+                    new Circle(19,Material.Paper), new Circle(20,Material.Paper), new Circle(21,Material.Paper)
                 }
             }
         };
 
+        /// <summary>
+        /// Initial box for for figures instance.
+        /// </summary>
+        /// <param name="actualFigure">List with actual figures.</param>
+        /// <returns>Return box for figures instance.</returns>
         public static BoxForFigures InitialBoxForFigures(List<Figure> actualFigure)
         {
             List<Figure> tmpFigures = new List<Figure>(actualFigure);
@@ -69,6 +81,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return boxForFigures;
         }
 
+        /// <summary>
+        /// Test case for test <see cref="BoxForFigures.FigureList"/>
+        /// </summary>
+        /// <param name="actualSquareFigureList">Sourece list with Square.</param>
+        /// <param name="expectedSquareFigureList">Expected list with square</param>
         [Test, TestCaseSource(nameof(_sourceSquareFigureList))]
         public void GivenSquareListWhenFigureIsSquareThenOutContainList(List<Figure> actualSquareFigureList, List<Figure> expectedSquareFigureList)
         {
@@ -76,6 +93,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             Assert.AreEqual(expectedSquareFigureList, actualSquareFigureList);
         }
 
+        /// <summary>
+        /// Test case fir test <see cref="BoxForFigures.FigureList"/>
+        /// </summary>
+        /// <param name="actualRectangleFigureList">Source list with rectangle.</param>
+        /// <param name="expectedRectangleFigureList">Expected list with rectangle.</param>
         [Test, TestCaseSource(nameof(_sourceRectangleFigureList))]
         public void GivenRectangleListWhenFigureIsRectangleThenOutContainList(List<Figure> actualRectangleFigureList, List<Figure> expectedRectangleFigureList)
         {
@@ -83,6 +105,12 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             Assert.AreEqual(expectedRectangleFigureList, actualRectangleFigureList);
         }
 
+        /// <summary>
+        ///Test if the data comes with incorrect value.
+        ///Then out is argument exception.
+        /// </summary>
+        /// <param name="arg0SideA">Arg0 SideA</param>
+        /// <param name="arg1SideA">Arg1 SideA</param>
         [TestCase(double.MinValue, 0)]
         public void GivenSquareListWhenFigureIsSquareThenOutArgumentException(double arg0SideA, double arg1SideA)
         {
@@ -98,6 +126,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
                 });
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.AddFigureToBox(Figure)"/>
+        /// </summary>
+        /// <param name="actualFigure">Input data with different figures.</param>
+        /// <param name="expectedRectangleFigureList">Expected figures list.</param>
         [Test, TestCaseSource(nameof(_sourceFigureObjects))]
         public void GivenAddFigureToBoxWhenFigureIsDifferentThenOutIsFigureList(Figure[] actualFigure, List<Figure> expectedRectangleFigureList)
         {
@@ -119,12 +152,17 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             Assert.AreEqual(expectedRectangleFigureList, actualBoxList);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.AddFigureToBox(Figure)"/>
+        /// When figures in the box more then 20. Then out is IndexOutOfRangeException.
+        /// </summary>
+        /// <param name="actualFigure">Input data with different figures.</param>
+        /// <param name="expectedRectangleFigureList">Expected figure list.</param>
         [Test, TestCaseSource(nameof(_sourceFigureObjects))]
         public void GivenAddFigureToBoxWhenFiguresMoreThen20ThenOutIsIndexOutOfRangeException(Figure[] actualFigure, List<Figure> expectedRectangleFigureList)
         {
             //Arrange
             BoxForFigures boxForFigures = new BoxForFigures();
-            List<Figure> actualBoxList;
 
             //Act
             if (actualFigure != null)
@@ -134,12 +172,18 @@ namespace InheritanceInterfacesAbstractAndClassesTests
                     boxForFigures.AddFigureToBox(item);
                 }
             }
-            boxForFigures.AddFigureToBox(new Circle(31));
+            boxForFigures.AddFigureToBox(new Circle(31, Material.Paper));
             //Assert
-            Assert.Throws<IndexOutOfRangeException>(() => boxForFigures.AddFigureToBox(new Circle(31)));
+            Assert.Throws<IndexOutOfRangeException>(() => boxForFigures.AddFigureToBox(new Circle(31, Material.Paper)));
 
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.FindFigureById(int)"/>
+        /// </summary>
+        /// <param name="actualFigure">Actual figure list.</param>
+        /// <param name="figureId">Figure id.</param>
+        /// <returns>Returns figure which was found by id.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesFindFigureById")]
         public Figure GivenFindFigureByIdWhenByIdThenOutIsFigure(Figure[] actualFigure, int figureId)
         {
@@ -159,7 +203,12 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return boxForFigures.FindFigureById(figureId);
         }
 
-
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.ExecuteFigureById(int)"/>
+        /// </summary>
+        /// <param name="actualFigure">Actual figure list.</param>
+        /// <param name="figureId">Figure id.</param>
+        /// <returns>Returns figure which was found by id.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesExecuteFigureById")]
         public Figure GivenExecuteFigureByIdWhenByIdThenOutIsFigure(Figure[] actualFigure, int figureId)
         {
@@ -179,8 +228,14 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return boxForFigures.ExecuteFigureById(figureId);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.ExecuteFigureById(int)"/>
+        /// </summary>
+        /// <param name="actualFigure">Actual figure list.</param>
+        /// <param name="figureId">Figure id.</param>
+        /// <returns>Returns count figures ramaining on the list.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesExecuteFigureByIdThennOutputListLessByOne")]
-        public int GivenExecuteFigureByIdWhenByIdThenOutputListLessByOne(List<Figure> actualFigure, int figureId)
+        public int GivenExecuteFigureByIdWhenExecuteOneFigureThenOutputListLessByOne(List<Figure> actualFigure, int figureId)
         {
             //Arrange
             BoxForFigures boxForFigures = InitialBoxForFigures(actualFigure);
@@ -192,6 +247,13 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return boxForFigures.FigureList.Count;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.ReplaceById(int, Figure)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <param name="figureId">Figure id which you want replace.</param>
+        /// <param name="figure">The figure you want to put in the box.</param>
+        /// <returns>The figure you want to put in the box.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesReplaceById")]
         public Figure GivenReplaceByIdWhenByIdThenOutNewFigureList(List<Figure> actualFigure, int figureId, Figure figure)
         {
@@ -205,6 +267,12 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return boxForFigures.FigureList[figureId];
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.FindFigureAccordingToThePattern(Figure)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <param name="figurePattern">Figure pattern.</param>
+        /// <returns>Found figure by pattern</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesFindFigureAccordingToThePattern")]
         public Figure GiveFindFigureAccordingToThePatternWhenPatterIsValidThenOutFigureId(List<Figure> actualFigure, Figure figurePattern)
         {
@@ -218,6 +286,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figureByPattern;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetNumberOfFiguresInTheBox"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Returns count of figure in the box.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetNumberOfFiguresInTheBox")]
         public int GiveGetNumberOfFiguresInTheBoxWhenInputIsListFiguresThenOutNumberOfFigures(List<Figure> actualFigure)
         {
@@ -231,6 +304,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figureCount;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetSumAreaFigures"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return the total area.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetSumAreaFigures")]
         public double GiveGetSumAreaFiguresWhenInputIsListFiguresThenOutIsValidSumOfArea(List<Figure> actualFigure)
         {
@@ -244,6 +322,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figureAreaCount;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetSumAreaFigures"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return the total area.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetSumAreaFiguresOutIsInfinity")]
         public double GiveGetSumAreaFiguresWhenInputIsListWithBigValuesFiguresThenOutIsInfinity(List<Figure> actualFigure)
         {
@@ -257,6 +340,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figureAreaCount;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetSumPerimeterFigures"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return the total perimeter.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetSumPerimetersFigures")]
         public double GiveGetSumPerimeterFiguresWhenInputIsListFiguresThenOutIsValidSumOfArea(List<Figure> actualFigure)
         {
@@ -270,6 +358,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figurePerimeterCount;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetSumPerimeterFigures"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return the total perimeter.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetSumPerimetersFiguresOutIsBigValue")]
         public double GiveGetSumPerimeterFiguresWhenInputIsListWithBigValuesFiguresThenOutIsInfinity(List<Figure> actualFigure)
         {
@@ -283,6 +376,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figurePerimeterCount;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetAllCircles"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return list of all circles.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetAllCirclesThenOutIsEmpty")]
         public List<Circle> GiveGetAllCirclesWhenInputIsListWithoutCircleThenOutIsEmpty(List<Figure> actualFigure)
         {
@@ -296,6 +394,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figureCircles;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetAllCircles"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return list of all circles.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "TestCasesGetAllCirclesThenOutIsCircleList")]
         public List<Circle> GiveGetAllCirclesWhenInputIsListWithCircleThenOutIsCircleList(List<Figure> actualFigure)
         {
@@ -309,6 +412,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return figureCircles;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetAllFilmFigures"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return list of all film figures.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetAllFilmFiguresThenOutIsEmpty")]
         public List<Figure> GiveGetAllFilmFiguresWhenInputListFithoutFilmFiguresThenOutIsEmpty(List<Figure> actualFigure)
         {
@@ -322,6 +430,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return filmFigures;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.GetAllFilmFigures"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
+        /// <returns>Return list of all film figures.</returns>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetAllFilmFiguresThenOutIsFilmFiguresList")]
         public List<Figure> GiveGetAllFilmFiguresWhenInputIsListFiguresThenOutIsListFilmFigures(List<Figure> actualFigure)
         {
@@ -335,6 +448,10 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             return filmFigures;
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.SaveAllFiguresInXmlUsingStreamWriter(string)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetSaveAllFiguresInXmlUsingStreamWriter")]
         public void GiveSaveAllFiguresInXmlUsingStreamWriterWhenThenOut(List<Figure> actualFigure)
         {
@@ -346,6 +463,10 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.SaveAllFiguresInXmlUsingStreamWriter(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.SaveFilmFiguresInXmlUsingStreamWriter(string)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetSaveFilmFiguresInXmlUsingStreamWriter")]
         public void GiveSaveFilmFiguresInXmlUsingStreamWriterWhenThenOut(List<Figure> actualFigure)
         {
@@ -357,6 +478,10 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.SaveFilmFiguresInXmlUsingStreamWriter(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.SavePaperFiguresInXmlUsingStreamWriter(string)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetSavePaperFiguresInXmlUsingStreamWriter")]
         public void GiveSavePaperFiguresInXmlUsingStreamWriterWhenThenOut(List<Figure> actualFigure)
         {
@@ -368,6 +493,10 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.SavePaperFiguresInXmlUsingStreamWriter(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.SaveAllFiguresInXmlUsingXmlWriter(string)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetSaveAllFiguresInXmlUsingXmlWriter")]
         public void GiveSaveAllFiguresInXmlUsingXmlWriterrWhenThenOut(List<Figure> actualFigure)
         {
@@ -379,6 +508,10 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.SaveAllFiguresInXmlUsingXmlWriter(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.SaveFilmFiguresInXmlUsingXmlWriter(string)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetSaveAllFiguresInXmlUsingXmlWriter")]
         public void GiveSaveFilmFiguresInXmlUsingXmlWriter(List<Figure> actualFigure)
         {
@@ -390,6 +523,10 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.SaveFilmFiguresInXmlUsingXmlWriter(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.SavePaperFiguresInXmlUsingXmlWriter(string)"/>
+        /// </summary>
+        /// <param name="actualFigure">The source of the list of figures.</param>
         [Test, TestCaseSource(typeof(MyFactoryBoxForFiguresTests), "GetSaveAllFiguresInXmlUsingXmlWriter")]
         public void GiveSavePaperFiguresInXmlUsingXmlWriter(List<Figure> actualFigure)
         {
@@ -401,6 +538,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.SavePaperFiguresInXmlUsingXmlWriter(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.LoadAllFiguresFromXmlUsingStreamReader(string)"/>
+        /// </summary>
         [Test]
         public void GiveLoadAllFiguresFromXmlUsingStreamReaderWhenThenOut()
         {
@@ -412,6 +552,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             boxForFigures.LoadAllFiguresFromXmlUsingStreamReader(path);
         }
 
+        /// <summary>
+        /// Test case for method <see cref="BoxForFigures.LoadAllFiguresFromXmlUsingXmlReader(string)"/>
+        /// </summary>
         [Test]
         public void GiveLoadAllFiguresFromXmlUsingXmlReaderWhenThenOut()
         {

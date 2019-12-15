@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InheritanceInterfacesAbstractAndClasses.Enum
+﻿namespace InheritanceInterfacesAbstractAndClasses.Enum
 {
+    /// <summary>
+    /// Enum type with material.
+    /// </summary>
     public enum Material
     {
+        /// <summary>
+        /// Film material.
+        /// </summary>
         Film,
+        /// <summary>
+        /// Paper material.
+        /// </summary>
         Paper
     }
 }

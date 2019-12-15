@@ -1,4 +1,5 @@
-﻿using InheritanceInterfacesAbstractAndClasses.Enum;
+﻿using InheritanceInterfacesAbstractAndClasses;
+using InheritanceInterfacesAbstractAndClasses.Enum;
 using InheritanceInterfacesAbstractAndClasses.Figures;
 using NUnit.Framework;
 using System.Collections;
@@ -6,6 +7,9 @@ using System.Collections.Generic;
 
 namespace InheritanceInterfacesAbstractAndClassesTests
 {
+    /// <summary>
+    /// Factory test cases for Type <see cref="BoxForFigures"/>
+    /// </summary>
     public static class MyFactoryBoxForFiguresTests
     {
         private static readonly Figure[] _sourceFigures = new Figure[]
@@ -60,6 +64,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             new Square(10, Material.Paper), new Square(100, Material.Paper)
         };
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.FindFigureById(int)"/>
+        /// </summary>
         public static IEnumerable TestCasesFindFigureById
         {
             get
@@ -74,6 +81,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.ExecuteFigureById(int)"/>
+        /// </summary>
         public static IEnumerable TestCasesExecuteFigureById
         {
             get
@@ -88,6 +98,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.ExecuteFigureById(int)"/>
+        /// </summary>
         public static IEnumerable TestCasesExecuteFigureByIdThennOutputListLessByOne
         {
             get
@@ -102,6 +115,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.ReplaceById(int, Figure)"/>
+        /// </summary>
         public static IEnumerable TestCasesReplaceById
         {
             get
@@ -114,6 +130,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.FindFigureAccordingToThePattern(Figure)"/>
+        /// </summary>
         public static IEnumerable TestCasesFindFigureAccordingToThePattern
         {
             get
@@ -126,6 +145,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetNumberOfFiguresInTheBox"/>
+        /// </summary>
         public static IEnumerable TestCasesGetNumberOfFiguresInTheBox
         {
             get
@@ -134,6 +156,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetSumAreaFigures"/>
+        /// </summary>
         public static IEnumerable TestCasesGetSumAreaFigures
         {
             get
@@ -142,6 +167,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetSumAreaFigures"/>
+        /// </summary>
         public static IEnumerable TestCasesGetSumAreaFiguresOutIsInfinity
         {
             get
@@ -150,6 +178,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetSumPerimeterFigures"/>
+        /// </summary>
         public static IEnumerable TestCasesGetSumPerimetersFigures
         {
             get
@@ -158,6 +189,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetSumPerimeterFigures"/>
+        /// </summary>
         public static IEnumerable TestCasesGetSumPerimetersFiguresOutIsBigValue
         {
             get
@@ -166,6 +200,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetAllCircles"/>
+        /// </summary>
         public static IEnumerable TestCasesGetAllCirclesThenOutIsEmpty
         {
             get
@@ -174,6 +211,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetAllCircles"/>
+        /// </summary>
         public static IEnumerable TestCasesGetAllCirclesThenOutIsCircleList
         {
             get
@@ -182,6 +222,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetAllFilmFigures"/>
+        /// </summary>
         public static IEnumerable GetAllFilmFiguresThenOutIsEmpty
         {
             get
@@ -190,6 +233,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.GetAllFilmFigures"/>
+        /// </summary>
         public static IEnumerable GetAllFilmFiguresThenOutIsFilmFiguresList
         {
             get
@@ -198,6 +244,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.SaveAllFiguresInXmlUsingStreamWriter(string)"/>
+        /// </summary>
         public static IEnumerable GetSaveAllFiguresInXmlUsingStreamWriter
         {
             get
@@ -206,6 +255,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.SaveFilmFiguresInXmlUsingStreamWriter(string)"/>
+        /// </summary>
         public static IEnumerable GetSaveFilmFiguresInXmlUsingStreamWriter
         {
             get
@@ -214,6 +266,9 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFigures.SavePaperFiguresInXmlUsingStreamWriter(string)"/>
+        /// </summary>
         public static IEnumerable GetSavePaperFiguresInXmlUsingStreamWriter
         {
             get
@@ -222,6 +277,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests
             }
         }
 
+        /// <summary>
+        /// Test cases for method <see cref="BoxForFiguresTests.GiveSaveAllFiguresInXmlUsingXmlWriterrWhenThenOut"/>
+        /// and <seealso cref="BoxForFiguresTests.GiveSaveFilmFiguresInXmlUsingXmlWriter"/> and
+        /// <seealso cref="BoxForFiguresTests.GiveSavePaperFiguresInXmlUsingXmlWriter"/>
+        /// </summary>
         public static IEnumerable GetSaveAllFiguresInXmlUsingXmlWriter
         {
             get
@@ -229,6 +289,5 @@ namespace InheritanceInterfacesAbstractAndClassesTests
                 yield return new TestCaseData(_sourceFigureList);
             }
         }
-
     }
 }

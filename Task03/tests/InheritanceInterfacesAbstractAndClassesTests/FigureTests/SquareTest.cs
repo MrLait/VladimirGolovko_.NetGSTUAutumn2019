@@ -7,21 +7,19 @@ using System;
 
 namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
 {
+    /// <summary>
+    /// Tests for <see cref="Square"/>
+    /// </summary>
     [TestFixture()]
     public class SquareTest
     {
-        [TestCase(100, 100)]
-        [TestCase(1000, 1000)]
-        [TestCase(1100, 1100)]
-        public void GivenSquareWhenFigureIsSquareThenOutIsNewSquare(double actualSideA, double expectedSideA)
-        {
-            //Arrange
-            Square actualSquare = new Square(actualSideA, Material.Film);
-
-            //Assert
-            Assert.AreEqual(new Square(expectedSideA, Material.Film), actualSquare);
-        }
-
+        /// <summary>
+        /// Test cases for type <see cref="Square"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
         [TestCase(100, Material.Film, 100, Material.Film)]
         [TestCase(1000, Material.Paper, 1000, Material.Paper)]
         public void GivenSquareWhenConstructorContainMaterialThenOutIsNewSquare(double actualSideA, Material actualMaterial,
@@ -34,6 +32,14 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(new Square(expectedSideA, expectedMaterial), actualSquare);
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square"/>
+        /// Cutting out a square from a square.
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
         [TestCase(100, Material.Film, 100, Material.Film)]
         [TestCase(1000, Material.Paper, 1000, Material.Paper)]
         public void GivenSquareWhenConstructorContainSquareThenOutIsNewSquare(double actualSideA, Material actualMaterial,
@@ -49,7 +55,15 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(new Square(expectedSideA, expectedMaterial), actualSquareOne);
         }
 
-
+        /// <summary>
+        /// Test cases for type <see cref="Square"/>
+        /// Cutting out a square from a rectangle.
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualSideB">Actual rectangle weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
         [TestCase(100, 100, Material.Film, 100, Material.Film)]
         [TestCase(1000, 1000, Material.Paper, 1000, Material.Paper)]
         public void GivenSquareWhenConstructorContainRectangleThenOutIsNewSquare(double actualSideA, double actualSideB,
@@ -65,6 +79,15 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(new Square(expectedSideA, expectedMaterial), actualSquareTwo);
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square"/>
+        /// Cutting out a square from a circle.
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualRadius">Actual circle radius.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
         [TestCase(100, 100, Material.Film, 100, Material.Film)]
         [TestCase(1000, 1000, Material.Paper, 1000, Material.Paper)]
         public void GivenSquareWhenConstructorContainCircleThenOutIsNewSquare(double actualSideA, double actualRadius,
@@ -80,6 +103,14 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(new Square(expectedSideA, expectedMaterial), actualSquareThree);
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square"/>
+        /// Cutting out a square from a sheet.
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
         [TestCase(100, Material.Film, 100, Material.Film)]
         [TestCase(1000, Material.Paper, 1000, Material.Paper)]
         public void GivenSquareWhenConstructorContainSheetThenOutIsNewSquare(double actualSideA,
@@ -95,6 +126,13 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(new Square(expectedSideA, expectedMaterial), actualSquare);
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square"/>
+        /// Cutting a square from a smaller workpiece then CutException.
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
         [TestCase(100, Material.Film, 110)]
         [TestCase(1000, Material.Paper, 1100)]
         public void GivenSquareWhenConstructorContainFigureThenOutIsCutException(double actualSideA, Material actualMaterial,
@@ -107,14 +145,25 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.That(() => new Square(sourceSquare, expectedSideA), Throws.TypeOf<CutException>());
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square.SideA"/>
+        /// with sideA equel 0 of negative then ArgumentException.
+        /// </summary>
+        /// <param name="expectedSideA">Expected square material.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
         [TestCase(-100, Material.Film)]
         [TestCase(-1000, Material.Paper)]
-        public void GivenSideAWhenConstructorContainFigureThenOutIsArgumentException(double actualSideA, Material actualMaterial)
+        public void GivenSideAWhenConstructorContainFigureThenOutIsArgumentException(double expectedSideA, Material expectedMaterial)
         {
             //Assert
-            Assert.That(() => new Square(actualSideA, actualMaterial), Throws.TypeOf<ArgumentException>());
+            Assert.That(() => new Square(expectedSideA, expectedMaterial), Throws.TypeOf<ArgumentException>());
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square.GetPerimeter"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="expectedPerimeter">Expected square perimeter</param>
         [TestCase(100, 400)]
         [TestCase(1000, 4000)]
         [TestCase(1100, 4400)]
@@ -130,6 +179,11 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(expectedPerimeter, actualPerimeter);
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square.GetHashCode"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="expectedHashCode">Expected square HashCode</param>
         [TestCase(100, 1079574528)]
         [TestCase(1000, 1083129856)]
         [TestCase(1100, 1083256832)]
@@ -145,16 +199,25 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(expectedHashCode, actualHashCode);
         }
 
-        [TestCase(100, Material.Paper, Color.Blue,
-            100, Material.Paper, Color.Blue)]
-        [TestCase(100, Material.Paper, Color.Green,
-            100, Material.Paper, Color.Green)]
-        [TestCase(100, Material.Paper, Color.Orange,
-            100, Material.Paper, Color.Orange)]
-        [TestCase(100, Material.Paper, Color.Red,
-            100, Material.Paper, Color.Red)]
-        public void GivenSetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(double actualSideA, Material actualMaterial, Color actualColor,
-            double expectedSideA, Material expectedMaterial, Color expectedColor)
+        /// <summary>
+        /// Test cases for type <see cref="Square.Color"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="actualColor">Actual square color.</param>
+        /// <param name="expectedColor">Expected square color.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        [TestCase(100, Material.Paper, Colors.Blue,
+            100, Material.Paper, Colors.Blue)]
+        [TestCase(100, Material.Paper, Colors.Green,
+            100, Material.Paper, Colors.Green)]
+        [TestCase(100, Material.Paper, Colors.Orange,
+            100, Material.Paper, Colors.Orange)]
+        [TestCase(100, Material.Paper, Colors.Red,
+            100, Material.Paper, Colors.Red)]
+        public void GivenSetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(double actualSideA, Material actualMaterial, Colors actualColor,
+            double expectedSideA, Material expectedMaterial, Colors expectedColor)
         {
             //Arrange
             Square square = new Square(actualSideA, actualMaterial);
@@ -168,16 +231,25 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(expectedSquare, square);
         }
 
-        [TestCase(100, Material.Paper, Color.Blue,
-    100, Material.Paper, Color.Blue)]
-        [TestCase(100, Material.Paper, Color.Green,
-    100, Material.Paper, Color.Green)]
-        [TestCase(100, Material.Paper, Color.Orange,
-    100, Material.Paper, Color.Orange)]
-        [TestCase(100, Material.Paper, Color.Red,
-    100, Material.Paper, Color.Red)]
-        public void GivenGetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(double actualSideA, Material actualMaterial, Color actualColor,
-    double expectedSideA, Material expectedMaterial, Color expectedColor)
+        /// <summary>
+        /// Test cases for type <see cref="Square.Color"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="actualColor">Actual square color.</param>
+        /// <param name="expectedColor">Expected square color.</param>
+        /// <param name="expectedMaterial">Expected square material.</param>
+        /// <param name="expectedSideA">Expected square heigh and weigh.</param>
+        [TestCase(100, Material.Paper, Colors.Blue,
+    100, Material.Paper, Colors.Blue)]
+        [TestCase(100, Material.Paper, Colors.Green,
+    100, Material.Paper, Colors.Green)]
+        [TestCase(100, Material.Paper, Colors.Orange,
+    100, Material.Paper, Colors.Orange)]
+        [TestCase(100, Material.Paper, Colors.Red,
+    100, Material.Paper, Colors.Red)]
+        public void GivenGetColorWhenMaterialFigurePaperThenOutIsFigureWithColor(double actualSideA, Material actualMaterial, Colors actualColor,
+    double expectedSideA, Material expectedMaterial, Colors expectedColor)
         {
             //Arrange
             Square square = new Square(actualSideA, actualMaterial);
@@ -191,11 +263,17 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Assert.AreEqual(expectedColor, square.Color);
         }
 
-        [TestCase(100, Material.Paper, Color.Blue)]
-        [TestCase(100, Material.Paper, Color.Green)]
-        [TestCase(100, Material.Paper, Color.Orange)]
-        [TestCase(100, Material.Paper, Color.Red)]
-        public void GivenSetColorWhenMaterialFigurePaperThenOutIsColorException(double actualSideA, Material actualMaterial, Color actualColor)
+        /// <summary>
+        /// Test cases for type <see cref="Square.Color"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
+        /// <param name="actualColor">Actual square color.</param>
+        [TestCase(100, Material.Paper, Colors.Blue)]
+        [TestCase(100, Material.Paper, Colors.Green)]
+        [TestCase(100, Material.Paper, Colors.Orange)]
+        [TestCase(100, Material.Paper, Colors.Red)]
+        public void GivenSetColorWhenMaterialFigurePaperThenOutIsColorException(double actualSideA, Material actualMaterial, Colors actualColor)
         {
             //Arrange
             Square square = new Square(actualSideA, actualMaterial);
@@ -204,9 +282,14 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             square.Color = actualColor;
             
             //Assert
-            Assert.That(() => square.Color = Color.White, Throws.TypeOf<ColorException>());
+            Assert.That(() => square.Color = Colors.White, Throws.TypeOf<ColorException>());
         }
 
+        /// <summary>
+        /// Test cases for type <see cref="Square.Color"/>
+        /// </summary>
+        /// <param name="actualSideA">Actual square heigh and weigh.</param>
+        /// <param name="actualMaterial">Actual square material.</param>
         [TestCase(100, Material.Film)]
         [TestCase(100, Material.Film)]
         [TestCase(100, Material.Film)]
@@ -217,7 +300,7 @@ namespace InheritanceInterfacesAbstractAndClassesTests.FigureTests
             Square square = new Square(actualSideA, actualMaterial);
 
             //Assert
-            Assert.That(() => square.Color = Color.White, Throws.TypeOf<ColorException>());
+            Assert.That(() => square.Color = Colors.White, Throws.TypeOf<ColorException>());
         }
 
     }
