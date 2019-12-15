@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 tests/Task01_Tests/DeclaringAndCallingMethodsTests/txt/out.txt
+Task01/tests/DeclaringAndCallingMethodsTests/txt/out.txt

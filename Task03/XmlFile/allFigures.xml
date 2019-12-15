@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Figures>
+  <Square Name="Square">
+    <Material>Film</Material>
+    <Sides>10</Sides>
+  </Square>
+  <Square Name="Square">
+    <Material>Film</Material>
+    <Sides>100</Sides>
+  </Square>
+  <Rectangle Name="Rectangle">
+    <Material>Paper</Material>
+    <SideOne>11</SideOne>
+    <SideTwo>11</SideTwo>
+  </Rectangle>
+  <Square Name="Square">
+    <Material>Paper</Material>
+    <Sides>1,61517801874422E+305</Sides>
+  </Square>
+  <Rectangle Name="Rectangle">
+    <Material>Paper</Material>
+    <SideOne>1,61517801874422E+305</SideOne>
+    <SideTwo>20</SideTwo>
+  </Rectangle>
+</Figures>

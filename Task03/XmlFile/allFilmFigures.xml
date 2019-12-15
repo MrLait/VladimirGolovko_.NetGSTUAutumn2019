@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Figures>
+  <Square Name="Square">
+    <Material>Film</Material>
+    <Sides>10</Sides>
+  </Square>
+  <Square Name="Square">
+    <Material>Film</Material>
+    <Sides>100</Sides>
+  </Square>
+</Figures>

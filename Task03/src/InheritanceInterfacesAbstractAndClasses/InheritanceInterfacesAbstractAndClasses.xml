@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InheritanceInterfacesAbstractAndClasses</name>
+    </assembly>
+    <members>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.BoxForFigures">
+            <summary>
+            A box in which you can fold and remove any figures.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.BoxForFigures.MaxBoxSize">
+            <summary>
+            Box can contain only 20 figures.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FigureList">
+             <summary>
+            The list for storing figures.
+             </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.AddFigureToBox(InheritanceInterfacesAbstractAndClasses.Figures.Figure)">
+            <summary>
+            Add a figure, you cannot add the same figure twice.
+            </summary>
+            <param name="figure">Geometric figure.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FindFigureById(System.Int32)">
+            <summary>
+            View by number. The figure remains in the box.
+            </summary>
+            <param name="id">The id of the figure in the box.</param>
+            <returns>Figure that is found by id.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ExecuteFigureById(System.Int32)">
+            <summary>
+            Extract by number. The figure is removed from the box.
+            </summary>
+            <param name="id">The id of the figure in the box.</param>
+            <returns>Figure that is found by id.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.ReplaceById(System.Int32,InheritanceInterfacesAbstractAndClasses.Figures.Figure)">
+            <summary>
+            Replce figure in the box by id.
+            </summary>
+            <param name="id">The id figure in the box/</param>
+            <param name="figure">The figure you want to place in the box.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.FindFigureAccordingToThePattern(InheritanceInterfacesAbstractAndClasses.Figures.Figure)">
+             <summary>
+            Find a figure according to the pattern equivalent in its characteristics.
+             </summary>
+             <param name="figurePattern">Figure pattern.</param>
+             <returns>Found figure according to the pattern.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetNumberOfFiguresInTheBox">
+             <summary>
+            Show available number of figures.
+             </summary>
+             <returns>Number of figures.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumAreaFigures">
+            <summary>
+            Calculate the total area.
+            </summary>
+            <returns>The total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetSumPerimeterFigures">
+            <summary>
+            Calculate the total perimeter.
+            </summary>
+            <returns>The total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllCircles">
+            <summary>
+            Get all circles from the box.
+            </summary>
+            <returns>List of all circles from the box.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.GetAllFilmFigures">
+            <summary>
+            Get all film figures from the box.
+            </summary>
+            <returns>List of all film gigures from the box.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveAllFiguresInXmlUsingStreamWriter(System.String)">
+            <summary>
+            Save all figures in XML format using Stream Writer.
+            </summary>
+            <param name="path">Is the path to xml file.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveFilmFiguresInXmlUsingStreamWriter(System.String)">
+            <summary>
+            Save of all film figures in XML format using Stream Writer.
+            </summary>
+            <param name="path">Is the path to xml file.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SavePaperFiguresInXmlUsingStreamWriter(System.String)">
+            <summary>
+            Save of all paper figures in XML format using Stream Writer.
+            </summary>
+            <param name="path">Is the path to xml file.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveAllFiguresInXmlUsingXmlWriter(System.String)">
+            <summary>
+            Save of all figures in XML format using XML Writer.
+            </summary>
+            <param name="path">Is the path to xml file.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SaveFilmFiguresInXmlUsingXmlWriter(System.String)">
+            <summary>
+            Save of all film figures in XML format using XML Writer.
+            </summary>
+            <param name="path">Is the path to xml file.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.SavePaperFiguresInXmlUsingXmlWriter(System.String)">
+            <summary>
+            Save of all paper figures in XML format using XML Writer.
+            </summary>
+            <param name="path">Is the path to xml file.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.LoadAllFiguresFromXmlUsingStreamReader(System.String)">
+            <summary>
+            Load of all figures to the box using Stream Reader.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.BoxForFigures.LoadAllFiguresFromXmlUsingXmlReader(System.String)">
+            <summary>
+            Load of all figures to the box using XML Reader.
+            </summary>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Enum.Material">
+            <summary>
+            Enum type with material.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Enum.Material.Film">
+            <summary>
+            Film material.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Enum.Material.Paper">
+            <summary>
+            Paper material.
+            </summary>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle">
+            <summary>
+            A circle class that describes a circle figure.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.#ctor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Type constructor for class <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Circle"/>
+            </summary>
+            <param name="radius">Circle radius.</param>
+            <param name="material">Circle material</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.#ctor(InheritanceInterfacesAbstractAndClasses.Figures.Figure,System.Double)">
+            <summary>
+            Type construcr for to cut one figure from another.
+            The area of ​​the figure should be larger than the area of ​​the figure that is cut out of it.
+            </summary>
+            <param name="figure">Source figure.</param>
+            <param name="radius">The radius of the figure you want to get.</param>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Radius">
+            <summary>
+            Radius of the circle.
+            The radius of the figure cannot be negative or equal to zero.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Material">
+            <summary>
+            Circle material.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Color">
+            <summary>
+            Circle color.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.GetAreaFigure">
+            <summary>
+            Calculate circle area.
+            </summary>
+            <returns>The total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.GetPerimeter">
+            <summary>
+            Calculate cirle perimeter.
+            </summary>
+            <returns>The total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.Equals(System.Object)">
+            <summary>
+            Comparing one circle wit another.
+            </summary>
+            <param name="obj">The compared circle.</param>
+            <returns>True if equal. False if not eqal.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hesh code.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Circle.ToString">
+            <summary>
+            Represents class members in string format.
+            </summary>
+            <returns>Returns class members in string format.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Figures.Figure">
+            <summary>
+            Abstract Type Figure.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Figure.Material">
+            <summary>
+            Figure material.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Figure.Color">
+            <summary>
+            Figure color.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Figure.GetAreaFigure">
+            <summary>
+            Abstract method for calculate the area.
+            </summary>
+            <returns>The total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Figure.GetPerimeter">
+            <summary>
+            Abstract method for calculate the perimeter.
+            </summary>
+            <returns>The total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Figure.PaintCheck">
+            <summary>
+            Method for checking the possibility to color figures.
+            </summary>
+            <returns>Return bool or ColorException.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Figure.ToString">
+            <summary>
+            Represents class members in string format.
+            </summary>
+            <returns>Returns class members in string format.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle">
+            <summary>
+            A rectangle class that describes a rectangle figure.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.#ctor(System.Double,System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            The constructor for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle"/>
+            </summary>
+            <param name="sideA">Rectangle width.</param>
+            <param name="sideB">Rectangle height.</param>
+            <param name="material">Rectangle material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.#ctor(InheritanceInterfacesAbstractAndClasses.Figures.Figure,System.Double,System.Double)">
+            <summary>
+            Type constructor for to cut one figure from another.
+            The area of ​​the figure should be larger than the area of ​​the figure that is cut out of it.
+            </summary>
+            <param name="figure">Source figure.</param>
+            <param name="sideA">The width of the figure you want to get.</param>
+            <param name="sideB">The height of the figure you want to get.</param>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.SideB">
+            <summary>
+            Height of the rectangle.
+            The Height of the figure cannot be negative or equal to zero.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.Material">
+            <summary>
+            Rectangle material.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.Color">
+            <summary>
+            Rectangle color.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetAreaFigure">
+            <summary>
+            Calculate rectangle area.
+            </summary>
+            <returns>The total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetPerimeter">
+            <summary>
+            Calculate rectangle perimeter.
+            </summary>
+            <returns>The total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.Equals(System.Object)">
+            <summary>
+            Comparing one rectangle with another.
+            </summary>
+            <param name="obj">The compared rectangle.</param>
+            <returns>True if equal. False if not eqal.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hesh code.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Rectangle.ToString">
+            <summary>
+            Represents class members in string format.
+            </summary>
+            <returns>Returns class members in string format.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Figures.Square">
+            <summary>
+            A square class that describes a square figure.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.#ctor(System.Double,InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            The constructor for type <see cref="T:InheritanceInterfacesAbstractAndClasses.Figures.Square"/>
+            </summary>
+            <param name="sideA">Square width and height.</param>
+            <param name="material">Square material.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.#ctor(InheritanceInterfacesAbstractAndClasses.Figures.Figure,System.Double)">
+            <summary>
+            Type constructor for to cut one figure from another.
+            The area of ​​the figure should be larger than the area of ​​the figure that is cut out of it.
+            </summary>
+            <param name="figure">Source figure.</param>
+            <param name="sideA">The width and height of the figure you want to get.</param>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.SideA">
+            <summary>
+            Width and height of the square.
+            The Height of the figure cannot be negative or equal to zero.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.Material">
+            <summary>
+            Square material.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Figures.Square.Color">
+            <summary>
+            Square color.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.GetAreaFigure">
+            <summary>
+            Calculate square area.
+            </summary>
+            <returns>The total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.GetPerimeter">
+            <summary>
+            Calculate square perimeter.
+            </summary>
+            <returns>The total perimeter.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.Equals(System.Object)">
+            <summary>
+            Comparing one square with another.
+            </summary>
+            <param name="obj">The compared square.</param>
+            <returns>True if equal. False if not eqal.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hesh code.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Figures.Square.ToString">
+            <summary>
+            Represents class members in string format.
+            </summary>
+            <returns>Returns class members in string format.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Colors">
+            <summary>
+            Enum type with colors.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Colors.Transparent">
+            <summary>
+            Transparent color.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Colors.White">
+            <summary>
+            White color.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Colors.Red">
+            <summary>
+            Red color.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Colors.Green">
+            <summary>
+            Green color.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Colors.Blue">
+            <summary>
+            Blue color.
+            </summary>
+        </member>
+        <member name="F:InheritanceInterfacesAbstractAndClasses.Colors.Orange">
+            <summary>
+            Orange color.
+            </summary>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.IO.StreamIO">
+            <summary>
+            Static type to save and load XML document using StreamWriter and StreaReader.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.IO.StreamIO.SaveXmlDocumentUsingStreamWriter(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            Static method to save xDocument with StreamWriter.
+            </summary>
+            <param name="document">Input xDocument.</param>
+            <param name="path">Path to file to save xDocument.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.IO.StreamIO.LoadXmlDocumentUsingStreamReader(System.String)">
+            <summary>
+            Static method to load xml using StreamReader.
+            </summary>
+            <param name="path">Path to file to load xml document using StramReader.</param>
+            <returns>Returns xmlDocuments.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.IO.XmlIO">
+            <summary>
+            Static type to save and load XML document using XmlWriter and XmlReadder
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.IO.XmlIO.SaveXmlDocumentUsingXmlWriter(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            Static method to save xDocument using XmlWriter.
+            </summary>
+            <param name="document">Input xDocument.</param>
+            <param name="path">Path to file to save xDocument.</param>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.IO.XmlIO.LoadXmlDocumentUsingXmlReader(System.String)">
+            <summary>
+            Static method to load xml using XmlReader.
+            </summary>
+            <param name="path">Path to file to load xml document using XmlReader.</param>
+            <returns>Returns xmlDocuments.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.Sheet">
+            <summary>
+            A sheet class that describes a sheet figure.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Sheet.Height">
+            <summary>
+            The height of the sheet.
+            </summary>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Sheet.Width">
+            <summary>
+            The width of the sheet.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Sheet.#ctor(InheritanceInterfacesAbstractAndClasses.Enum.Material)">
+            <summary>
+            Constructor for the Type <see cref="T:InheritanceInterfacesAbstractAndClasses.Sheet"/>
+            </summary>
+            <param name="material">Sheet material.</param>
+        </member>
+        <member name="P:InheritanceInterfacesAbstractAndClasses.Sheet.Material">
+            <summary>
+            Sheet material.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Sheet.GetAreaFigure">
+            <summary>
+            Calculate sheet area.
+            </summary>
+            <returns>The total area.</returns>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.Sheet.GetPerimeter">
+            <summary>
+            Calculate sheet perimeter.
+            </summary>
+            <returns>The total perimeter.</returns>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.UserExceptions.ColorException">
+            <summary>
+            Type with user ColorException.
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.UserExceptions.ColorException.#ctor(System.String)">
+            <summary>
+            ColorException constructor.
+            </summary>
+            <param name="message">ColorException message.</param>
+        </member>
+        <member name="T:InheritanceInterfacesAbstractAndClasses.UserExceptions.CutException">
+            <summary>
+            Type which contain user CutException
+            </summary>
+        </member>
+        <member name="M:InheritanceInterfacesAbstractAndClasses.UserExceptions.CutException.#ctor(System.String)">
+            <summary>
+            <see cref="T:InheritanceInterfacesAbstractAndClasses.UserExceptions.CutException"/> constructor.
+            </summary>
+            <param name="message">CutException message.</param>
+        </member>
+    </members>
+</doc>
