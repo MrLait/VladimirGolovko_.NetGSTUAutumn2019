@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Net.Sockets;
-using System.Text;
+using ClientServerLib.ServerAndClientEventArgs;
 using ClientServerLib.StreamIO;
 
-namespace ClientServerLib.Client
+namespace ClientServerLib.ClientModel
 {
     public class Client
     {
-       // public delegate void MessageHandler(string message);
-       // public event MessageHandler GetMessage;
-
         private const int port = 8888;
         private const string address = "127.0.0.1";
         private string _name;
+
+        public event EventHandler<NewMessageToClientEventArgs> NewMessage;
 
         public Client(string name)
         {
@@ -38,8 +37,10 @@ namespace ClientServerLib.Client
                     NetworkStreamIO.SendMessage(message, _networkStream);
                     string gettingMessage = NetworkStreamIO.GetMessage(_networkStream);
 
-                    Console.WriteLine(gettingMessage);
-                   // GetMessage(gettingMessage);
+                    GetNewMessage(gettingMessage);
+
+
+                    //Console.WriteLine(gettingMessage);
                 }
             }
             catch (Exception ex)
@@ -48,10 +49,21 @@ namespace ClientServerLib.Client
             }
             finally
             {
-
-                Console.WriteLine("client stop");
+                Console.WriteLine("Client stop");
                 client.Close();
             }
         }
+
+        protected void OnNewMessage(NewMessageToClientEventArgs e)
+        {
+            NewMessage?.Invoke(this, e);
+        }
+
+        public void GetNewMessage(string message)
+        {
+            NewMessageToClientEventArgs e = new NewMessageToClientEventArgs(message);
+            OnNewMessage(e);
+        }
+
     }
 }

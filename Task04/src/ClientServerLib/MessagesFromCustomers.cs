@@ -1,10 +1,6 @@
-﻿using ClientServerLib.Server;
-using ClientServerLib.ServerEventArgs;
+﻿using ClientServerLib.ServerModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClientServerLib
 {
@@ -20,10 +16,8 @@ namespace ClientServerLib
             {
                 Console.WriteLine("Faxing mail message:");
                 Console.WriteLine("Client № {0}: {1}", e.Id, e.Message);
-                //string clientMessage = string.Format();
                 messages.Add(string.Format("Client № {0}: {1}", e.Id, e.Message));
             };
         }
-
     }
 }

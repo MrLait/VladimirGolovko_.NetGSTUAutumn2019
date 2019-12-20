@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Net.Sockets;
-using ClientServerLib.ServerEventArgs;
+using ClientServerLib.ServerAndClientEventArgs;
 using ClientServerLib.StreamIO;
 
-namespace ClientServerLib.Server
+namespace ClientServerLib.ServerModel
 {
     
     public class ServerClient
     {
-        public event EventHandler<NewMessageEventArgs> NewMessage;
+        public event EventHandler<NewMessageToServerEventArgs> NewMessage;
 
         private TcpClient _tcpClient;
         private NetworkStream _networkStream;
@@ -33,11 +33,11 @@ namespace ClientServerLib.Server
                 {
                     try
                     {
-                        string getMessage = NetworkStreamIO.GetMessage(_networkStream);
+                        string gettingMessage = NetworkStreamIO.GetMessage(_networkStream);
 
-                        GetNewMessage(getMessage, _clientId);
+                        GetNewMessage(gettingMessage, _clientId);
 
-                        NetworkStreamIO.SendMessage("Message from server received", _networkStream);
+                        NetworkStreamIO.SendMessage("Message from server received, Транслитом: сообщение от сервера принято", _networkStream);
                     }
                     catch (Exception)
                     {
@@ -62,14 +62,14 @@ namespace ClientServerLib.Server
             }
         }
 
-        protected void OnNewMessage(NewMessageEventArgs e)
+        protected void OnNewMessage(NewMessageToServerEventArgs e)
         {
             NewMessage?.Invoke(this, e);
         }
 
         public void GetNewMessage(string message, int clientId)
         {
-            NewMessageEventArgs e = new NewMessageEventArgs(message, clientId);
+            NewMessageToServerEventArgs e = new NewMessageToServerEventArgs(message, clientId);
             OnNewMessage(e);
         }
 
