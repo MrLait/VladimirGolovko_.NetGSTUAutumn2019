@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Net.Sockets;
+using ClientServerLib.ServerEventArgs;
 using ClientServerLib.StreamIO;
 
 namespace ClientServerLib.Server
 {
+    
     public class ServerClient
     {
+        public event EventHandler<NewMessageEventArgs> NewMessage;
+
         private TcpClient _tcpClient;
         private NetworkStream _networkStream;
         private int _clientId;
@@ -29,7 +33,10 @@ namespace ClientServerLib.Server
                 {
                     try
                     {
-                        Console.WriteLine("Client № {0}: {1}", _clientId, NetworkStreamIO.GetMessage(_networkStream));
+                        string getMessage = NetworkStreamIO.GetMessage(_networkStream);
+
+                        GetNewMessage(getMessage, _clientId);
+
                         NetworkStreamIO.SendMessage("Message from server received", _networkStream);
                     }
                     catch (Exception)
@@ -54,5 +61,17 @@ namespace ClientServerLib.Server
                     _tcpClient.Close();
             }
         }
+
+        protected void OnNewMessage(NewMessageEventArgs e)
+        {
+            NewMessage?.Invoke(this, e);
+        }
+
+        public void GetNewMessage(string message, int clientId)
+        {
+            NewMessageEventArgs e = new NewMessageEventArgs(message, clientId);
+            OnNewMessage(e);
+        }
+
     }
 }

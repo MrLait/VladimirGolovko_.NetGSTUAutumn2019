@@ -12,22 +12,26 @@ namespace ClientServerLib.Server
         static TcpListener tcpListener;
         private List<ServerClient> _serverClients = new List<ServerClient>() ;
 
+        private List<MessagesFromCustomers> messagesFromCustomers = new List<MessagesFromCustomers>();
+
         public void Start()
         {
             try
             {
                 tcpListener = new TcpListener(IPAddress.Any, port);
                 tcpListener.Start();
-                Console.WriteLine("Ожидание подключений... ");
+                Console.WriteLine("Waiting for connection... ");
                 int clientId = 0;
                 while (true)
                 {
                     TcpClient client = tcpListener.AcceptTcpClient();
 
                     ServerClient serverClient = new ServerClient(client, this, clientId);
-
                     Thread listenThread = new Thread(new ThreadStart(serverClient.OpenClientStream));
                     listenThread.Start();
+                    
+                    messagesFromCustomers.Add(new MessagesFromCustomers(serverClient));
+
                     clientId++;
                 }
             }

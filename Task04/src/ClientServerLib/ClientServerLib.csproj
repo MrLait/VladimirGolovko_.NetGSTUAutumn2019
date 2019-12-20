@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\Client.cs" />
+    <Compile Include="ServerEventArgs\NewMessageEventArgs.cs" />
+    <Compile Include="MessagesFromCustomers.cs" />
     <Compile Include="StreamIO\NetworkStreamIO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server\Server.cs" />

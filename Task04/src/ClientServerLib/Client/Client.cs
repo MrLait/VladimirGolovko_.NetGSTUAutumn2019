@@ -7,6 +7,9 @@ namespace ClientServerLib.Client
 {
     public class Client
     {
+       // public delegate void MessageHandler(string message);
+       // public event MessageHandler GetMessage;
+
         private const int port = 8888;
         private const string address = "127.0.0.1";
         private string _name;
@@ -33,10 +36,10 @@ namespace ClientServerLib.Client
                     // преобразуем сообщение в массив байтов
 
                     NetworkStreamIO.SendMessage(message, _networkStream);
-                    string response = NetworkStreamIO.GetMessage(_networkStream);
+                    string gettingMessage = NetworkStreamIO.GetMessage(_networkStream);
 
-                    Console.WriteLine(response);
-
+                    Console.WriteLine(gettingMessage);
+                   // GetMessage(gettingMessage);
                 }
             }
             catch (Exception ex)
