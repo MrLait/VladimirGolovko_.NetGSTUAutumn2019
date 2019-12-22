@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClientServerLib</name>
+    </assembly>
+    <members>
+        <member name="T:ClientServerLib.Model.Client">
+            <summary>
+            Client class that describes a client connections.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.Name">
+            <summary>
+            Client name.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.IpAddress">
+            <summary>
+            Host ip address.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.Port">
+            <summary>
+            Host port.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.TcpClient">
+            <summary>
+            Tcp client for to connect to the server.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.NetworkStream">
+            <summary>
+            Through this object, you can send messages to the server or, conversely, receive data from the server.
+            </summary>
+        </member>
+        <member name="E:ClientServerLib.Model.Client.NewMessage">
+            <summary>
+            Event to track new messages.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.NumOfMessages">
+            <summary>
+            The number of messages per connection to the server.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Client.Message">
+            <summary>
+            Sending message.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Model.Client.#ctor(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Constructor <see cref="T:ClientServerLib.Model.Client"/>
+            </summary>
+            <param name="name">Client name.</param>
+            <param name="numOfMessages">The number of messages per connection to the server.</param>
+            <param name="ipAddress">Host ip address.</param>
+            <param name="port">Host port.</param>
+        </member>
+        <member name="M:ClientServerLib.Model.Client.OpenStream">
+            <summary>
+            Method for exchanging messages with the server.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Model.Client.OnNewMessage(ClientServerLib.ServerAndClientEventArgs.NewMessageToClientEventArgs)">
+            <summary>
+            Used to synchronously call the methods supported by the delegate object.
+            </summary>
+            <param name="newMessageToClientEventArgs"> Type to receive a message when an event occurs. </param>
+        </member>
+        <member name="M:ClientServerLib.Model.Client.GetNewMessage(System.String)">
+            <summary>
+            Method for notifying receipt of a new message.
+            </summary>
+            <param name="message">New message.</param>
+        </member>
+        <member name="T:ClientServerLib.Model.Server">
+            <summary>
+            Server class that describes a server connections with client.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Server.Port">
+            <summary>
+            Server port.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Server.ServerClients">
+            <summary>
+            List of client connections on the server.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Server.MessagesFromClients">
+            <summary>
+            A list to store each client’s messages.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Model.Server.#ctor(System.Int32)">
+            <summary>
+            Constructor <see cref="T:ClientServerLib.Model.Server"/>
+            </summary>
+            <param name="port">Server port.</param>
+        </member>
+        <member name="M:ClientServerLib.Model.Server.Start">
+            <summary>
+            Server launch.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Model.Server.AddClientConnection(ClientServerLib.Model.Conversation)">
+            <summary>
+            Adding a new connected client to the collection.
+            </summary>
+            <param name="newClientOnTheServer"> A new client on the server.</param>
+        </member>
+        <member name="M:ClientServerLib.Model.Server.ClientDisconnected(ClientServerLib.Model.Conversation)">
+            <summary>
+            Disconnecting the client from the server.
+            </summary>
+            <param name="newClientOnTheServer">Client on the server.</param>
+        </member>
+        <member name="T:ClientServerLib.Model.Conversation">
+            <summary>
+            Incoming client to the server.
+            </summary>
+        </member>
+        <member name="E:ClientServerLib.Model.Conversation.NewMessage">
+            <summary>
+            New message event.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Conversation.TcpClient">
+            <summary>
+            Tcp client for to connect to the server.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Conversation.Server">
+            <summary>
+            The server to which the client is connected.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Conversation.ClientId">
+            <summary>
+            Client id which the server issues.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Model.Conversation.NetworkStream">
+            <summary>
+            Through this object, you can send messages to the server or, conversely, receive data from the server.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Model.Conversation.#ctor(System.Net.Sockets.TcpClient,ClientServerLib.Model.Server,System.Int32)">
+            <summary>
+            Constructor <see cref="T:ClientServerLib.Model.Conversation"/>
+            </summary>
+            <param name="tcpClient">Tcp client for to connect to the server.</param>
+            <param name="server">The server to which the client is connected.</param>
+            <param name="clientId">Client id which the server issues.</param>
+        </member>
+        <member name="M:ClientServerLib.Model.Conversation.OpenStream">
+            <summary>
+            Method for exchanging messages with the client.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Model.Conversation.OnNewMessage(ClientServerLib.ServerAndClientEventArgs.NewMessageToServerEventArgs)">
+            <summary>
+            Used to synchronously call the methods supported by the delegate object.
+            </summary>
+            /// <param name="e"> Type to receive a message when an event occurs. </param>
+        </member>
+        <member name="M:ClientServerLib.Model.Conversation.GetNewMessage(System.String,System.Int32)">
+            <summary>
+            Method for notifying receipt of a new message.
+            </summary>
+            <param name="message">New message.</param>
+            <param name="clientId">Client id.</param>
+        </member>
+        <member name="T:ClientServerLib.Repositories.ServerMessageRepository">
+            <summary>
+            The type that is subscribed to the event of receiving a message from the clients.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Repositories.ServerMessageRepository.Messages">
+            <summary>
+            List of client messages
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Repositories.ServerMessageRepository.#ctor(ClientServerLib.Model.Client)">
+            <summary>
+            Constructor <see cref="T:ClientServerLib.Repositories.ServerMessageRepository"/>
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:ClientServerLib.Repositories.ServerMessageRepository.MakeTransliterationFromRusIntoEnglish(System.String)">
+            <summary>
+            Method for transliteration from Russian into English.
+            </summary>
+            <param name="message">Input messege.</param>
+            <returns> Returns a string after transliteration.</returns>
+        </member>
+        <member name="T:ClientServerLib.Repositories.ClientMessageRepository">
+            <summary>
+            The type that is subscribed to the event of receiving a message from the server.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.Repositories.ClientMessageRepository.Messages">
+            <summary>
+            List of messages from server.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.Repositories.ClientMessageRepository.#ctor(ClientServerLib.Model.Conversation)">
+            <summary>
+            Constructir <see cref="T:ClientServerLib.Repositories.ClientMessageRepository"/>
+            </summary>
+            <param name="serverClient"></param>
+        </member>
+        <member name="T:ClientServerLib.ServerAndClientEventArgs.NewMessageEventArgs">
+            <summary>
+            Base event type for input messages.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.ServerAndClientEventArgs.NewMessageEventArgs.Message">
+            <summary>
+            Input message.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.ServerAndClientEventArgs.NewMessageEventArgs.#ctor(System.String)">
+            <summary>
+            Constructor for <see cref="T:ClientServerLib.ServerAndClientEventArgs.NewMessageEventArgs"/>
+            </summary>
+            <param name="message">Input message.</param>
+        </member>
+        <member name="T:ClientServerLib.ServerAndClientEventArgs.NewMessageToClientEventArgs">
+            <summary>
+            Type contains additional information about the new message to client event.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.ServerAndClientEventArgs.NewMessageToClientEventArgs.#ctor(System.String)">
+            <summary>
+            Constructor <see cref="T:ClientServerLib.ServerAndClientEventArgs.NewMessageToClientEventArgs"/> 
+            </summary>
+            <param name="message">New message</param>
+        </member>
+        <member name="T:ClientServerLib.ServerAndClientEventArgs.NewMessageToServerEventArgs">
+            <summary>
+            Type contains additional information about the new message to server event.
+            </summary>
+        </member>
+        <member name="P:ClientServerLib.ServerAndClientEventArgs.NewMessageToServerEventArgs.Id">
+            <summary>
+            Clietn id.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.ServerAndClientEventArgs.NewMessageToServerEventArgs.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor <see cref="T:ClientServerLib.ServerAndClientEventArgs.NewMessageToServerEventArgs"/>
+            </summary>
+            <param name="message">New message.</param>
+            <param name="id">Client id.</param>
+        </member>
+        <member name="T:ClientServerLib.StreamIO.NetworkStreamIO">
+            <summary>
+            Type for network messaging.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.StreamIO.NetworkStreamIO.SendMessage(System.String,System.Net.Sockets.NetworkStream)">
+            <summary>
+            Write messages.
+            </summary>
+            <param name="message"> Output messages. </param>
+            <param name="_networkStream"> Network stream to write messages. </param>
+        </member>
+        <member name="M:ClientServerLib.StreamIO.NetworkStreamIO.GetMessage(System.Net.Sockets.NetworkStream)">
+            <summary>
+            Get messages.
+            </summary>
+            <param name="_networkStream">Network stream to read messages</param>
+            <returns>Input messages.</returns>
+        </member>
+        <member name="T:ClientServerLib.UserExceptions.ConnectionError">
+            <summary>
+            Type with user ConnectionError.
+            </summary>
+        </member>
+        <member name="M:ClientServerLib.UserExceptions.ConnectionError.#ctor(System.String)">
+            <summary>
+            ConnectionError constructor.
+            </summary>
+            <param name="message">ConnectionError message.</param>
+        </member>
+    </members>
+</doc>
