@@ -1,24 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using ClientServerLib.ClientModel;
+using ClientServerLib.Model;
 
-namespace ClientServerLib
+namespace ClientServerLib.Repositories
 {
-    public class MessagesFromServer
+    /// <summary>
+    /// The type that is subscribed to the event of receiving a message from the clients.
+    /// </summary>
+    public class ServerMessageRepository
     {
-        private readonly List<string> messages = new List<string>();
+        /// <summary>
+        /// List of client messages
+        /// </summary>
+        public List<string> Messages { get; }
 
-        public List<string> Messages { get { return messages; } }
-
-        public MessagesFromServer(Client client)
+        /// <summary>
+        /// Constructor <see cref="ServerMessageRepository"/>
+        /// </summary>
+        /// <param name="client"></param>
+        public ServerMessageRepository(Client client)
         {
+            Messages = new List<string>();
+
             client.NewMessage += (sender, e) =>
             {
-                Console.WriteLine(Translit(e.Message));
+                Console.WriteLine(MakeTransliterationFromRusIntoEnglish(e.Message));
+                Messages.Add(MakeTransliterationFromRusIntoEnglish(e.Message));
             };
         }
 
-        public string Translit(string message)
+        /// <summary>
+        /// Method for transliteration from Russian into English.
+        /// </summary>
+        /// <param name="message">Input messege.</param>
+        /// <returns> Returns a string after transliteration.</returns>
+        public string MakeTransliterationFromRusIntoEnglish(string message)
         {
             string resultMessage = string.Empty;
             string rusPattern = "абвгдеёжзийк" + "лмнопрстуфхцчшщ" + "ьыъэюя" + "АБВГДЕЁЖЗИЙКЛМНО" + "ПРСТУФХЦЧШЩЬЫЪЭЮЯ";
@@ -27,12 +43,14 @@ namespace ClientServerLib
                 "'", "y", "'", "e", "yu", "ya",
                 "A", "B", "V", "G", "D", "E", "Yo", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O",
                 "P", "R", "S", "T", "U", "F", "Kh", "Ts", "Ch", "Sh", "Shch", "'", "Y", "'", "E", "Yu", "Ya"};
+            char messageLetter = default;
+            string patternLatLetter = string.Empty;
+            bool letterIsEquel = false;
 
             for (int i = 0; i < message.Length; i++)
             {
-                char messageLetter = message[i];
-                string patternLatLetter = string.Empty;
-                bool letterIsEquel = false;
+                messageLetter = message[i];
+                letterIsEquel = false;
 
                 for (int j = 0; j < rusPattern.Length; j++)
                 {
@@ -52,6 +70,5 @@ namespace ClientServerLib
 
             return resultMessage;
         }
-
     }
 }

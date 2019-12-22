@@ -1,17 +1,17 @@
 ﻿using System.Threading;
+using ClientServerLib.Model;
+using ClientServerLib.Repositories;
 
-using ClientServerLib.ClientModel;
-using ClientServerLib;
 namespace ConsoleAppTcpClient
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Client tcpClient1 = new Client("Client");
-            Thread clientThread1 = new Thread(new ThreadStart(tcpClient1.LoadClient));
-            clientThread1.Start();
-            MessagesFromServer messagesFromServer = new MessagesFromServer(tcpClient1); 
+            Client tcpClient = new Client("Vova", 10, "127.0.0.1", 8888);
+            Thread clientThread = new Thread(new ThreadStart(tcpClient.OpenStream));
+            clientThread.Start();
+            ServerMessageRepository messagesFromServer = new ServerMessageRepository(tcpClient);
 
 
         }

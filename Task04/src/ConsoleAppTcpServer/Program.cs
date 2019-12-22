@@ -1,13 +1,13 @@
 ﻿using System.Threading;
-using ClientServerLib.ServerModel;
+using ClientServerLib.Model;
 
 namespace ConsoleAppTcpServer
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Server tcpServer = new Server();
+            Server tcpServer = new Server(8888);
             Thread serverThread = new Thread(new ThreadStart(tcpServer.Start));
             serverThread.Start();
         }
