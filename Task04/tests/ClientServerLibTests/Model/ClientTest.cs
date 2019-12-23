@@ -5,9 +5,15 @@ using System.Threading;
 
 namespace ClientServerLibTests.Model
 {
+    /// <summary>
+    /// Client type test and related classes with it.
+    /// </summary>
     [TestFixture()]
     public class ClientTest
     {
+        /// <summary>
+        /// Testing server connection with client.
+        /// </summary>
         [TestCase()]
         public void GivenOpenStreamWhenServerIsStartedTheOutIsConnectedTrue()
         {
@@ -24,7 +30,11 @@ namespace ClientServerLibTests.Model
             Assert.AreEqual(true, tcpClient.TcpClient.Connected);
         }
 
-
+        /// <summary>
+        /// Testing receipt of a message.
+        /// </summary>
+        /// <param name="actualNumMassages">Numbers of send message</param>
+        /// <param name="actualPort">Server port.</param>
         [TestCase(5, 8880)]
         public void GivenOpenStreamWhenSendNMessageTheOutIseNMessage(int actualNumMassages, int actualPort)
         {
@@ -42,6 +52,13 @@ namespace ClientServerLibTests.Model
             Assert.AreEqual(tcpServer.MessagesFromClients[0].Messages.Count, actualNumMassages + 1);
         }
 
+        /// <summary>
+        /// Testing the correct initialization of the client.
+        /// </summary>
+        /// <param name="actualName">Name of client.</param>
+        /// <param name="actualNumMassages">Numbers of send message</param>
+        /// <param name="actualIp">Server ip.</param>
+        /// <param name="actualPort">Serve port</param>
         [TestCase("Vova", 5, "127.0.0.1", 8887)]
         public void GivenClientWhenInitInstancTheOutString(string actualName, int actualNumMassages, string actualIp, int actualPort)
         {
