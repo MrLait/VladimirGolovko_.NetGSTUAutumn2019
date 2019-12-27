@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
-namespace BinaryTreeLib
+namespace BinaryTreeLib.Core
 {
     public class BinaryTree<T>
         where T : IComparable
@@ -20,6 +21,7 @@ namespace BinaryTreeLib
                 Count = 1;
                 return;
             }
+
             Root.Add(data);
             Count++;
             Root = Root.Balance(Root);

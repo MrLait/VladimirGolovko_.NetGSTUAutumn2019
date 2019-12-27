@@ -1,14 +1,122 @@
-﻿using BinaryTreeLib;
+﻿using BinaryTreeLib.Core;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using BinaryTreeLib.Repositories;
+using BinaryTreeLib.Model;
 
 namespace ConsoleApp1
 {
-    class Program
+    public class Program
     {
+
+        // Beginning of nested classes.
+
+        // Nested class to do ascending sort on year property.
+        private class sortYearAscendingHelper : IComparer
+        {
+            int IComparer.Compare(object a, object b)
+            {
+                car c1 = (car)a;
+                car c2 = (car)b;
+
+                if (c1.Year > c2.Year)
+                    return 1;
+
+                if (c1.Year < c2.Year)
+                    return -1;
+
+                else
+                    return 0;
+            }
+        }
+
+        // Nested class to do descending sort on year property.
+        private class sortYearDescendingHelper : IComparer
+        {
+            int IComparer.Compare(object a, object b)
+            {
+                car c1 = (car)a;
+                car c2 = (car)b;
+
+                if (c1.Year < c2.Year)
+                    return 1;
+
+                if (c1.Year > c2.Year)
+                    return -1;
+
+                else
+                    return 0;
+            }
+        }
+
+        // Nested class to do descending sort on make property.
+        private class sortMakeDescendingHelper : IComparer
+        {
+            int IComparer.Compare(object a, object b)
+            {
+                car c1 = (car)a;
+                car c2 = (car)b;
+                return String.Compare(c2.Make, c1.Make);
+            }
+        }
+
+        // End of nested classes.
+
+        public class car : IComparable
+        {
+            private int year;
+            private string make;
+
+            public car(string Make, int Year)
+            {
+                make = Make;
+                year = Year;
+            }
+
+            public int Year
+            {
+                get { return year; }
+                set { year = value; }
+            }
+
+            public string Make
+            {
+                get { return make; }
+                set { make = value; }
+            }
+
+            // Implement IComparable CompareTo to provide default sort order.
+            int IComparable.CompareTo(object obj)
+            {
+                car c = (car)obj;
+                return String.Compare(this.make, c.make);
+            }
+
+            // Method to return IComparer object for sort helper.
+            public static IComparer sortYearAscending()
+            {
+                return (IComparer)new sortYearAscendingHelper();
+            }
+
+            // Method to return IComparer object for sort helper.
+            public static IComparer sortYearDescending()
+            {
+                return (IComparer)new sortYearDescendingHelper();
+            }
+
+            // Method to return IComparer object for sort helper.
+            public static IComparer sortMakeDescending()
+            {
+                return (IComparer)new sortMakeDescendingHelper();
+            }
+
+        }
+
+
         static void Main(string[] args)
         {
             BinaryTree<int> treeOne = new BinaryTree<int>();
@@ -19,6 +127,14 @@ namespace ConsoleApp1
             treeOne.Add(10);
             treeOne.Add(11);
             treeOne.Add(12);
+
+
+            List<BinaryTree<int>> list = new List<BinaryTree<int>>();
+            list.Add(new BinaryTree<int>());
+            //list.Add(new AssemblyBO() { DisplayName = "Try", Identifier = "243242" });
+            XDocument doc = new XDocument();
+           // SerializeParams<T>(doc, list);
+            //List<AssemblyBO> newList = DeserializeParams<AssemblyBO>(doc);
 
             BinaryTree<int> treeTwo = new BinaryTree<int>();
 
@@ -74,9 +190,64 @@ namespace ConsoleApp1
             var testNull = treeFour.FindNode(3);
             var testFindEightNode = treeFour.FindNode(8);
 
+            BinaryTree<string> treeFive = new BinaryTree<string>();
+
+            treeFive.Add("v");
+            treeFive.Add("a");
+            treeFive.Add("b");
+            treeFive.Add("c");
+            treeFive.Add("d");
+            //treeFour.Add(6);
+            //treeFour.Add(10);
+            //treeFour.Add(14);
+            //treeFour.Add(16);
+            //treeFour.Add(17);
+            //treeFour.Add(18);
+
+            Console.WriteLine();
+            Console.WriteLine("InOrdertreeFive");
+            foreach (string item in treeFive.InOrder())
+            {
+                Console.Write(item + ", ");
+            }
+
+
+            StudentTestResult studentVasaTestResult = new StudentTestResult(new Student(0, "Vasa"), new Test(TestItems.Algebra, new DateTime(10, 10, 10)), 100);
+            StudentTestResult studentVovaTestResult = new StudentTestResult(new Student(1, "Andrey"), new Test(TestItems.Algebra, new DateTime(10, 10, 20)), 990);
+
+            StudentTestResultRepository studentTestResultRepository = new StudentTestResultRepository();
+
+            studentTestResultRepository.AddStudentTestResultToBinaryTree(studentVasaTestResult);
+            studentTestResultRepository.AddStudentTestResultToBinaryTree(studentVovaTestResult);
+
+
 
 
 
         }
+
+        private void SerializeParams<T>(XDocument doc, List<T> paramList)
+        {
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(paramList.GetType());
+
+            System.Xml.XmlWriter writer = doc.CreateWriter();
+
+            serializer.Serialize(writer, paramList);
+
+            writer.Close();
+        }
+
+        private List<T> DeserializeParams<T>(XDocument doc)
+        {
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<T>));
+
+            System.Xml.XmlReader reader = doc.CreateReader();
+
+            List<T> result = (List<T>)serializer.Deserialize(reader);
+            reader.Close();
+
+            return result;
+        }
+
     }
 }
