@@ -1,11 +1,18 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
 
 namespace BinaryTreeLib.Serializer
 {
+    /// <summary>
+    /// Type for serializing and deserializing generic objects.
+    /// </summary>
     public static class Serialization
     {
+        /// <summary>
+        /// Serializing a generic object.
+        /// </summary>
+        /// <typeparam name="T">The type in the XmlSerialaizer.</typeparam>
+        /// <param name="obj">Generic type to serialize.</param>
         public static void XmlSerialaizer<T>(T obj)
         {
             var objTypeName = obj.GetType().Name;
@@ -17,6 +24,12 @@ namespace BinaryTreeLib.Serializer
             }
         }
 
+        /// <summary>
+        /// Deserializing a generic object.
+        /// </summary>
+        /// <typeparam name="T">The type in the XmlSerialaizer.</typeparam>
+        /// <param name="pathToXml">Path to the XML file.</param>
+        /// <returns>Deserialized generic type.</returns>
         public static T XmlDeserialize<T>(string pathToXml)
         {
             XmlSerializer formatter = new XmlSerializer(typeof(T));

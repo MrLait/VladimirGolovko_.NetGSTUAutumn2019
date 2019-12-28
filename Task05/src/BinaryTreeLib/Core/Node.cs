@@ -2,23 +2,51 @@
 
 namespace BinaryTreeLib.Core
 {
+    /// <summary>
+    /// Binary tree node.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the node</typeparam>
     [Serializable]
     public class Node<T>
         where T : IComparable
     {
+        /// <summary>
+        /// The data that is stored in the node.
+        /// </summary>
         public T Data { get; set; }
+
+        /// <summary>
+        /// Left node.
+        /// </summary>
         public Node<T> Left { get; set; }
+
+        /// <summary>
+        /// Right node.
+        /// </summary>
         public Node<T> Right { get; set; }
 
+        /// <summary>
+        /// Constructor without parameters.
+        /// </summary>
         public Node()
         {
         }
 
+        /// <summary>
+        /// Constructor with the data parameter.
+        /// </summary>
+        /// <param name="data">The data that is stored in the node.</param>
         public Node(T data)
         {
             Data = data;
         }
 
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="data">The data that is stored in the node.</param>
+        /// <param name="left">The left node.</param>
+        /// <param name="right">The right node/</param>
         public Node(T data, Node<T> left, Node<T> right)
         {
             Data = data;
@@ -26,6 +54,10 @@ namespace BinaryTreeLib.Core
             Right = right;
         }
 
+        /// <summary>
+        /// Adding a new node to the binary tree.
+        /// </summary>
+        /// <param name="data">Data to be added to the node.</param>
         public void Add(T data)
         {
             var node = new Node<T>(data);
@@ -50,6 +82,12 @@ namespace BinaryTreeLib.Core
             }
         }
 
+        /// <summary>
+        /// Search for a node by value.
+        /// </summary>
+        /// <param name="data">Data to be finded in the node.</param>
+        /// <param name="node">Found node.</param>
+        /// <returns>The node element that was found in the tree.</returns>
         public Node<T> FindNode(T data, Node<T> node = null)
         {
             if (node != null)
@@ -81,6 +119,16 @@ namespace BinaryTreeLib.Core
             }
         }
 
+        /// <summary>
+        /// Implementation of IComparable interface.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance..</param>
+        /// <returns>Returns Int32 A value that indicates the relative order of the objects 
+        /// being compared.The return value has these meanings: 
+        /// Value               Meaning 
+        /// Less than zero      This instance precedes obj in the sort order.
+        /// Zero                This instance occurs in the same position in the sort order as obj.
+        /// Greater than zero   This instance follows obj in the sort order.</returns>
         public int CompareTo(object obj)
         {
             if (obj is Node<T> item)
@@ -93,40 +141,55 @@ namespace BinaryTreeLib.Core
             }
         }
 
-        public int CompareTo(Node<T> other)
-        {
-            return Data.CompareTo(other.Data);
-        }
-
+        /// <summary>
+        /// The difference in the heights of the right and left subtrees
+        /// </summary>
+        /// <param name="node">Current node.</param>
+        /// <returns>The difference in the heights of the right and left node.</returns>
         public int BalanceFactor(Node<T> node)
         {
             return (Height(node.Right) - Height(node.Left));
         }
 
+        /// <summary>
+        /// The height of the node.
+        /// </summary>
+        /// <param name="node">Current node.</param>
+        /// <returns>The height of the current node.</returns>
         public int Height(Node<T> node)
         {
             return ((node != null)
                 ? (1 + Math.Max(Height(node.Left), Height(node.Right))) : 0);
         }
 
-        public Node<T> Balance(Node<T> p)
+        /// <summary>
+        /// Balancing nodes.
+        /// </summary>
+        /// <param name="node">Current node/</param>
+        /// <returns>Returns a balanced node.</returns>
+        public Node<T> Balance(Node<T> node)
         {
-            if (BalanceFactor(p) == 2)
+            if (BalanceFactor(node) == 2)
             {
-                if (BalanceFactor(p.Right) < 0)
-                    p.Right = RotateRight(p.Right);
-                return RotateLeft(p);
+                if (BalanceFactor(node.Right) < 0)
+                    node.Right = RotateRight(node.Right);
+                return RotateLeft(node);
             }
 
-            if (BalanceFactor(p) == -2)
+            if (BalanceFactor(node) == -2)
             {
-                if (BalanceFactor(p.Left) > 0)
-                    p.Left = RotateLeft(p.Left);
-                return RotateRight(p);
+                if (BalanceFactor(node.Left) > 0)
+                    node.Left = RotateLeft(node.Left);
+                return RotateRight(node);
             }
-            return p;
+            return node;
         }
 
+        /// <summary>
+        /// Right turn around node.
+        /// </summary>
+        /// <param name="node">Current node.</param>
+        /// <returns>Returns the new rotated node.</returns>
         public Node<T> RotateRight(Node<T> node)
         {
             var newNode = node.Left;
@@ -135,6 +198,11 @@ namespace BinaryTreeLib.Core
             return newNode;
         }
 
+        /// <summary>
+        /// Left turn around node.
+        /// </summary>
+        /// <param name="node">Current node.</param>
+        /// <returns>Returns the new rotated node.</returns>
         public Node<T> RotateLeft(Node<T> node)
         {
             var newNode = node.Right;
@@ -143,6 +211,11 @@ namespace BinaryTreeLib.Core
             return newNode;
 
         }
+
+        /// <summary>
+        /// Overridden ToString.
+        /// </summary>
+        /// <returns>Returns new ToString.</returns>
         public override string ToString() => Data.ToString();
     }
 }

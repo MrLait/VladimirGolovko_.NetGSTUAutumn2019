@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BinaryTreeLib</name>
+    </assembly>
+    <members>
+        <member name="T:BinaryTreeLib.Core.Node`1">
+            <summary>
+            Binary tree node.
+            </summary>
+            <typeparam name="T">The type of elements in the node</typeparam>
+        </member>
+        <member name="P:BinaryTreeLib.Core.Node`1.Data">
+            <summary>
+            The data that is stored in the node.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Core.Node`1.Left">
+            <summary>
+            Left node.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Core.Node`1.Right">
+            <summary>
+            Right node.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.#ctor">
+            <summary>
+            Constructor without parameters.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.#ctor(`0)">
+            <summary>
+            Constructor with the data parameter.
+            </summary>
+            <param name="data">The data that is stored in the node.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.#ctor(`0,BinaryTreeLib.Core.Node{`0},BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="data">The data that is stored in the node.</param>
+            <param name="left">The left node.</param>
+            <param name="right">The right node/</param>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.Add(`0)">
+            <summary>
+            Adding a new node to the binary tree.
+            </summary>
+            <param name="data">Data to be added to the node.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.FindNode(`0,BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Search for a node by value.
+            </summary>
+            <param name="data">Data to be finded in the node.</param>
+            <param name="node">Found node.</param>
+            <returns>The node element that was found in the tree.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.CompareTo(System.Object)">
+            <summary>
+            Implementation of IComparable interface.
+            </summary>
+            <param name="obj">An object to compare with this instance..</param>
+            <returns>Returns Int32 A value that indicates the relative order of the objects 
+            being compared.The return value has these meanings: 
+            Value               Meaning 
+            Less than zero      This instance precedes obj in the sort order.
+            Zero                This instance occurs in the same position in the sort order as obj.
+            Greater than zero   This instance follows obj in the sort order.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.BalanceFactor(BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            The difference in the heights of the right and left subtrees
+            </summary>
+            <param name="node">Current node.</param>
+            <returns>The difference in the heights of the right and left node.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.Height(BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            The height of the node.
+            </summary>
+            <param name="node">Current node.</param>
+            <returns>The height of the current node.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.Balance(BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Balancing nodes.
+            </summary>
+            <param name="node">Current node/</param>
+            <returns>Returns a balanced node.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.RotateRight(BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Right turn around node.
+            </summary>
+            <param name="node">Current node.</param>
+            <returns>Returns the new rotated node.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.RotateLeft(BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Left turn around node.
+            </summary>
+            <param name="node">Current node.</param>
+            <returns>Returns the new rotated node.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.ToString">
+            <summary>
+            Overridden ToString.
+            </summary>
+            <returns>Returns new ToString.</returns>
+        </member>
+        <member name="T:BinaryTreeLib.Core.BinaryTree`1">
+            <summary>
+            Generalized type "binary tree".
+            </summary>
+            <typeparam name="T">The type of elements in the BinaryTree.</typeparam>
+        </member>
+        <member name="P:BinaryTreeLib.Core.BinaryTree`1.Root">
+            <summary>
+            The root of the binary tree.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Core.BinaryTree`1.Count">
+            <summary>
+            Gets the number of elements contained in the BinaryTree
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.#ctor">
+            <summary>
+            Constructor without parameters.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.Add(`0)">
+            <summary>
+            Adding a new node to the binary tree. Balancing the tree relative to the root element.
+            </summary>
+            <param name="data">Data to be added to the node.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.FindNode(`0,BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Search for a node by value.
+            </summary>
+            <param name="data">Data to be finded in the node.</param>
+            <param name="node">Found node.</param>
+            <returns>The root element that was found in the tree.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.PreOrder">
+            <summary>
+            PreOrder - the current node is processed first, then the left and right subtrees;
+            </summary>
+            <returns>A System.Collections.Generic.List`1 containing all the elements that were found in the binary tree.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.PostOrder">
+            <summary>
+            PostOrder - first, the left subtree of the current node is processed, then the root, then the right subtree;
+            </summary>
+            <returns>A System.Collections.Generic.List`1 containing all the elements that were found in the binary tree.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.InOrder">
+            <summary>
+            InOrder - first, the left and right subtrees of the current node are processed, then the node itself.
+            </summary>
+            <returns>A System.Collections.Generic.List`1 containing all the elements that were found in the binary tree.</returns>
+        </member>
+        <member name="T:BinaryTreeLib.Model.Student">
+            <summary>
+            Student type.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.Student.Id">
+            <summary>
+            Student identification number.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.Student.Name">
+            <summary>
+            Student name.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Student.#ctor">
+            <summary>
+            Constructor without parameters.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Student.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="id">Student identification number.</param>
+            <param name="name">Student name.</param>
+        </member>
+        <member name="T:BinaryTreeLib.Model.StudentTestResult">
+            <summary>
+            A type that contains the test result for the student.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.StudentTestResult.Student">
+            <summary>
+            Student type.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.StudentTestResult.Test">
+            <summary>
+            Test type.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.StudentTestResult.TestResult">
+            <summary>
+            Test result type for student.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Model.StudentTestResult.#ctor">
+            <summary>
+            Constructor without parameters.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Model.StudentTestResult.#ctor(BinaryTreeLib.Model.Student,BinaryTreeLib.Model.Test,System.Int32)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="student">Input student.</param>
+            <param name="test">Input test.</param>
+            <param name="testResult">input test result for student.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Model.StudentTestResult.CompareTo(System.Object)">
+            <summary>
+            Implementation of IComparable interface.
+            </summary>
+            <param name="obj">An object to compare with this instance..</param>
+            <returns>Returns Int32 A value that indicates the relative order of the objects 
+            being compared.The return value has these meanings: 
+            Value               Meaning 
+            Less than zero      This instance precedes obj in the sort order.
+            Zero                This instance occurs in the same position in the sort order as obj.
+            Greater than zero   This instance follows obj in the sort order.</returns>
+        </member>
+        <member name="T:BinaryTreeLib.Model.Test">
+            <summary>
+            Type test.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.Test.TestName">
+            <summary>
+            Test name.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Model.Test.DateTime">
+            <summary>
+            Date of test completion.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Test.#ctor">
+            <summary>
+            Constructor without paremeters.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Test.#ctor(BinaryTreeLib.Model.TestItems,System.DateTime)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="testName">Test name.</param>
+            <param name="dateTime">Data ot test completion.</param>
+        </member>
+        <member name="T:BinaryTreeLib.Model.TestItems">
+            <summary>
+            Types of items for tests.
+            </summary>
+        </member>
+        <member name="F:BinaryTreeLib.Model.TestItems.Algebra">
+            <summary>
+            Algebra test.
+            </summary>
+        </member>
+        <member name="F:BinaryTreeLib.Model.TestItems.Art">
+            <summary>
+            Art test.
+            </summary>
+        </member>
+        <member name="F:BinaryTreeLib.Model.TestItems.Biology">
+            <summary>
+            Biology test.
+            </summary>
+        </member>
+        <member name="F:BinaryTreeLib.Model.TestItems.Chemistry">
+            <summary>
+            Chemistry test.
+            </summary>
+        </member>
+        <member name="F:BinaryTreeLib.Model.TestItems.English">
+            <summary>
+            English test.
+            </summary>
+        </member>
+        <member name="F:BinaryTreeLib.Model.TestItems.Geometry">
+            <summary>
+            Geometry test.
+            </summary>
+        </member>
+        <member name="T:BinaryTreeLib.Repositories.StudentTestResultRepository">
+            <summary>
+            A type that stores student test results in a balanced binary tree.
+            </summary>
+        </member>
+        <member name="P:BinaryTreeLib.Repositories.StudentTestResultRepository.BinaryTreeStudentTestResult">
+            <summary>
+            Binary tree for student test results.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Repositories.StudentTestResultRepository.#ctor">
+            <summary>
+            Constructor without parameters for init BinaryTreeStudentTestResult.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Repositories.StudentTestResultRepository.AddStudentTestResultToBinaryTree(BinaryTreeLib.Model.StudentTestResult)">
+            <summary>
+            Adding student test results to a binary tree
+            </summary>
+            <param name="studentTestResult">Student test results.</param>
+        </member>
+        <member name="T:BinaryTreeLib.Serializer.Serialization">
+            <summary>
+            Type for serializing and deserializing generic objects.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLib.Serializer.Serialization.XmlSerialaizer``1(``0)">
+            <summary>
+            Serializing a generic object.
+            </summary>
+            <typeparam name="T">The type in the XmlSerialaizer.</typeparam>
+            <param name="obj">Generic type to serialize.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Serializer.Serialization.XmlDeserialize``1(System.String)">
+            <summary>
+            Deserializing a generic object.
+            </summary>
+            <typeparam name="T">The type in the XmlSerialaizer.</typeparam>
+            <param name="pathToXml">Path to the XML file.</param>
+            <returns>Deserialized generic type.</returns>
+        </member>
+    </members>
+</doc>
