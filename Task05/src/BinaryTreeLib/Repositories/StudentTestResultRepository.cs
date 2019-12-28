@@ -5,9 +5,10 @@ using BinaryTreeLib.Model;
 
 namespace BinaryTreeLib.Repositories
 {
+    [Serializable]
     public class StudentTestResultRepository
     {
-        public BinaryTree<StudentTestResult> BinaryTreeStudentTestResult { get; private set; }
+        public BinaryTree<StudentTestResult> BinaryTreeStudentTestResult { get; set; }
 
         public StudentTestResultRepository()
         {
@@ -21,6 +22,5 @@ namespace BinaryTreeLib.Repositories
                 BinaryTreeStudentTestResult.Add(studentTestResult);
             }
         }
-
     }
 }

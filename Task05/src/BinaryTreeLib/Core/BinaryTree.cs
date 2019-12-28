@@ -7,11 +7,14 @@ using System.Xml.Serialization;
 
 namespace BinaryTreeLib.Core
 {
+    [Serializable]
     public class BinaryTree<T>
         where T : IComparable
     {
-        public Node<T> Root { get; private set; }
-        public int Count { get; private set; }
+        public Node<T> Root { get; set; }
+        public int Count { get; set; }
+
+        public BinaryTree() { }
 
         public void Add(T data)
         {

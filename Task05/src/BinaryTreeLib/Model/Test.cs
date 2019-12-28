@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace BinaryTreeLib.Model
 {
-    public enum TestItems
-    {
-        Algebra, Art, Biology, Chemistry, English, Geometry
-    }
-
+    [Serializable]
     public class Test
     {
         public TestItems TestName { get; set; }
         public DateTime DateTime { get; set; }
+
+        public Test()
+        {
+        }
 
         public Test(TestItems testName, DateTime dateTime)
         {

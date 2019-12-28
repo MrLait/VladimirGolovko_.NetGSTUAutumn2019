@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using BinaryTreeLib.Repositories;
 using BinaryTreeLib.Model;
+using BinaryTreeLib.Serializer;
 
 namespace ConsoleApp1
 {
@@ -214,40 +215,50 @@ namespace ConsoleApp1
 
             StudentTestResult studentVasaTestResult = new StudentTestResult(new Student(0, "Vasa"), new Test(TestItems.Algebra, new DateTime(10, 10, 10)), 100);
             StudentTestResult studentVovaTestResult = new StudentTestResult(new Student(1, "Andrey"), new Test(TestItems.Algebra, new DateTime(10, 10, 20)), 990);
+            StudentTestResult studentDimaTestResult = new StudentTestResult(new Student(2, "Dima"), new Test(TestItems.Art, new DateTime(30, 1, 20)), 80);
 
             StudentTestResultRepository studentTestResultRepository = new StudentTestResultRepository();
 
             studentTestResultRepository.AddStudentTestResultToBinaryTree(studentVasaTestResult);
             studentTestResultRepository.AddStudentTestResultToBinaryTree(studentVovaTestResult);
+            studentTestResultRepository.AddStudentTestResultToBinaryTree(studentDimaTestResult);
+
+            XmlSerializer formatter = new XmlSerializer(typeof(StudentTestResultRepository));
+
+            using (FileStream fs = new FileStream("studentTestResultRepository.xml", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, studentTestResultRepository);
+            }
 
 
-
-
+            Serialization.XmlSerialaizer<StudentTestResultRepository>(studentTestResultRepository);
+            Serialization.XmlSerialaizer<BinaryTree<string>>(treeFive);
+            var test = Serialization.XmlDeserialize<BinaryTree<string>>("BinaryTree`1.xml");
 
         }
 
-        private void SerializeParams<T>(XDocument doc, List<T> paramList)
-        {
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(paramList.GetType());
+        //private void SerializeParams<T>(XDocument doc, List<T> paramList)
+        //{
+        //    System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(paramList.GetType());
 
-            System.Xml.XmlWriter writer = doc.CreateWriter();
+        //    System.Xml.XmlWriter writer = doc.CreateWriter();
 
-            serializer.Serialize(writer, paramList);
+        //    serializer.Serialize(writer, paramList);
+        //    ,
+        //    writer.Close();
+        //}
 
-            writer.Close();
-        }
+        //private List<T> DeserializeParams<T>(XDocument doc)
+        //{
+        //    System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<T>));
 
-        private List<T> DeserializeParams<T>(XDocument doc)
-        {
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<T>));
+        //    System.Xml.XmlReader reader = doc.CreateReader();
 
-            System.Xml.XmlReader reader = doc.CreateReader();
+        //    List<T> result = (List<T>)serializer.Deserialize(reader);
+        //    reader.Close();
 
-            List<T> result = (List<T>)serializer.Deserialize(reader);
-            reader.Close();
-
-            return result;
-        }
+        //    return result;
+        //}
 
     }
 }

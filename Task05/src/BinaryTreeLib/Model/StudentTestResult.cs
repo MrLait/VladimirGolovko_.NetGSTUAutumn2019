@@ -2,11 +2,16 @@
 
 namespace BinaryTreeLib.Model
 {
+    [Serializable]
     public class StudentTestResult: IComparable
     {
-        public Student Student { get; private set; }
-        public Test Test { get; private set; }
-        public int TestResult { get; private set; }
+        public Student Student { get;  set; }
+        public Test Test { get;  set; }
+        public int TestResult { get;  set; }
+
+        public StudentTestResult()
+        {
+        }
 
         public StudentTestResult(Student student, Test test, int testResult)
         {
