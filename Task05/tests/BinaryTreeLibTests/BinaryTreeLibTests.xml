@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BinaryTreeLibTests</name>
+    </assembly>
+    <members>
+        <member name="T:BinaryTreeLibTests.CoreTests.BinaryTreeTests">
+            <summary>
+            BinaryTreeTests type test and related classes with it.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.InitialIntBinaryTree">
+            <summary>
+            Initialization of a int binary tree.
+            </summary>
+            <returns>Returns a new int binary tree.</returns>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.InitialStringBinaryTree">
+            <summary>
+            Initialization of a string binary tree.
+            </summary>
+            <returns>Returns a new string binary tree.</returns>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenAddWhenTIsIntThenOutIsIntBinaryTree">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.Add(`0)"/> where T is Int32.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenAddWhenTIsStringThenOutIsStringBinaryTree">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.Add(`0)"/> where T is String.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenAddWhenActualTIntExpectedTStringThenOutIsNotEquel">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.Add(`0)"/> where T is Int32 and String.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenAddWhenArgumentIsNullThenOutIsNullReferenceException">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.Add(`0)"/> when NullReferenceException.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenFindNodeWhenArgumentIsIntThenOutIsFoundNode(System.Int32,System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.FindNode(`0,BinaryTreeLib.Core.Node{`0})"/>
+            </summary>
+            <param name="actualNode">Object to find.</param>
+            <param name="expectedNode">Found object.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenFindNodeWhenArgumentIsIntThenOutIsNull(System.Int32,System.String)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.FindNode(`0,BinaryTreeLib.Core.Node{`0})"/>
+            </summary>
+            <param name="actualNode">Object to find.</param>
+            <param name="expectedNode">Found object.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenPreOrderWhenTIsIntThenOutIsString(System.String,System.Boolean)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.PreOrder"/>
+            </summary>
+            <param name="expectedBinaryTreeToPreOrderStr">A string containing all the elements that were found in the binary tree.</param>
+            <param name="initEmpty">BinaryTree is null?</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenPostOrderWhenTIsIntThenOutIsString(System.String,System.Boolean)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.PostOrder"/>
+            </summary>
+            <param name="expectedBinaryTreeToPostOrderStr">A string containing all the elements that were found in the binary tree.</param>
+            <param name="initEmpty">BinaryTree is null?</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenInOrderWhenTIsIntThenOutIsString(System.String,System.Boolean)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.BinaryTree`1.InOrder"/>
+            </summary>
+            <param name="expectedBinaryTreeToInOrderStr">A string containing all the elements that were found in the binary tree.</param>
+            <param name="initEmpty">BinaryTree is null?</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenGetHashCodeThenOutIsGetHashCode(System.Double)">
+            <summary>
+            Test cases for type <see cref="T:BinaryTreeLib.Core.BinaryTree`1"/>
+            </summary>
+            <param name="expectedHashCode">Expected square HashCode</param>
+        </member>
+        <member name="T:BinaryTreeLibTests.CoreTests.NodeTests">
+            <summary>
+            NodeTests type test and related classes with it.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenAddWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.Add(`0)"/> where T is Int32.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualLeft">Left node.</param>
+            <param name="actualRight">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenAddWhenTSingThenOutIsStringNode(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.Add(`0)"/> where T is String.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualLeft">Left node.</param>
+            <param name="actualRight">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenFindNodeWhenArgumentIsIntThenOutIsNull(System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.FindNode(`0,BinaryTreeLib.Core.Node{`0})"/>
+            </summary>
+            <param name="actualFoundNode">Object to find.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenBalanceRRWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.BalanceFactor(BinaryTreeLib.Core.Node{`0})"/> where T is Int32.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualRight">Right node.</param>
+            <param name="actualNextRight">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenBalanceLLWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.BalanceFactor(BinaryTreeLib.Core.Node{`0})"/> where T is Int32.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualLeft">Left node.</param>
+            <param name="actualNextLeft">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenBalanceLRWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.BalanceFactor(BinaryTreeLib.Core.Node{`0})"/> where T is Int32.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualLeft">Left node.</param>
+            <param name="actualNextRight">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.CoreTests.NodeTests.GivenBalanceRLWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Core.Node`1.BalanceFactor(BinaryTreeLib.Core.Node{`0})"/> where T is Int32.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualRight">Right node.</param>
+            <param name="actualNextLeft">Lefth node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="T:BinaryTreeLibTests.RepositoriesTests.StudentTestResultRepositoryTests">
+            <summary>
+            StudentTestResultRepositoryTests type test and related classes with it.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.RepositoriesTests.StudentTestResultRepositoryTests.GivenAddStudentTestResultToBinaryTreeThenOutIsStudentBinaryTree">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Repositories.StudentTestResultRepository.AddStudentTestResultToBinaryTree(BinaryTreeLib.Model.StudentTestResult)"/>
+            </summary>
+        </member>
+        <member name="T:BinaryTreeLibTests.SerializerTests.SerializationTests">
+            <summary>
+            SerializationTests type test and related classes with it.
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.SerializerTests.SerializationTests.GivenXmlSerialaizerWhenInputIsStudentTestResultRepositoryThenOutIsXMLFileStudentTestResultRepository">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Serializer.Serialization.XmlSerialaizer``1(``0)"/>
+            </summary>
+        </member>
+        <member name="M:BinaryTreeLibTests.SerializerTests.SerializationTests.GivenXmlDeserializeWhenInputIsPathToFileOutIsNewStudentTestResultRepository(System.String)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Serializer.Serialization.XmlDeserialize``1(System.String)"/>
+            </summary>
+            <param name="pathToXmlFile">The path to Xml file.</param>
+        </member>
+        <member name="M:BinaryTreeLibTests.SerializerTests.SerializationTests.GivenXmlDeserializeWhenInputIsPathToNotExistThenOutIsFileNotFoundException(System.String)">
+            <summary>
+            Testing <see cref="M:BinaryTreeLib.Serializer.Serialization.XmlDeserialize``1(System.String)"/> when file is not exist.
+            </summary>
+            <param name="pathToXmlFile">The path to Xml file.</param>
+        </member>
+    </members>
+</doc>
