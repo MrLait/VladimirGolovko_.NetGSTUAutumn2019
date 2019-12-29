@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using BinaryTreeLib.Core;
 using BinaryTreeLib.Model;
 
@@ -35,5 +34,32 @@ namespace BinaryTreeLib.Repositories
                 BinaryTreeStudentTestResult.Add(studentTestResult);
             }
         }
+
+        /// <summary>
+        /// Comparing one StudentTestResultRepository with another.
+        /// </summary>
+        /// <param name="obj">The compared StudentTestResultRepository.</param>
+        /// <returns>True if equal. False if not equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            StudentTestResultRepository studentTestResultRepository = (StudentTestResultRepository)obj;
+
+            return BinaryTreeStudentTestResult.Equals(studentTestResultRepository.BinaryTreeStudentTestResult);
+        }
+
+        /// <summary>
+        /// Calculate hash code.
+        /// </summary>
+        /// <returns>The total hash code.</returns>
+        public override int GetHashCode()
+        {
+            return BinaryTreeStudentTestResult.GetHashCode();
+        }
+
     }
 }

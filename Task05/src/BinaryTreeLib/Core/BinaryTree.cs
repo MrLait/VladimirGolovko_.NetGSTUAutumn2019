@@ -32,6 +32,9 @@ namespace BinaryTreeLib.Core
         /// <param name="data">Data to be added to the node.</param>
         public void Add(T data)
         {
+            if (data == null)
+                throw new NullReferenceException("Cannot assign null to root.");
+
             if (Root == null)
             {
                 Root = new Node<T>(data);
@@ -53,6 +56,7 @@ namespace BinaryTreeLib.Core
         public Node<T> FindNode(T data, Node<T> node = null)
         {
             node = node ?? Root;
+
             return Root.FindNode(data, node);
         }
 
@@ -66,6 +70,7 @@ namespace BinaryTreeLib.Core
             {
                 return new List<T>();
             }
+
             return PreOrder(Root);
         }
 
@@ -79,6 +84,7 @@ namespace BinaryTreeLib.Core
             {
                 return new List<T>();
             }
+
             return PostOrder(Root);
         }
 
@@ -92,6 +98,7 @@ namespace BinaryTreeLib.Core
             {
                 return new List<T>();
             }
+
             return InOrder(Root);
         }
 
@@ -108,6 +115,7 @@ namespace BinaryTreeLib.Core
                 if (node.Right != null)
                     list.AddRange(PreOrder(node.Right));
             }
+
             return list;
         }
 
@@ -124,6 +132,7 @@ namespace BinaryTreeLib.Core
 
                 list.Add(node.Data);
             }
+
             return list;
         }
 
@@ -141,7 +150,34 @@ namespace BinaryTreeLib.Core
                 if (node.Right != null)
                     list.AddRange(InOrder(node.Right));
             }
+
             return list;
+        }
+
+        /// <summary>
+        /// Comparing one binary tree with another.
+        /// </summary>
+        /// <param name="obj">The compared binary tree.</param>
+        /// <returns>True if equal. False if not equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            BinaryTree<T> binaryTree = (BinaryTree<T>)obj;
+
+            return Count.Equals(binaryTree.Count) && Root.Equals(binaryTree.Root);
+        }
+
+        /// <summary>
+        /// Calculate hash code.
+        /// </summary>
+        /// <returns>The total hash code.</returns>
+        public override int GetHashCode()
+        {
+            return Count.GetHashCode() + Root.GetHashCode();
         }
     }
 }

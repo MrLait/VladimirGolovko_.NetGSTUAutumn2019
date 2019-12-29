@@ -10,6 +10,9 @@ namespace BinaryTreeLib.Core
     public class Node<T>
         where T : IComparable
     {
+        private const int LeftBalanceFactor = 2;
+        private const int RightBalanceFactor = -2;
+
         /// <summary>
         /// The data that is stored in the node.
         /// </summary>
@@ -102,7 +105,6 @@ namespace BinaryTreeLib.Core
                 return null;
             }
 
-
             if (data.CompareTo(node.Data) == -1)
             {
                 if (Left == null)
@@ -132,13 +134,9 @@ namespace BinaryTreeLib.Core
         public int CompareTo(object obj)
         {
             if (obj is Node<T> item)
-            {
                 return Data.CompareTo(item);
-            }
             else
-            {
                 throw new ArgumentException("Types do not match");
-            }
         }
 
         /// <summary>
@@ -169,20 +167,33 @@ namespace BinaryTreeLib.Core
         /// <returns>Returns a balanced node.</returns>
         public Node<T> Balance(Node<T> node)
         {
-            if (BalanceFactor(node) == 2)
+            if (BalanceFactor(node) == LeftBalanceFactor)
             {
                 if (BalanceFactor(node.Right) < 0)
                     node.Right = RotateRight(node.Right);
                 return RotateLeft(node);
             }
 
-            if (BalanceFactor(node) == -2)
+            if (BalanceFactor(node) == RightBalanceFactor)
             {
                 if (BalanceFactor(node.Left) > 0)
                     node.Left = RotateLeft(node.Left);
                 return RotateRight(node);
             }
             return node;
+        }
+
+        /// <summary>
+        /// Left turn around node.
+        /// </summary>
+        /// <param name="node">Current node.</param>
+        /// <returns>Returns the new rotated node.</returns>
+        public Node<T> RotateLeft(Node<T> node)
+        {
+            var newNode = node.Right;
+            node.Right = newNode.Left;
+            newNode.Left = node;
+            return newNode;
         }
 
         /// <summary>
@@ -199,23 +210,34 @@ namespace BinaryTreeLib.Core
         }
 
         /// <summary>
-        /// Left turn around node.
+        /// Comparing one node with another.
         /// </summary>
-        /// <param name="node">Current node.</param>
-        /// <returns>Returns the new rotated node.</returns>
-        public Node<T> RotateLeft(Node<T> node)
+        /// <param name="obj">The compared node.</param>
+        /// <returns>True if equal. False if not equal.</returns>
+        public override bool Equals(object obj)
         {
-            var newNode = node.Right;
-            node.Right = newNode.Left;
-            newNode.Left = node;
-            return newNode;
 
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Node<T> node = (Node<T>)obj;
+
+            return Data.Equals(node.Data);
         }
 
         /// <summary>
-        /// Overridden ToString.
+        /// Calculate hash code.
         /// </summary>
-        /// <returns>Returns new ToString.</returns>
+        /// <returns>The total hash code.</returns>
+        public override int GetHashCode()
+        {
+            return Data.GetHashCode();
+        }
+
+        /// <summary>
+        /// Represents class members in string format.
+        /// </summary>
+        /// <returns>Returns class members in string format.</returns>
         public override string ToString() => Data.ToString();
     }
 }

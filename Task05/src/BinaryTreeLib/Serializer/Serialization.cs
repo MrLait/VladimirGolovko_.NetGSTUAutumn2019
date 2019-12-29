@@ -32,8 +32,16 @@ namespace BinaryTreeLib.Serializer
         /// <returns>Deserialized generic type.</returns>
         public static T XmlDeserialize<T>(string pathToXml)
         {
+            FileInfo fileInfo = new FileInfo(pathToXml);
+
+            if (!fileInfo.Exists)
+            {
+                throw new FileNotFoundException("Path to file is not correct.");
+            }
+
             XmlSerializer formatter = new XmlSerializer(typeof(T));
             T newDeserialaize;
+
             using (FileStream fs = new FileStream(pathToXml, FileMode.OpenOrCreate))
             {
                 newDeserialaize = (T)formatter.Deserialize(fs);

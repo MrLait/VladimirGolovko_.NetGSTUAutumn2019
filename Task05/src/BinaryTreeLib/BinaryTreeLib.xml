@@ -91,13 +91,6 @@
             <param name="node">Current node/</param>
             <returns>Returns a balanced node.</returns>
         </member>
-        <member name="M:BinaryTreeLib.Core.Node`1.RotateRight(BinaryTreeLib.Core.Node{`0})">
-            <summary>
-            Right turn around node.
-            </summary>
-            <param name="node">Current node.</param>
-            <returns>Returns the new rotated node.</returns>
-        </member>
         <member name="M:BinaryTreeLib.Core.Node`1.RotateLeft(BinaryTreeLib.Core.Node{`0})">
             <summary>
             Left turn around node.
@@ -105,11 +98,31 @@
             <param name="node">Current node.</param>
             <returns>Returns the new rotated node.</returns>
         </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.RotateRight(BinaryTreeLib.Core.Node{`0})">
+            <summary>
+            Right turn around node.
+            </summary>
+            <param name="node">Current node.</param>
+            <returns>Returns the new rotated node.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.Equals(System.Object)">
+            <summary>
+            Comparing one node with another.
+            </summary>
+            <param name="obj">The compared node.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.Node`1.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
         <member name="M:BinaryTreeLib.Core.Node`1.ToString">
             <summary>
-            Overridden ToString.
+            Represents class members in string format.
             </summary>
-            <returns>Returns new ToString.</returns>
+            <returns>Returns class members in string format.</returns>
         </member>
         <member name="T:BinaryTreeLib.Core.BinaryTree`1">
             <summary>
@@ -164,6 +177,19 @@
             </summary>
             <returns>A System.Collections.Generic.List`1 containing all the elements that were found in the binary tree.</returns>
         </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.Equals(System.Object)">
+            <summary>
+            Comparing one binary tree with another.
+            </summary>
+            <param name="obj">The compared binary tree.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Core.BinaryTree`1.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
         <member name="T:BinaryTreeLib.Model.Student">
             <summary>
             Student type.
@@ -190,6 +216,19 @@
             </summary>
             <param name="id">Student identification number.</param>
             <param name="name">Student name.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Student.Equals(System.Object)">
+            <summary>
+            Comparing one student with another.
+            </summary>
+            <param name="obj">The compared student.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Student.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
         </member>
         <member name="T:BinaryTreeLib.Model.StudentTestResult">
             <summary>
@@ -236,6 +275,19 @@
             Zero                This instance occurs in the same position in the sort order as obj.
             Greater than zero   This instance follows obj in the sort order.</returns>
         </member>
+        <member name="M:BinaryTreeLib.Model.StudentTestResult.Equals(System.Object)">
+            <summary>
+            Comparing one StudentTestResult with another.
+            </summary>
+            <param name="obj">The compared StudentTestResult.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Model.StudentTestResult.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
         <member name="T:BinaryTreeLib.Model.Test">
             <summary>
             Type test.
@@ -262,6 +314,19 @@
             </summary>
             <param name="testName">Test name.</param>
             <param name="dateTime">Data ot test completion.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Test.Equals(System.Object)">
+            <summary>
+            Comparing one test with another.
+            </summary>
+            <param name="obj">The compared test.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Model.Test.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
         </member>
         <member name="T:BinaryTreeLib.Model.TestItems">
             <summary>
@@ -318,6 +383,19 @@
             Adding student test results to a binary tree
             </summary>
             <param name="studentTestResult">Student test results.</param>
+        </member>
+        <member name="M:BinaryTreeLib.Repositories.StudentTestResultRepository.Equals(System.Object)">
+            <summary>
+            Comparing one StudentTestResultRepository with another.
+            </summary>
+            <param name="obj">The compared StudentTestResultRepository.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:BinaryTreeLib.Repositories.StudentTestResultRepository.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
         </member>
         <member name="T:BinaryTreeLib.Serializer.Serialization">
             <summary>

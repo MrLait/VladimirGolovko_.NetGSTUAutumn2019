@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BinaryTreeLib.Model
 {
@@ -39,6 +35,34 @@ namespace BinaryTreeLib.Model
             TestName = testName;
             DateTime = dateTime;
         }
+
+        /// <summary>
+        /// Comparing one test with another.
+        /// </summary>
+        /// <param name="obj">The compared test.</param>
+        /// <returns>True if equal. False if not equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Test test = (Test)obj;
+
+            return TestName.Equals(test.TestName) &&
+                DateTime.Equals(test.DateTime);
+        }
+
+        /// <summary>
+        /// Calculate hash code.
+        /// </summary>
+        /// <returns>The total hash code.</returns>
+        public override int GetHashCode()
+        {
+            return DateTime.GetHashCode() + TestName.GetHashCode();
+        }
+
     }
 
 }

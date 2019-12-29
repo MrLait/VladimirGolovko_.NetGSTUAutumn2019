@@ -1,76 +1,14 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>ClientServerLibTests</name>
+        <name>BinaryTreeLibTests</name>
     </assembly>
     <members>
-        <member name="T:ClientServerLibTests.Model.ClientTest">
+        <member name="M:BinaryTreeLibTests.CoreTests.BinaryTreeTests.GivenGetHashCodeThenOutIsGetHashCode(System.Double)">
             <summary>
-            Client type test and related classes with it.
+            Test cases for type <see cref="T:BinaryTreeLib.Core.BinaryTree`1"/>
             </summary>
-        </member>
-        <member name="M:ClientServerLibTests.Model.ClientTest.GivenOpenStreamWhenServerIsStartedTheOutIsConnectedTrue">
-            <summary>
-            Testing server connection with client.
-            </summary>
-        </member>
-        <member name="M:ClientServerLibTests.Model.ClientTest.GivenOpenStreamWhenSendNMessageTheOutIseNMessage(System.Int32,System.Int32)">
-            <summary>
-            Testing receipt of a message.
-            </summary>
-            <param name="actualNumMassages">Numbers of send message</param>
-            <param name="actualPort">Server port.</param>
-        </member>
-        <member name="M:ClientServerLibTests.Model.ClientTest.GivenClientWhenInitInstancTheOutString(System.String,System.Int32,System.String,System.Int32)">
-            <summary>
-            Testing the correct initialization of the client.
-            </summary>
-            <param name="actualName">Name of client.</param>
-            <param name="actualNumMassages">Numbers of send message</param>
-            <param name="actualIp">Server ip.</param>
-            <param name="actualPort">Serve port</param>
-        </member>
-        <member name="T:ClientServerLibTests.Model.ServerTest">
-            <summary>
-            Server type test and related classes with it.
-            </summary>
-        </member>
-        <member name="M:ClientServerLibTests.Model.ServerTest.GivenServerWhenInitInstancTheOutIsTwoClients(System.String,System.Int32,System.String,System.Int32)">
-            <summary>
-            Testing client connections to the server.
-            </summary>
-            <param name="actualNameOne"> Name of clients</param>
-            <param name="actualNumMassages">Numbers of send message</param>
-            <param name="actualIp">Server ip.</param>
-            <param name="actualPort">Serve port</param>
-        </member>
-        <member name="T:ClientServerLibTests.UserExceptions.ServerMessageRepositoryTests">
-            <summary>
-            ServerMessageRepositoryTests type test and related classes with it.
-            </summary>
-        </member>
-        <member name="M:ClientServerLibTests.UserExceptions.ServerMessageRepositoryTests.GivenMakeTransliterationFromRusIntoEnglishTheOutIsStringWithTranslit(System.String,System.Int32,System.String,System.Int32)">
-            <summary>
-            Testing make transliteration from rus into English
-            </summary>
-            <param name="actualName">Name of client.</param>
-            <param name="actualNumMassages">Numbers of send message</param>
-            <param name="actualIp">Server ip.</param>
-            <param name="actualPort">Serve port</param>
-        </member>
-        <member name="T:ClientServerLibTests.UserExceptions.ConnectionErrorTests">
-            <summary>
-            ConnectionErrorTests type test and related classes with it.
-            </summary>
-        </member>
-        <member name="M:ClientServerLibTests.UserExceptions.ConnectionErrorTests.GivenConnectionErrorTheOutIsConnectionError(System.String,System.Int32,System.String,System.Int32)">
-            <summary>
-            Testing exceprion ConnectionError
-            </summary>
-            <param name="actualName">Name of client.</param>
-            <param name="actualNumMassages">Numbers of send message</param>
-            <param name="actualIp">Server ip.</param>
-            <param name="actualPort">Serve port</param>
+            <param name="expectedHashCode">Expected square HashCode</param>
         </member>
     </members>
 </doc>

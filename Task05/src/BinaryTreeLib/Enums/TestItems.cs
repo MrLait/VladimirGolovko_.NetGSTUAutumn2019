@@ -8,12 +8,12 @@
         /// <summary>
         /// Algebra test.
         /// </summary>
-        Algebra, 
+        Algebra,
 
         /// <summary>
         /// Art test.
         /// </summary>
-        Art, 
+        Art,
 
         /// <summary>
         /// Biology test.

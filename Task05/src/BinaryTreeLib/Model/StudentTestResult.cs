@@ -6,22 +6,22 @@ namespace BinaryTreeLib.Model
     /// A type that contains the test result for the student.
     /// </summary>
     [Serializable]
-    public class StudentTestResult: IComparable
+    public class StudentTestResult : IComparable
     {
         /// <summary>
         /// Student type.
         /// </summary>
-        public Student Student { get;  set; }
+        public Student Student { get; set; }
 
         /// <summary>
         /// Test type.
         /// </summary>
-        public Test Test { get;  set; }
+        public Test Test { get; set; }
 
         /// <summary>
         /// Test result type for student.
         /// </summary>
-        public int TestResult { get;  set; }
+        public int TestResult { get; set; }
 
         /// <summary>
         /// Constructor without parameters.
@@ -59,6 +59,34 @@ namespace BinaryTreeLib.Model
                 return TestResult.CompareTo(item.TestResult);
             else
                 throw new ArgumentException("Types do not match");
+        }
+
+        /// <summary>
+        /// Comparing one StudentTestResult with another.
+        /// </summary>
+        /// <param name="obj">The compared StudentTestResult.</param>
+        /// <returns>True if equal. False if not equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            StudentTestResult studentTestResult = (StudentTestResult)obj;
+
+            return Student.Equals(studentTestResult.Student) &&
+                Test.Equals(studentTestResult.Test) &&
+                TestResult.Equals(studentTestResult.TestResult);
+        }
+
+        /// <summary>
+        /// Calculate hash code.
+        /// </summary>
+        /// <returns>The total hash code.</returns>
+        public override int GetHashCode()
+        {
+            return Student.GetHashCode() + Test.GetHashCode() + TestResult.GetHashCode();
         }
     }
 }
