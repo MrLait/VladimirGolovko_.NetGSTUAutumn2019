@@ -1,4 +1,0 @@
---1. CREATE DATABASE
-CREATE DATABASE SessionsResultsDB
-COLLATE Cyrillic_General_CI_AS
-GO
