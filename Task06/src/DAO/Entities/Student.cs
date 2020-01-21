@@ -1,23 +1,21 @@
-﻿using System;
+﻿using DAO.Interfaces;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DataBase.Entities
+namespace DAO.Entities
 {
-    [TableName("Student")]
+    [Table("Student")]
     public class Student
     {
-        [DbColumn("StudentID")]
+        [Key]
         public int StudentID { get; set; }
-        [DbColumn("Surname")]
+
         public string Surname { get; set; }
-        [DbColumn("FirstName")]
         public string FirstName { get; set; }
-        [DbColumn("MiddleName")]
         public string MiddleName { get; set; }
-        [DbColumn("Gender")]
         public string Gender { get; set; }
-        [DbColumn("DateOfBirth")]
         public DateTime DateOfBirth { get; set; }
-        [DbColumn("StudentGroup")]
         public int StudentGroup { get; set; }
 
     }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace DataBase.DAO.Interfaces
+namespace DAO.Interfaces
 {
     public interface IDataOperation<T>
     {
-        T GetByID(string ID);
+        T GetByID(int byID);
         object Add(T entity);
-        void Delete(string byID);
+        void Delete(int byID);
         T Update(T entity);
         IList<T> GetAll();
     }

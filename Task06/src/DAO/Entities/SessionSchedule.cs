@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAO.Interfaces;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DataBase.Entities
+namespace DAO.Entities
 {
+    [Table("SessionSchedule")]
     public class SessionSchedule
     {
-        public int SessionScheduleID { get; set; }
+        [Key]
+        public int ID { get; set; }
+
         public int StudentGroup { get; set; }
         public DateTime ExamDate { get; set; }
         public DateTime OffsetDate { get; set; }
