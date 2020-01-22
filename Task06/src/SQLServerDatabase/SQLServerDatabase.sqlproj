@@ -69,6 +69,9 @@
     <BuildExtensionConfiguration Include="PublishSql_Don't work_\SQLServerDatabase.publish.sql" />
     <Build Include="StoredProcedure\AddStudent.sql" />
     <Build Include="StoredProcedure\GetStudentByID.sql" />
+    <Build Include="StoredProcedure\DeleteStudentByID.sql" />
+    <Build Include="StoredProcedure\UpdateStudent.sql" />
+    <Build Include="StoredProcedure\GetAllStudent.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />
