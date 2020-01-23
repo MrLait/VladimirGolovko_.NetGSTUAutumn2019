@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE SessionSchedule
+﻿CREATE PROCEDURE AddSessionSchedule
 @NumberOfSession   INT,
 @StudentGroup      INT,
 @Subject           NVARCHAR(max),

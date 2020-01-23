@@ -1,6 +1,6 @@
-﻿using DAO.Entities;
+﻿using DAO.Models;
 
-namespace DAO.Objects
+namespace DAO.DBAccessTechnology.SqlClientUsingReflectionObjects
 {
     public class StudentObject : BaseObject<Student>
     {

@@ -1,9 +1,8 @@
-﻿using DAO.Interfaces;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAO.Entities
+namespace DAO.Models
 {
     [Table("Student")]
     public class Student

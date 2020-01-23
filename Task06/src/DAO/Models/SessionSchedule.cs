@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAO.Entities
+namespace DAO.Models
 {
     [Table("SessionSchedule")]
     public class SessionSchedule

@@ -60,6 +60,8 @@
     <Folder Include="ForegianKey" />
     <Folder Include="PublishSql_Don%27t work_" />
     <Folder Include="StoredProcedure" />
+    <Folder Include="StoredProcedure\Student" />
+    <Folder Include="StoredProcedure\SessionSchedule" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Student.sql" />
@@ -67,11 +69,16 @@
     <Build Include="Tables\StudentSessionResults.sql" />
     <Build Include="ForegianKey\StudentSessionResults.sql" />
     <BuildExtensionConfiguration Include="PublishSql_Don't work_\SQLServerDatabase.publish.sql" />
-    <Build Include="StoredProcedure\AddStudent.sql" />
-    <Build Include="StoredProcedure\GetStudentByID.sql" />
-    <Build Include="StoredProcedure\DeleteStudentByID.sql" />
-    <Build Include="StoredProcedure\UpdateStudent.sql" />
-    <Build Include="StoredProcedure\GetAllStudent.sql" />
+    <Build Include="StoredProcedure\Student\AddStudent.sql" />
+    <Build Include="StoredProcedure\Student\DeleteStudentByID.sql" />
+    <Build Include="StoredProcedure\Student\GetAllStudent.sql" />
+    <Build Include="StoredProcedure\Student\GetStudentByID.sql" />
+    <Build Include="StoredProcedure\Student\UpdateStudent.sql" />
+    <Build Include="StoredProcedure\SessionSchedule\AddSessionSchedule.sql" />
+    <Build Include="StoredProcedure\SessionSchedule\DeleteSessionScheduleByID.sql" />
+    <Build Include="StoredProcedure\SessionSchedule\GetAllSessionSchedule.sql" />
+    <Build Include="StoredProcedure\SessionSchedule\GetSessionScheduleByID.sql" />
+    <Build Include="StoredProcedure\SessionSchedule\UpdateSessionSchedule.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />

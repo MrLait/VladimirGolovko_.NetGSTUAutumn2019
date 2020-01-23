@@ -7,10 +7,9 @@ using System.Reflection;
 using DAO.Helpers;
 using DAO.Interfaces;
 
-
-namespace DAO.Objects
+namespace DAO.DBAccessTechnology.SqlClientUsingReflectionObjects
 {
-    public abstract class BaseObject<T> : IDataOperation<T> where T : new()
+    public abstract class BaseObject<T> : ICRUD<T> where T : new()
     {
         public string DbConString { get; private set; }
 
@@ -163,7 +162,6 @@ namespace DAO.Objects
             }
         }
 
-
         private List<SqlParameter> GetAddParameter(object obj)
         {
             PropertyInfo[] fields = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -204,14 +202,5 @@ namespace DAO.Objects
             sqlCommand.Parameters.AddRange(sqlParamArr);
             return sqlCommand;
         }
-
-        IList<T> IDataOperation<T>.GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-
-       
-
     }
 }

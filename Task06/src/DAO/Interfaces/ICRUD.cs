@@ -2,7 +2,7 @@
 
 namespace DAO.Interfaces
 {
-    public interface IDataOperation<T>
+    public interface ICRUD<T>
     {
         T GetByID(int byID);
         object Add(T entity);

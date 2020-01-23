@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryTreeLib.Enums;
+using System;
 
 namespace BinaryTreeLib.Model
 {
