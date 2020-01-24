@@ -1,7 +1,7 @@
-﻿using DAO.DBAccessTechnology.SqlClientUsingReflectionObjects;
+﻿using DAO.DBAccessTechnology.SqlClientUsingReflectionRepository;
 using DAO.Factories;
-using DAO.Models;
 using DAO.Enums;
+using DatabaseModels.Models;
 using System;
 using System.Collections.Generic;
 
@@ -18,25 +18,25 @@ namespace ConsoleApp1
                 MiddleName = "sddM",
                 FirstName = "Dimfffffff",
                 DateOfBirth = DateTime.Now.Date,
-                Gender = "Maldsde",
-                StudentGroup = 1,
-                StudentID = 4
+                Gender = "Famale",
+                GroupID = 1,
+                ID = 4
             };
 
 
-            StudentObject studentObject = new StudentObject(dbConnectionString);
-            studentObject.Add(student);
+            StudentRepository studentRepository = new StudentRepository(dbConnectionString);
+            studentRepository.Add(student);
             //ICRUD<T> cRUD = new 
            // var testObj = studentObject.GetByID(student.StudentID);
            // studentObject.Delete(student.StudentID);
-            studentObject.Update(student);
-            var getAllStudents = studentObject.GetAll();
+            studentRepository.Update(student);
+            var getAllStudents = studentRepository.GetAll();
 
             DAOFactory daoFactory = DAOFactory.CreateDAOFactory(DBAccessTechnologyEnum.SqlClientUsingReflection, dbConnectionString);
-            StudentObject studentObjectTwo = daoFactory.CreateStudentObjectDAO(dbConnectionString);
+            StudentRepository studentRepositoryTwo = daoFactory.CreateStudentRepositoryDAO();
 
-            IList<Student> students = studentObjectTwo.GetAll();
-            studentObjectTwo.Add(student);
+            IList<Student> students = studentRepositoryTwo.GetAll();
+            studentRepositoryTwo.Add(student);
         }
     }
 }

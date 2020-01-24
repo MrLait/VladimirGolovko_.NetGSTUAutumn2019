@@ -8,6 +8,6 @@ namespace DAO.Interfaces
         object Add(T entity);
         void Delete(int byID);
         T Update(T entity);
-        IList<T> GetAll();
+        IList<T> GetAll(); // 
     }
 }

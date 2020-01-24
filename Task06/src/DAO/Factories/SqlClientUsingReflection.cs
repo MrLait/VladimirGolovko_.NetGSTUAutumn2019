@@ -1,4 +1,4 @@
-﻿using DAO.DBAccessTechnology.SqlClientUsingReflectionObjects;
+﻿using DAO.DBAccessTechnology.SqlClientUsingReflectionRepository;
 
 namespace DAO.Factories
 {
@@ -11,14 +11,29 @@ namespace DAO.Factories
             DbConnectionString = dbConnectionString;
         }
 
-        public override SessionScheduleObject CreateSessionScheduleObjectDAO()
+        public override ExamScheduleRepository CreateExamScheduleRepositoryDAO()
         {
-            return new SessionScheduleObject(DbConnectionString);
+            return new ExamScheduleRepository(DbConnectionString);
         }
 
-        public override StudentObject CreateStudentObjectDAO()
+        public override GroupRepository CreateGroupRepositoryDAO()
         {
-            return new StudentObject(DbConnectionString);
+            return new GroupRepository(DbConnectionString);
+        }
+
+        public override SetOffScheduleRepository CreateSetOffScheduleRepositoryDAO()
+        {
+            return new SetOffScheduleRepository(DbConnectionString);
+        }
+
+        public override StudentRepository CreateStudentRepositoryDAO()
+        {
+            return new StudentRepository(DbConnectionString);
+        }
+
+        public override StudentSessionResultsRepository CreateStudentSessionResultsRepositoryDAO()
+        {
+            return new StudentSessionResultsRepository(DbConnectionString);
         }
     }
 }

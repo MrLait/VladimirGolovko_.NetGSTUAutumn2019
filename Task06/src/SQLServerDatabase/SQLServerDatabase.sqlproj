@@ -60,27 +60,58 @@
     <Folder Include="ForegianKey" />
     <Folder Include="PublishSql_Don%27t work_" />
     <Folder Include="StoredProcedure" />
-    <Folder Include="StoredProcedure\Student" />
-    <Folder Include="StoredProcedure\SessionSchedule" />
+    <Folder Include="StoredProcedure\StudentProc" />
+    <Folder Include="StoredProcedure\ExamScheduleProc" />
+    <Folder Include="PostDeploy" />
+    <Folder Include="StoredProcedure\SetOffSheduleProc" />
+    <Folder Include="StoredProcedure\GroupProc" />
+    <Folder Include="StoredProcedure\StudentSessionResultsProc" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Student.sql" />
-    <Build Include="Tables\SessionSchedule.sql" />
+    <Build Include="Tables\ExamSchedule.sql" />
     <Build Include="Tables\StudentSessionResults.sql" />
-    <Build Include="ForegianKey\StudentSessionResults.sql" />
-    <BuildExtensionConfiguration Include="PublishSql_Don't work_\SQLServerDatabase.publish.sql" />
-    <Build Include="StoredProcedure\Student\AddStudent.sql" />
-    <Build Include="StoredProcedure\Student\DeleteStudentByID.sql" />
-    <Build Include="StoredProcedure\Student\GetAllStudent.sql" />
-    <Build Include="StoredProcedure\Student\GetStudentByID.sql" />
-    <Build Include="StoredProcedure\Student\UpdateStudent.sql" />
-    <Build Include="StoredProcedure\SessionSchedule\AddSessionSchedule.sql" />
-    <Build Include="StoredProcedure\SessionSchedule\DeleteSessionScheduleByID.sql" />
-    <Build Include="StoredProcedure\SessionSchedule\GetAllSessionSchedule.sql" />
-    <Build Include="StoredProcedure\SessionSchedule\GetSessionScheduleByID.sql" />
-    <Build Include="StoredProcedure\SessionSchedule\UpdateSessionSchedule.sql" />
+    <Build Include="ForegianKey\StudentSessionResultsFK.sql" />
+    <Build Include="StoredProcedure\StudentProc\AddStudent.sql" />
+    <Build Include="StoredProcedure\StudentProc\DeleteStudentByID.sql" />
+    <Build Include="StoredProcedure\StudentProc\GetAllStudent.sql" />
+    <Build Include="StoredProcedure\StudentProc\GetStudentByID.sql" />
+    <Build Include="StoredProcedure\StudentProc\UpdateStudent.sql" />
+    <Build Include="StoredProcedure\ExamScheduleProc\AddExamSchedule.sql" />
+    <Build Include="StoredProcedure\ExamScheduleProc\DeleteExamScheduleByID.sql" />
+    <Build Include="StoredProcedure\ExamScheduleProc\GetAllExamSchedule.sql" />
+    <Build Include="StoredProcedure\ExamScheduleProc\GetExamScheduleByID.sql" />
+    <Build Include="StoredProcedure\ExamScheduleProc\UpdateExamSchedule.sql" />
+    <Build Include="Tables\SetOffSchedule.sql" />
+    <Build Include="Tables\Group.sql" />
+    <Build Include="ForegianKey\StudentFK.sql" />
+    <Build Include="ForegianKey\ExamScheduleFK.sql" />
+    <Build Include="ForegianKey\SetOffScheduleFK.sql" />
+    <Build Include="PostDeploy\ExamSchedulePostDep.sql" />
+    <Build Include="PostDeploy\SetOffSchedulePostDep.sql" />
+    <Build Include="PostDeploy\StudentSessionResultsPostDep.sql" />
+    <Build Include="StoredProcedure\SetOffSheduleProc\AddSetOffSchedule.sql" />
+    <Build Include="StoredProcedure\SetOffSheduleProc\DeleteSetOffScheduleByID.sql" />
+    <Build Include="StoredProcedure\SetOffSheduleProc\GetAllSetOffSchedule.sql" />
+    <Build Include="StoredProcedure\SetOffSheduleProc\GetSetOffScheduleByID.sql" />
+    <Build Include="StoredProcedure\SetOffSheduleProc\UpdateSetOffSchedule.sql" />
+    <Build Include="StoredProcedure\GroupProc\AddGroup.sql" />
+    <Build Include="StoredProcedure\GroupProc\DeleteGroupByID.sql" />
+    <Build Include="StoredProcedure\GroupProc\GetAllGroup.sql" />
+    <Build Include="StoredProcedure\GroupProc\GetGroupByID.sql" />
+    <Build Include="StoredProcedure\GroupProc\UpdateGroup.sql" />
+    <Build Include="StoredProcedure\StudentSessionResultsProc\AddStudentSessionResults.sql" />
+    <Build Include="StoredProcedure\StudentSessionResultsProc\DeleteStudentSessionResultsByID.sql" />
+    <Build Include="StoredProcedure\StudentSessionResultsProc\GetAllStudentSessionResults.sql" />
+    <Build Include="StoredProcedure\StudentSessionResultsProc\GetStudentSessionResultsByID.sql" />
+    <Build Include="StoredProcedure\StudentSessionResultsProc\UpdateStudentSessionResults.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="PostDeploy\GroupPostDep.sql" />
+    <Build Include="PostDeploy\StudentPostDep.sql" />
+    <PostDeploy Include="PostDeploy\Script.Main.PostDeployment.sql" />
   </ItemGroup>
 </Project>
