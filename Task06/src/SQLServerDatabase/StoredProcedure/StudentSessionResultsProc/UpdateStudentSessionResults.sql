@@ -2,11 +2,11 @@
 @ID				INT = 0,
 @StudentID      INT,
 @ExamScheduleID INT,
-@ExamResult     INT,
-@SetOffResult  NVARCHAR(max)
+@ExamValue		INT,
+@SetOffValue	NVARCHAR(max)
 AS
 	UPDATE StudentSessionResults
-	SET	StudentID = @StudentID, ExamScheduleID = @ExamScheduleID, ExamResult = @ExamResult, SetOffResult = SetOffResult
+	SET	StudentID = @StudentID, ExamScheduleID = @ExamScheduleID, ExamValue = @ExamValue, SetOffValue = @SetOffValue
 	Where ID = @ID
 --Selecting this Row
 	SELECT * FROM StudentSessionResults WHERE ID = @ID

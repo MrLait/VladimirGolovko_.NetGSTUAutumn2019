@@ -7,7 +7,6 @@ namespace DAO.Factories
     {
         public abstract ExamScheduleRepository CreateExamScheduleRepositoryDAO();
         public abstract GroupRepository CreateGroupRepositoryDAO();
-        public abstract SetOffScheduleRepository CreateSetOffScheduleRepositoryDAO();
         public abstract StudentRepository CreateStudentRepositoryDAO();
         public abstract StudentSessionResultsRepository CreateStudentSessionResultsRepositoryDAO();
 

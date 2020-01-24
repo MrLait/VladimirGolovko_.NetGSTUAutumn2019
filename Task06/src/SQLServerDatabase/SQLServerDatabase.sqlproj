@@ -63,7 +63,6 @@
     <Folder Include="StoredProcedure\StudentProc" />
     <Folder Include="StoredProcedure\ExamScheduleProc" />
     <Folder Include="PostDeploy" />
-    <Folder Include="StoredProcedure\SetOffSheduleProc" />
     <Folder Include="StoredProcedure\GroupProc" />
     <Folder Include="StoredProcedure\StudentSessionResultsProc" />
   </ItemGroup>
@@ -82,19 +81,11 @@
     <Build Include="StoredProcedure\ExamScheduleProc\GetAllExamSchedule.sql" />
     <Build Include="StoredProcedure\ExamScheduleProc\GetExamScheduleByID.sql" />
     <Build Include="StoredProcedure\ExamScheduleProc\UpdateExamSchedule.sql" />
-    <Build Include="Tables\SetOffSchedule.sql" />
     <Build Include="Tables\Group.sql" />
     <Build Include="ForegianKey\StudentFK.sql" />
     <Build Include="ForegianKey\ExamScheduleFK.sql" />
-    <Build Include="ForegianKey\SetOffScheduleFK.sql" />
     <Build Include="PostDeploy\ExamSchedulePostDep.sql" />
-    <Build Include="PostDeploy\SetOffSchedulePostDep.sql" />
     <Build Include="PostDeploy\StudentSessionResultsPostDep.sql" />
-    <Build Include="StoredProcedure\SetOffSheduleProc\AddSetOffSchedule.sql" />
-    <Build Include="StoredProcedure\SetOffSheduleProc\DeleteSetOffScheduleByID.sql" />
-    <Build Include="StoredProcedure\SetOffSheduleProc\GetAllSetOffSchedule.sql" />
-    <Build Include="StoredProcedure\SetOffSheduleProc\GetSetOffScheduleByID.sql" />
-    <Build Include="StoredProcedure\SetOffSheduleProc\UpdateSetOffSchedule.sql" />
     <Build Include="StoredProcedure\GroupProc\AddGroup.sql" />
     <Build Include="StoredProcedure\GroupProc\DeleteGroupByID.sql" />
     <Build Include="StoredProcedure\GroupProc\GetAllGroup.sql" />

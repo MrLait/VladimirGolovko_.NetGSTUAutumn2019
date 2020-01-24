@@ -18,5 +18,6 @@ namespace DatabaseModels.Models
         
         public string Subject { get; set; }
         public DateTime ExamDate { get; set; }
+        public string IsEstimated { get; set; }
     }
 }

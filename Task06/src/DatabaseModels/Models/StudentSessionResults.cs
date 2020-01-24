@@ -16,7 +16,7 @@ namespace DatabaseModels.Models
         [ForeignKey("ExamScheduleID")]
         public int ExamScheduleID { get; set; }
 
-        public int ExamResult { get; set; }
-        public string SetOffResult { get; set; }
+        public int ExamValue { get; set; }
+        public string SetOffValue { get; set; }
     }
 }

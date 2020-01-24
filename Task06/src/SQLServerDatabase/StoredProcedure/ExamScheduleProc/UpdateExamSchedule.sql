@@ -3,10 +3,11 @@
 @NumberOfSession	INT,
 @GroupID			INT,
 @Subject            NVARCHAR(max),
-@ExamDate           DATETIME
+@ExamDate           DATETIME,
+@IsEstimated		NVARCHAR
 AS
 	UPDATE ExamSchedule
-	SET	NumberOfSession = @NumberOfSession, GroupID = @GroupID, Subject = @Subject, ExamDate = @ExamDate
+	SET	NumberOfSession = @NumberOfSession, GroupID = @GroupID, Subject = @Subject, ExamDate = @ExamDate, IsEstimated = @IsEstimated
 	Where ID = @ID
 --Selecting this Row
 	SELECT * FROM ExamSchedule WHERE ID = @ID

@@ -1,5 +1,0 @@
-﻿CREATE PROCEDURE DeleteSetOffScheduleByID
-	@ID INT
-AS
-	DELETE FROM SetOffSchedule WHERE ID = @ID
-GO

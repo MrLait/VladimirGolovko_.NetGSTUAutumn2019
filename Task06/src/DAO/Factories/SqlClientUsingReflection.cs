@@ -21,11 +21,6 @@ namespace DAO.Factories
             return new GroupRepository(DbConnectionString);
         }
 
-        public override SetOffScheduleRepository CreateSetOffScheduleRepositoryDAO()
-        {
-            return new SetOffScheduleRepository(DbConnectionString);
-        }
-
         public override StudentRepository CreateStudentRepositoryDAO()
         {
             return new StudentRepository(DbConnectionString);
