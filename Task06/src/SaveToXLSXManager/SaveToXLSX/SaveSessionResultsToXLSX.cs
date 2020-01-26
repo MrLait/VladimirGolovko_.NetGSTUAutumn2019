@@ -11,17 +11,56 @@ using System.IO;
 
 namespace SaveToXLSXManager
 {
+    /// <summary>
+    /// Save Session Results To Excel file
+    /// </summary>
     public class SaveSessionResultsToXLSX
     {
+        /// <summary>
+        /// Dao factory 
+        /// </summary>
         public DAOFactory DaoFactory { get; private set; }
+
+        /// <summary>
+        /// Excel instance
+        /// </summary>
         public Excel Excel { get; set; }
+
+        /// <summary>
+        /// Groups table
+        /// </summary>
         public IList<Group> Groups { get; set; }
+
+        /// <summary>
+        /// Student model
+        /// </summary>
         public IList<Student> Student { get; set; }
+
+        /// <summary>
+        /// Student session results
+        /// </summary>
         public IList<StudentSessionResults> StudentSessionResults { get; set; }
+
+        /// <summary>
+        /// Exam schedule 
+        /// </summary>
         public IList<ExamSchedule> ExamSchedule { get; set; }
+
+        /// <summary>
+        /// Number of sessions
+        /// </summary>
         public IList<NumberOfSession> NumberOfSessions { get; set; }
+
+        /// <summary>
+        /// Path to Excel File
+        /// </summary>
         public string PathToExcelFile { get; set; }
 
+        /// <summary>
+        /// Constuctor of <see cref="SaveSessionResultsToXLSX"/>
+        /// </summary>
+        /// <param name="dbConnectionString"> db connection string</param>
+        /// <param name="pathToExcelFile">path to file</param>
         public SaveSessionResultsToXLSX(string dbConnectionString, string pathToExcelFile)
         {
             PathToExcelFile = pathToExcelFile;
@@ -34,6 +73,9 @@ namespace SaveToXLSXManager
 
         }
 
+        /// <summary>
+        /// Save all session result by group to EXCL tables
+        /// </summary>
         public void SaveAllSessionResultByGroupToEXCLTables()
         {
             foreach (Group item in Groups)
@@ -48,6 +90,9 @@ namespace SaveToXLSXManager
             }
         }
 
+        /// <summary>
+        /// Save average minimum maximum value for each group ToEXCL Tables
+        /// </summary>
         public void SaveAverageMinimumMaximumValueforEachGroupToEXCLTables()
         {
             foreach (NumberOfSession numberOfSessionItem in NumberOfSessions)
@@ -87,6 +132,10 @@ namespace SaveToXLSXManager
             }
         }
 
+        /// <summary>
+        /// Get List of students for expulsion grouped by Group
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<IGrouping<string, SessionTableOfBothResult>> GetListOfStudentsForExpulsionGroupedByGroup()
         {
             List<SessionTableOfBothResult> asListSessionTableOfBothResults = new List<SessionTableOfBothResult>();
@@ -112,7 +161,14 @@ namespace SaveToXLSXManager
             return listOfStudentsForExpulsionQuere;
         }
 
-
+        /// <summary>
+        /// Save max min avere by group bySession ToEXCL
+        /// </summary>
+        /// <param name="minExamValue">minExamValue</param>
+        /// <param name="maxExamValue">maxExamValue</param>
+        /// <param name="averageExamValue">averageExamValue</param>
+        /// <param name="numberOfGroup">numberOfGroup</param>
+        /// <param name="numberOfSession">numberOfSession</param>
         private void SaveMaxMinAvereByGroupBySessionToEXCL(int minExamValue, int maxExamValue, double averageExamValue, string numberOfGroup, string numberOfSession)
         {
             Excel = new Excel();
@@ -147,6 +203,11 @@ namespace SaveToXLSXManager
             }
         }
 
+        /// <summary>
+        /// Save data to EXCeL
+        /// </summary>
+        /// <param name="sessionTableOfBothResultsQuere">sessionTableOfBothResultsQuere</param>
+        /// <param name="numberOfGroup">numberOfGroup</param>
         private void SaveDataToEXCL(IEnumerable<SessionTableOfBothResult> sessionTableOfBothResultsQuere, string numberOfGroup)
         {
 
@@ -194,8 +255,6 @@ namespace SaveToXLSXManager
                 Excel.Worksheet = null;
                 Excel.CelRange = null;
             }
-
-
         }
     }
 }

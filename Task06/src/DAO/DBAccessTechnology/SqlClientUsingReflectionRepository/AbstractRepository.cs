@@ -10,15 +10,31 @@ using DatabaseModels.Interfaces;
 
 namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
 {
+    /// <summary>
+    /// Abstract class for CRUD system
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class AbstractRepository<T> : ICRUD<T> where T : IEntity, new()
     {
+        /// <summary>
+        /// Connection string to database
+        /// </summary>
         public string DbConString { get; private set; }
 
+        /// <summary>
+        /// Constructor <see cref="AbstractRepository{T}"/>
+        /// </summary>
+        /// <param name="dbConString"><see cref="DbConString"/></param>
         public AbstractRepository(string dbConString)
         {
             DbConString = dbConString;
         }
 
+        /// <summary>
+        /// Add object to data base.
+        /// </summary>
+        /// <param name="entity">Object to add in database.</param>
+        /// <returns></returns>
         public object Add(T entity)
         {
             if (entity == null)
@@ -47,6 +63,10 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             }
         }
 
+        /// <summary>
+        /// Method to get all objects from database table.
+        /// </summary>
+        /// <returns>Returns list of objects</returns>
         public IList<T> GetAll()
         {
             string tableName = new T().GetType().Name;
@@ -73,6 +93,11 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             }
         }
 
+        /// <summary>
+        /// Get object by ID from table in database.
+        /// </summary>
+        /// <param name="byID"></param>
+        /// <returns>Returns object.</returns>
         public T GetByID(int byID)
         {
             if (byID == 0 )
@@ -104,6 +129,11 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             }
         }
 
+        /// <summary>
+        /// Modify an existing object. 
+        /// </summary>
+        /// <param name="entity"> Parameters to be changed.</param>
+        /// <returns>Returns a new object.</returns>
         public T Update(T entity)
         {
             //entity not null
@@ -136,6 +166,10 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             }
         }
 
+        /// <summary>
+        /// Delete object from table by ID.
+        /// </summary>
+        /// <param name="byID"> ID ibject</param>
         public void Delete(int byID)
         {
             if (byID == 0)
@@ -164,6 +198,11 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             }
         }
 
+        /// <summary>
+        /// Private method for get property from objects and add their to list for sqlParameters
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>returns list of sqlParameters.</returns>
         private List<SqlParameter> GetAddParameter(object obj)
         {
             PropertyInfo[] fields = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -185,6 +224,11 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             return sqlParams;
         }
 
+        /// <summary>
+        /// Private method for get property from objects and add their to list for sqlParameters
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>returns list of sqlParameters.</returns>
         private List<SqlParameter> GetUpdateParameter(object obj)
         {
             PropertyInfo[] fields = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -196,6 +240,12 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             return sqlParams;
         }
 
+        /// <summary>
+        /// Creating sqlCommand.
+        /// </summary>
+        /// <param name="storedProcedure">Name of stored procedure.</param>
+        /// <param name="sqlConnection"> Sql connection sting</param>
+        /// <returns>return sql command</returns>
         private SqlCommand SqlCommandInstance(string storedProcedure, SqlConnection sqlConnection)
         {
             SqlCommand sqlCommand = new SqlCommand(storedProcedure, sqlConnection)
@@ -205,6 +255,13 @@ namespace DAO.DBAccessTechnology.SqlClientUsingReflectionRepository
             return sqlCommand;
         }
 
+        /// <summary>
+        /// Creating sqlCommand.
+        /// </summary>
+        /// <param name="storedProcedure">Name of stored procedure.</param>
+        /// <param name="sqlConnection"> Sql connection sting</param>
+        /// <param name="sqlParamArr"> SqlParameters</param>
+        /// <returns>return sql command</returns>
         private SqlCommand SqlCommandInstance(string storedProcedure, SqlConnection sqlConnection, SqlParameter[] sqlParamArr)
         {
             SqlCommand sqlCommand = SqlCommandInstance(storedProcedure, sqlConnection);

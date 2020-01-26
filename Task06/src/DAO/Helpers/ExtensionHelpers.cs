@@ -6,8 +6,17 @@ using System.Reflection;
 
 namespace DAO.Helpers
 {
+    /// <summary>
+    /// Extension helpers for convert to list
+    /// </summary>
     public static class ExtensionHelpers
     {
+        /// <summary>
+        /// Method to convert table to list
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="table">input table</param>
+        /// <returns>Returns list of table</returns>
         public static List<T> ToList<T>(this DataTable table) where T : new()
         {
             try

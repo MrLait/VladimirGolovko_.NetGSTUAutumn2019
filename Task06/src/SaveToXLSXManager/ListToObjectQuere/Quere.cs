@@ -5,8 +5,18 @@ using System.Linq;
 
 namespace SaveToXLSXManager.ListToObjectQuere
 {
+
+    /// <summary>
+    /// linq to object quere
+    /// </summary>
     public class Quere
     {
+        /// <summary>
+        /// StudentByGroupQuere
+        /// </summary>
+        /// <param name="item">group item</param>
+        /// <param name="student"> studen</param>
+        /// <returns></returns>
         public static IEnumerable<Student> StudentByGroupQuere(Group item, IList<Student> student)
         {
             return( 
@@ -15,6 +25,12 @@ namespace SaveToXLSXManager.ListToObjectQuere
                 select Student);
         }
 
+        /// <summary>
+        /// ExamSheduleByGroupQuere
+        /// </summary>
+        /// <param name="item">item</param>
+        /// <param name="examSchedule">examSchedule</param>
+        /// <returns></returns>
         public static IEnumerable<ExamSchedule> ExamSheduleByGroupQuere(Group item, IList<ExamSchedule> examSchedule)
         {
             return (
@@ -23,6 +39,14 @@ namespace SaveToXLSXManager.ListToObjectQuere
                 select ExamSchedule);
         }
 
+        /// <summary>
+        /// Student Session Result Exam Quere
+        /// </summary>
+        /// <param name="studentSessionResults">studentSessionResults</param>
+        /// <param name="studentByGroupQuere">studentByGroupQuere</param>
+        /// <param name="examSheduleByGroupQuere">examSheduleByGroupQuere</param>
+        /// <param name="numberOfGroup">numberOfGroup</param>
+        /// <returns></returns>
         public static IEnumerable<SessionTableExamResult> StudentSessionResultExamQuere(IList<StudentSessionResults> studentSessionResults,
             IEnumerable<Student> studentByGroupQuere, IEnumerable<ExamSchedule> examSheduleByGroupQuere, string numberOfGroup)
         {
@@ -46,6 +70,14 @@ namespace SaveToXLSXManager.ListToObjectQuere
                     });
         }
 
+        /// <summary>
+        /// Student Session Result SetOff Quere
+        /// </summary>
+        /// <param name="studentSessionResults">studentSessionResults</param>
+        /// <param name="studentByGroupQuere">studentByGroupQuere</param>
+        /// <param name="examSheduleByGroupQuere">examSheduleByGroupQuere</param>
+        /// <param name="numberOfGroup">numberOfGroup</param>
+        /// <returns></returns>
         public static IEnumerable<SessionTableSetOffResult> StudentSessionResultSetOffQuere(IList<StudentSessionResults> studentSessionResults,
     IEnumerable<Student> studentByGroupQuere, IEnumerable<ExamSchedule> examSheduleByGroupQuere, string numberOfGroup)
         {
@@ -69,6 +101,12 @@ namespace SaveToXLSXManager.ListToObjectQuere
                     });
         }
 
+        /// <summary>
+        /// Session Table Of Both Results Quere
+        /// </summary>
+        /// <param name="studentSessionResultExamQuere">studentSessionResultExamQuere</param>
+        /// <param name="studentSessionResultSetOffQuere">studentSessionResultSetOffQuere</param>
+        /// <returns></returns>
         public static IEnumerable<SessionTableOfBothResult> SessionTableOfBothResultsQuere(
             IEnumerable<SessionTableExamResult> studentSessionResultExamQuere, IEnumerable<SessionTableSetOffResult> studentSessionResultSetOffQuere)
         {
@@ -94,7 +132,13 @@ namespace SaveToXLSXManager.ListToObjectQuere
                     });
         }
 
-
+        /// <summary>
+        /// Session Table Of Both Results Quere
+        /// </summary>
+        /// <param name="studentSessionResultExamQuere">studentSessionResultExamQuere</param>
+        /// <param name="studentSessionResultSetOffQuere">studentSessionResultSetOffQuere</param>
+        /// <param name="numberOfSessionItem">numberOfSessionItem</param>
+        /// <returns></returns>
         public static IEnumerable<SessionTableOfBothResult> SessionTableOfBothResultsQuere(
     IEnumerable<SessionTableExamResult> studentSessionResultExamQuere, IEnumerable<SessionTableSetOffResult> studentSessionResultSetOffQuere, NumberOfSession numberOfSessionItem)
         {
