@@ -30,5 +30,10 @@ namespace DAO.Factories
         {
             return new StudentSessionResultsRepository(DbConnectionString);
         }
+
+        public override NumberOfSessionRepository CreateNumberOfSessionRepositoryDAO()
+        {
+            return new NumberOfSessionRepository(DbConnectionString);
+        }
     }
 }

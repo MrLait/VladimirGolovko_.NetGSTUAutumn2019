@@ -65,6 +65,7 @@
     <Folder Include="PostDeploy" />
     <Folder Include="StoredProcedure\GroupProc" />
     <Folder Include="StoredProcedure\StudentSessionResultsProc" />
+    <Folder Include="StoredProcedure\NumberOfSessionProc" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Student.sql" />
@@ -96,6 +97,13 @@
     <Build Include="StoredProcedure\StudentSessionResultsProc\GetAllStudentSessionResults.sql" />
     <Build Include="StoredProcedure\StudentSessionResultsProc\GetStudentSessionResultsByID.sql" />
     <Build Include="StoredProcedure\StudentSessionResultsProc\UpdateStudentSessionResults.sql" />
+    <Build Include="Tables\NumberOfSession.sql" />
+    <Build Include="StoredProcedure\NumberOfSessionProc\AddNumberOfSession.sql" />
+    <Build Include="StoredProcedure\NumberOfSessionProc\DeleteNumberOfSessionByID.sql" />
+    <Build Include="StoredProcedure\NumberOfSessionProc\GetAllNumberOfSession.sql" />
+    <Build Include="StoredProcedure\NumberOfSessionProc\GetNumberOfSessionByID.sql" />
+    <Build Include="StoredProcedure\NumberOfSessionProc\UpdateNumberOfSession.sql" />
+    <Build Include="PostDeploy\NumberOfSessionPostDep.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />

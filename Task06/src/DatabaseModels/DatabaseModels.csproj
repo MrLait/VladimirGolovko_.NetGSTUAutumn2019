@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Models\NumberOfSession.cs" />
     <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\SetOffSchedule.cs" />
     <Compile Include="Models\ExamSchedule.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentSessionResults.cs" />

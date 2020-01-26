@@ -9,6 +9,7 @@ namespace DAO.Factories
         public abstract GroupRepository CreateGroupRepositoryDAO();
         public abstract StudentRepository CreateStudentRepositoryDAO();
         public abstract StudentSessionResultsRepository CreateStudentSessionResultsRepositoryDAO();
+        public abstract NumberOfSessionRepository CreateNumberOfSessionRepositoryDAO();
 
         public static DAOFactory CreateDAOFactory(DBAccessTechnologyEnum witchDAOenum, string dbConnectionString)
         {

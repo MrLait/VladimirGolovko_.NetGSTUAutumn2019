@@ -11,6 +11,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLServerDatabase", "src\SQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseModels", "src\DatabaseModels\DatabaseModels.csproj", "{83E7170B-12B1-4CB3-9E9A-A517B7188608}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveToXLSXManager", "src\SaveToXLSXManager\SaveToXLSXManager.csproj", "{FDB28DF8-5F2A-40A6-B4D6-523F8E753A3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{83E7170B-12B1-4CB3-9E9A-A517B7188608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E7170B-12B1-4CB3-9E9A-A517B7188608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E7170B-12B1-4CB3-9E9A-A517B7188608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDB28DF8-5F2A-40A6-B4D6-523F8E753A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDB28DF8-5F2A-40A6-B4D6-523F8E753A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDB28DF8-5F2A-40A6-B4D6-523F8E753A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDB28DF8-5F2A-40A6-B4D6-523F8E753A3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

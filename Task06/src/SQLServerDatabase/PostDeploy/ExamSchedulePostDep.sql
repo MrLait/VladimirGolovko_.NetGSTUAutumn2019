@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE ExamSchedulePostDep
 AS
 INSERT [dbo].[ExamSchedule] 
-([NumberOfSession], [GroupID], [Subject], [ExamDate], [IsEstimated])
+([NumberOfSessionID], [GroupID], [Subject], [ExamDate], [IsEstimated])
 VALUES
 (1, 1, 'Maths',  DATEADD(DAY, -100, GETDATE()),'True'),
 (1, 2, 'Maths',  DATEADD(DAY, -100, GETDATE()),'True'),

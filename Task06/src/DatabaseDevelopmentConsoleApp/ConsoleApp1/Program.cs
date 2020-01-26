@@ -4,11 +4,16 @@ using DAO.Enums;
 using DatabaseModels.Models;
 using System;
 using System.Collections.Generic;
+using SaveToXLSXManager;
+using System.Reflection;
+using System.IO;
 
 namespace ConsoleApp1
 {
     class Program
     {
+
+
         static void Main()
         {
             string dbConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -24,19 +29,14 @@ namespace ConsoleApp1
             };
 
 
-            StudentRepository studentRepository = new StudentRepository(dbConnectionString);
-            studentRepository.Add(student);
-            //ICRUD<T> cRUD = new 
-           // var testObj = studentObject.GetByID(student.StudentID);
-           // studentObject.Delete(student.StudentID);
-            studentRepository.Update(student);
-            var getAllStudents = studentRepository.GetAll();
+            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var path = Path.GetDirectoryName(location);
 
-            DAOFactory daoFactory = DAOFactory.CreateDAOFactory(DBAccessTechnologyEnum.SqlClientUsingReflection, dbConnectionString);
-            StudentRepository studentRepositoryTwo = daoFactory.CreateStudentRepositoryDAO();
+            SaveSessionResultsToXLSX tableByGoupName = new SaveSessionResultsToXLSX(dbConnectionString, path + @"\Excel");
+            var getStrudentToExpulsionGroupedByGroup = tableByGoupName.GetListOfStudentsForExpulsionGroupedByGroup();
+            tableByGoupName.SaveAverageMinimumMaximumValueforEachGroupToEXCLTables();
+            tableByGoupName.SaveAllSessionResultByGroupToEXCLTables();
 
-            IList<Student> students = studentRepositoryTwo.GetAll();
-            studentRepositoryTwo.Add(student);
         }
     }
 }

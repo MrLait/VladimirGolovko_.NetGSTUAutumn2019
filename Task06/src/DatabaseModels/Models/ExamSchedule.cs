@@ -11,7 +11,7 @@ namespace DatabaseModels.Models
         [Key]
         public int ID { get; set; }
 
-        public int NumberOfSession { get; set; }
+        public int NumberOfSessionID { get; set; }
 
         [ForeignKey("GroupID")]
         public int GroupID { get; set; }

@@ -57,9 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBAccessTechnology\SqlClientUsingReflectionRepository\NumberOfSessionRepository.cs" />
     <Compile Include="DBAccessTechnology\SqlClientUsingReflectionRepository\ExamScheduleRepository.cs" />
     <Compile Include="DBAccessTechnology\SqlClientUsingReflectionRepository\GroupRepository.cs" />
-    <Compile Include="DBAccessTechnology\SqlClientUsingReflectionRepository\SetOffScheduleRepository.cs" />
     <Compile Include="DBAccessTechnology\SqlClientUsingReflectionRepository\StudentRepository.cs" />
     <Compile Include="Enums\DBAccessTechnologyEnum.cs" />
     <Compile Include="Factories\DAOFactory.cs" />
