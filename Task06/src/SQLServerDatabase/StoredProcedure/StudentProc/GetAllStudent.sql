@@ -1,0 +1,4 @@
+﻿CREATE PROCEDURE GetAllStudent
+AS
+	SELECT * FROM Student
+GO

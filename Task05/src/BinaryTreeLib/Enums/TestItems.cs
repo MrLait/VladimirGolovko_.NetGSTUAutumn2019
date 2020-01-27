@@ -1,4 +1,4 @@
-﻿namespace BinaryTreeLib.Model
+﻿namespace BinaryTreeLib.Enums
 {
     /// <summary>
     /// Types of items for tests.
