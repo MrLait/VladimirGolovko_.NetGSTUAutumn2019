@@ -13,7 +13,6 @@ namespace ConsoleApp1
     class Program
     {
 
-
         static void Main()
         {
             string dbConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -23,19 +22,22 @@ namespace ConsoleApp1
                 MiddleName = "sddM",
                 FirstName = "Dimfffffff",
                 DateOfBirth = DateTime.Now.Date,
-                Gender = "Famale",
+                Gender = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                 GroupID = 1,
                 ID = 4
             };
 
+            DAOFactory dAOFactory = DAOFactory.CreateDAOFactory(DBAccessTechnologyEnum.SqlClientUsingReflection, dbConnectionString);
+            dAOFactory.CreateStudentRepositoryDAO().Update(student);
 
-            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            var path = Path.GetDirectoryName(location);
 
-            SaveSessionResultsToXLSX tableByGoupName = new SaveSessionResultsToXLSX(dbConnectionString, path + @"\Excel");
-            var getStrudentToExpulsionGroupedByGroup = tableByGoupName.GetListOfStudentsForExpulsionGroupedByGroup();
-            tableByGoupName.SaveAverageMinimumMaximumValueforEachGroupToEXCLTables();
-            tableByGoupName.SaveAllSessionResultByGroupToEXCLTables();
+            //var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            //var path = Path.GetDirectoryName(location);
+
+            //SaveSessionResultsToXLSX tableByGoupName = new SaveSessionResultsToXLSX(dbConnectionString, path + @"\Excel");
+            //var getStrudentToExpulsionGroupedByGroup = tableByGoupName.GetListOfStudentsForExpulsionGroupedByGroup();
+            //tableByGoupName.SaveAverageMinimumMaximumValueforEachGroupToEXCLTables();
+            //tableByGoupName.SaveAllSessionResultByGroupToEXCLTables();
 
         }
     }

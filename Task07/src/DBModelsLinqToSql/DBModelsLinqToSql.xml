@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBModelsLinqToSql</name>
+    </assembly>
+    <members>
+        <member name="T:DBModelsLinqToSql.Interfaces.IEntity">
+            <summary>
+            Entity interface
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Interfaces.IEntity.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.NumberOfSession">
+            <summary>
+            Number of session table
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.NumberOfSession.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.NumberOfSession.NumOfSession">
+            <summary>
+            Number of session
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Group">
+            <summary>
+            Group table
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Group.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Group.NumberOfGroup">
+            <summary>
+            Number of group
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.ExamSchedule">
+            <summary>
+            Exam shedule table
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedule.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedule.NumberOfSessionID">
+            <summary>
+            Number of session ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedule.GroupID">
+            <summary>
+            Group ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedule.Subject">
+            <summary>
+            Subject
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedule.ExamDate">
+            <summary>
+            ExamDate
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedule.IsEstimated">
+            <summary>
+            IsEstimated
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Student">
+            <summary>
+            Student table
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.Surname">
+            <summary>
+            Surname
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.MiddleName">
+            <summary>
+            MiddleName
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.DateOfBirth">
+            <summary>
+            DateOfBirth
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Student.GroupID">
+            <summary>
+            GroupID
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.StudentSessionResults">
+            <summary>
+            Student session results table
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.StudentSessionResults.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.StudentSessionResults.StudentID">
+            <summary>
+            StudentID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.StudentSessionResults.ExamScheduleID">
+            <summary>
+            ExamScheduleID
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.StudentSessionResults.ExamValue">
+            <summary>
+            ExamValue
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.StudentSessionResults.SetOffValue">
+            <summary>
+            SetOffValue
+            </summary>
+        </member>
+    </members>
+</doc>

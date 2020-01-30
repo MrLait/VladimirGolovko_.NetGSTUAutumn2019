@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DAO</name>
+    </assembly>
+    <members>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.StudentRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.StudentRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.Enums.DBAccessTechnologyEnum">
+            <summary>
+            DAO enum
+            </summary>
+        </member>
+        <member name="F:DAO.Enums.DBAccessTechnologyEnum.SqlClientUsingReflection">
+            <summary>
+            Access to database with sqlClient and using Reflection technology
+            </summary>
+        </member>
+        <member name="F:DAO.Enums.DBAccessTechnologyEnum.LINQtoSQL">
+            <summary>
+            Access to database with LINQtoSQL technology
+            </summary>
+        </member>
+        <member name="T:DAO.Factories.DAOFactory">
+            <summary>
+            Abstract object which describes Factory
+            </summary>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateStudentRepositoryDAO">
+            <summary>
+            Abstract method to create CreateStudentRepositoryDAO
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateDAOFactory(DAO.Enums.DBAccessTechnologyEnum,System.String)">
+            <summary>
+            Factory to switch DAO technology
+            </summary>
+            <param name="witchDAOenum">Type of Dao technology.</param>
+            <param name="dbConnectionString">data base connection sting</param>
+            <returns></returns>
+        </member>
+        <member name="P:DAO.Factories.LinqToSql.DbConnectionString">
+            <summary>
+            Connection string to database
+            </summary>
+        </member>
+        <member name="T:DAO.Helpers.ExtensionHelpers">
+            <summary>
+            Extension helpers for convert to list
+            </summary>
+        </member>
+        <member name="M:DAO.Helpers.ExtensionHelpers.ToList``1(System.Data.DataTable)">
+            <summary>
+            Method to convert table to list
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="table">input table</param>
+            <returns>Returns list of table</returns>
+        </member>
+        <member name="T:DAO.Interfaces.ICRUD`1">
+            <summary>
+            Crud interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DAO.Interfaces.ICRUD`1.GetByID(System.Int32)">
+            <summary>
+            Get object by ID from table in database.
+            </summary>
+            <param name="byID">Object id.</param>
+            <returns>Returns object.</returns>
+        </member>
+        <member name="M:DAO.Interfaces.ICRUD`1.Add(`0)">
+            <summary>
+            Add object to data base.
+            </summary>
+            <param name="entity">Object to add in database.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.Interfaces.ICRUD`1.Delete(System.Int32)">
+            <summary>
+            Delete object from table by ID.
+            </summary>
+            <param name="byID"> ID ibject</param>
+        </member>
+        <member name="M:DAO.Interfaces.ICRUD`1.Update(`0)">
+            <summary>
+            Modify an existing object. 
+            </summary>
+            <param name="entity"> Parameters to be changed.</param>
+            <returns>Returns a new object.</returns>
+        </member>
+        <member name="M:DAO.Interfaces.ICRUD`1.GetAll">
+            <summary>
+            Method to get all objects from database table.
+            </summary>
+            <returns>Returns list of objects</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE DeleteStudentByID
+	@ID INT
+AS
+	DELETE FROM Student WHERE ID = @ID	
+GO
