@@ -28,3 +28,5 @@ WHILE @number < (@QuantityExaminers*2 + 1)
 			SET @IsAssessment = 'True';
 	END;
 GO
+
+

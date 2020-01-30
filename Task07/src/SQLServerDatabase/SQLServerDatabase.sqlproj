@@ -72,6 +72,10 @@
     <Build Include="Tables\Specialties.sql" />
     <Build Include="PostDeploy\SpecialtiesPostDep.sql" />
     <Build Include="PostDeploy\StudentsPostDep.sql" />
+    <Build Include="Tables\Examiners.sql" />
+    <Build Include="PostDeploy\ExaminersPostDep.sql" />
+    <Build Include="Tables\Subjects.sql" />
+    <Build Include="PostDeploy\SubjectsPostDep.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />
