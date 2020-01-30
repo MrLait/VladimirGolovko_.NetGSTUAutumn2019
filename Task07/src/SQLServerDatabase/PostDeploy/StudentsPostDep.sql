@@ -29,7 +29,7 @@ WHILE @number < @StudentsNum + 1
 				@FirstNamePrefix + CONVERT(NVARCHAR, @number),
 				@MiddleNamePrefix + CONVERT(NVARCHAR, @number),
 				@Gender,
-				DATEADD(DAY, @number, GETDATE()),
+				DATEADD(DAY, -@number, GETDATE()),
 				@Random);
 
 		SET @number = @number + 1;

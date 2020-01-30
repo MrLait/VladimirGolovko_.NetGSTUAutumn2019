@@ -8,7 +8,7 @@ DECLARE @GroupNum INT;
 SET @QuantitySpecialties = (SELECT COUNT(*) FROM Specialties) + 1;
 SET @number = 1;
 SET @GroupPrefix = 'PM-';
-SET @GroupNum = 30
+SET @GroupNum = 3
 WHILE @number < @GroupNum + 1
 	BEGIN
 

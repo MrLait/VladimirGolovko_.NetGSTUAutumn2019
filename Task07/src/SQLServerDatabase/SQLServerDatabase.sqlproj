@@ -67,11 +67,11 @@
     <Build Include="Tables\StudentSessionResults.sql" />
     <Build Include="ForegianKey\StudentSessionResultsFK.sql" />
     <Build Include="Tables\Groups.sql" />
-    <Build Include="ForegianKey\StudentFK.sql" />
     <Build Include="ForegianKey\ExamScheduleFK.sql" />
     <Build Include="Tables\NumberOfSession.sql" />
     <Build Include="Tables\Specialties.sql" />
     <Build Include="PostDeploy\SpecialtiesPostDep.sql" />
+    <Build Include="PostDeploy\StudentsPostDep.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />

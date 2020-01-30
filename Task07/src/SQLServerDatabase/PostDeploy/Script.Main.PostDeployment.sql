@@ -1,6 +1,6 @@
 ﻿EXEC SpecialtiesPostDep;
 EXEC GroupsPostDep;
---EXEC GroupPostDep;
+EXEC StudentsPostDep;
 --EXEC NumberOfSessionPostDep;
 --EXEC StudentPostDep;
 --EXEC ExamSchedulePostDep;
