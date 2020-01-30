@@ -1,5 +1,0 @@
-﻿CREATE PROCEDURE DeleteExamScheduleByID
-	@ID INT
-AS
-	DELETE FROM ExamSchedule WHERE ID = @ID
-GO

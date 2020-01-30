@@ -1,5 +1,0 @@
-﻿CREATE PROCEDURE DeleteGroupByID
-	@ID INT
-AS
-	DELETE FROM [Group] WHERE ID = @ID
-GO

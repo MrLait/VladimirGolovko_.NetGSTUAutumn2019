@@ -1,4 +1,0 @@
-﻿CREATE PROCEDURE GetAllGroup
-AS
-	SELECT * FROM [Group]
-GO
