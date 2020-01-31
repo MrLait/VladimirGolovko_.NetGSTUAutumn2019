@@ -63,12 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Students.sql" />
-    <Build Include="Tables\ExamSchedule.sql" />
-    <Build Include="Tables\StudentSessionResults.sql" />
+    <Build Include="Tables\ExamSchedules.sql" />
+    <Build Include="Tables\SessionsResults.sql" />
     <Build Include="ForegianKey\StudentSessionResultsFK.sql" />
     <Build Include="Tables\Groups.sql" />
     <Build Include="ForegianKey\ExamScheduleFK.sql" />
-    <Build Include="Tables\NumberOfSession.sql" />
+    <Build Include="Tables\Sessions.sql" />
     <Build Include="Tables\Specialties.sql" />
     <Build Include="PostDeploy\SpecialtiesPostDep.sql" />
     <Build Include="PostDeploy\StudentsPostDep.sql" />
@@ -76,6 +76,9 @@
     <Build Include="PostDeploy\ExaminersPostDep.sql" />
     <Build Include="Tables\Subjects.sql" />
     <Build Include="PostDeploy\SubjectsPostDep.sql" />
+    <Build Include="PostDeploy\SessionsPostDep.sql" />
+    <Build Include="PostDeploy\ExamSchedulesPostDep.sql" />
+    <Build Include="PostDeploy\SessionsResultsPostDep.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLServerDatabase.publish.xml" />

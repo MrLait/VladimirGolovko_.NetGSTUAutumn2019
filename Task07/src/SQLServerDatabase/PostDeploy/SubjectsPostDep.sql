@@ -8,7 +8,7 @@ DECLARE @GroupNum INT;
 SET @QuantityExaminers = (SELECT COUNT(*) FROM Examiners);
 SET @number = 1;
 SET @SybjectsPrefix = 'Subject-';
-SET @GroupNum = 3
+SET @GroupNum = 2
 SET @IsAssessment = 'True';
 WHILE @number < (@QuantityExaminers*2 + 1)
 	BEGIN

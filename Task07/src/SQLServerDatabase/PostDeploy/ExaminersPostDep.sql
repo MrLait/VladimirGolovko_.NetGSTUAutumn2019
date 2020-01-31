@@ -9,7 +9,7 @@ SET @SurnamePrefix = 'Surname';
 SET @FirstNamePrefix = 'Firstname';
 SET @MiddleNamePrefix = 'Middlename';
 SET @numberOfExaminers = 1;
-WHILE @number < 3 + 1
+WHILE @number <= 2
 	BEGIN
 		
 
