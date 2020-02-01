@@ -66,8 +66,9 @@ namespace ConsoleApp1
             //
             //};
             //
-            DAOFactory test = DAOFactory.CreateDAOFactory(DAO.Enums.DBAccessTechnologyEnum.LINQtoSQL, connectionString);
-            test.CreateStudentRepositoryDAO().Add(student);
+
+           //DAOFactory test = DAOFactory.CreateDAOFactory(connectionString);
+           //test.CreateStudentsRepository().Add(student);
             //
             ////var test1 =  test.CreateStudentRepositoryDAO().GetAll();
            // var test2 = test.CreateStudentRepositoryDAO().Update(student);
@@ -78,27 +79,6 @@ namespace ConsoleApp1
 
             //  Console.Read();
         }
-
-        public static void GetUpdateParameter(object from, object to)
-        {
-            PropertyInfo[] fieldsTo = to.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            PropertyInfo[] fieldsFrom = from.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            //var sqlParams = new List<SqlParameter>();
-            foreach (var fTo in fieldsTo)
-            {
-                foreach (var fFrom in fieldsFrom)
-                {
-                    if (fTo.Name == fFrom.Name)
-                    {
-                        fTo.SetValue(to, fFrom.GetValue(from));
-                        break;
-                    }
-                }
-               // sqlParams.Add(new SqlParameter(f.Name, f.GetValue(obj, null)));
-            }
-        }
-
-        public void Test() { }
 
         //static void Main()
         //{
