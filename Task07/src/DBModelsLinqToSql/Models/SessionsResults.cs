@@ -6,8 +6,8 @@ namespace DBModelsLinqToSql.Models
     /// <summary>
     /// Student session results table
     /// </summary>
-    [Table(Name = "StudentSessionResults")]
-    public class StudentSessionResults : IEntity
+    [Table(Name = "SessionsResults")]
+    public class SessionsResults : IEntity
     {
         /// <summary>
         /// ID
@@ -18,14 +18,14 @@ namespace DBModelsLinqToSql.Models
         /// <summary>
         /// StudentID
         /// </summary>
-        [Column(Name = "StudentID")]
-        public int StudentID { get; set; }
+        [Column(Name = "StudentsID")]
+        public int StudentsID { get; set; }
 
         /// <summary>
         /// ExamScheduleID
         /// </summary>
-        [Column(Name = "ExamScheduleID")]
-        public int ExamScheduleID { get; set; }
+        [Column(Name = "ExamSchedulesID")]
+        public int ExamSchedulesID { get; set; }
 
         /// <summary>
         /// ExamValue

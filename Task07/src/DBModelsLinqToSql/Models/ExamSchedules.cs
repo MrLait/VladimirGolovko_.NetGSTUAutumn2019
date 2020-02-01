@@ -7,8 +7,8 @@ namespace DBModelsLinqToSql.Models
     /// <summary>
     /// Exam shedule table
     /// </summary>
-    [Table(Name = "ExamSchedule")]
-    public class ExamSchedule : IEntity
+    [Table(Name = "ExamSchedules")]
+    public class ExamSchedules : IEntity
     {
         /// <summary>
         /// ID
@@ -19,32 +19,26 @@ namespace DBModelsLinqToSql.Models
         /// <summary>
         /// Number of session ID
         /// </summary>
-        [Column(Name = "NumberOfSessionID")]
-        public int NumberOfSessionID { get; set; }
+        [Column(Name = "SessionsID")]
+        public int SessionsID { get; set; }
 
         /// <summary>
         /// Group ID
         /// </summary>
         //[ForeignKey("GroupID")]
-        [Column(Name = "GroupID")]
-        public int GroupID { get; set; }
+        [Column(Name = "GroupsID")]
+        public int GroupsID { get; set; }
 
         /// <summary>
         /// Subject
         /// </summary>
-        [Column(Name = "Subject")]
-        public string Subject { get; set; }
+        [Column(Name = "SubjectsID")]
+        public int SubjectsID { get; set; }
 
         /// <summary>
         /// ExamDate
         /// </summary>
         [Column(Name = "ExamDate")]
         public DateTime ExamDate { get; set; }
-
-        /// <summary>
-        /// IsEstimated
-        /// </summary>
-        [Column(Name = "IsEstimated")]
-        public string IsEstimated { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace ConsoleApp1
         static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         static void Main(string[] args)
         {
-            Student student = new Student
+            Students student = new Students
             {
                 ID = 4,
                 Surname = "Ksd",
@@ -20,7 +20,7 @@ namespace ConsoleApp1
                 MiddleName = "sddM",
                 Gender = "Famale",
                 DateOfBirth = DateTime.Now.Date,
-                GroupID = 2
+                GroupsID = 2
             };
             ////// добавляем его в таблицу Users
             //////db.GetTable<Student>().InsertOnSubmit(student);
@@ -38,7 +38,7 @@ namespace ConsoleApp1
             //GroupID = 2,
             //};
 
-            //DataContext db = new DataContext(connectionString);
+            DataContext db = new DataContext(connectionString);
             //var user2 = db.GetTable<Student>().Where(x => x.ID == student2.ID).SingleOrDefault();
             //GetUpdateParameter(student2, user2);
             //db.SubmitChanges();
@@ -67,13 +67,13 @@ namespace ConsoleApp1
             //};
             //
             DAOFactory test = DAOFactory.CreateDAOFactory(DAO.Enums.DBAccessTechnologyEnum.LINQtoSQL, connectionString);
-            //test.CreateStudentRepositoryDAO().Add(student);
+            test.CreateStudentRepositoryDAO().Add(student);
             //
             ////var test1 =  test.CreateStudentRepositoryDAO().GetAll();
            // var test2 = test.CreateStudentRepositoryDAO().Update(student);
            // var getByIDTest = test.CreateStudentRepositoryDAO().GetByID(7);
             //var addNeObjTest = 
-            test.CreateStudentRepositoryDAO().Delete(7);
+            //test.CreateStudentRepositoryDAO().Delete(7);
 
 
             //  Console.Read();

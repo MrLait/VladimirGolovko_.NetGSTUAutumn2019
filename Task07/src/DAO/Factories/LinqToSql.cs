@@ -14,29 +14,44 @@ namespace DAO.Factories
             DbConnectionString = dbConnectionString;
         }
 
-     //   public override ExamScheduleRepository CreateExamScheduleRepositoryDAO()
-     //   {
-     //       throw new System.NotImplementedException();
-     //   }
-     //
-     //   public override GroupRepository CreateGroupRepositoryDAO()
-     //   {
-     //       throw new System.NotImplementedException();
-     //   }
-     //
-     //   public override NumberOfSessionRepository CreateNumberOfSessionRepositoryDAO()
-     //   {
-     //       throw new System.NotImplementedException();
-     //   }
-
-        public override StudentRepository CreateStudentRepositoryDAO()
+        public override StudentsRepository CreateStudentsRepository()
         {
-            return new StudentRepository(DbConnectionString);
+            return new StudentsRepository(DbConnectionString);
         }
 
-    //   public override StudentSessionResultsRepository CreateStudentSessionResultsRepositoryDAO()
-    //   {
-    //       throw new System.NotImplementedException();
-    //   }
+        public override ExaminersRepository CreateExaminersRepository()
+        {
+            return new ExaminersRepository(DbConnectionString);
+        }
+
+        public override ExamSchedulesRepository CreateExamSchedulesRepositoryO()
+        {
+            return new ExamSchedulesRepository(DbConnectionString);
+        }
+
+        public override GroupsRepository CreateGroupsRepository()
+        {
+            return new GroupsRepository(DbConnectionString);
+        }
+
+        public override SessionsRepository CreateSessionsRepositoryO()
+        {
+            return new SessionsRepository(DbConnectionString);
+        }
+
+        public override SessionsResultsRepository CreateSessionsResultsRepository()
+        {
+            return new SessionsResultsRepository(DbConnectionString);
+        }
+
+        public override SpecialtiesRepository CreateSpecialtiesRepository()
+        {
+            return new SpecialtiesRepository(DbConnectionString);
+        }
+
+        public override SubjectsRepository CreateSubjectsRepository()
+        {
+            return new SubjectsRepository(DbConnectionString);
+        }
     }
 }

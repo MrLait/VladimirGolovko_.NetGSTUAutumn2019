@@ -7,8 +7,8 @@ namespace DBModelsLinqToSql.Models
     /// <summary>
     /// Student table
     /// </summary>
-    [Table(Name = "Student")]
-    public class Student : IEntity
+    [Table(Name = "Examiners")]
+    public class Examiners : IEntity
     {
         /// <summary>
         /// ID
@@ -34,22 +34,5 @@ namespace DBModelsLinqToSql.Models
         [Column(Name = "MiddleName")]
         public string MiddleName { get; set; }
 
-        /// <summary>
-        /// Gender
-        /// </summary>
-        [Column(Name = "Gender")]
-        public string Gender { get; set; }
-
-        /// <summary>
-        /// DateOfBirth
-        /// </summary>
-        [Column(Name = "DateOfBirth")]
-        public DateTime DateOfBirth { get; set; }
-
-        /// <summary>
-        /// GroupID
-        /// </summary>
-        [Column(Name = "GroupID")]
-        public int GroupID { get; set; }
     }
 }

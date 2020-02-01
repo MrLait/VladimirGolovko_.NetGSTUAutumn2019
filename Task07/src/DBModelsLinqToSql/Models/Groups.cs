@@ -5,9 +5,10 @@ using System.Data.Linq.Mapping;
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Number of session table
+    /// Group table
     /// </summary>
-    public class NumberOfSession : IEntity
+    [Table(Name = "Groups")]
+    public class Groups : IEntity
     {
         /// <summary>
         /// ID
@@ -16,9 +17,12 @@ namespace DBModelsLinqToSql.Models
         public int ID { get; set; }
 
         /// <summary>
-        /// Number of session
+        /// Number of group
         /// </summary>
-        [Column(Name = "NumOfSession")]
-        public int NumOfSession { get; set; }
+        [Column(Name = "GroupName")]
+        public string GroupName { get; set; }
+
+        [Column(Name = "SpecialtiesID")]
+        public int SpecialtiesID { get; set; }
     }
 }
