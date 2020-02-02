@@ -1,9 +1,8 @@
-﻿using System;
-using DBModelsLinqToSql.Models;
-using System.Data.Linq;
-using System.Linq;
-using System.Reflection;
-using DAO.Factories;
+﻿using DAO.Factories;
+using SaveToXLSXManager;
+using SaveToXLSXManager.Interfaces;
+using SaveToXLSXManager.Model;
+using System;
 
 namespace ConsoleApp1
 {
@@ -12,16 +11,31 @@ namespace ConsoleApp1
         static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         static void Main(string[] args)
         {
-            Students student = new Students
-            {
-                ID = 4,
-                Surname = "Ksd",
-                FirstName = "Dimfffffff",
-                MiddleName = "sddM",
-                Gender = "Famale",
-                DateOfBirth = DateTime.Now.Date,
-                GroupsID = 2
-            };
+            DAOFactory dAOFactory =  LinqToSqlSingelton.GetInstance(connectionString);
+
+            GroupSessionsResultsReport groupSessionsResultsReport = new GroupSessionsResultsReport(dAOFactory);
+
+            Func<GroupSessionsResultsRow, object> orderByFunc = x => x.ID;
+
+            Excel excel = new Excel(@"..\..\Excel", "TestHeader");
+
+            IReport report = new GroupSessionsResultsReport(dAOFactory);
+
+            excel.SaveToXLSX(report);
+
+            groupSessionsResultsReport.GenerateRow("PM-2", 1, orderByFunc, true);
+            //LinqToSqlSingelton linqToSqlSingelton = new 
+
+            //Students student = new Students
+            //{
+            //    ID = 4,
+            //    Surname = "Ksd",
+            //    FirstName = "Dimfffffff",
+            //    MiddleName = "sddM",
+            //    Gender = "Famale",
+            //    DateOfBirth = DateTime.Now.Date,
+            //    GroupsID = 2
+            //};
             ////// добавляем его в таблицу Users
             //////db.GetTable<Student>().InsertOnSubmit(student);
             //////db.SubmitChanges();
@@ -38,7 +52,7 @@ namespace ConsoleApp1
             //GroupID = 2,
             //};
 
-            DataContext db = new DataContext(connectionString);
+            //DataContext db = new DataContext(connectionString);
             //var user2 = db.GetTable<Student>().Where(x => x.ID == student2.ID).SingleOrDefault();
             //GetUpdateParameter(student2, user2);
             //db.SubmitChanges();
@@ -67,12 +81,12 @@ namespace ConsoleApp1
             //};
             //
 
-           //DAOFactory test = DAOFactory.CreateDAOFactory(connectionString);
-           //test.CreateStudentsRepository().Add(student);
+            //DAOFactory test = DAOFactory.CreateDAOFactory(connectionString);
+            //test.CreateStudentsRepository().Add(student);
             //
             ////var test1 =  test.CreateStudentRepositoryDAO().GetAll();
-           // var test2 = test.CreateStudentRepositoryDAO().Update(student);
-           // var getByIDTest = test.CreateStudentRepositoryDAO().GetByID(7);
+            // var test2 = test.CreateStudentRepositoryDAO().Update(student);
+            // var getByIDTest = test.CreateStudentRepositoryDAO().GetByID(7);
             //var addNeObjTest = 
             //test.CreateStudentRepositoryDAO().Delete(7);
 

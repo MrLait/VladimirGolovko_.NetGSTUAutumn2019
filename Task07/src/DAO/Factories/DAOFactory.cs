@@ -1,7 +1,4 @@
-﻿using DAO.DBAccessTechnology.LINQtoSQLRepository;
-//using DAO.DBAccessTechnology.SqlClientUsingReflectionRepository;
-using DAO.Enums;
-using DAO.Interfaces;
+﻿using DAO.Interfaces;
 using DBModelsLinqToSql.Models;
 
 namespace DAO.Factories
@@ -12,9 +9,9 @@ namespace DAO.Factories
     public abstract class DAOFactory
     {
         public abstract ICRUD<Examiners> CreateExaminersRepository();
-        public abstract ICRUD<ExamSchedules> CreateExamSchedulesRepositoryO();
+        public abstract ICRUD<ExamSchedules> CreateExamSchedulesRepository();
         public abstract ICRUD<Groups> CreateGroupsRepository();
-        public abstract ICRUD<Sessions> CreateSessionsRepositoryO();
+        public abstract ICRUD<Sessions> CreateSessionsRepository();
         public abstract ICRUD<SessionsResults> CreateSessionsResultsRepository();
         public abstract ICRUD<Specialties> CreateSpecialtiesRepository();
         public abstract ICRUD<Students> CreateStudentsRepository();

@@ -52,6 +52,10 @@
       <Project>{83E7170B-12B1-4CB3-9E9A-A517B7188608}</Project>
       <Name>DBModelsLinqToSql</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SaveToXLSXManager\ReportManager.csproj">
+      <Project>{FDB28DF8-5F2A-40A6-B4D6-523F8E753A3A}</Project>
+      <Name>ReportManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

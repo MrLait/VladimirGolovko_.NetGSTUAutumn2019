@@ -31,7 +31,7 @@ namespace DBModelsLinqToSql.Models
         /// ExamValue
         /// </summary>
         [Column(Name = "ExamValue")]
-        public int ExamValue { get; set; }
+        public int? ExamValue { get; set; }
 
         /// <summary>
         /// SetOffValue

@@ -4,12 +4,89 @@
         <name>DAO</name>
     </assembly>
     <members>
-        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.StudentRepository">
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.StudentsRepository">
             <summary>
             Student repository which have been implemented Student model
             </summary>
         </member>
-        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.StudentRepository.#ctor(System.String)">
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.StudentsRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.ExaminersRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.ExaminersRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.ExamSchedulesRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.ExamSchedulesRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.GroupsRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.GroupsRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.SessionsRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.SessionsRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.SessionsResultsRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.SessionsResultsRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.SpecialtiesRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.SpecialtiesRepository.#ctor(System.String)">
+            <summary>
+            Constructor student repository
+            </summary>
+            <param name="dbConStr">database connection string</param>
+        </member>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.SubjectsRepository">
+            <summary>
+            Student repository which have been implemented Student model
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.SubjectsRepository.#ctor(System.String)">
             <summary>
             Constructor student repository
             </summary>
@@ -33,25 +110,6 @@
         <member name="T:DAO.Factories.DAOFactory">
             <summary>
             Abstract object which describes Factory
-            </summary>
-        </member>
-        <member name="M:DAO.Factories.DAOFactory.CreateStudentRepositoryDAO">
-            <summary>
-            Abstract method to create CreateStudentRepositoryDAO
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:DAO.Factories.DAOFactory.CreateDAOFactory(DAO.Enums.DBAccessTechnologyEnum,System.String)">
-            <summary>
-            Factory to switch DAO technology
-            </summary>
-            <param name="witchDAOenum">Type of Dao technology.</param>
-            <param name="dbConnectionString">data base connection sting</param>
-            <returns></returns>
-        </member>
-        <member name="P:DAO.Factories.LinqToSql.DbConnectionString">
-            <summary>
-            Connection string to database
             </summary>
         </member>
         <member name="T:DAO.Interfaces.ICRUD`1">

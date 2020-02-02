@@ -1,5 +1,7 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using SaveToXLSXManager.Interfaces;
 using System;
+using System.IO;
 
 namespace SaveToXLSXManager
 {
@@ -9,107 +11,61 @@ namespace SaveToXLSXManager
     /// </summary>
     public class Excel
     {
-        /// <summary>
-        /// Path
-        /// </summary>
-        public string Path { get; set; }
-
-        /// <summary>
-        /// WorkSheetName
-        /// </summary>
+        public string Path { get; private set; }
+        public string FileName { get; private set; }
         public string WorkSheetName { get; set; }
-
-        /// <summary>
-        /// ExcelApp
-        /// </summary>
-        public Application ExcelApp { get; set; }
-
-        /// <summary>
-        /// Workbook
-        /// </summary>
-        public Workbook Workbook { get; set; }
-
-        /// <summary>
-        /// Worksheet
-        /// </summary>
-        public Worksheet Worksheet { get; set; }
-
-        /// <summary>
-        /// CelRange
-        /// </summary>
-        public Range CelRange { get; set; }
-
-        /// <summary>
-        /// Constructor <seealso cref="Excel"/>
-        /// </summary>
-        public Excel() 
+        public Application ExcelApplication { get; private set; }
+        public Workbook ExcelWorkbook { get; private set; }
+        public Worksheet ExcelWorksheet { get; private set; }
+        
+        public Excel(string path, string fileName = "outputName")
         {
-            ExcelApp = new Application();
-            ExcelApp.Visible = false;
-            ExcelApp.DisplayAlerts = false;
+            Path = path;
+            FileName = fileName;
+            ExcelApplication = new Application();
         }
 
-        /// <summary>
-        /// Create new excel file.
-        /// </summary>
-        public void CreateNewFile()
+        public void SaveToXLSX(IReport report)
         {
-            Workbook = ExcelApp.Workbooks.Add(Type.Missing);
-        }
+            string outputPath = Path + FileName + ".xlsx";
 
-        /// <summary>
-        /// Create a new sheet
-        /// </summary>
-        /// <param name="workSheetName"> Sheet name</param>
-        public void CreateNewSheet(string workSheetName)
-        {
-            Worksheet = Workbook.ActiveSheet;
-            Worksheet.Name = workSheetName;
-        }
+            Directory.CreateDirectory(Path);
 
-        /// <summary>
-        /// Write to Excel file
-        /// </summary>
-        /// <param name="row">row</param>
-        /// <param name="collum">collum</param>
-        /// <param name="data">data</param>
-        public void WriteDataToCell(int row, int collum, object data)
-        {
-            Worksheet.Cells[row, collum] = data;
-        }
 
-        /// <summary>
-        /// Save excel file
-        /// </summary>
-        public void Save()
-        {
-            Workbook.Save();
-        }
+            if (!Directory.Exists(Path))
+                throw new FileNotFoundException("Directory is not found.");
+            
+            ExcelWorkbook = ExcelApplication.Workbooks.Add();
+            ExcelWorksheet = (Worksheet)ExcelWorkbook.Sheets[1];
+            ExcelWorksheet.Name = FileName;
 
-        /// <summary>
-        /// Save as excel file
-        /// </summary>
-        /// <param name="path">path to folder</param>
-        public void SaveAs(string path)
-        {
-            Workbook.SaveAs(path);
-        }
+            try
+            {
+                var header = report.GetDataHeader();
 
-        /// <summary>
-        /// Close file
-        /// </summary>
-        public void Close()
-        {
-            Workbook.Close();
-        }
+                int row = 1;
+                int cells = 1;
 
-        /// <summary>
-        /// Quit file
-        /// </summary>
-        public void Quit()
-        {
-            ExcelApp.Quit();
-        }
+                    foreach (var cellValue in header)
+                    {
+                        ExcelWorksheet.Cells[row, cells] = cellValue;
+                        cells++;
+                    }
 
+                ExcelWorksheet.Rows.AutoFit();
+                ExcelWorksheet.Columns.AutoFit();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally 
+            {
+                ExcelWorkbook.SaveAs(outputPath);
+                ExcelWorkbook.Close(true);
+                ExcelApplication.Quit();
+            }
+        }
     }
 }

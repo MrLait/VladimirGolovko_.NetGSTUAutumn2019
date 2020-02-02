@@ -5,7 +5,7 @@ namespace SaveToXLSXManager.Model
     /// <summary>
     /// Session table of both result
     /// </summary>
-    public class SessionTableOfBothResult
+    public class GroupSessionsResultsRow
     {
         /// <summary>
         /// ID
@@ -60,7 +60,7 @@ namespace SaveToXLSXManager.Model
         /// <summary>
         /// ExamValue
         /// </summary>
-        public int ExamValue { get; set; }
+        public int? ExamValue { get; set; }
 
         /// <summary>
         /// SetOffDate

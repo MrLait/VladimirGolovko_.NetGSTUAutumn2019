@@ -4,7 +4,7 @@ using DBModelsLinqToSql.Models;
 
 namespace DAO.Factories
 {
-    internal class LinqToSqlSingelton : DAOFactory
+    public class LinqToSqlSingelton : DAOFactory
     {
         private static LinqToSqlSingelton instance;
         
@@ -33,7 +33,7 @@ namespace DAO.Factories
             return new ExaminersRepository(DbConnectionString);
         }
 
-        public override ICRUD<ExamSchedules> CreateExamSchedulesRepositoryO()
+        public override ICRUD<ExamSchedules> CreateExamSchedulesRepository()
         {
             return new ExamSchedulesRepository(DbConnectionString);
         }
@@ -43,7 +43,7 @@ namespace DAO.Factories
             return new GroupsRepository(DbConnectionString);
         }
 
-        public override ICRUD<Sessions> CreateSessionsRepositoryO()
+        public override ICRUD<Sessions> CreateSessionsRepository()
         {
             return new SessionsRepository(DbConnectionString);
         }

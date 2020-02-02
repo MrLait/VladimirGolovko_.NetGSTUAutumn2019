@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SaveToXLSXManager.Interfaces
 {
-    interface IReport
+    public interface IReport
     {
         IEnumerable<string> GetDataHeader();
         IEnumerable<string> GetData();
