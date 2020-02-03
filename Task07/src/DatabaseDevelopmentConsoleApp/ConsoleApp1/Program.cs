@@ -13,17 +13,19 @@ namespace ConsoleApp1
         {
             DAOFactory dAOFactory =  LinqToSqlSingelton.GetInstance(connectionString);
 
-            GroupSessionsResultsReport groupSessionsResultsReport = new GroupSessionsResultsReport(dAOFactory);
-
-            Func<GroupSessionsResultsRow, object> orderByFunc = x => x.ID;
+            Func<GroupSessionsResultsRow, object> orderByFunc = x => x.StudentID;
+            Func<PivotResultsRow, object> orderByFuncPivot = x => x.AverageExamValue;
 
             Excel excel = new Excel(@"..\..\Excel", "TestHeader");
 
-            IReport report = new GroupSessionsResultsReport(dAOFactory);
+            IReport report = new GroupSessionsResultsReport(dAOFactory, "PM-2", 1, orderByFunc, false);
+            IReport pivotReport = new PivotResultsReport(dAOFactory, "PM-1", orderByFuncPivot, false);
 
-            excel.SaveToXLSX(report);
+           // excel.SaveToXLSX(report);
+            Excel excelPivot = new Excel(@"..\..\Excel", "TestHeaderPivot");
 
-            groupSessionsResultsReport.GenerateRow("PM-2", 1, orderByFunc, true);
+            excelPivot.SaveToXLSX(pivotReport);
+
             //LinqToSqlSingelton linqToSqlSingelton = new 
 
             //Students student = new Students

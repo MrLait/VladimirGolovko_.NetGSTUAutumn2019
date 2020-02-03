@@ -5,7 +5,6 @@ using System.IO;
 
 namespace SaveToXLSXManager
 {
-
     /// <summary>
     /// Class for access to EXCEL file
     /// </summary>
@@ -17,7 +16,7 @@ namespace SaveToXLSXManager
         public Application ExcelApplication { get; private set; }
         public Workbook ExcelWorkbook { get; private set; }
         public Worksheet ExcelWorksheet { get; private set; }
-        
+
         public Excel(string path, string fileName = "outputName")
         {
             Path = path;
@@ -29,12 +28,10 @@ namespace SaveToXLSXManager
         {
             string outputPath = Path + FileName + ".xlsx";
 
-            Directory.CreateDirectory(Path);
-
-
+            //Directory.CreateDirectory(Path);
             if (!Directory.Exists(Path))
                 throw new FileNotFoundException("Directory is not found.");
-            
+
             ExcelWorkbook = ExcelApplication.Workbooks.Add();
             ExcelWorksheet = (Worksheet)ExcelWorkbook.Sheets[1];
             ExcelWorksheet.Name = FileName;
@@ -42,15 +39,26 @@ namespace SaveToXLSXManager
             try
             {
                 var header = report.GetDataHeader();
-
+                var data = report.GetData();
                 int row = 1;
                 int cells = 1;
 
-                    foreach (var cellValue in header)
+                foreach (var cellValue in header)
+                {
+                    ExcelWorksheet.Cells[row, cells] = cellValue;
+                    cells++;
+                }
+
+                foreach (var item in data)
+                {
+                    cells = 1;
+                    row++;
+                    foreach (var cellValue in item)
                     {
                         ExcelWorksheet.Cells[row, cells] = cellValue;
                         cells++;
                     }
+                }
 
                 ExcelWorksheet.Rows.AutoFit();
                 ExcelWorksheet.Columns.AutoFit();
@@ -60,7 +68,7 @@ namespace SaveToXLSXManager
             {
                 throw ex;
             }
-            finally 
+            finally
             {
                 ExcelWorkbook.SaveAs(outputPath);
                 ExcelWorkbook.Close(true);

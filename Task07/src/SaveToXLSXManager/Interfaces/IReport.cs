@@ -9,6 +9,6 @@ namespace SaveToXLSXManager.Interfaces
     public interface IReport
     {
         IEnumerable<string> GetDataHeader();
-        IEnumerable<string> GetData();
+        IEnumerable<IEnumerable<string>> GetData();
     }
 }

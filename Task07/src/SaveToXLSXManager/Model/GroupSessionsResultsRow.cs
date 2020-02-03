@@ -10,12 +10,12 @@ namespace SaveToXLSXManager.Model
         /// <summary>
         /// ID
         /// </summary>
-        public int ID { get; set; }
+        public int StudentID { get; set; }
 
         /// <summary>
         /// NumberOfGroup
         /// </summary>
-        public string NumberOfGroup { get; set; }
+        public string GroupName { get; set; }
 
         /// <summary>
         /// NumberOfSession

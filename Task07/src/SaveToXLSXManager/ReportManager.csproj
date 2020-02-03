@@ -41,17 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Excel.cs" />
-    <Compile Include="GroupSessionsResultsReport.cs" />
+    <Compile Include="SaveToXLSX\GroupSessionsResultsReport.cs" />
     <Compile Include="Interfaces\IReport.cs" />
     <Compile Include="ListToObjectQuere\Quere.cs" />
-    <Compile Include="Model\SessionTableExamResult.cs" />
+    <Compile Include="Model\PivotResultsRow.cs" />
     <Compile Include="Model\GroupSessionsResultsRow.cs" />
     <Compile Include="Model\SessionTableResult.cs" />
     <Compile Include="Model\SessionTableSetOffResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveToXLSX\SaveSessionResultsToXLSX.cs" />
+    <Compile Include="SaveToXLSX\PivotResultsReport.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

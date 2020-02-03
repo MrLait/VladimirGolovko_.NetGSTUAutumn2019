@@ -9,32 +9,17 @@
             Class for access to EXCEL file
             </summary>
         </member>
-        <member name="T:SaveToXLSXManager.Model.SessionTableExamResult">
-            <summary>
-            Session table exam result
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableExamResult.ExamDate">
-            <summary>
-            ExamDate
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableExamResult.ExamValue">
-            <summary>
-            ExamValue
-            </summary>
-        </member>
         <member name="T:SaveToXLSXManager.Model.GroupSessionsResultsRow">
             <summary>
             Session table of both result
             </summary>
         </member>
-        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.ID">
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.StudentID">
             <summary>
             ID
             </summary>
         </member>
-        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.NumberOfGroup">
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.GroupName">
             <summary>
             NumberOfGroup
             </summary>

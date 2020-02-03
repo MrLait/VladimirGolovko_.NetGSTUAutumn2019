@@ -13,19 +13,40 @@ namespace SaveToXLSXManager
 {
     public class GroupSessionsResultsReport : IReport
     {
-        public DAOFactory DAOFactory;
-        public IEnumerable<Examiners> Examiners;
-        public IEnumerable<ExamSchedules> ExamSchedules;
-        public IEnumerable<Groups> Groups;
-        public IEnumerable<Sessions> Sessions;
-        public IEnumerable<SessionsResults> SessionsResults;
-        public IEnumerable<Specialties> Specialties;
-        public IEnumerable<Students> Students;
-        public IEnumerable<Subjects> Subjects;
+        public DAOFactory DAOFactory { get; private set; }
+        public IEnumerable<ExamSchedules> ExamSchedules { get; private set; }
+        public IEnumerable<Groups> Groups { get; private set; }
+        public IEnumerable<Sessions> Sessions { get; private set; }
+        public IEnumerable<SessionsResults> SessionsResults { get; private set; }
+        public IEnumerable<Students> Students { get; private set; }
+        public IEnumerable<Subjects> Subjects { get; private set; }
+
+        public string GroupName { get; private set; }
+        public int SessionNumber { get; private set; }
+        public Func<GroupSessionsResultsRow, object> OrderByFunc { get; private set; }
+        public bool Descending { get; private set; }
+        public List<List<string>> GetDataRows {get; private set; }
+
+    public GroupSessionsResultsReport(DAOFactory dAOFactory, string groupName, int sessionNumber, Func<GroupSessionsResultsRow, object> orderByFunc, bool descending)
+        {
+            DAOFactory = dAOFactory;
+            ExamSchedules = DAOFactory.CreateExamSchedulesRepository().GetAll();
+            Groups = DAOFactory.CreateGroupsRepository().GetAll();
+            Sessions = DAOFactory.CreateSessionsRepository().GetAll();
+            SessionsResults = DAOFactory.CreateSessionsResultsRepository().GetAll();
+            Students = DAOFactory.CreateStudentsRepository().GetAll();
+            Subjects = DAOFactory.CreateSubjectsRepository().GetAll();
+
+            GroupName = groupName;
+            SessionNumber = sessionNumber;
+            OrderByFunc = orderByFunc;
+            Descending = descending;
+            GetDataRows = new List<List<string>>();
+        }
 
         public IEnumerable<string> GetDataHeader()
         {
-            return new List<string> 
+            return new List<string>
             {
                 "ID", "NumberOfGroup", "NumberOfSession", "Surname",
                 "FirstName", "MiddleName", "Gender", "DateOfBirth",
@@ -34,31 +55,35 @@ namespace SaveToXLSXManager
             };
         }
 
-        public IEnumerable<string> GetData()
+        public IEnumerable<IEnumerable<string>> GetData()
         {
-            throw new NotImplementedException();
+
+            foreach (GroupSessionsResultsRow item in GenerateRow().ToList())
+            {
+                GetDataRows.Add(new List<string>
+                {
+                    item.StudentID.ToString(),
+                    item.GroupName,
+                    item.NumberOfSession.ToString(),
+                    item.Surname,
+                    item.FirstName,
+                    item.MiddleName,
+                    item.Gender,
+                    item.DateOfBirth.ToString(),
+                    item.Subject,
+                    item.ExamDate.ToString(),
+                    item.ExamValue.ToString(),
+                    item.SetOffDate.ToString(),
+                    item.SetOffValue.ToString()
+                });
+            }
+            return GetDataRows;
         }
 
-
-
-        public GroupSessionsResultsReport(DAOFactory dAOFactory)
+        private IOrderedEnumerable<GroupSessionsResultsRow> GenerateRow()
         {
-            DAOFactory = dAOFactory;
-            Examiners = DAOFactory.CreateExaminersRepository().GetAll();
-            ExamSchedules = DAOFactory.CreateExamSchedulesRepository().GetAll();
-            Groups = DAOFactory.CreateGroupsRepository().GetAll();
-            Sessions = DAOFactory.CreateSessionsRepository().GetAll();
-            SessionsResults = DAOFactory.CreateSessionsResultsRepository().GetAll();
-            Specialties = DAOFactory.CreateSpecialtiesRepository().GetAll();
-            Students = DAOFactory.CreateStudentsRepository().GetAll();
-            Subjects = DAOFactory.CreateSubjectsRepository().GetAll();
-        }
-
-
-        public IOrderedEnumerable<GroupSessionsResultsRow> GenerateRow(string groupName, int sessionNumber, Func<GroupSessionsResultsRow, object> orderByFunc, bool descending)
-        {
-            Groups requiredGroupReport = Groups.FirstOrDefault(x => x.GroupName == groupName);
-            Sessions requiredSessionReport = Sessions.FirstOrDefault(x => x.Session == sessionNumber);
+            Groups requiredGroupReport = Groups.FirstOrDefault(x => x.GroupName == GroupName);
+            Sessions requiredSessionReport = Sessions.FirstOrDefault(x => x.Session == SessionNumber);
 
             if (requiredGroupReport == null)
                 throw new NullReferenceException("Check groupName");
@@ -75,7 +100,7 @@ namespace SaveToXLSXManager
                 select new
                 {
                     ID = students.ID,
-                    NumberOfGroup = requiredGroupReport.GroupName,
+                    GroupName = requiredGroupReport.GroupName,
                     NumberOfSession = requiredSessionReport.Session,
                     Surname = students.Surname,
                     FirstName = students.FirstName,
@@ -97,7 +122,7 @@ namespace SaveToXLSXManager
                 select new
                 {
                     ID = students.ID,
-                    NumberOfGroup = requiredGroupReport.GroupName,
+                    GroupName = requiredGroupReport.GroupName,
                     NumberOfSession = requiredSessionReport.Session,
                     Surname = students.Surname,
                     FirstName = students.FirstName,
@@ -115,8 +140,8 @@ namespace SaveToXLSXManager
                 where GroupSessionSetOffResult.Subject == GroupSessionExamResult.Subject
                 select new GroupSessionsResultsRow
                 {
-                    ID = GroupSessionExamResult.ID,
-                    NumberOfGroup = GroupSessionExamResult.NumberOfGroup,
+                    StudentID = GroupSessionExamResult.ID,
+                    GroupName = GroupSessionExamResult.GroupName,
                     NumberOfSession = GroupSessionExamResult.NumberOfSession,
                     Surname = GroupSessionExamResult.Surname,
                     FirstName = GroupSessionExamResult.FirstName,
@@ -136,10 +161,10 @@ namespace SaveToXLSXManager
 
             IOrderedEnumerable<GroupSessionsResultsRow> orderedGroupSessionBothTypeResult;
 
-            if (descending)
-                orderedGroupSessionBothTypeResult = groupSessionbothTypeResult.OrderByDescending(orderByFunc);
+            if (Descending)
+                orderedGroupSessionBothTypeResult = groupSessionbothTypeResult.OrderByDescending(OrderByFunc);
             else
-                orderedGroupSessionBothTypeResult = groupSessionbothTypeResult.OrderBy(orderByFunc);
+                orderedGroupSessionBothTypeResult = groupSessionbothTypeResult.OrderBy(OrderByFunc);
 
             return orderedGroupSessionBothTypeResult;
 
