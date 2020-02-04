@@ -41,16 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DynamicsAverageSubjectScoreByYearsReportRow.cs" />
+    <Compile Include="Reports\DynamicsAverageSubjectScoreByYearsReport..cs" />
+    <Compile Include="Reports\AverageScoreForEachExaminerReport.cs" />
+    <Compile Include="Model\AverageScoreForEachExaminerReportRow.cs" />
     <Compile Include="Excel.cs" />
-    <Compile Include="SaveToXLSX\GroupSessionsResultsReport.cs" />
+    <Compile Include="Model\AverageScoreForEachSpecialtyReportRow.cs" />
+    <Compile Include="Reports\AverageScoreForEachSpecialtyReport.cs" />
+    <Compile Include="Reports\StudentsToBeExpelledReport.cs" />
+    <Compile Include="Reports\GroupSessionsResultsReport.cs" />
     <Compile Include="Interfaces\IReport.cs" />
-    <Compile Include="ListToObjectQuere\Quere.cs" />
     <Compile Include="Model\PivotResultsRow.cs" />
     <Compile Include="Model\GroupSessionsResultsRow.cs" />
-    <Compile Include="Model\SessionTableResult.cs" />
-    <Compile Include="Model\SessionTableSetOffResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveToXLSX\PivotResultsReport.cs" />
+    <Compile Include="Reports\PivotResultsReport.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

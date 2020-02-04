@@ -9,7 +9,7 @@ DECLARE @SurnamePrefix NVARCHAR(40), @FirstNamePrefix NVARCHAR(40), @MiddleNameP
 
 SET @QuantityGroups = (SELECT COUNT(*) FROM Groups) + 1;
 SET @number = 1;
-SET @StudentsNum = 6
+SET @StudentsNum = 12
 SET @SurnamePrefix = 'Surname';
 SET @FirstNamePrefix = 'Firstname';
 SET @MiddleNamePrefix = 'Middlename';

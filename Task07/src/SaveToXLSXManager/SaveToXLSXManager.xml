@@ -4,11 +4,6 @@
         <name>SaveToXLSXManager</name>
     </assembly>
     <members>
-        <member name="T:SaveToXLSXManager.Excel">
-            <summary>
-            Class for access to EXCEL file
-            </summary>
-        </member>
         <member name="T:SaveToXLSXManager.Model.GroupSessionsResultsRow">
             <summary>
             Session table of both result
@@ -79,69 +74,9 @@
             SetOffValue
             </summary>
         </member>
-        <member name="T:SaveToXLSXManager.Model.SessionTableResult">
+        <member name="T:SaveToXLSXManager.Excel">
             <summary>
-            Session table result
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.ID">
-            <summary>
-            ID
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.NumberOfGroup">
-            <summary>
-            NumberOfGroup
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.NumberOfSession">
-            <summary>
-            NumberOfSession
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.Surname">
-            <summary>
-            Surname
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.FirstName">
-            <summary>
-            FirstName
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.MiddleName">
-            <summary>
-            MiddleName
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.Gender">
-            <summary>
-            Gender
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.DateOfBirth">
-            <summary>
-            DateOfBirth
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableResult.Subject">
-            <summary>
-            Subject
-            </summary>
-        </member>
-        <member name="T:SaveToXLSXManager.Model.SessionTableSetOffResult">
-            <summary>
-            Session table setOff result
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableSetOffResult.SetOffDate">
-            <summary>
-            SetOff date
-            </summary>
-        </member>
-        <member name="P:SaveToXLSXManager.Model.SessionTableSetOffResult.SetOffValue">
-            <summary>
-            SetOff value
+            Class for access to EXCEL file
             </summary>
         </member>
     </members>

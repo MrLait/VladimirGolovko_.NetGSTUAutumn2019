@@ -58,6 +58,7 @@ namespace SaveToXLSXManager
         public IEnumerable<IEnumerable<string>> GetData()
         {
 
+            GetDataRows.Clear();
             foreach (GroupSessionsResultsRow item in GenerateRow().ToList())
             {
                 GetDataRows.Add(new List<string>

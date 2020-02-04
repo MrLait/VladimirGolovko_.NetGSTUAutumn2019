@@ -51,6 +51,7 @@ namespace SaveToXLSXManager
 
         public IEnumerable<IEnumerable<string>> GetData()
         {
+            GetDataRows.Clear();
             foreach (PivotResultsRow item in GenerateRow().ToList())
             {
                 GetDataRows.Add(new List<string>
