@@ -32,7 +32,7 @@ namespace DAO.DBAccessTechnology.LINQtoSQLRepository
             return GetTable;
         }
 
-        public virtual T Update(T entity)
+        public T Update(T entity)
         {
             var singleObjFromTable = GetTable.Where(x => x.ID.Equals(entity.ID)).Single();
             var changedParamObj =  GetUpdateParameter(entity, singleObjFromTable);
@@ -40,7 +40,7 @@ namespace DAO.DBAccessTechnology.LINQtoSQLRepository
             return (T)changedParamObj;
         }
 
-        public virtual T GetByID(int byID)
+        public T GetByID(int byID)
         {
             var singleObjFromTable = GetTable.Where(x => x.ID.Equals(byID)).Single();
             return singleObjFromTable;
@@ -53,7 +53,7 @@ namespace DAO.DBAccessTechnology.LINQtoSQLRepository
             SubmitChanges();
        }
 
-        public virtual void Delete(int byID)
+        public void Delete(int byID)
         {
             var singleObjFromTable = GetTable.Where(x => x.ID.Equals(byID)).SingleOrDefault();
             GetTable.DeleteOnSubmit(singleObjFromTable);

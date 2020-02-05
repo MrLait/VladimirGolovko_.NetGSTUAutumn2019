@@ -3,6 +3,7 @@ using DAO.Interfaces;
 using DBModelsLinqToSql.Models;
 using SaveToXLSXManager.Interfaces;
 using SaveToXLSXManager.Model;
+using SaveToXLSXManager.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,37 +12,17 @@ using System.Threading.Tasks;
 
 namespace SaveToXLSXManager
 {
-    public class PivotResultsReport : IReport
+    public class PivotResultsReport : Report
     {
-        public DAOFactory DAOFactory { get; private set; }
-        public IEnumerable<ExamSchedules> ExamSchedules { get; private set; }
-        public IEnumerable<Groups> Groups { get; private set; }
-        public IEnumerable<Sessions> Sessions { get; private set; }
-        public IEnumerable<SessionsResults> SessionsResults { get; private set; }
-        public IEnumerable<Subjects> Subjects { get; private set; }
+        private Func<PivotResultsRow, object> _orderByFunc;
 
-        public string GroupName { get; private set; }
-        public int SessionNumber { get; private set; }
-        public Func<PivotResultsRow, object> OrderByFunc { get; private set; }
-        public bool Descending { get; private set; }
-        public List<List<string>> GetDataRows {get; private set; }
-
-    public PivotResultsReport(DAOFactory dAOFactory, string groupName, Func<PivotResultsRow, object> orderByFunc, bool descending)
+    public PivotResultsReport(LinqToSqlSingelton linqToSqlSingelton, string groupName, Func<PivotResultsRow, object> orderByFunc, bool descending)
+        :base(linqToSqlSingelton, groupName, descending)
         {
-            DAOFactory = dAOFactory;
-            ExamSchedules = DAOFactory.CreateExamSchedulesRepository().GetAll();
-            Groups = DAOFactory.CreateGroupsRepository().GetAll();
-            Sessions = DAOFactory.CreateSessionsRepository().GetAll();
-            SessionsResults = DAOFactory.CreateSessionsResultsRepository().GetAll();
-            Subjects = DAOFactory.CreateSubjectsRepository().GetAll();
-
-            GroupName = groupName;
-            OrderByFunc = orderByFunc;
-            Descending = descending;
-            GetDataRows = new List<List<string>>();
+            _orderByFunc = orderByFunc;
         }
 
-        public IEnumerable<string> GetDataHeader()
+        public override IEnumerable<string> GetDataHeader()
         {
             return new List<string>
             {
@@ -49,12 +30,12 @@ namespace SaveToXLSXManager
             };
         }
 
-        public IEnumerable<IEnumerable<string>> GetData()
+        public override IEnumerable<IEnumerable<string>> GetData()
         {
-            GetDataRows.Clear();
+            _getDataRows.Clear();
             foreach (PivotResultsRow item in GenerateRow().ToList())
             {
-                GetDataRows.Add(new List<string>
+                _getDataRows.Add(new List<string>
                 {
                     item.NumberOfSession.ToString(),
                     item.MaxExamValue.ToString(),
@@ -62,22 +43,22 @@ namespace SaveToXLSXManager
                     item.AverageExamValue.ToString()
                 });
             }
-            return GetDataRows;
+            return _getDataRows;
         }
 
         private IOrderedEnumerable<PivotResultsRow> GenerateRow()
         {
-            Groups requiredGroupReport = Groups.FirstOrDefault(x => x.GroupName == GroupName);
+            Groups requiredGroupReport = _groups.FirstOrDefault(x => x.GroupName == _groupName);
 
             if (requiredGroupReport == null)
                 throw new NullReferenceException("Check groupName");
 
             var examValuesQuere =
-                from sessionsResults in SessionsResults
-                join examSchedules in ExamSchedules on sessionsResults.ExamSchedulesID equals examSchedules.ID
-                join sessions in Sessions on examSchedules.SessionsID equals sessions.ID
-                join groups in Groups on examSchedules.GroupsID equals groups.ID
-                join subjects in Subjects on examSchedules.SubjectsID equals subjects.ID
+                from sessionsResults in _sessionsResults
+                join examSchedules in _examSchedules on sessionsResults.ExamSchedulesID equals examSchedules.ID
+                join sessions in _sessions on examSchedules.SessionsID equals sessions.ID
+                join groups in _groups on examSchedules.GroupsID equals groups.ID
+                join subjects in _subjects on examSchedules.SubjectsID equals subjects.ID
                 where requiredGroupReport.ID == groups.ID & subjects.IsAssessment == "True"
                 select new
                 {
@@ -100,16 +81,14 @@ namespace SaveToXLSXManager
             if (groupPivotResultsQuere == null)
                 throw new NullReferenceException("Data not found.");
 
-
             IOrderedEnumerable<PivotResultsRow> orderedGroupSessionBothTypeResult;
 
-            if (Descending)
-                orderedGroupSessionBothTypeResult = groupPivotResultsQuere.OrderByDescending(OrderByFunc);
+            if (_descending)
+                orderedGroupSessionBothTypeResult = groupPivotResultsQuere.OrderByDescending(_orderByFunc);
             else
-                orderedGroupSessionBothTypeResult = groupPivotResultsQuere.OrderBy(OrderByFunc);
+                orderedGroupSessionBothTypeResult = groupPivotResultsQuere.OrderBy(_orderByFunc);
 
             return orderedGroupSessionBothTypeResult;
-
         }
     }
 }

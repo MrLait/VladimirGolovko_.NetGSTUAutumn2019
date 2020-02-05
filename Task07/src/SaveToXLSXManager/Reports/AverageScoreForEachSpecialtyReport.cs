@@ -3,6 +3,7 @@ using DAO.Interfaces;
 using DBModelsLinqToSql.Models;
 using SaveToXLSXManager.Interfaces;
 using SaveToXLSXManager.Model;
+using SaveToXLSXManager.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,41 +12,17 @@ using System.Threading.Tasks;
 
 namespace SaveToXLSXManager
 {
-    public class AverageScoreForEachSpecialtyReport : IReport
+    public class AverageScoreForEachSpecialtyReport : Report
     {
-        public DAOFactory DAOFactory { get; private set; }
-        public IEnumerable<ExamSchedules> ExamSchedules { get; private set; }
-        public IEnumerable<Groups> Groups { get; private set; }
-        public IEnumerable<Sessions> Sessions { get; private set; }
-        public IEnumerable<SessionsResults> SessionsResults { get; private set; }
-        public IEnumerable<Subjects> Subjects { get; private set; }
-        public IEnumerable<Specialties> Specialties { get; private set; }
-        public IEnumerable<Students> Students { get; private set; }
+        private Func<AverageScoreForEachSpecialtyReportRow, object> _orderByFunc;
 
-        public int SessionNumber { get; private set; }
-        public Func<AverageScoreForEachSpecialtyReportRow, object> OrderByFunc { get; private set; }
-        public bool Descending { get; private set; }
-        public List<List<string>> GetDataRows {get; private set; }
-
-    public AverageScoreForEachSpecialtyReport(DAOFactory dAOFactory, int sessionNumber, Func<AverageScoreForEachSpecialtyReportRow, object> orderByFunc, bool descending)
+    public AverageScoreForEachSpecialtyReport(LinqToSqlSingelton linqToSqlSingelton, int sessionNumber, Func<AverageScoreForEachSpecialtyReportRow, object> orderByFunc, bool descending)
+            : base(linqToSqlSingelton, sessionNumber, descending)
         {
-            DAOFactory = dAOFactory;
-            ExamSchedules = DAOFactory.CreateExamSchedulesRepository().GetAll();
-            Groups = DAOFactory.CreateGroupsRepository().GetAll();
-            Sessions = DAOFactory.CreateSessionsRepository().GetAll();
-            SessionsResults = DAOFactory.CreateSessionsResultsRepository().GetAll();
-            Subjects = DAOFactory.CreateSubjectsRepository().GetAll();
-            Specialties = DAOFactory.CreateSpecialtiesRepository().GetAll();
-            Students = DAOFactory.CreateStudentsRepository().GetAll();
-
-            SessionNumber = sessionNumber;
-            OrderByFunc = orderByFunc;
-            Descending = descending;
-            GetDataRows = new List<List<string>>();
-
+            _orderByFunc = orderByFunc;
         }
 
-        public IEnumerable<string> GetDataHeader()
+        public override IEnumerable<string> GetDataHeader()
         {
             return new List<string>
             {
@@ -53,36 +30,36 @@ namespace SaveToXLSXManager
             };
         }
 
-        public IEnumerable<IEnumerable<string>> GetData()
+        public override IEnumerable<IEnumerable<string>> GetData()
         {
-            GetDataRows.Clear();
+            _getDataRows.Clear();
             foreach (AverageScoreForEachSpecialtyReportRow item in GenerateRow().ToList())
             {
-                GetDataRows.Add(new List<string>
+                _getDataRows.Add(new List<string>
                 {
                     item.SessionNumber.ToString(),
                     item.SpecialtiesName,
                     item.AverageExamValue.ToString()
                 });
             }
-            return GetDataRows;
+            return _getDataRows;
         }
 
         private IOrderedEnumerable<AverageScoreForEachSpecialtyReportRow> GenerateRow()
         {
-            Sessions requiredSessionsReport = Sessions.FirstOrDefault(x => x.Session == SessionNumber);
+            Sessions requiredSessionsReport = _sessions.FirstOrDefault(x => x.Session == _sessionNumber);
 
             if (requiredSessionsReport == null)
                 throw new NullReferenceException("Check SessionNumber");
 
             var examValuesBySessionNumberQuere =
-                from sessionsResults in SessionsResults
-                join examSchedules in ExamSchedules on sessionsResults.ExamSchedulesID equals examSchedules.ID
-                join groups in Groups on examSchedules.GroupsID equals groups.ID
-                join specialties in Specialties on groups.SpecialtiesID equals specialties.ID
-                join subjects in Subjects on examSchedules.SubjectsID equals subjects.ID
-                join sessions in Sessions on examSchedules.SessionsID equals sessions.ID
-                join students in Students on sessionsResults.StudentsID equals students.ID
+                from sessionsResults in _sessionsResults
+                join examSchedules in _examSchedules on sessionsResults.ExamSchedulesID equals examSchedules.ID
+                join groups in _groups on examSchedules.GroupsID equals groups.ID
+                join specialties in _specialties on groups.SpecialtiesID equals specialties.ID
+                join subjects in _subjects on examSchedules.SubjectsID equals subjects.ID
+                join sessions in _sessions on examSchedules.SessionsID equals sessions.ID
+                join students in _students on sessionsResults.StudentsID equals students.ID
                 where requiredSessionsReport.ID == sessions.ID & subjects.IsAssessment == "True"
                 select new
                 {
@@ -93,7 +70,6 @@ namespace SaveToXLSXManager
                     SpecialtiesID = specialties.ID,
                     ExamValue = sessionsResults.ExamValue
                 };
-
 
             var groupSpecialtiesIdAverageSpecialitesExamValueResultsQuere =
                 from examValueQuere in examValuesBySessionNumberQuere
@@ -106,28 +82,25 @@ namespace SaveToXLSXManager
 
             IEnumerable<AverageScoreForEachSpecialtyReportRow> averageScoreForEachSpecialtyReportRowQuere =
                 from GroupSpecialtiesIdAverageSpecialitesExamValueResultsQuere in groupSpecialtiesIdAverageSpecialitesExamValueResultsQuere
-                join specialties in Specialties on GroupSpecialtiesIdAverageSpecialitesExamValueResultsQuere.SpecialtiesID equals specialties.ID
+                join specialties in _specialties on GroupSpecialtiesIdAverageSpecialitesExamValueResultsQuere.SpecialtiesID equals specialties.ID
                 select new AverageScoreForEachSpecialtyReportRow
                 {
-                    SessionNumber = SessionNumber,
+                    SessionNumber = _sessionNumber,
                     SpecialtiesName = specialties.Specialtie,
                     AverageExamValue = GroupSpecialtiesIdAverageSpecialitesExamValueResultsQuere.AverageExamValue
                 };
 
-
             if (averageScoreForEachSpecialtyReportRowQuere == null)
                 throw new NullReferenceException("Data not found.");
 
-
             IOrderedEnumerable<AverageScoreForEachSpecialtyReportRow> orderedGroupSessionBothTypeResult;
 
-            if (Descending)
-                orderedGroupSessionBothTypeResult = averageScoreForEachSpecialtyReportRowQuere.OrderByDescending(OrderByFunc);
+            if (_descending)
+                orderedGroupSessionBothTypeResult = averageScoreForEachSpecialtyReportRowQuere.OrderByDescending(_orderByFunc);
             else
-                orderedGroupSessionBothTypeResult = averageScoreForEachSpecialtyReportRowQuere.OrderBy(OrderByFunc);
+                orderedGroupSessionBothTypeResult = averageScoreForEachSpecialtyReportRowQuere.OrderBy(_orderByFunc);
 
             return orderedGroupSessionBothTypeResult;
-
         }
     }
 }

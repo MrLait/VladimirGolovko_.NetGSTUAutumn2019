@@ -60,8 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBAccessTechnology\LINQtoSQLRepository\Repository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\StudentsRepository.cs" />
-    <Compile Include="Enums\DBAccessTechnologyEnum.cs" />
     <Compile Include="Factories\DAOFactory.cs" />
     <Compile Include="Singelton\LinqToSqlSingelton.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />
@@ -71,13 +69,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\ExaminersRepository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\ExamSchedulesRepository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\GroupsRepository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\SessionsRepository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\SessionsResultsRepository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\SpecialtiesRepository.cs" />
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\SubjectsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

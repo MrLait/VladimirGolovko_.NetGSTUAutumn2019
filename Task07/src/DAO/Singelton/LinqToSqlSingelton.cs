@@ -4,65 +4,84 @@ using DBModelsLinqToSql.Models;
 
 namespace DAO.Factories
 {
-    public class LinqToSqlSingelton : DAOFactory
+    public sealed class LinqToSqlSingelton : DAOFactory
     {
-        private static LinqToSqlSingelton instance;
-        
-        public static string DbConnectionString { get; private set; }
+        private static LinqToSqlSingelton _instance = null;
+        private static string _dbConnectionString = null;
 
-        private LinqToSqlSingelton(){}
+        private Repository<Students> _studentsRepository;
+        private Repository<Examiners> _examinersRepository;
+        private Repository<ExamSchedules> _examSchedulesRepository;
+        private Repository<Groups> _groupsRepository;
+        private Repository<Sessions> _sessionsRepository;
+        private Repository<SessionsResults> _sessionsResultsRepository;
+        private Repository<Specialties> _specialtiesRepository;
+        private Repository<Subjects> _subjectsRepository;
 
+
+        private LinqToSqlSingelton()
+        {
+            _studentsRepository = new Repository<Students>(_dbConnectionString);
+            _examinersRepository = new Repository<Examiners>(_dbConnectionString);
+            _examSchedulesRepository = new Repository<ExamSchedules>(_dbConnectionString);
+            _groupsRepository = new Repository<Groups>(_dbConnectionString);
+            _sessionsRepository = new Repository<Sessions>(_dbConnectionString);
+            _sessionsResultsRepository = new Repository<SessionsResults>(_dbConnectionString);
+            _specialtiesRepository = new Repository<Specialties>(_dbConnectionString);
+            _subjectsRepository = new Repository<Subjects>(_dbConnectionString);
+        }
 
         public static LinqToSqlSingelton GetInstance(string dbConnectionStrig)
         {
-            if (DbConnectionString == null)
-            {
-                DbConnectionString = dbConnectionStrig;
-                instance = new LinqToSqlSingelton();
+            if (_dbConnectionString == null)
+            { 
+                _dbConnectionString = dbConnectionStrig;
+             
+                if (_instance == null)
+                    _instance = new LinqToSqlSingelton();
             }
-            return instance;
+            
+            return _instance;
         }
 
         public override ICRUD<Students> CreateStudentsRepository()
         {
-            return new StudentsRepository(DbConnectionString);
+            return _studentsRepository;
         }
 
         public override ICRUD<Examiners> CreateExaminersRepository()
         {
-            return new ExaminersRepository(DbConnectionString);
+            return _examinersRepository;
         }
 
         public override ICRUD<ExamSchedules> CreateExamSchedulesRepository()
         {
-            return new ExamSchedulesRepository(DbConnectionString);
+            return _examSchedulesRepository;
         }
 
         public override ICRUD<Groups> CreateGroupsRepository()
         {
-            return new GroupsRepository(DbConnectionString);
+            return _groupsRepository;
         }
 
         public override ICRUD<Sessions> CreateSessionsRepository()
         {
-            return new SessionsRepository(DbConnectionString);
+            return _sessionsRepository;
         }
 
         public override ICRUD<SessionsResults> CreateSessionsResultsRepository()
         {
-            return new SessionsResultsRepository(DbConnectionString);
+            return _sessionsResultsRepository;
         }
 
         public override ICRUD<Specialties> CreateSpecialtiesRepository()
         {
-            return new SpecialtiesRepository(DbConnectionString);
+            return _specialtiesRepository;
         }
 
         public override ICRUD<Subjects> CreateSubjectsRepository()
         {
-            return new SubjectsRepository(DbConnectionString);
+            return _subjectsRepository;
         }
-
-
     }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\DynamicsAverageSubjectScoreByYearsReportRow.cs" />
+    <Compile Include="Reports\Report.cs" />
     <Compile Include="Reports\DynamicsAverageSubjectScoreByYearsReport..cs" />
     <Compile Include="Reports\AverageScoreForEachExaminerReport.cs" />
     <Compile Include="Model\AverageScoreForEachExaminerReportRow.cs" />
