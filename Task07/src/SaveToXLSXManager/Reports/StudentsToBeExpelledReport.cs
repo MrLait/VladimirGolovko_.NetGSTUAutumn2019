@@ -16,7 +16,7 @@ namespace SaveToXLSXManager
     {
         private int _minimumPassingScore;
 
-        public StudentsToBeExpelledReport(LinqToSqlSingelton linqToSqlSingelton, int minimumPassingScore) : base(linqToSqlSingelton)
+        public StudentsToBeExpelledReport(int minimumPassingScore) : base()
         {
             _minimumPassingScore = minimumPassingScore;
         }

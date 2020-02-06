@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBAccessTechnology\LINQtoSQLRepository\Repository.cs" />
+    <Compile Include="LINQtoSQLRepository\Repository.cs" />
     <Compile Include="Factories\DAOFactory.cs" />
     <Compile Include="Singelton\LinqToSqlSingelton.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />

@@ -16,8 +16,8 @@ namespace SaveToXLSXManager
     {
         private Func<AverageScoreForEachSpecialtyReportRow, object> _orderByFunc;
 
-    public AverageScoreForEachSpecialtyReport(LinqToSqlSingelton linqToSqlSingelton, int sessionNumber, Func<AverageScoreForEachSpecialtyReportRow, object> orderByFunc, bool descending)
-            : base(linqToSqlSingelton, sessionNumber, descending)
+    public AverageScoreForEachSpecialtyReport(int sessionNumber, Func<AverageScoreForEachSpecialtyReportRow, object> orderByFunc, bool descending)
+            : base(sessionNumber, descending)
         {
             _orderByFunc = orderByFunc;
         }

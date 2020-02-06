@@ -12,8 +12,8 @@ namespace SaveToXLSXManager
     {
         private Func<GroupSessionsResultsRow, object> _orderByFunc;
 
-    public GroupSessionsResultsReport(LinqToSqlSingelton linqToSqlSingelton, string groupName, int sessionNumber, Func<GroupSessionsResultsRow, object> orderByFunc, bool descending)
-        :base(linqToSqlSingelton, groupName, sessionNumber, descending)
+    public GroupSessionsResultsReport(string groupName, int sessionNumber, Func<GroupSessionsResultsRow, object> orderByFunc, bool descending)
+        :base(groupName, sessionNumber, descending)
         {
             _orderByFunc = orderByFunc;
         }

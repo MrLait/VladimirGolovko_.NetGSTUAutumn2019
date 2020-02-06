@@ -11,8 +11,8 @@ namespace SaveToXLSXManager
     {
         private Func<DynamicsAverageSubjectScoreByYearsReportRow, object> _orderByFunc;
 
-        public DynamicsAverageSubjectScoreByYearsReport(LinqToSqlSingelton linqToSqlSingelton, Func<DynamicsAverageSubjectScoreByYearsReportRow, object> orderByFunc, bool descending)
-            : base(linqToSqlSingelton, descending)
+        public DynamicsAverageSubjectScoreByYearsReport(Func<DynamicsAverageSubjectScoreByYearsReportRow, object> orderByFunc, bool descending)
+            : base(descending)
         {
             _orderByFunc = orderByFunc;
         }

@@ -11,7 +11,9 @@ namespace SaveToXLSXManager.Reports
 {
     public abstract class Report : IReport
     {
-        protected DAOFactory _linqToSqlSingelton;
+        static string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        protected LinqToSqlSingelton _linqToSqlSingelton;
 
         protected IEnumerable<Examiners> _examiners;
         protected IEnumerable<ExamSchedules> _examSchedules;
@@ -27,9 +29,9 @@ namespace SaveToXLSXManager.Reports
         protected string _groupName;
         protected int _sessionNumber;
 
-        public Report(LinqToSqlSingelton linqToSqlSingelton)
+        public Report()
         {
-            _linqToSqlSingelton = linqToSqlSingelton;
+            _linqToSqlSingelton = LinqToSqlSingelton.GetInstance(_connectionString);
 
             _examiners = _linqToSqlSingelton.CreateExaminersRepository().GetAll();
             _examSchedules = _linqToSqlSingelton.CreateExamSchedulesRepository().GetAll();
@@ -42,23 +44,23 @@ namespace SaveToXLSXManager.Reports
         }
 
 
-        public Report(LinqToSqlSingelton linqToSqlSingelton, bool descending) : this(linqToSqlSingelton)
+        public Report(bool descending) : this()
         {
             _descending = descending;
             _getDataRows = new List<List<string>>();
         }
 
-        public Report(LinqToSqlSingelton linqToSqlSingelton, string groupName, bool descending) : this(linqToSqlSingelton, descending)
+        public Report(string groupName, bool descending) : this(descending)
         {
             _groupName = groupName;
         }
 
-        public Report(LinqToSqlSingelton linqToSqlSingelton, int sessionNumber, bool descending) : this(linqToSqlSingelton, descending)
+        public Report(int sessionNumber, bool descending) : this(descending)
         {
             _sessionNumber = sessionNumber;
         }
 
-        public Report(LinqToSqlSingelton linqToSqlSingelton, string groupName, int sessionNumber, bool descending) : this(linqToSqlSingelton, groupName, descending)
+        public Report(string groupName, int sessionNumber, bool descending) : this(groupName, descending)
         {
             _sessionNumber = sessionNumber;
         }

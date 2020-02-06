@@ -16,8 +16,8 @@ namespace SaveToXLSXManager
     {
         private Func<PivotResultsRow, object> _orderByFunc;
 
-    public PivotResultsReport(LinqToSqlSingelton linqToSqlSingelton, string groupName, Func<PivotResultsRow, object> orderByFunc, bool descending)
-        :base(linqToSqlSingelton, groupName, descending)
+    public PivotResultsReport(string groupName, Func<PivotResultsRow, object> orderByFunc, bool descending)
+        :base(groupName, descending)
         {
             _orderByFunc = orderByFunc;
         }
