@@ -58,7 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="ForegianKey" />
-    <Folder Include="PublishSql_Don%27t work_" />
+    <Folder Include="PublishSql" />
     <Folder Include="PostDeploy" />
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +79,9 @@
     <Build Include="PostDeploy\SessionsPostDep.sql" />
     <Build Include="PostDeploy\ExamSchedulesPostDep.sql" />
     <Build Include="PostDeploy\SessionsResultsPostDep.sql" />
+    <None Include="PublishSql\PublishSql.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SQLServerDatabase.publish.xml" />
     <None Include="Script1.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -132,7 +132,6 @@ namespace SaveToXLSXManager
             if (groupSessionbothTypeResult == null)
                 throw new NullReferenceException("Data not found.");
 
-
             IOrderedEnumerable<GroupSessionsResultsRow> orderedGroupSessionBothTypeResult;
 
             if (_descending)

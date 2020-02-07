@@ -3,7 +3,6 @@ using DBModelsLinqToSql.Models;
 using SaveToXLSXManager.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,8 +10,7 @@ namespace SaveToXLSXManager.Reports
 {
     public abstract class Report : IReport
     {
-        static string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+        static string _connectionString = "Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=SQLServerDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
         protected LinqToSqlSingelton _linqToSqlSingelton;
 
         protected IEnumerable<Examiners> _examiners;

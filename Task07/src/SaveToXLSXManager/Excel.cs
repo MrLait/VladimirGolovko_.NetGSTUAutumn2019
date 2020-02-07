@@ -10,31 +10,31 @@ namespace SaveToXLSXManager
     /// </summary>
     public class Excel
     {
-        public string Path { get; private set; }
-        public string FileName { get; private set; }
-        public string WorkSheetName { get; set; }
-        public Application ExcelApplication { get; private set; }
-        public Workbook ExcelWorkbook { get; private set; }
-        public Worksheet ExcelWorksheet { get; private set; }
+        private string _path;
+        private string _fileName;
+        private Application _excelApplication;
+        private Workbook _excelWorkbook;
+        private Worksheet _excelWorksheet;
 
         public Excel(string path, string fileName = "outputName")
         {
-            Path = path;
-            FileName = fileName;
-            ExcelApplication = new Application();
+            _path = path;
+            _fileName = fileName;
+            _excelApplication = new Application();
+            _excelApplication.Visible = false;
+            _excelApplication.DisplayAlerts = false;
         }
 
         public void SaveToXLSX(IReport report)
         {
-            string outputPath = Path + FileName + ".xlsx";
+            string outputPath = _path + _fileName;
+            
+            if (!Directory.Exists(_path))
+                Directory.CreateDirectory(_path);
 
-            //Directory.CreateDirectory(Path);
-            if (!Directory.Exists(Path))
-                throw new FileNotFoundException("Directory is not found.");
-
-            ExcelWorkbook = ExcelApplication.Workbooks.Add();
-            ExcelWorksheet = (Worksheet)ExcelWorkbook.Sheets[1];
-            ExcelWorksheet.Name = FileName;
+            _excelWorkbook = _excelApplication.Workbooks.Add();
+            _excelWorksheet = (Worksheet)_excelWorkbook.Sheets[1];
+            _excelWorksheet.Name = _fileName;
 
             try
             {
@@ -45,7 +45,7 @@ namespace SaveToXLSXManager
 
                 foreach (var cellValue in header)
                 {
-                    ExcelWorksheet.Cells[row, cells] = cellValue;
+                    _excelWorksheet.Cells[row, cells] = cellValue;
                     cells++;
                 }
 
@@ -55,13 +55,13 @@ namespace SaveToXLSXManager
                     row++;
                     foreach (var cellValue in item)
                     {
-                        ExcelWorksheet.Cells[row, cells] = cellValue;
+                        _excelWorksheet.Cells[row, cells] = cellValue;
                         cells++;
                     }
                 }
 
-                ExcelWorksheet.Rows.AutoFit();
-                ExcelWorksheet.Columns.AutoFit();
+                _excelWorksheet.Rows.AutoFit();
+                _excelWorksheet.Columns.AutoFit();
 
             }
             catch (Exception ex)
@@ -70,9 +70,9 @@ namespace SaveToXLSXManager
             }
             finally
             {
-                ExcelWorkbook.SaveAs(outputPath);
-                ExcelWorkbook.Close(true);
-                ExcelApplication.Quit();
+                _excelWorkbook.SaveAs(outputPath);
+                _excelWorkbook.Close(true);
+                _excelApplication.Quit();
             }
         }
     }

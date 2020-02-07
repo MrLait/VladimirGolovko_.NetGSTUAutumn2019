@@ -42,7 +42,6 @@ namespace SaveToXLSXManager
 
         private IOrderedEnumerable<DynamicsAverageSubjectScoreByYearsReportRow> GenerateRow()
         {
-
             var examValuesQuere =
                 from sessionsResults in _sessionsResults
                 join examSchedules in _examSchedules on sessionsResults.ExamSchedulesID equals examSchedules.ID

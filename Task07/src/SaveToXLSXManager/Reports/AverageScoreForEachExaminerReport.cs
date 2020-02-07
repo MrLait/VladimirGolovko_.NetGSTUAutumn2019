@@ -14,7 +14,7 @@ namespace SaveToXLSXManager
 {
     public class AverageScoreForEachExaminerReport : Report
     {
-        public Func<AverageScoreForEachExaminerReportRow, object> _orderByFunc;
+        private Func<AverageScoreForEachExaminerReportRow, object> _orderByFunc;
         private int _sessionNumber;
 
         public AverageScoreForEachExaminerReport(int sessionNumber, Func<AverageScoreForEachExaminerReportRow, object> orderByFunc, bool descending)

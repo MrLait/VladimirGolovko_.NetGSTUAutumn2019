@@ -24,5 +24,24 @@ namespace DBModelsLinqToSql.Models
 
         [Column(Name = "SpecialtiesID")]
         public int SpecialtiesID { get; set; }
+
+
+        // override object.Equals
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            Groups groups = (Groups)obj;
+
+            return (ID == groups.ID) && (GroupName == groups.GroupName) && (SpecialtiesID == groups.SpecialtiesID);
+        }
+
+        // override object.GetHashCode
+        public override int GetHashCode()
+        {
+            return ID.GetHashCode() + GroupName.GetHashCode() + SpecialtiesID.GetHashCode();
+        }
     }
 }
