@@ -1,5 +1,4 @@
-﻿using DAO.Factories;
-using DBModelsLinqToSql.Models;
+﻿using DBModelsLinqToSql.Models;
 using SaveToXLSXManager.Model;
 using SaveToXLSXManager.Reports;
 using System;
@@ -8,16 +7,33 @@ using System.Linq;
 
 namespace SaveToXLSXManager
 {
+    /// <summary>
+    /// Implementation of report base class group sessions results report
+    /// </summary>
     public class GroupSessionsResultsReport : Report
     {
-        private Func<GroupSessionsResultsRow, object> _orderByFunc;
+        /// <summary>
+        /// Func for sorting column.
+        /// </summary>
+        private readonly Func<GroupSessionsResultsRow, object> _orderByFunc;
 
-    public GroupSessionsResultsReport(string groupName, int sessionNumber, Func<GroupSessionsResultsRow, object> orderByFunc, bool descending)
+        /// <summary>
+        /// Constructor <see cref="GroupSessionsResultsReport"/>
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="orderByFunc">Func for sorting column.</param>
+        /// <param name="descending">Sort by descening.</param>
+        public GroupSessionsResultsReport(string groupName, int sessionNumber, Func<GroupSessionsResultsRow, object> orderByFunc, bool descending)
         :base(groupName, sessionNumber, descending)
         {
             _orderByFunc = orderByFunc;
         }
 
+        /// <summary>
+        /// Table header.
+        /// </summary>
+        /// <returns>Returns header.</returns>
         public override IEnumerable<string> GetDataHeader()
         {
             return new List<string>
@@ -29,6 +45,10 @@ namespace SaveToXLSXManager
             };
         }
 
+        /// <summary>
+        /// Table data.
+        /// </summary>
+        /// <returns>Returns data list.</returns>
         public override IEnumerable<IEnumerable<string>> GetData()
         {
             _getDataRows.Clear();
@@ -54,6 +74,10 @@ namespace SaveToXLSXManager
             return _getDataRows;
         }
 
+        /// <summary>
+        /// Generate ordered enumerable row.
+        /// </summary>
+        /// <returns>Returns ordered enumerable row.</returns>
         private IOrderedEnumerable<GroupSessionsResultsRow> GenerateRow()
         {
             Groups requiredGroupReport = _groups.FirstOrDefault(x => x.GroupName == _groupName);
@@ -73,17 +97,17 @@ namespace SaveToXLSXManager
                 examSchedules.SessionsID == requiredSessionReport.ID
                 select new
                 {
-                    ID = students.ID,
-                    GroupName = requiredGroupReport.GroupName,
+                    students.ID,
+                    requiredGroupReport.GroupName,
                     NumberOfSession = requiredSessionReport.Session,
-                    Surname = students.Surname,
-                    FirstName = students.FirstName,
-                    MiddleName = students.MiddleName,
-                    Gender = students.Gender,
-                    DateOfBirth = students.DateOfBirth,
+                    students.Surname,
+                    students.FirstName,
+                    students.MiddleName,
+                    students.Gender,
+                    students.DateOfBirth,
                     Subject = subjects.SubjectName,
-                    ExamDate = examSchedules.ExamDate,
-                    ExamValue = sessionsResults.ExamValue
+                    examSchedules.ExamDate,
+                    sessionsResults.ExamValue
                 };
 
             var groupSessionSetOffResult =
@@ -95,17 +119,17 @@ namespace SaveToXLSXManager
                 examSchedules.SessionsID == requiredSessionReport.ID
                 select new
                 {
-                    ID = students.ID,
-                    GroupName = requiredGroupReport.GroupName,
+                    students.ID,
+                    requiredGroupReport.GroupName,
                     NumberOfSession = requiredSessionReport.Session,
-                    Surname = students.Surname,
-                    FirstName = students.FirstName,
-                    MiddleName = students.MiddleName,
-                    Gender = students.Gender,
-                    DateOfBirth = students.DateOfBirth,
+                    students.Surname,
+                    students.FirstName,
+                    students.MiddleName,
+                    students.Gender,
+                    students.DateOfBirth,
                     Subject = subjects.SubjectName,
-                    ExamDate = examSchedules.ExamDate,
-                    SetOffValue = sessionsResults.SetOffValue
+                    examSchedules.ExamDate,
+                    sessionsResults.SetOffValue
                 };
 
             IEnumerable<GroupSessionsResultsRow> groupSessionbothTypeResult = 

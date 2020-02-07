@@ -3,12 +3,12 @@
 namespace DBModelsLinqToSql.Interfaces
 {
     /// <summary>
-    /// Entity interface
+    /// Entity interface with ID field.
     /// </summary>
     public interface IEntity
     {
         /// <summary>
-        /// ID
+        /// ID column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         int ID { get; set; }

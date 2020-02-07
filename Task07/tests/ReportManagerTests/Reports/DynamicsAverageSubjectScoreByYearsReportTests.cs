@@ -1,17 +1,17 @@
 ﻿using NUnit.Framework;
-using SaveToXLSXManager;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Tests for <see cref="DynamicsAverageSubjectScoreByYearsReport"/>.
+    /// </summary>
     [TestFixture()]
     public class DynamicsAverageSubjectScoreByYearsReportTests
     {
-
+        /// <summary>
+        /// Get data header tests.
+        /// </summary>
         [Test()]
         public void GivenGetDataHeaderTest()
         {
@@ -29,6 +29,10 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetDataHeader, actualGetDataHeader);
         }
 
+        /// <summary>
+        /// Get data when descending is true by average exam value.
+        /// </summary>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase( true)]
         public void GivenGetDataWhenDescendingIsTrueByAverageExamValue(bool descending)
         {
@@ -49,6 +53,10 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test get data when descending is false by average exam value.
+        /// </summary>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(false)]
         public void GivenGetDataWhenDescendingIsFalseByAverageExamValue(bool descending)
         {

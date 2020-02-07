@@ -10,9 +10,18 @@ using System.Threading.Tasks;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Test for <see cref="Excel"/>.
+    /// </summary>
     [TestFixture()]
     public class ExcelTests
     {
+        /// <summary>
+        /// Test for <see cref="Excel.SaveToXLSX(IReport)"/> when group sessions results report.
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="sessionNumber">Sesson number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-2", 1, true)]
         public void SaveToXLSXTestWhenGroupSessionsResultsReport(string groupName, int sessionNumber, bool descending)
         {
@@ -32,6 +41,11 @@ namespace SaveToXLSXManager.Tests
             Assert.IsTrue(fileIsExist);
         }
 
+        /// <summary>
+        /// Test for SaveToXLSX method when average score for each examiner report.
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(1, false)]
         public void SaveToXLSXTestWhenAverageScoreForEachExaminerReport(int sessionNumber, bool descending)
         {
@@ -51,6 +65,11 @@ namespace SaveToXLSXManager.Tests
             Assert.IsTrue(fileIsExist);
         }
 
+        /// <summary>
+        /// Test for SaveToXLSX method when average score for each specialty report sorted by AverageExamValue.
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(1, false)]
         public void SaveToXLSXTestWhenAverageScoreForEachSpecialtyReport(int sessionNumber, bool descending)
         {
@@ -70,6 +89,10 @@ namespace SaveToXLSXManager.Tests
             Assert.IsTrue(fileIsExist);
         }
 
+        /// <summary>
+        /// Test for SaveToXLSX method when dynamics average subject score sorted by the yearsReport.
+        /// </summary>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(true)]
         public void SaveToXLSXTestWhenDynamicsAverageSubjectScoreByYearsReport(bool descending)
         {
@@ -89,8 +112,13 @@ namespace SaveToXLSXManager.Tests
             Assert.IsTrue(fileIsExist);
         }
 
+        /// <summary>
+        /// Test for SaveToXLSX method when descending is false sorted by the averageExamValue.
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-1", false)]
-        public void GivenGetDataWhenDescendingIsFalseByAverageExamValue(string groupName, bool descending)
+        public void GivenSaveToXLSXWhenDescendingIsFalseByAverageExamValue(string groupName, bool descending)
         {
             //Arrange
             var location = System.Reflection.Assembly.GetExecutingAssembly().Location;

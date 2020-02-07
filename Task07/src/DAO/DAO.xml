@@ -4,14 +4,189 @@
         <name>DAO</name>
     </assembly>
     <members>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1">
+            <summary>
+            That class describes generic repository and implemented method of ICRUD interface.
+            </summary>
+            <typeparam name="T">Input models</typeparam>
+        </member>
+        <member name="F:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1._dbDataContext">
+            <summary>
+            Data context.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.#ctor(System.String)">
+            <summary>
+            Constructor <see cref="T:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1"/>
+            </summary>
+            <param name="dbConString">Connection string to database.</param>
+        </member>
+        <member name="P:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.GetTable">
+            <summary>
+            Property to get table from database.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.GetAll">
+            <summary>
+            Implementation get all method. Get all data from database.
+            </summary>
+            <returns>Returns list of objects</returns>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.Update(`0)">
+            <summary>
+            Modify an existing object. 
+            </summary>
+            <param name="entity">Object with parameters to be changed.</param>
+            <returns>Returns changed object.</returns>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.GetByID(System.Int32)">
+            <summary>
+            Get object by ID from table in database.
+            </summary>
+            <param name="byID">Object id.</param>
+            <returns>Returns object by id.</returns>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.Add(`0)">
+            <summary>
+            Add object to database.
+            </summary>
+            <param name="entity">Object to add in database.</param>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.Delete(System.Int32)">
+            <summary>
+            Delete object from table by ID.
+            </summary>
+            <param name="byID">ID oject.</param>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.SubmitChanges">
+            <summary>
+            Submit all chages in database.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.GetUpdateParameter(System.Object,System.Object)">
+            <summary>
+            Updata fields from one object to other.
+            </summary>
+            <param name="from">Main object.</param>
+            <param name="to">Target object.</param>
+            <returns>Returns updated object.</returns>
+        </member>
         <member name="T:DAO.Factories.DAOFactory">
             <summary>
-            Abstract object which describes Factory
+            The abstract class that describes an abstract factory.
             </summary>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateExaminersRepository">
+            <summary>
+            An abstract method that describes creation examiners repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateExamSchedulesRepository">
+            <summary>
+            An abstract method that describes creation exam schedules repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateGroupsRepository">
+            <summary>
+            An abstract method that describes creation groups repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateSessionsRepository">
+            <summary>
+            An abstract method that describes creation sessions repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateSessionsResultsRepository">
+            <summary>
+            An abstract method that describes creation sessions results repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateSpecialtiesRepository">
+            <summary>
+            An abstract method that describes creation specialties repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateStudentsRepository">
+            <summary>
+            An abstract method that describes creation students repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="M:DAO.Factories.DAOFactory.CreateSubjectsRepository">
+            <summary>
+            An abstract method that describes creation subjects repository.
+            </summary>
+            <returns>Returns interface ICRUD</returns>
+        </member>
+        <member name="T:DAO.Factories.LinqToSqlSingelton">
+            <summary>
+            Implementation of the singleton pattern and abstract factory.
+            </summary>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.GetInstance(System.String)">
+            <summary>
+            Create instance <see cref="T:DAO.Factories.LinqToSqlSingelton"/>.
+            </summary>
+            <param name="dbConnectionStrig">Connection string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateStudentsRepository">
+            <summary>
+            Implementation of the students repository.
+            </summary>
+            <returns>Returns students repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateExaminersRepository">
+            <summary>
+            Implementation of the examiners repository.
+            </summary>
+            <returns>Returns examiners repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateExamSchedulesRepository">
+            <summary>
+            Implementation of the exam schedules repository.
+            </summary>
+            <returns>Returns exam schedules repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateGroupsRepository">
+            <summary>
+            Implementation of the groups repository.
+            </summary>
+            <returns>Returns groups repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateSessionsRepository">
+            <summary>
+            Implementation of the sessions repository.
+            </summary>
+            <returns>Returns sessions repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateSessionsResultsRepository">
+            <summary>
+            Implementation of the sessions results repository.
+            </summary>
+            <returns>Returns sessions results repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateSpecialtiesRepository">
+            <summary>
+            Implementation of the specialties repository.
+            </summary>
+            <returns>Returns specialties repository.</returns>
+        </member>
+        <member name="M:DAO.Factories.LinqToSqlSingelton.CreateSubjectsRepository">
+            <summary>
+            Implementation of the subjects repository.
+            </summary>
+            <returns>Returns subjects repository.</returns>
         </member>
         <member name="T:DAO.Interfaces.ICRUD`1">
             <summary>
-            Crud interface
+            That interface describes CRUD method.
             </summary>
             <typeparam name="T"></typeparam>
         </member>
@@ -20,27 +195,26 @@
             Get object by ID from table in database.
             </summary>
             <param name="byID">Object id.</param>
-            <returns>Returns object.</returns>
+            <returns>Returns object by id.</returns>
         </member>
         <member name="M:DAO.Interfaces.ICRUD`1.Add(`0)">
             <summary>
-            Add object to data base.
+            Add object to database.
             </summary>
             <param name="entity">Object to add in database.</param>
-            <returns></returns>
         </member>
         <member name="M:DAO.Interfaces.ICRUD`1.Delete(System.Int32)">
             <summary>
             Delete object from table by ID.
             </summary>
-            <param name="byID"> ID ibject</param>
+            <param name="byID">ID oject.</param>
         </member>
         <member name="M:DAO.Interfaces.ICRUD`1.Update(`0)">
             <summary>
             Modify an existing object. 
             </summary>
-            <param name="entity"> Parameters to be changed.</param>
-            <returns>Returns a new object.</returns>
+            <param name="entity">Object with parameters to be changed.</param>
+            <returns>Returns changed object.</returns>
         </member>
         <member name="M:DAO.Interfaces.ICRUD`1.GetAll">
             <summary>

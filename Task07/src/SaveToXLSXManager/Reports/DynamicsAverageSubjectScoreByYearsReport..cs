@@ -1,5 +1,4 @@
-﻿using DAO.Factories;
-using SaveToXLSXManager.Model;
+﻿using SaveToXLSXManager.Model;
 using SaveToXLSXManager.Reports;
 using System;
 using System.Collections.Generic;
@@ -7,16 +6,31 @@ using System.Linq;
 
 namespace SaveToXLSXManager
 {
+    /// <summary>
+    /// Implementation of report base class dynamics average subject score by years report
+    /// </summary>
     public class DynamicsAverageSubjectScoreByYearsReport : Report
     {
-        private Func<DynamicsAverageSubjectScoreByYearsReportRow, object> _orderByFunc;
+        /// <summary>
+        /// Func for sorting column.
+        /// </summary>
+        private readonly Func<DynamicsAverageSubjectScoreByYearsReportRow, object> _orderByFunc;
 
+        /// <summary>
+        /// Constructor <see cref="DynamicsAverageSubjectScoreByYearsReport"/>
+        /// </summary>
+        /// <param name="orderByFunc">Func for sorting column.</param>
+        /// <param name="descending">Sort by descening.</param>
         public DynamicsAverageSubjectScoreByYearsReport(Func<DynamicsAverageSubjectScoreByYearsReportRow, object> orderByFunc, bool descending)
             : base(descending)
         {
             _orderByFunc = orderByFunc;
         }
 
+        /// <summary>
+        /// Table header.
+        /// </summary>
+        /// <returns>Returns header.</returns>
         public override IEnumerable<string> GetDataHeader()
         {
             return new List<string>
@@ -25,6 +39,10 @@ namespace SaveToXLSXManager
             };
         }
 
+        /// <summary>
+        /// Table data.
+        /// </summary>
+        /// <returns>Returns data list.</returns>
         public override IEnumerable<IEnumerable<string>> GetData()
         {
             _getDataRows.Clear();
@@ -40,6 +58,10 @@ namespace SaveToXLSXManager
             return _getDataRows;
         }
 
+        /// <summary>
+        /// Generate ordered enumerable row.
+        /// </summary>
+        /// <returns>Returns ordered enumerable row.</returns>
         private IOrderedEnumerable<DynamicsAverageSubjectScoreByYearsReportRow> GenerateRow()
         {
             var examValuesQuere =
@@ -53,15 +75,15 @@ namespace SaveToXLSXManager
                 {
                     SubjectsID = subjects.ID,
                     ExamDataYear = examSchedules.ExamDate.Year,
-                    ExamValue = sessionsResults.ExamValue
+                    sessionsResults.ExamValue
                 };
 
             var averageExamValuesByYearBySubjectQuere = examValuesQuere
                 .GroupBy(x => new { x.ExamDataYear, x.SubjectsID })
                 .Select(y => new 
                 {
-                    ExamDataYear = y.Key.ExamDataYear,
-                    SubjectsID = y.Key.SubjectsID,
+                    y.Key.ExamDataYear,
+                    y.Key.SubjectsID,
                     AverageExamValue = y.Average(z => z.ExamValue)
                 });
 

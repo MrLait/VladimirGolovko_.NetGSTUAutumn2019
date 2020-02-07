@@ -1,35 +1,34 @@
 ﻿using DBModelsLinqToSql.Interfaces;
-using System;
 using System.Data.Linq.Mapping;
 
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Student table
+    /// Student table model.
     /// </summary>
     [Table(Name = "Examiners")]
     public class Examiners : IEntity
     {
         /// <summary>
-        /// ID
+        /// ID column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         /// <summary>
-        /// Surname
+        /// Surname column.
         /// </summary>
         [Column(Name = "Surname")]
         public string Surname { get; set; }
 
         /// <summary>
-        /// FirstName
+        /// First name column.
         /// </summary>
         [Column(Name = "FirstName")]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// MiddleName
+        /// Middle name column.
         /// </summary>
         [Column(Name = "MiddleName")]
         public string MiddleName { get; set; }

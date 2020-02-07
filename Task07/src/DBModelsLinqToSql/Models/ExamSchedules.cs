@@ -5,38 +5,38 @@ using System.Data.Linq.Mapping;
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Exam shedule table
+    /// Exam shedules table model.
     /// </summary>
     [Table(Name = "ExamSchedules")]
     public class ExamSchedules : IEntity
     {
         /// <summary>
-        /// ID
+        /// Id column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         /// <summary>
-        /// Number of session ID
+        /// Session id column.
         /// </summary>
         [Column(Name = "SessionsID")]
         public int SessionsID { get; set; }
 
         /// <summary>
-        /// Group ID
+        /// Group id column.
         /// </summary>
         //[ForeignKey("GroupID")]
         [Column(Name = "GroupsID")]
         public int GroupsID { get; set; }
 
         /// <summary>
-        /// Subject
+        /// Subject id column.
         /// </summary>
         [Column(Name = "SubjectsID")]
         public int SubjectsID { get; set; }
 
         /// <summary>
-        /// ExamDate
+        /// Exam date column.
         /// </summary>
         [Column(Name = "ExamDate")]
         public DateTime ExamDate { get; set; }

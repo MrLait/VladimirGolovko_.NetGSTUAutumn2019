@@ -8,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Test fot <see cref="GroupSessionsResultsReport"/>.
+    /// </summary>
     [TestFixture()]
     public class GroupSessionsResultsReportTests
     {
+        /// <summary>
+        /// Test for GetDataHeader method.
+        /// </summary>
         [Test()]
         public void GivenGetDataHeaderTest()
         {
@@ -31,6 +37,12 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetDataHeader, actualGetDataHeader);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is true sorted by the FirstName.
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-2", 1, true)]
         public void GivenGetDataWhenDescendingIsTrueByFirstName(string groupName, int sessionNumber, bool descending)
         {
@@ -51,6 +63,12 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is false sorted by the FirstName.
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-2", 1, false)]
         public void GivenGetDataWhenDescendingIsFalseFirstName(string groupName, int sessionNumber, bool descending)
         {
@@ -71,7 +89,12 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
-
+        /// <summary>
+        /// Test for GetData method when descending is false by firstName then NullReferenceException
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-21", 1, false)]
         [TestCase("PM-31", 1, false)]
         [TestCase("PM-1", 51, false)]

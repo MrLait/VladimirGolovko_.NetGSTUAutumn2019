@@ -46,5 +46,8 @@
   <ItemGroup>
     <Reference Include="System.Data.Linq" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBModelsLinqToSql.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

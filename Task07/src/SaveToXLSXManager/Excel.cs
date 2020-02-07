@@ -10,21 +10,32 @@ namespace SaveToXLSXManager
     /// </summary>
     public class Excel
     {
-        private string _path;
-        private string _fileName;
-        private Application _excelApplication;
+        private readonly string _path;
+        private readonly string _fileName;
+        private readonly Application _excelApplication;
         private Workbook _excelWorkbook;
         private Worksheet _excelWorksheet;
 
+        /// <summary>
+        /// Constructor <see cref="Excel"/>
+        /// </summary>
+        /// <param name="path">Path to save file.</param>
+        /// <param name="fileName">Set file name.</param>
         public Excel(string path, string fileName = "outputName")
         {
             _path = path;
             _fileName = fileName;
-            _excelApplication = new Application();
-            _excelApplication.Visible = false;
-            _excelApplication.DisplayAlerts = false;
+            _excelApplication = new Application
+            {
+                Visible = false,
+                DisplayAlerts = false
+            };
         }
 
+        /// <summary>
+        /// Save to excel format.
+        /// </summary>
+        /// <param name="report">Input data for save to excel file.</param>
         public void SaveToXLSX(IReport report)
         {
             string outputPath = _path + _fileName;

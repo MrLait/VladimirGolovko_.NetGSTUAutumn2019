@@ -1,27 +1,38 @@
-﻿using DAO.Factories;
-using DAO.Interfaces;
-using DBModelsLinqToSql.Models;
-using SaveToXLSXManager.Interfaces;
+﻿using DBModelsLinqToSql.Models;
 using SaveToXLSXManager.Model;
 using SaveToXLSXManager.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SaveToXLSXManager
 {
+    /// <summary>
+    /// Implementation of report base class average score for each specialty.
+    /// </summary>
     public class AverageScoreForEachSpecialtyReport : Report
     {
-        private Func<AverageScoreForEachSpecialtyReportRow, object> _orderByFunc;
+        /// <summary>
+        /// Func for sorting column.
+        /// </summary>
+        private readonly Func<AverageScoreForEachSpecialtyReportRow, object> _orderByFunc;
 
-    public AverageScoreForEachSpecialtyReport(int sessionNumber, Func<AverageScoreForEachSpecialtyReportRow, object> orderByFunc, bool descending)
+        /// <summary>
+        /// Constructor <see cref="AverageScoreForEachSpecialtyReport"/>
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="orderByFunc">Func for sorting column.</param>
+        /// <param name="descending">Sort by descening.</param>
+        public AverageScoreForEachSpecialtyReport(int sessionNumber, Func<AverageScoreForEachSpecialtyReportRow, object> orderByFunc, bool descending)
             : base(sessionNumber, descending)
         {
             _orderByFunc = orderByFunc;
         }
 
+        /// <summary>
+        /// Table header.
+        /// </summary>
+        /// <returns>Returns header.</returns>
         public override IEnumerable<string> GetDataHeader()
         {
             return new List<string>
@@ -30,6 +41,11 @@ namespace SaveToXLSXManager
             };
         }
 
+
+        /// <summary>
+        /// Table data.
+        /// </summary>
+        /// <returns>Returns data list.</returns>
         public override IEnumerable<IEnumerable<string>> GetData()
         {
             _getDataRows.Clear();
@@ -45,6 +61,10 @@ namespace SaveToXLSXManager
             return _getDataRows;
         }
 
+        /// <summary>
+        /// Generate ordered enumerable row.
+        /// </summary>
+        /// <returns>Returns ordered enumerable row.</returns>
         private IOrderedEnumerable<AverageScoreForEachSpecialtyReportRow> GenerateRow()
         {
             Sessions requiredSessionsReport = _sessions.FirstOrDefault(x => x.Session == _sessionNumber);
@@ -68,7 +88,7 @@ namespace SaveToXLSXManager
                     Subjects = subjects.SubjectName,
                     Specialties = specialties.Specialtie,
                     SpecialtiesID = specialties.ID,
-                    ExamValue = sessionsResults.ExamValue
+                    sessionsResults.ExamValue
                 };
 
             var groupSpecialtiesIdAverageSpecialitesExamValueResultsQuere =

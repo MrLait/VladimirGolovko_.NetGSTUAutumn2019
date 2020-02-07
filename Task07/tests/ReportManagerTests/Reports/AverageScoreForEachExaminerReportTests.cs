@@ -4,9 +4,18 @@ using System.Collections.Generic;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Tests for <see cref="AverageScoreForEachExaminerReport"/>.
+    /// </summary>
     [TestFixture()]
     public class AverageScoreForEachExaminerReportTests
     {
+
+        /// <summary>
+        /// Test for GetData method when descending is true sorted by first name.
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(1, true)]
         public void GivenGetDataWhenDescendingIsTrueByFirstName(int sessionNumber, bool descending)
         {
@@ -25,6 +34,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is false sorted by firstName
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(1, false)]
         public void GivenGetDataWhenDescendingIsFalseByFirstName(int sessionNumber, bool descending)
         {
@@ -43,6 +57,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test for get data when descending is false sorted by first name then out is NullReferenceException.
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(5, false)]
         [TestCase(50, true)]
         public void GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(int sessionNumber, bool descending)
@@ -54,6 +73,9 @@ namespace SaveToXLSXManager.Tests
             Assert.That(() => averageScoreForEachExaminerReport.GetData(), Throws.TypeOf<NullReferenceException>());
         }
 
+        /// <summary>
+        /// Test for get data header.
+        /// </summary>
         [Test()]
         public void GivenGetDataHeaderTest()
         {

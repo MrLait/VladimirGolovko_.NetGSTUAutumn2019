@@ -1,0 +1,542 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SaveToXLSXManager</name>
+    </assembly>
+    <members>
+        <member name="T:SaveToXLSXManager.Model.DynamicsAverageSubjectScoreByYearsReportRow">
+            <summary>
+            Implementation of table column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.DynamicsAverageSubjectScoreByYearsReportRow.ExamDataYear">
+            <summary>
+            Exam data year column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.DynamicsAverageSubjectScoreByYearsReportRow.Subject">
+            <summary>
+            Subject column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.DynamicsAverageSubjectScoreByYearsReportRow.AverageExamValue">
+            <summary>
+            Average exam value column.
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow">
+            <summary>
+            Implementation of table column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow.SessionNumber">
+            <summary>
+            Session number column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow.Surname">
+            <summary>
+            Surname column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow.FirstName">
+            <summary>
+            First name  column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow.MiddleName">
+            <summary>
+            Middle name column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow.AverageExamValue">
+            <summary>
+            Average exam value column.
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.AverageScoreForEachSpecialtyReportRow">
+            <summary>
+            Implementation of table column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachSpecialtyReportRow.SessionNumber">
+            <summary>
+            Session number column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachSpecialtyReportRow.SpecialtiesName">
+            <summary>
+            Specialties name column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.AverageScoreForEachSpecialtyReportRow.AverageExamValue">
+            <summary>
+            Average exam value column.
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.PivotResultsRow">
+            <summary>
+            Implementation of table columns.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.PivotResultsRow.NumberOfSession">
+            <summary>
+            Number of session column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.PivotResultsRow.MaxExamValue">
+            <summary>
+            Max exam value column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.PivotResultsRow.MinExamValue">
+            <summary>
+            Min exam value column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.PivotResultsRow.AverageExamValue">
+            <summary>
+            Average exam value column.
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.GroupSessionsResultsRow">
+            <summary>
+            Implementation of table columns.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.StudentID">
+            <summary>
+            Student id column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.GroupName">
+            <summary>
+            Group name column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.NumberOfSession">
+            <summary>
+            Number of session column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.Surname">
+            <summary>
+            Surname column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.FirstName">
+            <summary>
+            First name column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.MiddleName">
+            <summary>
+            Middle name column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.Gender">
+            <summary>
+            Gender column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.DateOfBirth">
+            <summary>
+            Date of birth column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.Subject">
+            <summary>
+            Subject column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.ExamDate">
+            <summary>
+            Exam date column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.ExamValue">
+            <summary>
+            Exam value column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.SetOffDate">
+            <summary>
+            Set-off date column.
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.GroupSessionsResultsRow.SetOffValue">
+            <summary>
+            Set-off value column.
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Reports.Report">
+            <summary>
+            Base abstract class report that implemented IReport interfaca.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._connectionString">
+            <summary>
+            Database connection string.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._linqToSqlSingelton">
+            <summary>
+            Linq to sql singlton field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._examiners">
+            <summary>
+            Examiners field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._examSchedules">
+            <summary>
+            Exam shedule field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._groups">
+            <summary>
+            Groups field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._sessions">
+            <summary>
+            Sessions field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._sessionsResults">
+            <summary>
+            Sessions resulds field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._specialties">
+            <summary>
+            Spcialties field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._students">
+            <summary>
+            Students field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._subjects">
+            <summary>
+            Subjects field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._descending">
+            <summary>
+            Sort descending or ascending.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._getDataRows">
+            <summary>
+            Get data row list
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._groupName">
+            <summary>
+            Group name  field.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.Reports.Report._sessionNumber">
+            <summary>
+            Session number field.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.#ctor">
+            <summary>
+            Constructor without parameters <see cref="T:SaveToXLSXManager.Reports.Report"/> which initializes the fields.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.#ctor(System.Boolean)">
+            <summary>
+            Constructor with parameters <see cref="T:SaveToXLSXManager.Reports.Report"/> which initializes the fields.
+            </summary>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor with parameters <see cref="T:SaveToXLSXManager.Reports.Report"/> which initializes the fields.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Constructor with parameters <see cref="T:SaveToXLSXManager.Reports.Report"/> which initializes the fields.
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Constructor with parameters <see cref="T:SaveToXLSXManager.Reports.Report"/> which initializes the fields.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns data list.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.Reports.Report.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport">
+            <summary>
+            Implementation of report base class dynamics average subject score by years report
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport._orderByFunc">
+            <summary>
+            Func for sorting column.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport.#ctor(System.Func{SaveToXLSXManager.Model.DynamicsAverageSubjectScoreByYearsReportRow,System.Object},System.Boolean)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport"/>
+            </summary>
+            <param name="orderByFunc">Func for sorting column.</param>
+            <param name="descending">Sort by descening.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns data list.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport.GenerateRow">
+            <summary>
+            Generate ordered enumerable row.
+            </summary>
+            <returns>Returns ordered enumerable row.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.AverageScoreForEachExaminerReport">
+            <summary>
+            Implementation of the report base class average score for each examiners.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.AverageScoreForEachExaminerReport._orderByFunc">
+            <summary>
+            Func for sorting column.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachExaminerReport.#ctor(System.Int32,System.Func{SaveToXLSXManager.Model.AverageScoreForEachExaminerReportRow,System.Object},System.Boolean)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.AverageScoreForEachExaminerReport"/>
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="orderByFunc">Func for sorting column.</param>
+            <param name="descending">Sort by descening.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachExaminerReport.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachExaminerReport.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns data list.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachExaminerReport.GenerateRow">
+            <summary>
+            Generate ordered enumerable row.
+            </summary>
+            <returns>Returns ordered enumerable row.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.Excel">
+            <summary>
+            Class for access to EXCEL file
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.#ctor(System.String,System.String)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.Excel"/>
+            </summary>
+            <param name="path">Path to save file.</param>
+            <param name="fileName">Set file name.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.SaveToXLSX(SaveToXLSXManager.Interfaces.IReport)">
+            <summary>
+            Save to excel format.
+            </summary>
+            <param name="report">Input data for save to excel file.</param>
+        </member>
+        <member name="T:SaveToXLSXManager.AverageScoreForEachSpecialtyReport">
+            <summary>
+            Implementation of report base class average score for each specialty.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.AverageScoreForEachSpecialtyReport._orderByFunc">
+            <summary>
+            Func for sorting column.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachSpecialtyReport.#ctor(System.Int32,System.Func{SaveToXLSXManager.Model.AverageScoreForEachSpecialtyReportRow,System.Object},System.Boolean)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.AverageScoreForEachSpecialtyReport"/>
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="orderByFunc">Func for sorting column.</param>
+            <param name="descending">Sort by descening.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachSpecialtyReport.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachSpecialtyReport.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns data list.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.AverageScoreForEachSpecialtyReport.GenerateRow">
+            <summary>
+            Generate ordered enumerable row.
+            </summary>
+            <returns>Returns ordered enumerable row.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.StudentsToBeExpelledReport">
+            <summary>
+            Implementation of report base class students to be expelled report.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.StudentsToBeExpelledReport._minimumPassingScore">
+            <summary>
+            Minimum assessment threshold field.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.StudentsToBeExpelledReport.#ctor(System.Int32)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.StudentsToBeExpelledReport"/>
+            </summary>
+            <param name="minimumPassingScore">Minimum assessment threshold.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.StudentsToBeExpelledReport.GetData">
+            <summary>
+            Table data. Not implemented.
+            </summary>
+            <returns>Returns throw new NotImplementedException();.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.StudentsToBeExpelledReport.GetDataHeader">
+            <summary>
+            Generate ordered enumerable row. Not implemented.
+            </summary>
+            <returns>Returns throw new NotImplementedException();.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.StudentsToBeExpelledReport.GetStudentsToBeExpelled">
+            <summary>
+            Get students to be expelled method.
+            </summary>
+            <returns>Returns grouped students.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.GroupSessionsResultsReport">
+            <summary>
+            Implementation of report base class group sessions results report
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.GroupSessionsResultsReport._orderByFunc">
+            <summary>
+            Func for sorting column.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.GroupSessionsResultsReport.#ctor(System.String,System.Int32,System.Func{SaveToXLSXManager.Model.GroupSessionsResultsRow,System.Object},System.Boolean)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.GroupSessionsResultsReport"/>
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="sessionNumber">Session number.</param>
+            <param name="orderByFunc">Func for sorting column.</param>
+            <param name="descending">Sort by descening.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.GroupSessionsResultsReport.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.GroupSessionsResultsReport.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns data list.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.GroupSessionsResultsReport.GenerateRow">
+            <summary>
+            Generate ordered enumerable row.
+            </summary>
+            <returns>Returns ordered enumerable row.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.Interfaces.IReport">
+            <summary>
+            IReport interface.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Interfaces.IReport.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.Interfaces.IReport.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns table data.</returns>
+        </member>
+        <member name="T:SaveToXLSXManager.PivotResultsReport">
+            <summary>
+            Implementation of report base class pivot results report.
+            </summary>
+        </member>
+        <member name="F:SaveToXLSXManager.PivotResultsReport._orderByFunc">
+            <summary>
+            Func for sorting column.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.PivotResultsReport.#ctor(System.String,System.Func{SaveToXLSXManager.Model.PivotResultsRow,System.Object},System.Boolean)">
+            <summary>
+            Constructor <see cref="T:SaveToXLSXManager.PivotResultsReport"/>
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="orderByFunc">Func for sorting column.</param>
+            <param name="descending">Sort by descening.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.PivotResultsReport.GetDataHeader">
+            <summary>
+            Table header.
+            </summary>
+            <returns>Returns header.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.PivotResultsReport.GetData">
+            <summary>
+            Table data.
+            </summary>
+            <returns>Returns data list.</returns>
+        </member>
+        <member name="M:SaveToXLSXManager.PivotResultsReport.GenerateRow">
+            <summary>
+            Generate ordered enumerable row.
+            </summary>
+            <returns>Returns ordered enumerable row.</returns>
+        </member>
+    </members>
+</doc>

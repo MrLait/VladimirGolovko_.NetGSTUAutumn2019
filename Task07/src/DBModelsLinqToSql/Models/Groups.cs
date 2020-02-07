@@ -5,28 +5,34 @@ using System.Data.Linq.Mapping;
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Group table
+    /// Group table model.
     /// </summary>
     [Table(Name = "Groups")]
     public class Groups : IEntity
     {
         /// <summary>
-        /// ID
+        /// Id column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         /// <summary>
-        /// Number of group
+        /// Group name column.
         /// </summary>
         [Column(Name = "GroupName")]
         public string GroupName { get; set; }
 
+        /// <summary>
+        /// Specialities id column.
+        /// </summary>
         [Column(Name = "SpecialtiesID")]
         public int SpecialtiesID { get; set; }
 
-
-        // override object.Equals
+        /// <summary>
+        /// Overrides equals.
+        /// </summary>
+        /// <param name="obj">Equal object</param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -38,7 +44,10 @@ namespace DBModelsLinqToSql.Models
             return (ID == groups.ID) && (GroupName == groups.GroupName) && (SpecialtiesID == groups.SpecialtiesID);
         }
 
-        // override object.GetHashCode
+        /// <summary>
+        /// Override object.GetHashCode 
+        /// </summary>
+        /// <returns>Returns a new hash code.</returns>
         public override int GetHashCode()
         {
             return ID.GetHashCode() + GroupName.GetHashCode() + SpecialtiesID.GetHashCode();

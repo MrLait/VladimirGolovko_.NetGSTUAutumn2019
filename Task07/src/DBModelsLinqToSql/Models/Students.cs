@@ -5,49 +5,49 @@ using System.Data.Linq.Mapping;
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Student table
+    /// Students table model.
     /// </summary>
     [Table(Name = "Students")]
     public class Students : IEntity
     {
         /// <summary>
-        /// ID
+        /// Id column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         /// <summary>
-        /// Surname
+        /// Surname column.
         /// </summary>
         [Column(Name = "Surname")]
         public string Surname { get; set; }
 
         /// <summary>
-        /// FirstName
+        /// First name column.
         /// </summary>
         [Column(Name = "FirstName")]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// MiddleName
+        /// Middle name column.
         /// </summary>
         [Column(Name = "MiddleName")]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Gender
+        /// Gender column.
         /// </summary>
         [Column(Name = "Gender")]
         public string Gender { get; set; }
 
         /// <summary>
-        /// DateOfBirth
+        /// Date of birth column.
         /// </summary>
         [Column(Name = "DateOfBirth")]
         public DateTime DateOfBirth { get; set; }
 
         /// <summary>
-        /// GroupID
+        /// Group id column.
         /// </summary>
         [Column(Name = "GroupsID")]
         public int GroupsID { get; set; }

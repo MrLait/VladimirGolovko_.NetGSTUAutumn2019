@@ -1,17 +1,18 @@
-﻿using DBModelsLinqToSql.Models;
-using NUnit.Framework;
-using SaveToXLSXManager;
+﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Test for <see cref="StudentsToBeExpelledReport"/>.
+    /// </summary>
     [TestFixture()]
     public class StudentsToBeExpelledReportTests
     {
+        /// <summary>
+        /// Test for GetData property then NotImplementedException.
+        /// </summary>
+        /// <param name="minimumPassingScore">Minimum assessment threshold field.</param>
         [TestCase(5)]
         [TestCase(50)]
         public void GivenGetDataThenNotImplementedException(int minimumPassingScore)
@@ -23,6 +24,10 @@ namespace SaveToXLSXManager.Tests
             Assert.That(() => studentsToBeExpelledReport.GetData(), Throws.TypeOf<NotImplementedException>());
         }
 
+        /// <summary>
+        /// Test for GetDataHeader propery then NotImplementedException.
+        /// </summary>
+        /// <param name="minimumPassingScore">Minimum assessment threshold field.</param>
         [TestCase(5)]
         [TestCase(50)]
         public void GivenGetDataHeaderThenNotImplementedException(int minimumPassingScore)

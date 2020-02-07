@@ -8,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Test for <see cref="PivotResultsReport"/>.
+    /// </summary>
     [TestFixture()]
     public class PivotResultsReportTests
     {
+        /// <summary>
+        /// Test for GetDataHeader method.
+        /// </summary>
         [Test()]
         public void GivenGetDataHeaderTest()
         {
@@ -28,6 +34,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetDataHeader, actualGetDataHeader);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is true sorted by the AverageExamValue column.
+        /// </summary>
+        /// <param name="groupName"></param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-1", true)]
         public void GivenGetDataWhenDescendingIsTrueByAverageExamValue(string groupName, bool descending)
         {
@@ -46,6 +57,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending Is false sorted by the AverageExamValue column.
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-1", false)]
         public void GivenGetDataWhenDescendingIsFalseByAverageExamValue(string groupName, bool descending)
         {
@@ -64,7 +80,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
-
+        /// <summary>
+        /// Test for GetData method sorted by the FirstName then NullReferenceException.
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase("PM-10", false)]
         [TestCase("PM-20", true)]
         public void GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(string groupName, bool descending)

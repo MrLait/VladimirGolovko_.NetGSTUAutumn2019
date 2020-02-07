@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>SaveToXLSXManager.xml</DocumentationFile>
+    <DocumentationFile>ReportManager.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -86,9 +86,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SaveToXLSXManager.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
       <Project>{9E653CE4-2CB4-4629-9A80-995B16E06360}</Project>
       <Name>DAO</Name>
@@ -97,6 +94,9 @@
       <Project>{83E7170B-12B1-4CB3-9E9A-A517B7188608}</Project>
       <Name>DBModelsLinqToSql</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReportManager.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

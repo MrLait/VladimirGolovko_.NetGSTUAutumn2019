@@ -5,31 +5,31 @@ using System.Data.Linq.Mapping;
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Student table
+    /// Subjects table model
     /// </summary>
     [Table(Name = "Subjects")]
     public class Subjects : IEntity
     {
         /// <summary>
-        /// ID
+        /// Id column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         /// <summary>
-        /// Surname
+        /// Subject name column.
         /// </summary>
         [Column(Name = "SubjectName")]
         public string SubjectName { get; set; }
 
         /// <summary>
-        /// IsAssessment 
+        /// Is assessment column.
         /// </summary>
         [Column(Name = "IsAssessment")]
         public string IsAssessment { get; set; }
 
         /// <summary>
-        /// ExaminersID
+        /// Examiners id column.
         /// </summary>
         [Column(Name = "ExaminersID")]
         public int ExaminersID { get; set; }

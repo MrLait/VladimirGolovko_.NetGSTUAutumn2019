@@ -3,72 +3,72 @@
 namespace SaveToXLSXManager.Model
 {
     /// <summary>
-    /// Session table of both result
+    /// Implementation of table columns.
     /// </summary>
     public class GroupSessionsResultsRow
     {
         /// <summary>
-        /// ID
+        /// Student id column.
         /// </summary>
         public int StudentID { get; set; }
 
         /// <summary>
-        /// NumberOfGroup
+        /// Group name column.
         /// </summary>
         public string GroupName { get; set; }
 
         /// <summary>
-        /// NumberOfSession
+        /// Number of session column.
         /// </summary>
         public int NumberOfSession { get; set; }
 
         /// <summary>
-        /// Surname
+        /// Surname column.
         /// </summary>
         public string Surname { get; set; }
 
         /// <summary>
-        /// FirstName
+        /// First name column.
         /// </summary>
         public string FirstName { get; set; }
 
         /// <summary>
-        /// MiddleName
+        /// Middle name column.
         /// </summary>
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Gender
+        /// Gender column.
         /// </summary>
         public string Gender { get; set; }
 
         /// <summary>
-        /// DateOfBirth
+        /// Date of birth column.
         /// </summary>
         public DateTime DateOfBirth { get; set; }
 
         /// <summary>
-        /// Subject
+        /// Subject column.
         /// </summary>
         public string Subject { get; set; }
 
         /// <summary>
-        /// ExamDate
+        /// Exam date column.
         /// </summary>
         public DateTime ExamDate { get; set; }
 
         /// <summary>
-        /// ExamValue
+        /// Exam value column.
         /// </summary>
         public int? ExamValue { get; set; }
 
         /// <summary>
-        /// SetOffDate
+        /// Set-off date column.
         /// </summary>
         public DateTime SetOffDate { get; set; }
 
         /// <summary>
-        /// SetOffValue
+        /// Set-off value column.
         /// </summary>
         public string SetOffValue { get; set; }
     }

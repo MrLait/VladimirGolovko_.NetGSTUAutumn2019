@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReportManagerTests</name>
+    </assembly>
+    <members>
+        <member name="T:SaveToXLSXManager.Tests.ExcelTests">
+            <summary>
+            Test for <see cref="T:SaveToXLSXManager.Excel"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.ExcelTests.SaveToXLSXTestWhenGroupSessionsResultsReport(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Test for <see cref="M:SaveToXLSXManager.Excel.SaveToXLSX(SaveToXLSXManager.Interfaces.IReport)"/> when group sessions results report.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="sessionNumber">Sesson number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.ExcelTests.SaveToXLSXTestWhenAverageScoreForEachExaminerReport(System.Int32,System.Boolean)">
+            <summary>
+            Test for SaveToXLSX method when average score for each examiner report.
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.ExcelTests.SaveToXLSXTestWhenAverageScoreForEachSpecialtyReport(System.Int32,System.Boolean)">
+            <summary>
+            Test for SaveToXLSX method when average score for each specialty report sorted by AverageExamValue.
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.ExcelTests.SaveToXLSXTestWhenDynamicsAverageSubjectScoreByYearsReport(System.Boolean)">
+            <summary>
+            Test for SaveToXLSX method when dynamics average subject score sorted by the yearsReport.
+            </summary>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.ExcelTests.GivenSaveToXLSXWhenDescendingIsFalseByAverageExamValue(System.String,System.Boolean)">
+            <summary>
+            Test for SaveToXLSX method when descending is false sorted by the averageExamValue.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="T:SaveToXLSXManager.Tests.AverageScoreForEachExaminerReportTests">
+            <summary>
+            Tests for <see cref="T:SaveToXLSXManager.AverageScoreForEachExaminerReport"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachExaminerReportTests.GivenGetDataWhenDescendingIsTrueByFirstName(System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is true sorted by first name.
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachExaminerReportTests.GivenGetDataWhenDescendingIsFalseByFirstName(System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is false sorted by firstName
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachExaminerReportTests.GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(System.Int32,System.Boolean)">
+            <summary>
+            Test for get data when descending is false sorted by first name then out is NullReferenceException.
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachExaminerReportTests.GivenGetDataHeaderTest">
+            <summary>
+            Test for get data header.
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Tests.AverageScoreForEachSpecialtyReportTests">
+            <summary>
+            Tests for <see cref="T:SaveToXLSXManager.AverageScoreForEachSpecialtyReport"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachSpecialtyReportTests.GivenGetDataHeaderTest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachSpecialtyReportTests.GivenGetDataWhenDescendingIsTrueByAverageExamValue(System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is true sorred by the averageExamValue.
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachSpecialtyReportTests.GivenGetDataWhenDescendingIsFalseByAverageExamValue(System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is false sorted by the averageExamValue
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.AverageScoreForEachSpecialtyReportTests.GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is false sorted by the firstName then is NullReferenceException
+            </summary>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="T:SaveToXLSXManager.Tests.DynamicsAverageSubjectScoreByYearsReportTests">
+            <summary>
+            Tests for <see cref="T:SaveToXLSXManager.DynamicsAverageSubjectScoreByYearsReport"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.DynamicsAverageSubjectScoreByYearsReportTests.GivenGetDataHeaderTest">
+            <summary>
+            Get data header tests.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.DynamicsAverageSubjectScoreByYearsReportTests.GivenGetDataWhenDescendingIsTrueByAverageExamValue(System.Boolean)">
+            <summary>
+            Get data when descending is true by average exam value.
+            </summary>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.DynamicsAverageSubjectScoreByYearsReportTests.GivenGetDataWhenDescendingIsFalseByAverageExamValue(System.Boolean)">
+            <summary>
+            Test get data when descending is false by average exam value.
+            </summary>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="T:SaveToXLSXManager.Tests.GroupSessionsResultsReportTests">
+            <summary>
+            Test fot <see cref="T:SaveToXLSXManager.GroupSessionsResultsReport"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.GroupSessionsResultsReportTests.GivenGetDataHeaderTest">
+            <summary>
+            Test for GetDataHeader method.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.GroupSessionsResultsReportTests.GivenGetDataWhenDescendingIsTrueByFirstName(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is true sorted by the FirstName.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.GroupSessionsResultsReportTests.GivenGetDataWhenDescendingIsFalseFirstName(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is false sorted by the FirstName.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.GroupSessionsResultsReportTests.GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is false by firstName then NullReferenceException
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="sessionNumber">Session number.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="T:SaveToXLSXManager.Tests.PivotResultsReportTests">
+            <summary>
+            Test for <see cref="T:SaveToXLSXManager.PivotResultsReport"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.PivotResultsReportTests.GivenGetDataHeaderTest">
+            <summary>
+            Test for GetDataHeader method.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.PivotResultsReportTests.GivenGetDataWhenDescendingIsTrueByAverageExamValue(System.String,System.Boolean)">
+            <summary>
+            Test for GetData method when descending is true sorted by the AverageExamValue column.
+            </summary>
+            <param name="groupName"></param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.PivotResultsReportTests.GivenGetDataWhenDescendingIsFalseByAverageExamValue(System.String,System.Boolean)">
+            <summary>
+            Test for GetData method when descending Is false sorted by the AverageExamValue column.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.PivotResultsReportTests.GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(System.String,System.Boolean)">
+            <summary>
+            Test for GetData method sorted by the FirstName then NullReferenceException.
+            </summary>
+            <param name="groupName">Group name.</param>
+            <param name="descending">Sort descending or ascending.</param>
+        </member>
+        <member name="T:SaveToXLSXManager.Tests.StudentsToBeExpelledReportTests">
+            <summary>
+            Test for <see cref="T:SaveToXLSXManager.StudentsToBeExpelledReport"/>.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.StudentsToBeExpelledReportTests.GivenGetDataThenNotImplementedException(System.Int32)">
+            <summary>
+            Test for GetData property then NotImplementedException.
+            </summary>
+            <param name="minimumPassingScore">Minimum assessment threshold field.</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Tests.StudentsToBeExpelledReportTests.GivenGetDataHeaderThenNotImplementedException(System.Int32)">
+            <summary>
+            Test for GetDataHeader propery then NotImplementedException.
+            </summary>
+            <param name="minimumPassingScore">Minimum assessment threshold field.</param>
+        </member>
+    </members>
+</doc>

@@ -4,9 +4,15 @@ using System.Collections.Generic;
 
 namespace SaveToXLSXManager.Tests
 {
+    /// <summary>
+    /// Tests for <see cref="AverageScoreForEachSpecialtyReport"/>.
+    /// </summary>
     [TestFixture()]
     public class AverageScoreForEachSpecialtyReportTests
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [Test()]
         public void GivenGetDataHeaderTest()
         {
@@ -24,6 +30,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetDataHeader, actualGetDataHeader);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is true sorred by the averageExamValue.
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(1, true)]
         public void GivenGetDataWhenDescendingIsTrueByAverageExamValue(int sessionNumber, bool descending)
         {
@@ -42,8 +53,13 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is false sorted by the averageExamValue
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(1, false)]
-        public void GivenGetDataWhenDescendingIsFalseByAverageExamValuee(int sessionNumber, bool descending)
+        public void GivenGetDataWhenDescendingIsFalseByAverageExamValue(int sessionNumber, bool descending)
         {
             //Arrange
             AverageScoreForEachSpecialtyReport averageScoreForEachSpecialtyReport = new AverageScoreForEachSpecialtyReport(sessionNumber, x => x.AverageExamValue, descending);
@@ -60,6 +76,11 @@ namespace SaveToXLSXManager.Tests
             Assert.AreEqual(expectedGetData, actualGetData);
         }
 
+        /// <summary>
+        /// Test for GetData method when descending is false sorted by the firstName then is NullReferenceException
+        /// </summary>
+        /// <param name="sessionNumber">Session number.</param>
+        /// <param name="descending">Sort descending or ascending.</param>
         [TestCase(5, false)]
         [TestCase(50, true)]
         public void GivenGetDataWhenDescendingIsFalseByFirstNameThenNullReferenceException(int sessionNumber, bool descending)

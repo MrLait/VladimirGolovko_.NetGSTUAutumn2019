@@ -1,27 +1,38 @@
-﻿using DAO.Factories;
-using DAO.Interfaces;
-using DBModelsLinqToSql.Models;
-using SaveToXLSXManager.Interfaces;
+﻿using DBModelsLinqToSql.Models;
 using SaveToXLSXManager.Model;
 using SaveToXLSXManager.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SaveToXLSXManager
 {
+    /// <summary>
+    /// Implementation of report base class pivot results report.
+    /// </summary>
     public class PivotResultsReport : Report
     {
-        private Func<PivotResultsRow, object> _orderByFunc;
+        /// <summary>
+        /// Func for sorting column.
+        /// </summary>
+        private readonly Func<PivotResultsRow, object> _orderByFunc;
 
-    public PivotResultsReport(string groupName, Func<PivotResultsRow, object> orderByFunc, bool descending)
+        /// <summary>
+        /// Constructor <see cref="PivotResultsReport"/>
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="orderByFunc">Func for sorting column.</param>
+        /// <param name="descending">Sort by descening.</param>
+        public PivotResultsReport(string groupName, Func<PivotResultsRow, object> orderByFunc, bool descending)
         :base(groupName, descending)
         {
             _orderByFunc = orderByFunc;
         }
 
+        /// <summary>
+        /// Table header.
+        /// </summary>
+        /// <returns>Returns header.</returns>
         public override IEnumerable<string> GetDataHeader()
         {
             return new List<string>
@@ -30,6 +41,10 @@ namespace SaveToXLSXManager
             };
         }
 
+        /// <summary>
+        /// Table data.
+        /// </summary>
+        /// <returns>Returns data list.</returns>
         public override IEnumerable<IEnumerable<string>> GetData()
         {
             _getDataRows.Clear();
@@ -46,6 +61,10 @@ namespace SaveToXLSXManager
             return _getDataRows;
         }
 
+        /// <summary>
+        /// Generate ordered enumerable row.
+        /// </summary>
+        /// <returns>Returns ordered enumerable row.</returns>
         private IOrderedEnumerable<PivotResultsRow> GenerateRow()
         {
             Groups requiredGroupReport = _groups.FirstOrDefault(x => x.GroupName == _groupName);
@@ -62,9 +81,9 @@ namespace SaveToXLSXManager
                 where requiredGroupReport.ID == groups.ID & subjects.IsAssessment == "True"
                 select new
                 {
-                    GroupName = groups.GroupName,
+                    groups.GroupName,
                     NumberOfSession = sessions.ID,
-                    ExamValue = sessionsResults.ExamValue
+                    sessionsResults.ExamValue
                 };
 
             IEnumerable<PivotResultsRow> groupPivotResultsQuere =

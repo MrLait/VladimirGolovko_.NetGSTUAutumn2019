@@ -4,37 +4,37 @@ using System.Data.Linq.Mapping;
 namespace DBModelsLinqToSql.Models
 {
     /// <summary>
-    /// Student session results table
+    /// Sessions results table model.
     /// </summary>
     [Table(Name = "SessionsResults")]
     public class SessionsResults : IEntity
     {
         /// <summary>
-        /// ID
+        /// Id column.
         /// </summary>
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         /// <summary>
-        /// StudentID
+        /// Student id column.
         /// </summary>
         [Column(Name = "StudentsID")]
         public int StudentsID { get; set; }
 
         /// <summary>
-        /// ExamScheduleID
+        /// Exam schedule id column.
         /// </summary>
         [Column(Name = "ExamSchedulesID")]
         public int ExamSchedulesID { get; set; }
 
         /// <summary>
-        /// ExamValue
+        /// Exam value column.
         /// </summary>
         [Column(Name = "ExamValue")]
         public int? ExamValue { get; set; }
 
         /// <summary>
-        /// SetOffValue
+        /// Set-off value column.
         /// </summary>
         [Column(Name = "SetOffValue")]
         public string SetOffValue { get; set; }
