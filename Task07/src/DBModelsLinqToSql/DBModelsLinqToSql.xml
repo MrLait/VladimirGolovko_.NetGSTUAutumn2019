@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBModelsLinqToSql</name>
+    </assembly>
+    <members>
+        <member name="T:DBModelsLinqToSql.Models.Specialties">
+            <summary>
+            Specialties table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Specialties.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Specialties.Specialtie">
+            <summary>
+            Specialtie column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Sessions">
+            <summary>
+            Sessions table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Sessions.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Sessions.Session">
+            <summary>
+            Sessions column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Groups">
+            <summary>
+            Group table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Groups.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Groups.GroupName">
+            <summary>
+            Group name column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Groups.SpecialtiesID">
+            <summary>
+            Specialities id column.
+            </summary>
+        </member>
+        <member name="M:DBModelsLinqToSql.Models.Groups.Equals(System.Object)">
+            <summary>
+            Overrides equals.
+            </summary>
+            <param name="obj">Equal object</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBModelsLinqToSql.Models.Groups.GetHashCode">
+            <summary>
+            Override object.GetHashCode 
+            </summary>
+            <returns>Returns a new hash code.</returns>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.ExamSchedules">
+            <summary>
+            Exam shedules table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedules.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedules.SessionsID">
+            <summary>
+            Session id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedules.GroupsID">
+            <summary>
+            Group id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedules.SubjectsID">
+            <summary>
+            Subject id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.ExamSchedules.ExamDate">
+            <summary>
+            Exam date column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Students">
+            <summary>
+            Students table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.Surname">
+            <summary>
+            Surname column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.FirstName">
+            <summary>
+            First name column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.MiddleName">
+            <summary>
+            Middle name column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.Gender">
+            <summary>
+            Gender column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.DateOfBirth">
+            <summary>
+            Date of birth column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Students.GroupsID">
+            <summary>
+            Group id column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.SessionsResults">
+            <summary>
+            Sessions results table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.SessionsResults.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.SessionsResults.StudentsID">
+            <summary>
+            Student id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.SessionsResults.ExamSchedulesID">
+            <summary>
+            Exam schedule id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.SessionsResults.ExamValue">
+            <summary>
+            Exam value column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.SessionsResults.SetOffValue">
+            <summary>
+            Set-off value column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Examiners">
+            <summary>
+            Student table model.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Examiners.ID">
+            <summary>
+            ID column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Examiners.Surname">
+            <summary>
+            Surname column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Examiners.FirstName">
+            <summary>
+            First name column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Examiners.MiddleName">
+            <summary>
+            Middle name column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Models.Subjects">
+            <summary>
+            Subjects table model
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Subjects.ID">
+            <summary>
+            Id column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Subjects.SubjectName">
+            <summary>
+            Subject name column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Subjects.IsAssessment">
+            <summary>
+            Is assessment column.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Models.Subjects.ExaminersID">
+            <summary>
+            Examiners id column.
+            </summary>
+        </member>
+        <member name="T:DBModelsLinqToSql.Interfaces.IEntity">
+            <summary>
+            Entity interface with ID field.
+            </summary>
+        </member>
+        <member name="P:DBModelsLinqToSql.Interfaces.IEntity.ID">
+            <summary>
+            ID column.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SaveToXLSXManager</name>
+    </assembly>
+    <members>
+        <member name="T:SaveToXLSXManager.Excel">
+            <summary>
+            Class for access to EXCEL file
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Excel.Path">
+            <summary>
+            Path
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Excel.WorkSheetName">
+            <summary>
+            WorkSheetName
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Excel.ExcelApp">
+            <summary>
+            ExcelApp
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Excel.Workbook">
+            <summary>
+            Workbook
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Excel.Worksheet">
+            <summary>
+            Worksheet
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Excel.CelRange">
+            <summary>
+            CelRange
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.#ctor">
+            <summary>
+            Constructor <seealso cref="T:SaveToXLSXManager.Excel"/>
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.CreateNewFile">
+            <summary>
+            Create new excel file.
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.CreateNewSheet(System.String)">
+            <summary>
+            Create a new sheet
+            </summary>
+            <param name="workSheetName"> Sheet name</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.WriteDataToCell(System.Int32,System.Int32,System.Object)">
+            <summary>
+            Write to Excel file
+            </summary>
+            <param name="row">row</param>
+            <param name="collum">collum</param>
+            <param name="data">data</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.Save">
+            <summary>
+            Save excel file
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.SaveAs(System.String)">
+            <summary>
+            Save as excel file
+            </summary>
+            <param name="path">path to folder</param>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.Close">
+            <summary>
+            Close file
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.Excel.Quit">
+            <summary>
+            Quit file
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.ListToObjectQuere.Quere">
+            <summary>
+            linq to object quere
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.ListToObjectQuere.Quere.StudentByGroupQuere(DatabaseModels.Models.Group,System.Collections.Generic.IList{DatabaseModels.Models.Student})">
+            <summary>
+            StudentByGroupQuere
+            </summary>
+            <param name="item">group item</param>
+            <param name="student"> studen</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaveToXLSXManager.ListToObjectQuere.Quere.ExamSheduleByGroupQuere(DatabaseModels.Models.Group,System.Collections.Generic.IList{DatabaseModels.Models.ExamSchedule})">
+            <summary>
+            ExamSheduleByGroupQuere
+            </summary>
+            <param name="item">item</param>
+            <param name="examSchedule">examSchedule</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaveToXLSXManager.ListToObjectQuere.Quere.StudentSessionResultExamQuere(System.Collections.Generic.IList{DatabaseModels.Models.StudentSessionResults},System.Collections.Generic.IEnumerable{DatabaseModels.Models.Student},System.Collections.Generic.IEnumerable{DatabaseModels.Models.ExamSchedule},System.String)">
+            <summary>
+            Student Session Result Exam Quere
+            </summary>
+            <param name="studentSessionResults">studentSessionResults</param>
+            <param name="studentByGroupQuere">studentByGroupQuere</param>
+            <param name="examSheduleByGroupQuere">examSheduleByGroupQuere</param>
+            <param name="numberOfGroup">numberOfGroup</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaveToXLSXManager.ListToObjectQuere.Quere.StudentSessionResultSetOffQuere(System.Collections.Generic.IList{DatabaseModels.Models.StudentSessionResults},System.Collections.Generic.IEnumerable{DatabaseModels.Models.Student},System.Collections.Generic.IEnumerable{DatabaseModels.Models.ExamSchedule},System.String)">
+            <summary>
+            Student Session Result SetOff Quere
+            </summary>
+            <param name="studentSessionResults">studentSessionResults</param>
+            <param name="studentByGroupQuere">studentByGroupQuere</param>
+            <param name="examSheduleByGroupQuere">examSheduleByGroupQuere</param>
+            <param name="numberOfGroup">numberOfGroup</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaveToXLSXManager.ListToObjectQuere.Quere.SessionTableOfBothResultsQuere(System.Collections.Generic.IEnumerable{SaveToXLSXManager.Model.SessionTableExamResult},System.Collections.Generic.IEnumerable{SaveToXLSXManager.Model.SessionTableSetOffResult})">
+            <summary>
+            Session Table Of Both Results Quere
+            </summary>
+            <param name="studentSessionResultExamQuere">studentSessionResultExamQuere</param>
+            <param name="studentSessionResultSetOffQuere">studentSessionResultSetOffQuere</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaveToXLSXManager.ListToObjectQuere.Quere.SessionTableOfBothResultsQuere(System.Collections.Generic.IEnumerable{SaveToXLSXManager.Model.SessionTableExamResult},System.Collections.Generic.IEnumerable{SaveToXLSXManager.Model.SessionTableSetOffResult},DatabaseModels.Models.NumberOfSession)">
+            <summary>
+            Session Table Of Both Results Quere
+            </summary>
+            <param name="studentSessionResultExamQuere">studentSessionResultExamQuere</param>
+            <param name="studentSessionResultSetOffQuere">studentSessionResultSetOffQuere</param>
+            <param name="numberOfSessionItem">numberOfSessionItem</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.SessionTableExamResult">
+            <summary>
+            Session table exam result
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableExamResult.ExamDate">
+            <summary>
+            ExamDate
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableExamResult.ExamValue">
+            <summary>
+            ExamValue
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.SessionTableOfBothResult">
+            <summary>
+            Session table of both result
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.NumberOfGroup">
+            <summary>
+            NumberOfGroup
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.NumberOfSession">
+            <summary>
+            NumberOfSession
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.Surname">
+            <summary>
+            Surname
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.MiddleName">
+            <summary>
+            MiddleName
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.DateOfBirth">
+            <summary>
+            DateOfBirth
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.Subject">
+            <summary>
+            Subject
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.ExamDate">
+            <summary>
+            ExamDate
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.ExamValue">
+            <summary>
+            ExamValue
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.SetOffDate">
+            <summary>
+            SetOffDate
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableOfBothResult.SetOffValue">
+            <summary>
+            SetOffValue
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.SessionTableResult">
+            <summary>
+            Session table result
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.NumberOfGroup">
+            <summary>
+            NumberOfGroup
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.NumberOfSession">
+            <summary>
+            NumberOfSession
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.Surname">
+            <summary>
+            Surname
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.MiddleName">
+            <summary>
+            MiddleName
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.DateOfBirth">
+            <summary>
+            DateOfBirth
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableResult.Subject">
+            <summary>
+            Subject
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.Model.SessionTableSetOffResult">
+            <summary>
+            Session table setOff result
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableSetOffResult.SetOffDate">
+            <summary>
+            SetOff date
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.Model.SessionTableSetOffResult.SetOffValue">
+            <summary>
+            SetOff value
+            </summary>
+        </member>
+        <member name="T:SaveToXLSXManager.SaveSessionResultsToXLSX">
+            <summary>
+            Save Session Results To Excel file
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.DaoFactory">
+            <summary>
+            Dao factory 
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.Excel">
+            <summary>
+            Excel instance
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.Groups">
+            <summary>
+            Groups table
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.Student">
+            <summary>
+            Student model
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.StudentSessionResults">
+            <summary>
+            Student session results
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.ExamSchedule">
+            <summary>
+            Exam schedule 
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.NumberOfSessions">
+            <summary>
+            Number of sessions
+            </summary>
+        </member>
+        <member name="P:SaveToXLSXManager.SaveSessionResultsToXLSX.PathToExcelFile">
+            <summary>
+            Path to Excel File
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.SaveSessionResultsToXLSX.#ctor(System.String,System.String)">
+            <summary>
+            Constuctor of <see cref="T:SaveToXLSXManager.SaveSessionResultsToXLSX"/>
+            </summary>
+            <param name="dbConnectionString"> db connection string</param>
+            <param name="pathToExcelFile">path to file</param>
+        </member>
+        <member name="M:SaveToXLSXManager.SaveSessionResultsToXLSX.SaveAllSessionResultByGroupToEXCLTables">
+            <summary>
+            Save all session result by group to EXCL tables
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.SaveSessionResultsToXLSX.SaveAverageMinimumMaximumValueforEachGroupToEXCLTables">
+            <summary>
+            Save average minimum maximum value for each group ToEXCL Tables
+            </summary>
+        </member>
+        <member name="M:SaveToXLSXManager.SaveSessionResultsToXLSX.GetListOfStudentsForExpulsionGroupedByGroup">
+            <summary>
+            Get List of students for expulsion grouped by Group
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SaveToXLSXManager.SaveSessionResultsToXLSX.SaveMaxMinAvereByGroupBySessionToEXCL(System.Int32,System.Int32,System.Double,System.String,System.String)">
+            <summary>
+            Save max min avere by group bySession ToEXCL
+            </summary>
+            <param name="minExamValue">minExamValue</param>
+            <param name="maxExamValue">maxExamValue</param>
+            <param name="averageExamValue">averageExamValue</param>
+            <param name="numberOfGroup">numberOfGroup</param>
+            <param name="numberOfSession">numberOfSession</param>
+        </member>
+        <member name="M:SaveToXLSXManager.SaveSessionResultsToXLSX.SaveDataToEXCL(System.Collections.Generic.IEnumerable{SaveToXLSXManager.Model.SessionTableOfBothResult},System.String)">
+            <summary>
+            Save data to EXCeL
+            </summary>
+            <param name="sessionTableOfBothResultsQuere">sessionTableOfBothResultsQuere</param>
+            <param name="numberOfGroup">numberOfGroup</param>
+        </member>
+    </members>
+</doc>

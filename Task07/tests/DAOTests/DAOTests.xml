@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DAOTests</name>
+    </assembly>
+    <members>
+        <member name="T:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests">
+            <summary>
+            Test class <see cref="T:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1"/>.
+            </summary>
+        </member>
+        <member name="F:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests._connectionString">
+            <summary>
+            Database connection string;
+            </summary>
+        </member>
+        <member name="F:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests._linqToSqlSingelton">
+            <summary>
+            Create instance.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests.GivenGetAll">
+            <summary>
+            Test get all method from <see cref="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.GetAll"/>.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests.GivenAdd">
+            <summary>
+            Test add method from <see cref="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.Add(`0)"/>.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests.GivenUpdate">
+            <summary>
+            Test update method from <see cref="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Repository`1.Update(`0)"/>.
+            </summary>
+        </member>
+        <member name="M:DAO.DBAccessTechnology.LINQtoSQLRepository.Tests.RepositoryTests.GivenUpdateThenInvalidOperationException">
+            <summary>
+            Test update method when out is InvalidOperationException.
+            </summary>
+        </member>
+    </members>
+</doc>

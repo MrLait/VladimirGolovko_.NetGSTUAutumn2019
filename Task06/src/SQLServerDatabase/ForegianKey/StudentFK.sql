@@ -1,0 +1,5 @@
+﻿ALTER TABLE [dbo].[Student]
+    ADD CONSTRAINT [FK_Student_Group_ID] 
+	FOREIGN KEY ([GroupID]) REFERENCES [dbo].[Group]([ID]) 
+	ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
